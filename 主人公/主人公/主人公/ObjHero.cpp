@@ -14,7 +14,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjHero::Init()
 {
-	m_px = 0.0f;  //位置
+	m_px = 100.0f;  //位置
 	m_py = 0.0f;
 	m_vx = 0.0f;  //移動ベクトル
 	m_vy = 0.0f;
@@ -24,6 +24,12 @@ void CObjHero::Init()
 
 	m_ani_time = 0;   
 	m_ani_frame = 1;  //静止フレームを初期にする
+
+	//blockとの衝突衝突状態確認用
+	m_hit_up = false;
+	m_hit_down = false;
+	m_hit_left = false;
+	m_hit_right = false;
 
 	//当たり判定
 	Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_PLAYER, OBJ_HERO, 1);
@@ -180,7 +186,7 @@ void CObjHero::Draw()
 
 	
 	//描画
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	Draw::Draw(1, &src, &dst, c, 0.0f);
 	
 }
 

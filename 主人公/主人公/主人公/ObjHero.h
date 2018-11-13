@@ -15,7 +15,26 @@ public :
 	void Action();  //アクション
 	void Draw();    //ドロー
 
+	float GetX() { return m_px; }
+	float GetY() { return m_py; }
+	float GetVX() { return m_vx; }
+	float GetVY() { return m_vy; }
+
+
+	void SetX(float x) { m_px = x; }
+	void SetY(float y) { m_py = y; }
+	void SetVY(float vy) { m_vy = vy; }
+	void SetVX(float vx) { m_vx = vx; }
+
+	void SetUp(bool b) { m_hit_up = b; }
+	void SetDown(bool b) { m_hit_down = b; }
+	void SetLeft(bool b) { m_hit_left = b; }
+	void SetRight(bool b) { m_hit_down = b; }
+
+
+
 private:
+
 	float m_px;  //位置
 	float m_py;
 	float m_vx;  //移動ベクトル
@@ -26,6 +45,11 @@ private:
 	int m_ani_time; //アニメーションフレーム動作間隔
 	int m_ani_frame;//描画フレーム
 
+	//blockとの衝突確認用
+	bool m_hit_up;
+	bool m_hit_down;
+	bool m_hit_left;
+	bool m_hit_right;
 };
 
 
