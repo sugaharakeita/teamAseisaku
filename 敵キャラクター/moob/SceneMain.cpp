@@ -29,7 +29,7 @@ CSceneMain::~CSceneMain()
 void CSceneMain::InitScene()
 {
 	//グラフィック読み込み
-	Draw::LoadImageW(L"image.png", 0, TEX_SIZE_512);
+	//Draw::LoadImageW(L"image.png", 0, TEX_SIZE_512);
 	Draw::LoadImageW(L"二宮金次郎・赤ver.png", 1, TEX_SIZE_512);
 
 	//主人公オブジェクト
