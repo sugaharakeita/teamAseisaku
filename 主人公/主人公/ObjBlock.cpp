@@ -10,10 +10,10 @@
 //使用するネームスペース
 using namespace GameL;
 
-CObjBlock::CObjBlock(int map[10][100])
+CObjBlock::CObjBlock()
 {
 	//マップデータをコピー
-	memcpy(m_map, map, sizeof(int)*(10 * 100));
+	/*memcpy(m_map, map, sizeof(int)*(6 * 11));*/
 }
 //イニシャライズ
 void CObjBlock::Init()
@@ -49,9 +49,9 @@ void CObjBlock::Action()
 
 
 	//m_mapの全要素にアクセス
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 6; i++)
 	{
-		for (int j = 0; j < 100; j++)
+		for (int j = 0; j < 11; j++)
 		{
 			if (m_map[i][j] > 0)
 			{
@@ -133,118 +133,167 @@ void CObjBlock::Draw()
 
 
 	//マップチップによるblock設置
-	//切り取り位置の設定
-	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = src.m_left + 64.0f;
-	src.m_bottom = 64.0f;
-
-	
-
-	for (int i = 0;i < 10;i++)
+	for (int i = 0; i < 6; i++)
 	{
-		for (int j = 0;j < 100;j++)
+		for (int j = 0; j <11; j++)
 		{
-			if (m_map[i][j] == 5)//保健室　床表示
-			{
-				//表示位置の設定
-				dst.m_top = i * 64.0f;
-				dst.m_left = j * 64.0f;
-				dst.m_right = dst.m_left + 64.0;
-				dst.m_bottom = dst.m_top + 64.0;
+				
+				if (m_map[i][j] == 5)//保健室　床表示
+				{
+					//切り取り位置の設定
+					src.m_top = 128.0f;
+					src.m_left = 0.0f;
+					src.m_right = src.m_left + 64.0f;
+					src.m_bottom =192.0f;
 
-				//描画
-				Draw::Draw(5, &src, &dst, c, 0.0f);
-			}
-			else if (m_map[i][j] == 6)//保健室　先生机表示
-			{
-				//表示位置の設定
-				dst.m_top = i * 64.0f;
-				dst.m_left = j * 64.0f + m_scroll;
-				dst.m_right = dst.m_left + 64.0;
-				dst.m_bottom = dst.m_top + 64.0;
+					//表示位置の設定
+					dst.m_top = i * 64.0f;
+					dst.m_left = j * 64.0f;
+					dst.m_right = dst.m_left + 64.0;
+					dst.m_bottom = dst.m_top + 64.0;
 
-				//描画
-				Draw::Draw(6, &src, &dst, c, 0.0f);
-			}
-			else if (m_map[i][j] == 7)//保健室　椅子表示
-			{
-				//表示位置の設定
-				dst.m_top = i * 64.0f;
-				dst.m_left = j * 64.0f + m_scroll;
-				dst.m_right = dst.m_left + 64.0;
-				dst.m_bottom = dst.m_top + 64.0;
+					//描画
+					Draw::Draw(5, &src, &dst, c, 0.0f);
+				}
+				else if (m_map[i][j] == 6)//保健室　先生机表示
+				{
+					//切り取り位置の設定
+					src.m_top = 0.0f;
+					src.m_left = 256.0f;
+					src.m_right = src.m_left + 64.0f;
+					src.m_bottom = 64.0f;
 
-				//描画
-				Draw::Draw(7, &src, &dst, c, 0.0f);
-			}
-			else if (m_map[i][j] == 8)//保健室　カーテン表示
-			{
-				//表示位置の設定
-				dst.m_top = i * 64.0f;
-				dst.m_left = j * 64.0f + m_scroll;
-				dst.m_right = dst.m_left + 64.0;
-				dst.m_bottom = dst.m_top + 64.0;
+					//表示位置の設定
+					dst.m_top = i * 64.0f;
+					dst.m_left = j * 64.0f + m_scroll;
+					dst.m_right = dst.m_left + 64.0;
+					dst.m_bottom = dst.m_top + 128.0;
 
-				//描画
-				Draw::Draw(8, &src, &dst, c, 0.0f);
-			}
-			else if (m_map[i][j] == 9)//保健室　ベッド表示
-			{
-				//表示位置の設定
-				dst.m_top = i * 64.0f;
-				dst.m_left = j * 64.0f + m_scroll;
-				dst.m_right = dst.m_left + 64.0;
-				dst.m_bottom = dst.m_top + 64.0;
+					//描画
+					Draw::Draw(5, &src, &dst, c, 0.0f);
+				}
+				else if (m_map[i][j] == 7)//保健室　椅子表示
+				{
+					//切り取り位置の設定
+					src.m_top = 0.0f;
+					src.m_left = 384.0f;
+					src.m_right = src.m_left + 64.0f;
+					src.m_bottom = 32.0f;
 
-				//描画
-				Draw::Draw(9, &src, &dst, c, 0.0f);
-			}
-			else if (m_map[i][j] == 10)//保健室　机表示
-			{
-				//表示位置の設定
-				dst.m_top = i * 64.0f;
-				dst.m_left = j * 64.0f + m_scroll;
-				dst.m_right = dst.m_left + 64.0;
-				dst.m_bottom = dst.m_top + 64.0;
+					//表示位置の設定
+					dst.m_top = i * 64.0f;
+					dst.m_left = j * 64.0f + m_scroll;
+					dst.m_right = dst.m_left + 64.0;
+					dst.m_bottom = dst.m_top + 64.0;
 
-				//描画
-				Draw::Draw(10, &src, &dst, c, 0.0f);
-			}
-			else if (m_map[i][j] == 11)//保健室　ソファ表示
-			{
-				//表示位置の設定
-				dst.m_top = i * 64.0f;
-				dst.m_left = j * 64.0f + m_scroll;
-				dst.m_right = dst.m_left + 64.0;
-				dst.m_bottom = dst.m_top + 64.0;
+					//描画
+					Draw::Draw(5, &src, &dst, c, 0.0f);
+				}
+				else if (m_map[i][j] == 8)//保健室　カーテン表示
+				{
+					//切り取り位置の設定
+					src.m_top = 0.0f;
+					src.m_left = 0.0f;
+					src.m_right = src.m_left + 64.0f;
+					src.m_bottom = 64.0f;
 
-				//描画
-				Draw::Draw(11, &src, &dst, c, 0.0f);
-			}
-			else if (m_map[i][j] == 12)//保健室　体重計表示
-			{
-				//表示位置の設定
-				dst.m_top = i * 64.0f;
-				dst.m_left = j * 64.0f + m_scroll;
-				dst.m_right = dst.m_left + 64.0;
-				dst.m_bottom = dst.m_top + 64.0;
+					//表示位置の設定
+					dst.m_top = i * 64.0f;
+					dst.m_left = j * 64.0f + m_scroll;
+					dst.m_right = dst.m_left + 64.0;
+					dst.m_bottom = dst.m_top + 64.0;
 
-				//描画
-				Draw::Draw(12, &src, &dst, c, 0.0f);
-			}
-			else if (m_map[i][j] == 13)//保健室　身長計表示
-			{
-				//表示位置の設定
-				dst.m_top = i * 64.0f;
-				dst.m_left = j * 64.0f + m_scroll;
-				dst.m_right = dst.m_left + 64.0;
-				dst.m_bottom = dst.m_top + 64.0;
+					//描画
+					Draw::Draw(5, &src, &dst, c, 0.0f);
+				}
+				else if (m_map[i][j] == 9)//保健室　ベッド表示
+				{
+					//切り取り位置の設定
+					src.m_top = 0.0f;
+					src.m_left = 128.0f;
+					src.m_right = src.m_left + 64.0f;
+					src.m_bottom = 64.0f;
 
-				//描画
-				Draw::Draw(13, &src, &dst, c, 0.0f);
+					//表示位置の設定
+					dst.m_top = i * 64.0f;
+					dst.m_left = j * 64.0f + m_scroll;
+					dst.m_right = dst.m_left + 64.0;
+					dst.m_bottom = dst.m_top + 64.0;
+
+					//描画
+					Draw::Draw(5, &src, &dst, c, 0.0f);
+				}
+				else if (m_map[i][j] == 10)//保健室　机表示
+				{
+					//切り取り位置の設定
+					src.m_top = 0.0f;
+					src.m_left = 196.0f;
+					src.m_right = src.m_left + 64.0f;
+					src.m_bottom = 64.0f;
+
+					//表示位置の設定
+					dst.m_top = i * 64.0f;
+					dst.m_left = j * 64.0f + m_scroll;
+					dst.m_right = dst.m_left + 64.0;
+					dst.m_bottom = dst.m_top + 64.0;
+
+					//描画
+					Draw::Draw(5, &src, &dst, c, 0.0f);
+				}
+				else if (m_map[i][j] == 11)//保健室　ソファ表示
+				{
+					//切り取り位置の設定
+					src.m_top = 0.0f;
+					src.m_left = 64.0f;
+					src.m_right = src.m_left + 64.0f;
+					src.m_bottom = 64.0f;
+
+					//表示位置の設定
+					dst.m_top = i * 64.0f;
+					dst.m_left = j * 64.0f + m_scroll;
+					dst.m_right = dst.m_left + 64.0;
+					dst.m_bottom = dst.m_top + 64.0;
+
+					//描画
+					Draw::Draw(5, &src, &dst, c, 0.0f);
+				}
+				else if (m_map[i][j] == 12)//保健室　体重計表示
+				{
+
+					//切り取り位置の設定
+					src.m_top = 0.0f;
+					src.m_left = 320.0f;
+					src.m_right = src.m_left + 64.0f;
+					src.m_bottom = 48.0f;
+
+					//表示位置の設定
+					dst.m_top = i * 64.0f;
+					dst.m_left = j * 64.0f + m_scroll;
+					dst.m_right = dst.m_left + 64.0;
+					dst.m_bottom = dst.m_top + 64.0;
+
+					//描画
+					Draw::Draw(5, &src, &dst, c, 0.0f);
+				}
+				else if (m_map[i][j] == 13)//保健室　身長計表示
+				{
+
+					//切り取り位置の設定
+					src.m_top = 0.0f;
+					src.m_left = 352.0f;
+					src.m_right = src.m_left + 64.0f;
+					src.m_bottom = 48.0f;
+
+					//表示位置の設定
+					dst.m_top = i * 64.0f;
+					dst.m_left = j * 64.0f + m_scroll;
+					dst.m_right = dst.m_left + 64.0;
+					dst.m_bottom = dst.m_top + 64.0;
+
+					//描画
+					Draw::Draw(5, &src, &dst, c, 0.0f);
+				}
 			}
 		}
-	}
 	
 }

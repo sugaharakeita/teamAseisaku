@@ -29,27 +29,33 @@ CSceneMain::~CSceneMain()
 //初期化メソッド
 void CSceneMain::InitScene()
 {
-	//外部データの読み込み(ステージ情報)
-	unique_ptr<wchar_t> p; //ステージ情報ポインター
-	int size;              //ステージ情報の大きさ
-	p = Save::ExternalDataOpen(L"hokensitu.csv", &size); //外部データ読み込み
+	////外部データの読み込み(ステージ情報)
+	//unique_ptr<wchar_t> p; //ステージ情報ポインター
+	//int size;              //ステージ情報の大きさ
+	//p = Save::ExternalDataOpen(L"hokensitu.csv", &size); //外部データ読み込み
 
-	int map[10][100];
-	int count = 1;
-	for (int i = 0; i < 10; i++)
-	{
-		for (int j = 0; j < 100; j++)
-		{
-			int w = 0;
-			swscanf_s(&p.get()[count], L"%d", &w);
+	//int map[6][11];
+	//int count = 1;
+	//for (int i = 0; i < 6; i++)
+	//{
+	//	for (int j = 0; j < 11; j++)
+	//	{
+	//		int w = 0;
+	//		swscanf_s(&p.get()[count], L"%d", &w);
 
-			map[i][j] = w;
-			count += 2;
-		}
-	}
+	//		map[i][j] = w;
 
-	//グラフィック読み込み
-	Draw::LoadImageW(L"rouka.png", 0, TEX_SIZE_512);
+	//		if (w >= 10)
+	//		{
+	//			count += 1;
+	//		}
+
+	//		
+	//		count += 2;
+	//	}
+	//}
+
+	
 
 	//グラフィック読み込み
 	Draw::LoadImageW(L"HeroTouka.png", 1, TEX_SIZE_512);
@@ -58,44 +64,19 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"二宮金次郎透過.png", 2, TEX_SIZE_512);
 
 	//グラフィック読み込み
-	Draw::LoadImageW(L"保健室・床.png", 5, TEX_SIZE_512);
+	Draw::LoadImageW(L"保健室修正版.png", 5, TEX_SIZE_1024);
 
-	//グラフィック読み込み
-	Draw::LoadImageW(L"保健室・先生机.png", 6, TEX_SIZE_512);
-
-	//グラフィック読み込み
-	Draw::LoadImageW(L"保健室・椅子.png", 7, TEX_SIZE_512);
-
-	//グラフィック読み込み
-	Draw::LoadImageW(L"保健室・カーテン.png", 8, TEX_SIZE_512);
-
-	//グラフィック読み込み
-	Draw::LoadImageW(L"保健室・ベッド.png", 9, TEX_SIZE_512);
-
-	//グラフィック読み込み
-	Draw::LoadImageW(L"保健室・机.png", 10, TEX_SIZE_512);
-
-	//グラフィック読み込み
-	Draw::LoadImageW(L"保健室・ソファ.png", 11, TEX_SIZE_512);
-
-	//グラフィック読み込み
-	Draw::LoadImageW(L"保健室・道具(体重計).png", 12, TEX_SIZE_512);
-
-	//グラフィック読み込み
-	Draw::LoadImageW(L"保健室・道具(身長計).png", 13, TEX_SIZE_512);
-
-	
 	//主人公オブジェクト作成
 	CObjHero* obj = new CObjHero();
 	Objs::InsertObj(obj, OBJ_HERO, 10);
 
 	//blockオブジェクト作成
-	CObjBlock* objb = new CObjBlock(map);
-	Objs::InsertObj(objb, OBJ_BLOCK, 9);
+	CObjHokensitu* objb = new CObjHokensitu();
+	Objs::InsertObj(objb, OBJ_HOKENSITU, 8);
 
 	//敵オブジェクト作成
 	CObjEnemy* obje = new CObjEnemy(0,0);
-	Objs::InsertObj(obje, OBJ_ENEMY, 10);
+	Objs::InsertObj(obje, OBJ_ENEMY, 9);
 }
 
 //実行中メソッド

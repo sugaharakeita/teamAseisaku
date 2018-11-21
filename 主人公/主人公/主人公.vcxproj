@@ -36,7 +36,9 @@
     <ClCompile Include="ObjBlock.cpp" />
     <ClCompile Include="ObjEnemy.cpp" />
     <ClCompile Include="ObjHero.cpp" />
+    <ClCompile Include="ObjHokensitu.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
+    <ClCompile Include="RoomHitBox.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
@@ -59,7 +61,9 @@
     <ClInclude Include="ObjEnemy.h" />
     <ClInclude Include="ObjHero.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="ObjHokensitu.h" />
     <ClInclude Include="ObjTitle.h" />
+    <ClInclude Include="RoomHitBox.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneTitle.h" />
   </ItemGroup>
