@@ -102,10 +102,10 @@
     <ClCompile Include="ObjTitle.cpp">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClCompile>
-    <ClCompile Include="E:\主人公\主人公\ObjHokensitu.cpp">
+    <ClCompile Include="ObjHokensitu.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="E:\主人公\主人公\ObjKoutyousitu.cpp">
+    <ClCompile Include="ObjKoutyousitu.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -188,10 +188,10 @@
     <ClInclude Include="ObjTitle.h">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClInclude>
-    <ClInclude Include="E:\主人公\主人公\ObjHokensitu.h">
+    <ClInclude Include="ObjHokensitu.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="E:\主人公\主人公\ObjKoutyousitu.h">
+    <ClInclude Include="ObjKoutyousitu.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>

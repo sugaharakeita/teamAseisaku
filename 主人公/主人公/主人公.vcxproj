@@ -19,12 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="E:\主人公\主人公\ObjHokensitu.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="E:\主人公\主人公\ObjKoutyousitu.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
     <ClCompile Include="GameL\Draw2DTex_Source.cpp" />
@@ -43,6 +37,8 @@
     <ClCompile Include="ObjEnemy.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
     <ClCompile Include="ObjHero.cpp" />
+    <ClCompile Include="ObjHokensitu.cpp" />
+    <ClCompile Include="ObjKoutyousitu.cpp" />
     <ClCompile Include="ObjMap.cpp" />
     <ClCompile Include="ObjPrologue.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
@@ -52,12 +48,6 @@
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="E:\主人公\主人公\ObjHokensitu.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="E:\主人公\主人公\ObjKoutyousitu.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
     <ClInclude Include="GameHead.h" />
     <ClInclude Include="GameL\Audio.h" />
     <ClInclude Include="GameL\DirectXDevice.h" />
@@ -77,6 +67,8 @@
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjHero.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="ObjHokensitu.h" />
+    <ClInclude Include="ObjKoutyousitu.h" />
     <ClInclude Include="ObjMap.h" />
     <ClInclude Include="ObjPrologue.h" />
     <ClInclude Include="ObjTitle.h" />
