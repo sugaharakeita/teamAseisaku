@@ -43,25 +43,20 @@ void CObjHero::Action()
 	m_vy = 0.0f;
 
 	//キーの入力方向
-	//上
-	if (Input::GetVKey('W') == true)
+	if (Input::GetVKey('W') == true)//上
 	{
 		m_vy = -4.0f;  
 		m_posture = 3;
 		m_ani_time += 1;
 		
 	}
-	
-	//左
-	else if (Input::GetVKey('A') == true)
+	else if (Input::GetVKey('A') == true)//左
 	{
 		m_vx -=4.0f;
 		m_posture = 1;
 		m_ani_time += 1;
 	}
-
-	//下
-	else if (Input::GetVKey('S') == true)
+	else if (Input::GetVKey('S') == true)//下
 	{
 
 		m_vy = +4.0f;
@@ -69,8 +64,7 @@ void CObjHero::Action()
 		m_ani_time += 1;
 		
 	}
-	//右
-	else if (Input::GetVKey('D') == true)
+	else if (Input::GetVKey('D') == true)//下
 	{
 		m_vx += 4.0f;
 		m_posture = 0;
@@ -130,12 +124,6 @@ void CObjHero::Draw()
 		src.m_left = 0.0f + AniData[m_ani_frame] * 64;
 		src.m_right = 64.0f + AniData[m_ani_frame] * 64;
 		src.m_bottom = 192.0f;
-
-		//表示位置の設定
-		dst.m_top = 0.0f + m_py;
-		dst.m_left = (64.0f  *   m_posture) + m_px;
-		dst.m_right = (64 - 64.0f  *   m_posture) + m_px;
-		dst.m_bottom = 64.0f + m_py;
 	}
 	//a（左）が入力されたとき
 	else if (m_posture == 1)
@@ -146,11 +134,6 @@ void CObjHero::Draw()
 		src.m_right = 64.0f + AniData[m_ani_frame] * 64;
 		src.m_bottom = 128.0f;
 
-		//表示位置の設定
-		dst.m_top = 0.0f + m_py;
-		dst.m_left = 0.0f+m_px;
-		dst.m_right =64.0f +m_px;
-		dst.m_bottom = 64.0f + m_py;
 	}
 	//s（下）が入力されたとき
 	else if (m_posture == 2)
@@ -161,11 +144,6 @@ void CObjHero::Draw()
 		src.m_right = 64.0f + AniData[m_ani_frame] * 64;
 		src.m_bottom = 64.0f;
 
-		//表示位置の設定
-		dst.m_top = 0.0f + m_py;
-		dst.m_left =0.0f  + m_px;
-		dst.m_right = 64.0f  + m_px;
-		dst.m_bottom = 64.0f + m_py;
 	}
 	//w（上）が入力されたとき
 	else if (m_posture == 3)
@@ -176,14 +154,13 @@ void CObjHero::Draw()
 		src.m_right = 64.0f + AniData[m_ani_frame] * 64;
 		src.m_bottom = 256.0f;
 
-		//表示位置の設定
-		dst.m_top = 0.0f + m_py;
-		dst.m_left = 0.0f+ m_px;
-		dst.m_right =  64.0f  + m_px;
-		dst.m_bottom = 64.0f + m_py;
 	}
 
-
+	//表示位置の設定
+	dst.m_top = 0.0f + m_py;
+	dst.m_left = 0.0f + m_px;
+	dst.m_right = 64.0f + m_px;
+	dst.m_bottom = 64.0f + m_py;
 	
 	//描画
 	Draw::Draw(1, &src, &dst, c, 0.0f);
