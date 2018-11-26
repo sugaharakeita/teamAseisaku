@@ -128,7 +128,10 @@
     <ClInclude Include="HokenHako.h" />
     <ClInclude Include="HokenKey.h" />
     <ClInclude Include="ItemALL.h" />
+    <ClInclude Include="KouchouHako.h" />
+    <ClInclude Include="KouchouKey.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="ObjHelp.h" />
     <ClInclude Include="ObjHoken.h" />
     <ClInclude Include="ObjHokenDoor.h" />
     <ClInclude Include="ObjKouchouDoor.h" />
@@ -136,10 +139,12 @@
     <ClInclude Include="ObjShokuin.h" />
     <ClInclude Include="ObjShokuinDoor.h" />
     <ClInclude Include="ObjTitle.h" />
+    <ClInclude Include="SceneHelp.h" />
     <ClInclude Include="SceneHoken.h" />
     <ClInclude Include="SceneRouka1.h" />
     <ClInclude Include="SceneShokuin.h" />
     <ClInclude Include="SceneTitle.h" />
+    <ClInclude Include="SwitchALL.h" />
     <ClInclude Include="TrapALL.h" />
     <ClInclude Include="Hero.h" />
   </ItemGroup>
@@ -161,6 +166,10 @@
     <ClCompile Include="GameL\WinInputs.cpp" />
     <ClCompile Include="HokenHako.cpp" />
     <ClCompile Include="HokenKey.cpp" />
+    <ClCompile Include="ItemALL.cpp" />
+    <ClCompile Include="KouchouHako.cpp" />
+    <ClCompile Include="KouchouKey.cpp" />
+    <ClCompile Include="ObjHelp.cpp" />
     <ClCompile Include="ObjKouchouDoor.cpp" />
     <ClCompile Include="ObjHoken.cpp" />
     <ClCompile Include="ObjHokenDoor.cpp" />
@@ -168,11 +177,13 @@
     <ClCompile Include="ObjShokuin.cpp" />
     <ClCompile Include="ObjShokuinDoor.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
+    <ClCompile Include="SceneHelp.cpp" />
     <ClCompile Include="SceneRouka1.cpp" />
     <ClCompile Include="SceneHoken.cpp" />
     <ClCompile Include="SceneShokuin.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
     <ClCompile Include="Hero.cpp" />
+    <ClCompile Include="SwitchALL.cpp" />
     <ClCompile Include="TrapALL.cpp" />
   </ItemGroup>
   <ItemGroup>

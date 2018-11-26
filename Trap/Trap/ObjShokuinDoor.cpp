@@ -19,7 +19,7 @@ void CObjShokuinDoor::Init()
 	m_time = 0;
 	shokuin_door = false;
 
-	Hits::SetHitBox(this, m_x, m_y, 64, 108, ELEMENT_DOOR, SHOKUIN_DOOR, 1);
+	Hits::SetHitBox(this, m_x, m_y, 64, 110, ELEMENT_DOOR, SHOKUIN_DOOR, 1);
 }
 
 void CObjShokuinDoor::Action()
@@ -30,12 +30,12 @@ void CObjShokuinDoor::Action()
 	{
 		if (shokuin_door == false)
 		{
-			if (Input::GetVKey('A') == true)
+			if (Input::GetVKey(VK_RETURN) == true)
 			{
 				m_x -= 64;
 				shokuin_door = true;
 				Hits::DeleteHitBox(this);
-				Hits::SetHitBox(this, 0, 0, 800, 600, ELEMENT_WALL, OBJ_WALL, 1);
+				Hits::SetHitBox(this, 0, 0, 800, 600, ELEMENT_FIELD, OBJ_WALL, 1);
 				hit->SetPos(0,0);
 			}
 		}
@@ -62,15 +62,15 @@ void CObjShokuinDoor::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	src.m_top = 0.0f;
-	src.m_left = 384.0f;
-	src.m_right = 448.0f;
-	src.m_bottom = 64.0f;
+	src.m_top = 10.0f;
+	src.m_left = 459.0f;
+	src.m_right = 491.0f;
+	src.m_bottom = 105.0f;
 
 	dst.m_top = (0.0f + m_y);
 	dst.m_left = (0.0f + m_x);
 	dst.m_right = (64.0f + m_x);
-	dst.m_bottom = (108.0f + m_y);
+	dst.m_bottom = (106.0f + m_y);
 
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	Draw::Draw(4, &src, &dst, c, 0.0f);
 }

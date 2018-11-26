@@ -3,9 +3,10 @@
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
 #include "GameHead.h"
-#include "TrapALL.h"
+#include "ItemALL.h"
 
-bool KouchouDoorOpen;
-bool HokenDoorOpen;
-bool KouchouHakoOpen;
-bool HokenHakoOpen;
+int KouchouKey;
+bool KouchouKey_flag;
+int HokenKey;
+int Hammer;
+bool Ham_flag;

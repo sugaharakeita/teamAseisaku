@@ -7,6 +7,7 @@ enum OBJ_NAME
 	//ゲームで使うオブジェクトの名前
 	//OBJ_○○と表記
 	OBJ_TITLE,
+	OBJ_HELP,
 	OBJ_MAIN,
 	OBJ_HERO,
 	OBJ_EXCLAMATION,
@@ -24,6 +25,7 @@ enum OBJ_NAME
 enum SPOT_NAME
 {
 	SPOT_ROUKA1,
+	SPOT_KOUCHOU,
 	SPOT_SHOKUIN,
 	SPOT_HOKEN,
 };
@@ -46,7 +48,6 @@ enum HIT_ELEMENTS
 	ELEMENT_WHITE,
 	ELEMENT_SPOT,
 	ELEMENT_OBJECT,
-	ELEMENT_WALL,
 	ELEMENT_DOOR,
 };
 //------------------------------------------------
@@ -71,22 +72,26 @@ struct UserData
 
 //ゲームシーンオブジェクトヘッダ------------------
 #include "ObjTitle.h"
+#include "ObjHelp.h"
 #include "Hero.h"
 #include "!.h"
 #include "TrapALL.h"
 #include "ItemALL.h"
 #include "ObjRouka1.h"
-#include "HokenHako.h"
+#include "KouchouHako.h"
+#include "KouchouKey.h"
 #include "ObjKouchouDoor.h"
 #include "ObjShokuinDoor.h"
-#include "ObjHokenDoor.h"
-#include "HokenKey.h"
 #include "ObjShokuin.h"
+#include "HokenHako.h"
+#include "HokenKey.h"
+#include "ObjHokenDoor.h"
 #include "ObjHoken.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
 #include "SceneTitle.h"
+#include "SceneHelp.h"
 #include "SceneRouka1.h"
 #include "SceneShokuin.h"
 #include "SceneHoken.h"
@@ -94,5 +99,5 @@ struct UserData
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START CSceneRouka1
+#define SET_GAME_START CSceneTitle
 //-----------------------------------------------

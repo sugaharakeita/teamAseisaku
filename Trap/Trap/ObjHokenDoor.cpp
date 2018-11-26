@@ -19,7 +19,7 @@ void CObjHokenDoor::Init()
 	m_time = 0;
 	hoken_door = false;
 	
-	Hits::SetHitBox(this, m_x, m_y, 128, 160, ELEMENT_DOOR, HOKEN_DOOR, 1);
+	Hits::SetHitBox(this, m_x, m_y, 128, 110, ELEMENT_DOOR, HOKEN_DOOR, 1);
 }
 
 void CObjHokenDoor::Action()
@@ -43,19 +43,14 @@ void CObjHokenDoor::Action()
 	
 	if (HIT_flag == true && hoken_door == false)
 	{
-		if (Input::GetVKey('A') == true)
+		if (Input::GetVKey(VK_RETURN) == true)
 		{
-			m_x -= 64;
 			hoken_door = true;
 			Hits::DeleteHitBox(this);
-			Hits::SetHitBox(this, 0, 0, 800, 600, ELEMENT_WALL, OBJ_WALL, 1);
+			Hits::SetHitBox(this, 0, 0, 800, 600, ELEMENT_FIELD, OBJ_WALL, 1);
 			hit->SetPos(0, 0);
 
 			HokenDoorOpen = true;
-			/*このままではシーン移動のたびに鍵が閉まるので、
-			鍵が開いた状態をシーンが変わっても維持したい!
-			グローバル変数はexternを使っても多重定義になるし、
-			クラス化しても多重使用になってしまう…*/
 		}
 	}
 	
@@ -65,7 +60,7 @@ void CObjHokenDoor::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		Scene::SetScene(new CSceneRouka1());
+		Scene::SetScene(new CSceneHoken());
 	}
 }
 
@@ -75,15 +70,32 @@ void CObjHokenDoor::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	src.m_top = 0.0f;
-	src.m_left = 384.0f;
-	src.m_right = 448.0f;
-	src.m_bottom = 64.0f;
-	
-	dst.m_top = 0.0f + m_y;
-	dst.m_left = 0.0f + m_x;
-	dst.m_right = 128.0f + m_x;
-	dst.m_bottom = 160.0f + m_y;
+	if (hoken_door == true)
+	{
+		src.m_top = 201.0f;
+		src.m_left = 73.0f;
+		src.m_right = 136.0f;
+		src.m_bottom = 361.0f;
 
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+		dst.m_top = 0.0f + m_y;
+		dst.m_left = 0.0f + m_x;
+		dst.m_right = 128.0f + m_x;
+		dst.m_bottom = 160.0f + m_y;
+
+		Draw::Draw(7, &src, &dst, c, 0.0f);
+	}
+	else
+	{
+		src.m_top = 10.0f;
+		src.m_left = 459.0f;
+		src.m_right = 491.0f;
+		src.m_bottom = 105.0f;
+	
+		dst.m_top = 0.0f + m_y;
+		dst.m_left = 0.0f + m_x;
+		dst.m_right = 128.0f + m_x;
+		dst.m_bottom = 160.0f + m_y;
+		
+		Draw::Draw(4, &src, &dst, c, 0.0f);
+	}
 }

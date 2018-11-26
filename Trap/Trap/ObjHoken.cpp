@@ -3,7 +3,7 @@
 #include "GameL\SceneManager.h"
 #include "GameL\DrawFont.h"
 #include "GameL\UserData.h"
-
+#include "SwitchALL.h"
 #include "ObjHoken.h"
 #include "GameHead.h"
 

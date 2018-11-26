@@ -2,34 +2,33 @@
 #include "GameL\HitBoxManager.h"
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
-#include <windows.h>
-#include "HokenHako.h"
+#include "KouchouHako.h"
 #include "GameHead.h"
 #include "SwitchALL.h"
 #include "TrapALL.h"
 
 using namespace GameL;
 
-CObjHokenHako::CObjHokenHako(float x, float y)
+CObjKouchouHako::CObjKouchouHako(float x, float y)
 {
 	m_x = x;
 	m_y = y;
 }
 
-void CObjHokenHako::Init()
+void CObjKouchouHako::Init()
 {
 	m_time = 0;
-	
+
 	Hits::SetHitBox(this, m_x, m_y, 64, 14, ELEMENT_OBJECT, OBJ_HAKO, 1);
-	if (HokenHakoOpen == true)
+	if (KouchouHakoOpen == true)
 		Hits::SetHitBox(this, m_x, m_y, 64, 14, ELEMENT_FIELD, OBJ_WALL, 1);
 }
 
-void CObjHokenHako::Action()
+void CObjKouchouHako::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
-	if (HokenHakoOpen == true)
+	if (KouchouHakoOpen == true)
 		;
 	else if (HIT_flag == true)
 	{
@@ -37,10 +36,10 @@ void CObjHokenHako::Action()
 		{
 			Hits::DeleteHitBox(this);
 			Hits::SetHitBox(this, m_x, m_y, 64, 64, ELEMENT_FIELD, OBJ_WALL, 1);
-			CObjHokenKey* k = new CObjHokenKey(HeroX,HeroY);
-			Objs::InsertObj(k, HOKEN_KEY, 1);
+			CObjKouchouKey* k = new CObjKouchouKey(HeroX, HeroY);
+			Objs::InsertObj(k, KOUCHOU_KEY, 1);
 
-			HokenHakoOpen = true;
+			KouchouHakoOpen = true;
 		}
 	}
 
@@ -50,13 +49,12 @@ void CObjHokenHako::Action()
 		HIT_flag = false;
 }
 
-void CObjHokenHako::Draw()
+void CObjKouchouHako::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 1.0f,1.0f,5.0f,1.0f };
 	RECT_F src;
 	RECT_F dst;
-	
-	if (HokenHakoOpen == true)
+	if (KouchouHakoOpen == true)
 	{
 		src.m_top = 0.0f;
 		src.m_left = 16.0f;

@@ -6,25 +6,25 @@
 #include "SwitchALL.h"
 #include "TrapALL.h"
 #include "ItemALL.h"
-#include "HokenKey.h"
+#include "KouchouKey.h"
 
 using namespace GameL;
 
-CObjHokenKey::CObjHokenKey(float x, float y)
+CObjKouchouKey::CObjKouchouKey(float x, float y)
 {
 	m_x = x;
 	m_y = y;
 }
 
-void CObjHokenKey::Init()
+void CObjKouchouKey::Init()
 {
-	HOKENDOOR_flag = false;
+	KOUCHOUDOOR_flag = false;
 	m_ani_time = 0;
 	m_ani_frame = 1;
 	Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_PLAYER, HOKEN_KEY, 1);
 }
 
-void CObjHokenKey::Action()
+void CObjKouchouKey::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
@@ -37,7 +37,7 @@ void CObjHokenKey::Action()
 			HeroY -= 0.0f;
 			flag = 3;
 			m_ani_time += 1;
-			hit->SetPos(HeroX+8, HeroY);
+			hit->SetPos(HeroX + 8, HeroY);
 		}
 	}
 	else if (Input::GetVKey('S') == true && DOWN_flag == false)
@@ -49,7 +49,7 @@ void CObjHokenKey::Action()
 			HeroY += 0.0f;
 			flag = 2;
 			m_ani_time += 1;
-			hit->SetPos(HeroX+8, HeroY+16);
+			hit->SetPos(HeroX + 8, HeroY + 16);
 		}
 	}
 	else if (Input::GetVKey('A') == true && LEFT_flag == false)
@@ -61,7 +61,7 @@ void CObjHokenKey::Action()
 			HeroX -= 0.0f;
 			flag = 1;
 			m_ani_time += 1;
-			hit->SetPos(HeroX, HeroY+8);
+			hit->SetPos(HeroX, HeroY + 8);
 		}
 	}
 	else if (Input::GetVKey('D') == true && RIGHT_flag == false)
@@ -73,7 +73,7 @@ void CObjHokenKey::Action()
 			HeroX += 0.0f;
 			flag = 0;
 			m_ani_time += 1;
-			hit->SetPos(HeroX+16, HeroY+8);
+			hit->SetPos(HeroX + 16, HeroY + 8);
 		}
 	}
 	else
@@ -81,7 +81,7 @@ void CObjHokenKey::Action()
 		m_ani_frame = 0;
 		m_ani_time = 0;
 	}
-	
+
 	if (m_ani_time > 4)
 	{
 		m_ani_frame += 1;
@@ -97,13 +97,13 @@ void CObjHokenKey::Action()
 		Hits::DeleteHitBox(this);
 	}
 
-	if (HOKENDOOR_flag == true && Input::GetVKey(VK_RETURN) == true)
+	if (KOUCHOUDOOR_flag == true && Input::GetVKey(VK_RETURN) == true)
 		HokenKey = 0;
 
-	if (hit->CheckObjNameHit(HOKEN_DOOR) != nullptr)
-		HOKENDOOR_flag = true;
+	if (hit->CheckObjNameHit(KOUCHOU_DOOR) != nullptr)
+		KOUCHOUDOOR_flag = true;
 	else
-		HOKENDOOR_flag = false;
+		KOUCHOUDOOR_flag = false;
 
 	if (m_x > 736.f)
 		m_x = 736.0f;
@@ -117,7 +117,7 @@ void CObjHokenKey::Action()
 	}
 }
 
-void CObjHokenKey::Draw()
+void CObjKouchouKey::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	RECT_F src;

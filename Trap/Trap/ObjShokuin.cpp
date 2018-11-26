@@ -4,7 +4,7 @@
 #include "GameL\SceneManager.h"
 #include "GameL\DrawFont.h"
 #include "GameL\UserData.h"
-
+#include "SwitchALL.h"
 #include "ObjShokuin.h"
 #include "GameHead.h"
 

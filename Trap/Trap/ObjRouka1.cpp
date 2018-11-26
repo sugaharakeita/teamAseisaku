@@ -2,6 +2,7 @@
 #include "GameL\HitBoxManager.h"
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
+#include "SwitchALL.h"
 #include "ObjRouka1.h"
 #include "GameHead.h"
 
@@ -28,7 +29,29 @@ void CObjRouka1::SetMap(int x, int y, int id)
 
 void CObjRouka1::Init()
 {
-	
+	if (room[0] == 1)
+	{
+		if (HeroX < 11.0f)
+			HeroX = 11.0f;
+		if (HeroX > 736.0f)
+			HeroX = 736.0f;
+		if (HeroY < 110.0f)
+			HeroY = 110.0f;
+		if (HeroY > 494.0f)
+			HeroY = 494.0f;
+		Hits::SetHitBox(this, 0, 0, 800, 125, ELEMENT_FIELD, OBJ_WALL, 1);
+		Hits::SetHitBox(this, 0, 0, 10, 600, ELEMENT_FIELD, OBJ_WALL, 1);
+
+
+	}
+	else if (room[1] == 1)
+	{
+		
+	}
+	else if (room[2] == 1)
+	{
+
+	}
 }
 
 void CObjRouka1::Action()
@@ -42,15 +65,46 @@ void CObjRouka1::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 1779.0f;
-	src.m_bottom = 362.0f;
+	if (room[0] == 1)
+	{
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 1035.0f;
+		src.m_bottom = 362.0f;
 
-	dst.m_top = 0.0f;
-	dst.m_left = 0.0;
-	dst.m_right = 1779.0f;
-	dst.m_bottom = 600.0f;
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0;
+		dst.m_right = 1035.0f;
+		dst.m_bottom = 600.0f;
 
-	Draw::Draw(3, &src, &dst, c, 0.0f);
+		Draw::Draw(4, &src, &dst, c, 0.0f);
+	}
+	else if (room[1] == 1)
+	{
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 384.0f;
+		src.m_bottom = 362.0f;
+
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0;
+		dst.m_right = 800.0f;
+		dst.m_bottom = 600.0f;
+
+		Draw::Draw(5, &src, &dst, c, 0.0f);
+	}
+	else if (room[2] == 1)
+	{
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 360.0f;
+		src.m_bottom = 362.0f;
+
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0;
+		dst.m_right = 800.0f;
+		dst.m_bottom = 600.0f;
+
+		Draw::Draw(6, &src, &dst, c, 0.0f);
+	}
 }

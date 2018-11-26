@@ -25,6 +25,12 @@
     <Filter Include="ソース ファイル\アイテム">
       <UniqueIdentifier>{2191b0ec-c556-4b08-a1f0-22cc192eea10}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\ゲーム外">
+      <UniqueIdentifier>{8ab676f6-ff21-48a9-87c0-28d66223857b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\スイッチ">
+      <UniqueIdentifier>{28e21d5e-bcc5-4242-8dda-d09c8ba91803}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneHoken.h">
@@ -44,12 +50,6 @@
     </ClInclude>
     <ClInclude Include="GameHead.h">
       <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneTitle.h">
-      <Filter>ソース ファイル\シーン</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjTitle.h">
-      <Filter>ソース ファイル\オブジェクト</Filter>
     </ClInclude>
     <ClInclude Include="SceneShokuin.h">
       <Filter>ソース ファイル\シーン</Filter>
@@ -114,13 +114,34 @@
     <ClInclude Include="HokenKey.h">
       <Filter>ソース ファイル\アイテム</Filter>
     </ClInclude>
-    <ClInclude Include="HokenHako.h">
-      <Filter>ソース ファイル\仕掛け</Filter>
-    </ClInclude>
     <ClInclude Include="Hero.h">
       <Filter>ソース ファイル\オブジェクト</Filter>
     </ClInclude>
     <ClInclude Include="ObjKouchouDoor.h">
+      <Filter>ソース ファイル\仕掛け</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>ソース ファイル\ゲーム外</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTitle.h">
+      <Filter>ソース ファイル\ゲーム外</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneHelp.h">
+      <Filter>ソース ファイル\ゲーム外</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjHelp.h">
+      <Filter>ソース ファイル\ゲーム外</Filter>
+    </ClInclude>
+    <ClInclude Include="SwitchALL.h">
+      <Filter>ソース ファイル\スイッチ</Filter>
+    </ClInclude>
+    <ClInclude Include="HokenHako.h">
+      <Filter>ソース ファイル\仕掛け</Filter>
+    </ClInclude>
+    <ClInclude Include="KouchouHako.h">
+      <Filter>ソース ファイル\仕掛け</Filter>
+    </ClInclude>
+    <ClInclude Include="KouchouKey.h">
       <Filter>ソース ファイル\仕掛け</Filter>
     </ClInclude>
   </ItemGroup>
@@ -129,12 +150,6 @@
       <Filter>ソース ファイル\シーン</Filter>
     </ClCompile>
     <ClCompile Include="ObjHoken.cpp">
-      <Filter>ソース ファイル\オブジェクト</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneTitle.cpp">
-      <Filter>ソース ファイル\シーン</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjTitle.cpp">
       <Filter>ソース ファイル\オブジェクト</Filter>
     </ClCompile>
     <ClCompile Include="SceneShokuin.cpp">
@@ -203,9 +218,6 @@
     <ClCompile Include="HokenKey.cpp">
       <Filter>ソース ファイル\アイテム</Filter>
     </ClCompile>
-    <ClCompile Include="HokenHako.cpp">
-      <Filter>ソース ファイル\仕掛け</Filter>
-    </ClCompile>
     <ClCompile Include="Hero.cpp">
       <Filter>ソース ファイル\オブジェクト</Filter>
     </ClCompile>
@@ -213,6 +225,33 @@
       <Filter>ソース ファイル\仕掛け</Filter>
     </ClCompile>
     <ClCompile Include="TrapALL.cpp">
+      <Filter>ソース ファイル\仕掛け</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemALL.cpp">
+      <Filter>ソース ファイル\アイテム</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>ソース ファイル\ゲーム外</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTitle.cpp">
+      <Filter>ソース ファイル\ゲーム外</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneHelp.cpp">
+      <Filter>ソース ファイル\ゲーム外</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjHelp.cpp">
+      <Filter>ソース ファイル\ゲーム外</Filter>
+    </ClCompile>
+    <ClCompile Include="SwitchALL.cpp">
+      <Filter>ソース ファイル\スイッチ</Filter>
+    </ClCompile>
+    <ClCompile Include="HokenHako.cpp">
+      <Filter>ソース ファイル\仕掛け</Filter>
+    </ClCompile>
+    <ClCompile Include="KouchouHako.cpp">
+      <Filter>ソース ファイル\仕掛け</Filter>
+    </ClCompile>
+    <ClCompile Include="KouchouKey.cpp">
       <Filter>ソース ファイル\仕掛け</Filter>
     </ClCompile>
   </ItemGroup>

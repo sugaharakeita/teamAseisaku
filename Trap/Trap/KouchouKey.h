@@ -4,26 +4,24 @@
 
 using namespace GameL;
 
-extern bool KouchouDoorOpen;
-extern bool HokenDoorOpen;
-extern bool KouchouHakoOpen;
-extern bool HokenHakoOpen;
-
-class CObjTrapALL :public CObj
+class CObjKouchouKey :public CObj
 {
 public:
-	CObjTrapALL(float x, float y) ;
-	~CObjTrapALL() {};
+	CObjKouchouKey(float x, float y);
+	~CObjKouchouKey() {};
 	void Init();
 	void Action();
 	void Draw();
-	bool hoken_door;
 private:
 	float m_x;
 	float m_y;
 	float m_vx;
 	bool m_del;
-	bool HIT_flag;
+	bool KOUCHOUDOOR_flag;
+	int flag;
+	bool t_flag;
 	int m_time;
+	int m_ani_time;
+	int m_ani_frame;
 	RECT_F m_eff;
 };

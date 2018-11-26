@@ -1,7 +1,4 @@
 //ƒV[ƒ“‚ª“®‚­‚©‚ÌŒŸØ—p‚Éì‚Á‚½‚¾‚¯
-#define _SECURE_SCL(O)
-#define _HAS_ITERATOR_DEBUGGING(O)
-
 #include "GameL\SceneObjManager.h"
 #include "GameL\DrawFont.h"
 #include "GameL\Audio.h"
