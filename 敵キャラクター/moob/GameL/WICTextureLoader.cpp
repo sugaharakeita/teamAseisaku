@@ -942,7 +942,6 @@ void GetLoadImageFileSizeHW(const wchar_t* fileName, float* w, float* h)
 
 
 	IWICBitmapFrameDecode* frame;
-
 	hr = decoder->GetFrame(0, &frame);
 
 	UINT width;
