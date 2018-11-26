@@ -28,16 +28,25 @@ void CObjMap::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+	//保健室(ドアの)位置を取得
+	CObjHokensitu* hokensitu = (CObjHokensitu*)Objs::GetObj(OBJ_HOKENSITU);
+
+	//職員室(ドアの)位置を取得
+
+
+	//校長室(ドアの)位置を取得
+
+
 	//敵の位置を取得
 	//CObjEnemy* enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 	//float ex = enemy->GetX();
 	//float ey = enemy->GetY();
 
 	//主人公が右端700～800に来るとマップ移動
-	if (700 < hx && m_flag == 0)
-	{
-		m_flag = 1;
-	}
+	//if (700 < hx && m_flag == 0)
+	//{
+	//	m_flag = 1;
+	//}
 	//else if (hx < 100 && m_flag == 0)
 	//{
 	//	m_flag = 3;
@@ -45,16 +54,16 @@ void CObjMap::Action()
 
 
 		//マップ移動
-		if (m_flag == 1)
-		{
-			m_x1 -= 5.0f;
-			hero->SetX(hx - 5.0);
-			//enemy->SetX(ex - 5.0);
-			if (m_x1 < -700)
-			{
-				m_flag = 2;
-			}
-		}
+		//if (m_flag == 1)
+		//{
+		//	m_x1 -= 5.0f;
+		//	hero->SetX(hx - 5.0);
+		//	//enemy->SetX(ex - 5.0);
+		//	if (m_x1 < -700)
+		//	{
+		//		m_flag = 2;
+		//	}
+		//}
 		/*else if(m_flag == 3)
 		{
 			m_x1 += 5.0f;
@@ -64,20 +73,11 @@ void CObjMap::Action()
 				m_flag = 2;
 			}
 		}*/
-		else
-		{
-			;
-		}
+		//else
+		//{
+		//	;
+		//}
 
-	
-
-
-
-	
-
-	
-
-	
 }
 
 //ドロー
@@ -101,8 +101,5 @@ void CObjMap::Draw()
 	dst.m_right = 2948.0f + m_x1;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(0, &src, &dst, c, 0.0f);
-
-
-
 
 }
