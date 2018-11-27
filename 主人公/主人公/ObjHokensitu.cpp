@@ -17,7 +17,7 @@ void CObjHokensitu::Init()
 	m_y = 13;
 	
 	//当たり判定用HitBoxを作成
-	Hits::SetHitBox(this, m_x, m_y, 64, 150, ELEMENT_BLUE, OBJ_HOKENSITU, 1);
+	//Hits::SetHitBox(this, m_x, m_y, 64, 150, ELEMENT_BLUE, OBJ_HOKENSITU, 1);
 
 }
 
@@ -25,17 +25,17 @@ void CObjHokensitu::Init()
 void CObjHokensitu::Action()
 {
 
-	//HitBoxの内容を更新
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_x, m_y);
+	////HitBoxの内容を更新
+	//CHitBox* hit = Hits::GetHitBox(this);
+	//hit->SetPos(m_x, m_y);
 
 
-	//青HitBoxと接触したら主人公削除
-	if (hit->CheckObjNameHit(OBJ_HOKENSITU) != nullptr)
-	{
-		this->SetStatus(false);     //自身に削除命令を出す
-		Hits::DeleteHitBox(this);   //主人公が所有するHitBoxを削除する
-	}
+	////青HitBoxと接触したら主人公削除
+	//if (hit->CheckObjNameHit(OBJ_HOKENSITU) != nullptr)
+	//{
+	//	this->SetStatus(false);     //自身に削除命令を出す
+	//	Hits::DeleteHitBox(this);   //主人公が所有するHitBoxを削除する
+	//}
 }
 
 //ドロー
