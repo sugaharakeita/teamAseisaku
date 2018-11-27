@@ -5,8 +5,15 @@
 using namespace GameL;
 
 //オブジェクト：RoomHitBox
-class
+class CObjRoomHitBox :public CObj
 {
 public:
+	 CObjRoomHitBox() {};
+	 ~CObjRoomHitBox() {};
+
+	 void Init();  //イニシャライズ
+	 void Action();//アクション
+	 void Draw();  //ドロー
+
 private:
 };
