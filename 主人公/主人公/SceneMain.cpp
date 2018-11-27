@@ -29,31 +29,7 @@ CSceneMain::~CSceneMain()
 //初期化メソッド
 void CSceneMain::InitScene()
 {
-	////外部データの読み込み(ステージ情報)
-	//unique_ptr<wchar_t> p; //ステージ情報ポインター
-	//int size;              //ステージ情報の大きさ
-	//p = Save::ExternalDataOpen(L"hokensitu.csv", &size); //外部データ読み込み
-
-	//int map[6][11];
-	//int count = 1;
-	//for (int i = 0; i < 6; i++)
-	//{
-	//	for (int j = 0; j < 11; j++)
-	//	{
-	//		int w = 0;
-	//		swscanf_s(&p.get()[count], L"%d", &w);
-
-	//		map[i][j] = w;
-
-	//		if (w >= 10)
-	//		{
-	//			count += 1;
-	//		}
-
-	//		
-	//		count += 2;
-	//	}
-	//}
+	
 
 	
 

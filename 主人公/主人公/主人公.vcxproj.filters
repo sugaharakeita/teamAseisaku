@@ -81,6 +81,12 @@
     <ClCompile Include="RoomHitBox.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="ObjGameOver.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGameOver.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -150,6 +156,12 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="RoomHitBox.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGameOver.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGameOver.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>

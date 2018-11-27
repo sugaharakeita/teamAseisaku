@@ -18,6 +18,8 @@ void CObjHero::Init()
 	m_py = 0.0f;
 	m_vx = 0.0f;  //移動ベクトル
 	m_vy = 0.0f;
+	/*m_ax = 32.0f;
+	m_bx = 32.0f;*/
 	m_posture = 0;   //右向き0.0f　左向き1.0f 正面2.0f 後ろ3.0f
 
 
@@ -25,14 +27,10 @@ void CObjHero::Init()
 	m_ani_time = 0;   
 	m_ani_frame = 1;  //静止フレームを初期にする
 
-	//blockとの衝突衝突状態確認用
-	m_hit_up = false;
-	m_hit_down = false;
-	m_hit_left = false;
-	m_hit_right = false;
+	
 
 	//当たり判定
-	Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_PLAYER, OBJ_HERO, 1);
+	Hits::SetHitBox(this, m_px+15, m_py+20, 32, 32, ELEMENT_PLAYER, OBJ_HERO, 1);
 }
 
 //アクション
@@ -95,7 +93,16 @@ void CObjHero::Action()
 
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
-	hit->SetPos(m_px, m_py);               //入り口から新しい位置（主人公の位置）情報に置き換える
+	hit->SetPos(m_px+15, m_py+20);      //入り口から新しい位置（主人公の位置）情報に置き換える
+
+	////敵機オブジェクトと接触したら主人公機削除
+	//if (hit->CheckObjNameHit(OBJ_ENEMY) !=nullptr)
+	//{
+	//	this->SetStatus(false);    //自身に削除命令を出す
+	//	Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
+
+	//	Scene::SetScene(new CSceneGameOver());
+	//}
 }
 
 
