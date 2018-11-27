@@ -39,17 +39,11 @@ void CObjCorridor1_3::Action()
 	if (hx < 0.0f)
 	{
 		Scene::SetScene(new CSceneCorridor1_2());
-
-		hx -= 300.0f;
 	}
 
 	if (hy + 64.0f < 175.0f && 150.0f < hx < 280.0f)
 	{
 		Scene::SetScene(new CSceneInfirmary());
-
-		hx = 85.0f;
-
-		hy = 520.0f;
 	}
 
 }

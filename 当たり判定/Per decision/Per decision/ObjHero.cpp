@@ -15,11 +15,6 @@ using namespace GameL;
 //イニシャライズ
 void CObjHero::Init()
 {
-	if (new CSceneInfirmary())
-	{
-		m_px = 85.0f;
-		m_py = 520.0f;
-	}
 	m_px = 400.0f;  //位置 Principaloffice 600.0f Infirmary 85.0f
 	m_py = 300.0f; // Saff60.0f Corr1_1,2,3 240.0f Principaloffice 520.0f Infirmary 520.0f
 	m_vx = 0.0f;  //移動ベクトル
@@ -262,6 +257,43 @@ void CObjHero::Action()
 
 			m_vy = m_vy + 4.0f;
 		}
+		//右下
+		if (Input::GetVKey('D') == true && Input::GetVKey('S') == true)
+		{
+			m_posture == 2;
+
+			m_vx = m_vx + 4.0f;
+
+			m_vy = m_vy - 4.0f;
+		}
+		//右上
+		if (Input::GetVKey('D') == true && Input::GetVKey('W') == true)
+		{
+			m_posture == 3;
+
+			m_vx = m_vx - 4.0f;
+
+			m_vy = m_vy + 4.0f;
+		}
+		//左下
+		if (Input::GetVKey('A') == true && Input::GetVKey('S') == true)
+		{
+			m_posture == 2;
+
+			m_vx = m_vx + 4.0f;
+
+			m_vy = m_vy + 4.0f;
+		}
+		//左上
+		if (Input::GetVKey('A') == true && Input::GetVKey('W') == true)
+		{
+			m_posture == 3;
+
+			m_vx = m_vx + 4.0f;
+
+			m_vy = m_vy - 4.0f;
+		}
+
 	}
 
 	if (hit->CheckElementHit(ELEMENT_CORRIDOR1_3) == true)

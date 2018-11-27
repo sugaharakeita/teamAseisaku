@@ -18,6 +18,9 @@
     <Filter Include="ソース ファイル\GameClear">
       <UniqueIdentifier>{5532b67f-ee2f-48e4-ad8b-74f16ac7b2ad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameTitle">
+      <UniqueIdentifier>{9d9ddd33-18d4-4e3f-a898-c3d026dd2e2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\SceneManager.cpp">
@@ -109,6 +112,12 @@
     </ClCompile>
     <ClCompile Include="ObjClear.cpp">
       <Filter>ソース ファイル\GameClear</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>ソース ファイル\GameTitle</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTitle.cpp">
+      <Filter>ソース ファイル\GameTitle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +213,12 @@
     </ClInclude>
     <ClInclude Include="ObjClear.h">
       <Filter>ソース ファイル\GameClear</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>ソース ファイル\GameTitle</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTitle.h">
+      <Filter>ソース ファイル\GameTitle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

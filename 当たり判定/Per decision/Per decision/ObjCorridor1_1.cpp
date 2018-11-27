@@ -63,8 +63,6 @@ void CObjCorridor1_1::Action()
 	if (hx+64.0f > 800.0f)
 	{
 		Scene::SetScene(new CSceneCorridor1_2());
-
-		hx -= 300.0f;
 	}
 
 	if (hy + 64.0f > 600.0f && 56.0f < hx < 106.0f)

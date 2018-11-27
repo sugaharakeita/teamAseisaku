@@ -19,7 +19,7 @@ void CObjStaffroom::Init()
 	//Hits::SetHitBox(this, 0.0f, 0.0f, 60, 120, ELEMENT_STAFFROOM, OBJ_STAFFROOM, 9);
 
 	//’I
-	Hits::SetHitBox(this, 60.0f, 0.0f, 108, 120, ELEMENT_STAFFROOM, OBJ_STAFFROOM, 9);
+	Hits::SetHitBox(this, 65.0f, 0.0f, 103, 120, ELEMENT_STAFFROOM, OBJ_STAFFROOM, 9);
 
 	//’I
 	Hits::SetHitBox(this, 168.0f, 0.0f, 110, 140, ELEMENT_STAFFROOM, OBJ_STAFFROOM, 9);
@@ -71,15 +71,11 @@ void CObjStaffroom::Action()
 	if (hy + 64.0f < 120.0f && 0.0f < hx < 60.0f)
 	{
 		Scene::SetScene(new CSceneCorridor1_1());
-
-		hx -= 300.0f;
 	}
 
 	if (hy + 64.0f < 120.0f && 732.0f < hx < 800.0f)
 	{
 		Scene::SetScene(new CSceneCorridor1_1());
-
-		hx -= 300.0f;
 	}
 
 }

@@ -16,33 +16,33 @@ using namespace GameL;
 #include "GameHead.h"
 
 //コンストラクタ
-CSceneClear::CSceneClear()
+CSceneTitle::CSceneTitle()
 {
 
 }
 
 //デストラクタ
-CSceneClear::~CSceneClear()
+CSceneTitle::~CSceneTitle()
 {
 
 }
 
 //初期化メゾット
-void CSceneClear::InitScene()
+void CSceneTitle::InitScene()
 {
-	Font::SetStrTex(L"α版はここまでです");
-	Font::SetStrTex(L"続きはβ版で");
-	Font::SetStrTex(L"Enterキーでタイトルへ");
+	Font::SetStrTex(L"School Horror");
+	Font::SetStrTex(L"Enterキーでスタート");
+
 
 	//クリアオブジェクト生成
-	CObjClear* obj = new CObjClear();
-	Objs::InsertObj(obj, OBJ_CLEAR, 10);
+	CObjTitle* obj = new CObjTitle();
+	Objs::InsertObj(obj, OBJ_TITLE, 10);
 
 }
 
 
 //実行中メゾット
-void CSceneClear::Scene()
+void CSceneTitle::Scene()
 {
 
 }

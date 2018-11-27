@@ -3,7 +3,7 @@
 #include "GameL\SceneObjManager.h"
 #include "GameL\DrawFont.h"
 
-#include "ObjClear.h"
+#include "ObjTitle.h"
 #include "GameHead.h"
 
 using namespace GameL;
@@ -11,19 +11,19 @@ using namespace GameL;
 
 
 //イニシャライズ
-void CObjClear::Init()
+void CObjTitle::Init()
 {
 	m_key_flag = false;
 }
 
 //アクション
-void CObjClear::Action()
+void CObjTitle::Action()
 {
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
 		if (m_key_flag == true)
 		{
-			Scene::SetScene(new CSceneTitle());
+			Scene::SetScene(new CSceneCorridor1_2());
 			m_key_flag = false;
 		}
 	}
@@ -34,13 +34,12 @@ void CObjClear::Action()
 }
 
 //ドロー
-void CObjClear::Draw()
+void CObjTitle::Draw()
 {
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f };
 
-	Font::StrDraw(L"α版はここまでです", 270, 200, 30, c);
-	Font::StrDraw(L"続きはβ版で", 320, 280, 30, c);
-	Font::StrDraw(L"Enterキーでタイトルへ",250,360,30,c);
-	
+	Font::StrDraw(L"School Horror", 160, 200, 80, c);
+	Font::StrDraw(L"Enterキーでスタート", 260, 400, 30, c);
+
 }
