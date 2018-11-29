@@ -5,6 +5,7 @@
 using namespace GameL;
 
 extern bool Hero;
+extern int HERO;
 extern int HeroStop;
 extern float HeroX;
 extern float HeroY;
@@ -17,17 +18,20 @@ extern bool HAKO_flag;
 extern bool DOOR_flag;
 extern bool ITEM_flag;
 
-extern bool Title;
-extern bool room[32];
-extern bool Rouka1L;
-extern bool Rouka1C;
-extern bool Rouka1R;
-extern bool KouchouL;
-extern bool KouchouR;
-extern bool ShokuinL;
-extern bool ShokuinR;
-extern bool HokenL;
-extern bool HokenR;
+extern int Message;
+
+extern int Title;
+extern int room[32];
+extern int Rouka1L;
+extern int Rouka1CL;
+extern int Rouka1CR;
+extern int Rouka1R;
+extern int KouchouL;
+extern int KouchouR;
+extern int ShokuinL;
+extern int ShokuinR;
+extern int HokenL;
+extern int HokenR;
 
 class CObjSwitchALL :public CObj
 {

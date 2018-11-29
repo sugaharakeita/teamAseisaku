@@ -7,6 +7,7 @@
 #include "SwitchALL.h"
 //ヒーロー関係
 bool Hero;
+int HERO = 3;
 int HeroStop;
 float HeroX;
 float HeroY;
@@ -18,24 +19,26 @@ bool HIT_flag;
 bool HAKO_flag;
 bool DOOR_flag;
 bool ITEM_flag;
+//システム関係
+int Message;
 //部屋関係。LCRはそれぞれ左側、中央側、右側を示す。
-bool Title;
-bool room[32];
-bool Rouka1L;
-bool Rouka1C;
-bool Rouka1R;
-bool KouchouL;
-bool KouchouR;
-bool ShokuinL;
-bool ShokuinR;
-bool HokenL;
-bool HokenR;
+int Title;
+int room[32];
+int Rouka1L;
+int Rouka1CL;
+int Rouka1CR;
+int Rouka1R;
+int KouchouL;
+int KouchouR;
+int ShokuinL;
+int ShokuinR;
+int HokenL;
+int HokenR;
 
 void CObjSwitchALL::Init()
 {
 	m_x = 0.0f;
 	m_y = 476.0f;
-	Draw::LoadImage(L"メッセージウィンドウ.png", 0, TEX_SIZE_512);
 }
 
 void CObjSwitchALL::Draw()

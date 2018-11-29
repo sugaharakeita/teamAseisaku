@@ -4,6 +4,7 @@
 #include "GameL\SceneManager.h"
 #include "ObjHokenDoor.h"
 #include "GameHead.h"
+#include "SwitchALL.h"
 #include "TrapALL.h"
 
 using namespace GameL;
@@ -41,19 +42,28 @@ void CObjHokenDoor::Action()
 			HIT_flag = false;
 	}
 	
-	if (HIT_flag == true && hoken_door == false)
+	if (HIT_flag == true)
 	{
-		if (Input::GetVKey(VK_RETURN) == true)
+		if (Input::GetVKey(VK_RETURN) == true && hoken_door == false)
 		{
 			hoken_door = true;
 			Hits::DeleteHitBox(this);
 			Hits::SetHitBox(this, 0, 0, 800, 600, ELEMENT_FIELD, OBJ_WALL, 1);
 			hit->SetPos(0, 0);
 
-			HokenDoorOpen = true;
+			if (HokenDoorOpen == false)
+			{
+				Message = 5;
+				HokenDoorOpen = true;
+			}
 		}
 	}
-	
+	else if (HIT_flag == false)
+	{
+		if (Input::GetVKey(VK_RETURN) == true && hoken_door == false)
+			Message = 1;
+	}
+
 	if (hoken_door == true)
 		m_time++;
 	if (m_time >= 80)

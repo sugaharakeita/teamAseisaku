@@ -10,11 +10,11 @@
 
 using namespace GameL;
 
-class CObjRouka1 :public CObj
+class CObjKouchou :public CObj
 {
 public:
-	CObjRouka1() {};
-	~CObjRouka1() {};
+	CObjKouchou() {};
+	~CObjKouchou() {};
 	void Init();
 	void Action();
 	void Draw();
@@ -22,5 +22,4 @@ public:
 	void SetMap(int x, int y, int id);
 private:
 	int m_map[MAP_Y_MAX][MAP_X_MAX];
-	int m_time;
 };

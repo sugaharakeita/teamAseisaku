@@ -40,6 +40,8 @@ void CObjKouchouHako::Action()
 			Objs::InsertObj(k, KOUCHOU_KEY, 1);
 
 			KouchouHakoOpen = true;
+			KouchouKey = 1;
+			Message = 2;
 		}
 	}
 
@@ -51,7 +53,7 @@ void CObjKouchouHako::Action()
 
 void CObjKouchouHako::Draw()
 {
-	float c[4] = { 1.0f,1.0f,5.0f,1.0f };
+	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	RECT_F src;
 	RECT_F dst;
 	if (KouchouHakoOpen == true)

@@ -21,14 +21,14 @@ void CObjKouchouKey::Init()
 	KOUCHOUDOOR_flag = false;
 	m_ani_time = 0;
 	m_ani_frame = 1;
-	Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_PLAYER, HOKEN_KEY, 1);
+	Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_PLAYER, KOUCHOU_KEY, 1);
 }
 
 void CObjKouchouKey::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
-	if (Input::GetVKey('W') == true && UP_flag == false)
+	if (Input::GetVKey('W') == true && UP_flag == false && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 3)
 			;
@@ -40,7 +40,7 @@ void CObjKouchouKey::Action()
 			hit->SetPos(HeroX + 8, HeroY);
 		}
 	}
-	else if (Input::GetVKey('S') == true && DOWN_flag == false)
+	else if (Input::GetVKey('S') == true && DOWN_flag == false && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 2)
 			;
@@ -52,7 +52,7 @@ void CObjKouchouKey::Action()
 			hit->SetPos(HeroX + 8, HeroY + 16);
 		}
 	}
-	else if (Input::GetVKey('A') == true && LEFT_flag == false)
+	else if (Input::GetVKey('A') == true && LEFT_flag == false && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 1)
 			;
@@ -64,7 +64,7 @@ void CObjKouchouKey::Action()
 			hit->SetPos(HeroX, HeroY + 8);
 		}
 	}
-	else if (Input::GetVKey('D') == true && RIGHT_flag == false)
+	else if (Input::GetVKey('D') == true && RIGHT_flag == false && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 0)
 			;

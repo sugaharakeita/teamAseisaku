@@ -131,9 +131,11 @@
     <ClInclude Include="KouchouHako.h" />
     <ClInclude Include="KouchouKey.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="Message.h" />
     <ClInclude Include="ObjHelp.h" />
     <ClInclude Include="ObjHoken.h" />
     <ClInclude Include="ObjHokenDoor.h" />
+    <ClInclude Include="ObjKouchou.h" />
     <ClInclude Include="ObjKouchouDoor.h" />
     <ClInclude Include="ObjRouka1.h" />
     <ClInclude Include="ObjShokuin.h" />
@@ -141,6 +143,7 @@
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="SceneHelp.h" />
     <ClInclude Include="SceneHoken.h" />
+    <ClInclude Include="SceneKouchou.h" />
     <ClInclude Include="SceneRouka1.h" />
     <ClInclude Include="SceneShokuin.h" />
     <ClInclude Include="SceneTitle.h" />
@@ -169,7 +172,9 @@
     <ClCompile Include="ItemALL.cpp" />
     <ClCompile Include="KouchouHako.cpp" />
     <ClCompile Include="KouchouKey.cpp" />
+    <ClCompile Include="Message.cpp" />
     <ClCompile Include="ObjHelp.cpp" />
+    <ClCompile Include="ObjKouchou.cpp" />
     <ClCompile Include="ObjKouchouDoor.cpp" />
     <ClCompile Include="ObjHoken.cpp" />
     <ClCompile Include="ObjHokenDoor.cpp" />
@@ -178,6 +183,7 @@
     <ClCompile Include="ObjShokuinDoor.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="SceneHelp.cpp" />
+    <ClCompile Include="SceneKouchou.cpp" />
     <ClCompile Include="SceneRouka1.cpp" />
     <ClCompile Include="SceneHoken.cpp" />
     <ClCompile Include="SceneShokuin.cpp" />

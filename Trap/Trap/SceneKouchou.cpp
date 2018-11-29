@@ -5,29 +5,30 @@
 
 using namespace GameL;
 
-#include "SceneHoken.h"
+#include "SceneKouchou.h"
+#include "Hero.h"
 #include "GameHead.h"
 
-CSceneHoken::CSceneHoken()
+CSceneKouchou::CSceneKouchou()
 {
 
 }
 
-CSceneHoken::~CSceneHoken()
+CSceneKouchou::~CSceneKouchou()
 {
 
 }
 
-void CSceneHoken::InitScene()
+void CSceneKouchou::InitScene()
 {
-	CObjHoken* p = new CObjHoken();
-	Objs::InsertObj(p, SPOT_HOKEN, 0);
+	CObjKouchou* p = new CObjKouchou();
+	Objs::InsertObj(p, SPOT_KOUCHOU, 0);
 	CObjHero* h = new CObjHero(72, 520);
 	Objs::InsertObj(h, OBJ_HERO, 2);
 
 }
 
-void CSceneHoken::Scene()
+void CSceneKouchou::Scene()
 {
 
 }
