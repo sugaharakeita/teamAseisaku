@@ -72,5 +72,11 @@ void CObjMessage::Draw()
 		Font::StrDraw(L"保健室のカギを開けた", m_x + 16, m_y + 16, 32, c2);
 		Font::StrDraw(L"▼", 760, 560, 16, c2);
 	}
+	else if (Message == 6)
+	{
+		Draw::Draw(0, &src, &dst, c, 0.0f);
+		Font::StrDraw(L"ハンマーを手に入れた", m_x + 16, m_y + 16, 32, c2);
+		Font::StrDraw(L"▼", 760, 560, 16, c2);
+	}
 
 }
