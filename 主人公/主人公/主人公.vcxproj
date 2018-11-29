@@ -37,16 +37,15 @@
     <ClCompile Include="ObjEnemy.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
     <ClCompile Include="ObjHero.cpp" />
-    <ClCompile Include="ObjHitBox.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="ObjHokensitu.cpp" />
-    <ClCompile Include="ObjKoutyousitu.cpp" />
+    <ClCompile Include="ObjMap2.cpp" />
     <ClCompile Include="ObjMap.cpp" />
+    <ClCompile Include="ObjMap3.cpp" />
     <ClCompile Include="ObjPrologue.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="SceneGameOver.cpp" />
     <ClCompile Include="SceneMain.cpp" />
+    <ClCompile Include="SceneMain2.cpp" />
+    <ClCompile Include="SceneMain3.cpp" />
     <ClCompile Include="ScenePrologue.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
@@ -65,21 +64,20 @@
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WICTextureLoader.h" />
     <ClInclude Include="GameL\WinInputs.h" />
+    <ClInclude Include="ObjMap2.h" />
+    <ClInclude Include="ObjMap3.h" />
+    <ClInclude Include="SceneMain2.h" />
     <ClInclude Include="ObjBlock.h" />
     <ClInclude Include="ObjEnemy.h" />
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjHero.h" />
     <ClInclude Include="main.h" />
-    <ClInclude Include="ObjHitBox.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="ObjHokensitu.h" />
-    <ClInclude Include="ObjKoutyousitu.h" />
     <ClInclude Include="ObjMap.h" />
     <ClInclude Include="ObjPrologue.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="SceneGameOver.h" />
     <ClInclude Include="SceneMain.h" />
+    <ClInclude Include="SceneMain3.h" />
     <ClInclude Include="ScenePrologue.h" />
     <ClInclude Include="SceneTitle.h" />
   </ItemGroup>

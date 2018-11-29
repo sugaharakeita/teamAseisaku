@@ -3,6 +3,7 @@
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
 #include <math.h>
+#include "GameL\HitBoxManager.h"
 
 #include "GameHead.h"
 #include "ObjEnemy.h"
@@ -46,11 +47,17 @@ void CObjEnemy::Init()
 
 	m_speed_power = 2.5f;
 	m_ani_max_time = 4;
+
+	//当たり判定用HitBoxを作成
+	Hits::SetHitBox(this, m_px, m_py, 64, 96, ELEMENT_ENEMY, OBJ_ENEMY, 1);
 }
 
 //アクション
 void CObjEnemy::Action()
 {
+
+
+
 	m_vx = 0;
 	m_vy = 0;
 
@@ -113,6 +120,20 @@ void CObjEnemy::Action()
 	//位置更新
 	m_px += m_vx*1.75;
 	m_py += m_vy*1.75;
+
+	//HitBoxの内容を更新
+	CHitBox* hit = Hits::GetHitBox(this);	//作成したHitBox更新用の入り口を取り出す
+	hit->SetPos(m_px, m_py);					//入り口から新しい位置(主人公機の位置)情報に置き換える
+
+												//敵機オブジェクトと接触したら主人公機削除
+	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
+	{
+		this->SetStatus(false);		//自身に削除命令を出す
+		Hits::DeleteHitBox(this);	//主人公機が所有するHitBoxに削除する
+	}
+
+
+
 }
 //ドロー
 void CObjEnemy::Draw()

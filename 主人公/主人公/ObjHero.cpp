@@ -11,12 +11,16 @@
 //使用するネームスペース
 using namespace GameL;
 
+float g_hero_x = 150.0f;
+float g_hero_y = 0.0f;
+
+
 //イニシャライズ
 void CObjHero::Init()
 {
-	m_px = 100.0f;   //位置
-	m_py = 0.0f;
-	m_vx = 0.0f;	 //移動ベクトル
+	m_px = g_hero_x;  //位置
+	m_py = g_hero_y;
+	m_vx = 0.0f;  //移動ベクトル
 	m_vy = 0.0f;
 	m_posture = 0;   //右向き0.0f　左向き1.0f 正面2.0f 後ろ3.0f
 
@@ -25,7 +29,7 @@ void CObjHero::Init()
 	m_ani_time = 0;
 	m_ani_frame = 1;  //静止フレームを初期にする
 
-	//blockとの衝突衝突状態確認用
+					  //blockとの衝突衝突状態確認用
 	m_hit_up = false;
 	m_hit_down = false;
 	m_hit_left = false;
@@ -96,14 +100,6 @@ void CObjHero::Action()
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
 	hit->SetPos(m_px, m_py);               //入り口から新しい位置（主人公の位置）情報に置き換える
-
-	//敵オブジェクトと接触したら主人公削除
-	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
-	{
-		this->SetStatus(false);		//自身に削除命令を出す。
-		Hits::DeleteHitBox(this);	//主人公機が所有するHitBoxを削除する。
-	}
-
 }
 
 
@@ -124,22 +120,22 @@ void CObjHero::Draw()
 	RECT_F dst; //描画先表示位置
 
 
-	//d（右）が入力されたとき
+				//d（右）が入力されたとき
 	if (m_posture == 0)
 	{
 		//切り取り位置の設定
-		src.m_top    = 128.0f;
-		src.m_left   = 0.0f + AniData[m_ani_frame] * 64;
-		src.m_right  = 64.0f + AniData[m_ani_frame] * 64;
+		src.m_top = 128.0f;
+		src.m_left = 0.0f + AniData[m_ani_frame] * 64;
+		src.m_right = 64.0f + AniData[m_ani_frame] * 64;
 		src.m_bottom = 192.0f;
 	}
 	//a（左）が入力されたとき
 	else if (m_posture == 1)
 	{
 		//切り取り位置の設定
-		src.m_top    = 64.0f;
-		src.m_left   = 0.0f + AniData[m_ani_frame] * 64;
-		src.m_right  = 64.0f + AniData[m_ani_frame] * 64;
+		src.m_top = 64.0f;
+		src.m_left = 0.0f + AniData[m_ani_frame] * 64;
+		src.m_right = 64.0f + AniData[m_ani_frame] * 64;
 		src.m_bottom = 128.0f;
 
 	}
@@ -147,9 +143,9 @@ void CObjHero::Draw()
 	else if (m_posture == 2)
 	{
 		//切り取り位置の設定
-		src.m_top    = 0.0f;
-		src.m_left   = 0.0f + AniData[m_ani_frame] * 64;
-		src.m_right  = 64.0f + AniData[m_ani_frame] * 64;
+		src.m_top = 0.0f;
+		src.m_left = 0.0f + AniData[m_ani_frame] * 64;
+		src.m_right = 64.0f + AniData[m_ani_frame] * 64;
 		src.m_bottom = 64.0f;
 
 	}
@@ -157,17 +153,17 @@ void CObjHero::Draw()
 	else if (m_posture == 3)
 	{
 		//切り取り位置の設定
-		src.m_top    = 192.0f;
-		src.m_left   = 0.0f + AniData[m_ani_frame] * 64;
-		src.m_right  = 64.0f + AniData[m_ani_frame] * 64;
+		src.m_top = 192.0f;
+		src.m_left = 0.0f + AniData[m_ani_frame] * 64;
+		src.m_right = 64.0f + AniData[m_ani_frame] * 64;
 		src.m_bottom = 256.0f;
 
 	}
 
 	//表示位置の設定
-	dst.m_top    = 0.0f + m_py;
-	dst.m_left   = 0.0f + m_px;
-	dst.m_right  = 64.0f + m_px;
+	dst.m_top = 0.0f + m_py;
+	dst.m_left = 0.0f + m_px;
+	dst.m_right = 64.0f + m_px;
 	dst.m_bottom = 64.0f + m_py;
 
 	//描画

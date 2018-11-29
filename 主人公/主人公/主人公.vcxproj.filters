@@ -22,17 +22,14 @@
     <Filter Include="ソース ファイル\タイトル">
       <UniqueIdentifier>{2b955e25-e157-4e43-a979-a0d6d94272ba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\マップ画面切り替え">
+    <Filter Include="ソース ファイル\廊下１－１">
       <UniqueIdentifier>{0b6e032c-633b-4339-bced-9b6d40eb07d0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\校長室">
-      <UniqueIdentifier>{822e5879-f685-4bd0-9b7d-7e9fcbe9791b}</UniqueIdentifier>
+    <Filter Include="ソース ファイル\廊下１－２">
+      <UniqueIdentifier>{8173e87b-26d4-4f29-8034-a95cf7705ff1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\保健室">
-      <UniqueIdentifier>{a2c345f8-a809-4e4e-b3e8-7ee5c31ca93f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\職員室">
-      <UniqueIdentifier>{055c6fe6-f259-4233-b89d-7305972c9173}</UniqueIdentifier>
+    <Filter Include="ソース ファイル\廊下１－３">
+      <UniqueIdentifier>{f0f7c0ca-3ed7-48ec-bcee-d401976c2423}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -78,9 +75,6 @@
     <ClCompile Include="GameL\WinInputs.cpp">
       <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="SceneMain.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="ObjHero.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -96,9 +90,6 @@
     <ClCompile Include="SceneGameOver.cpp">
       <Filter>ソース ファイル\ゲームオーバー画面</Filter>
     </ClCompile>
-    <ClCompile Include="ObjMap.cpp">
-      <Filter>ソース ファイル\マップ画面切り替え</Filter>
-    </ClCompile>
     <ClCompile Include="ScenePrologue.cpp">
       <Filter>ソース ファイル\あらすじ</Filter>
     </ClCompile>
@@ -111,14 +102,23 @@
     <ClCompile Include="ObjTitle.cpp">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClCompile>
-    <ClCompile Include="ObjHokensitu.cpp">
-      <Filter>ソース ファイル\保健室</Filter>
+    <ClCompile Include="SceneMain.cpp">
+      <Filter>ソース ファイル\廊下１－１</Filter>
     </ClCompile>
-    <ClCompile Include="ObjKoutyousitu.cpp">
-      <Filter>ソース ファイル\校長室</Filter>
+    <ClCompile Include="ObjMap.cpp">
+      <Filter>ソース ファイル\廊下１－１</Filter>
     </ClCompile>
-    <ClCompile Include="ObjHitBox.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="SceneMain2.cpp">
+      <Filter>ソース ファイル\廊下１－２</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMap2.cpp">
+      <Filter>ソース ファイル\廊下１－２</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMain3.cpp">
+      <Filter>ソース ファイル\廊下１－３</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMap3.cpp">
+      <Filter>ソース ファイル\廊下１－３</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,9 +167,6 @@
     <ClInclude Include="main.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="SceneMain.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="ObjHero.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
@@ -185,9 +182,6 @@
     <ClInclude Include="SceneGameOver.h">
       <Filter>ソース ファイル\ゲームオーバー画面</Filter>
     </ClInclude>
-    <ClInclude Include="ObjMap.h">
-      <Filter>ソース ファイル\マップ画面切り替え</Filter>
-    </ClInclude>
     <ClInclude Include="ScenePrologue.h">
       <Filter>ソース ファイル\あらすじ</Filter>
     </ClInclude>
@@ -200,14 +194,23 @@
     <ClInclude Include="ObjTitle.h">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClInclude>
-    <ClInclude Include="ObjHokensitu.h">
-      <Filter>ソース ファイル\保健室</Filter>
+    <ClInclude Include="SceneMain.h">
+      <Filter>ソース ファイル\廊下１－１</Filter>
     </ClInclude>
-    <ClInclude Include="ObjKoutyousitu.h">
-      <Filter>ソース ファイル\校長室</Filter>
+    <ClInclude Include="ObjMap.h">
+      <Filter>ソース ファイル\廊下１－１</Filter>
     </ClInclude>
-    <ClInclude Include="ObjHitBox.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="SceneMain2.h">
+      <Filter>ソース ファイル\廊下１－２</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMap2.h">
+      <Filter>ソース ファイル\廊下１－２</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMain3.h">
+      <Filter>ソース ファイル\廊下１－３</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMap3.h">
+      <Filter>ソース ファイル\廊下１－３</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

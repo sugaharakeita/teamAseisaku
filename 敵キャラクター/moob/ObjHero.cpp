@@ -2,9 +2,12 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
+#include "GameL\HitBoxManager.h"
+
 
 #include "GameHead.h"
 #include "ObjHero.h"
+
 
 //使用するネームスペース
 using namespace GameL;
@@ -37,6 +40,7 @@ void CObjHero::Init()
 
 	m_speed_power = 0.5f;	//通常速度
 	m_ani_max_time = 4;		//アニメーション間隔幅
+
 }
 
 //アクション
@@ -95,6 +99,11 @@ void CObjHero::Action()
 	//位置更新
 	m_px += m_vx*1.0;
 	m_py += m_vy*1.0;
+
+	//HitBoxの内容を更新
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(m_x, m_y);
+
 }
 
 //ドロー

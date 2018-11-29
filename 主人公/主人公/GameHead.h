@@ -65,6 +65,8 @@ struct UserData
 #include "ObjEnemy.h"
 #include "ObjGameOver.h"
 #include "ObjMap.h"
+#include "ObjMap2.h"
+#include "ObjMap3.h"
 #include "ObjPrologue.h"
 #include "ObjKoutyousitu.h"
 #include "ObjHokensitu.h"
@@ -72,6 +74,8 @@ struct UserData
 
 //ゲームシーンクラスヘッダ------------------------
 #include "SceneMain.h"
+#include "SceneMain2.h"
+#include "SceneMain3.h"
 #include "SceneTitle.h"
 #include "SceneGameOver.h"
 #include "ScenePrologue.h"

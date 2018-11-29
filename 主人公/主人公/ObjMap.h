@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 //使用するヘッダー
 #include "GameL\SceneObjManager.h"
 
@@ -21,6 +20,7 @@ class CObjMap:public CObj
 
 		float m_x1;//背景１の位置情報
 		float m_x2;//背景２の位置情報
-		int m_flag;//
+
+		bool m_key_flag;//キーフラグ
 
 };

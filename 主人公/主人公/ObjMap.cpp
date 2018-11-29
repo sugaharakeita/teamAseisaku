@@ -11,11 +11,19 @@
 //使用するネームスペース
 using namespace GameL;
 
+extern float g_hero_x;
+extern float g_hero_y;
+
+extern float g_enemy_x = 150.0f;
+extern float g_enemy_y = 0.0f;
+
+
+
 //イニシャライズ
 void CObjMap::Init()
 {
 	m_x1 = 0.0f;
-	m_flag = 0;
+	
 
 }
 
@@ -28,56 +36,34 @@ void CObjMap::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	//保健室(ドアの)位置を取得
-	CObjHokensitu* hokensitu = (CObjHokensitu*)Objs::GetObj(OBJ_HOKENSITU);
-
-	//職員室(ドアの)位置を取得
-
-
-	//校長室(ドアの)位置を取得
-
-
-	//敵の位置を取得
-	//CObjEnemy* enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
+	////敵の位置
+	//CObjEnemy*obje = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 	//float ex = enemy->GetX();
 	//float ey = enemy->GetY();
 
-	//主人公が右端700～800に来るとマップ移動
-	//if (700 < hx && m_flag == 0)
-	//{
-	//	m_flag = 1;
-	//}
-	//else if (hx < 100 && m_flag == 0)
-	//{
-	//	m_flag = 3;
-	//}
-
-
-		//マップ移動
-		//if (m_flag == 1)
-		//{
-		//	m_x1 -= 5.0f;
-		//	hero->SetX(hx - 5.0);
-		//	//enemy->SetX(ex - 5.0);
-		//	if (m_x1 < -700)
-		//	{
-		//		m_flag = 2;
-		//	}
-		//}
-		/*else if(m_flag == 3)
+	
+	//マップ端にいくと廊下1-2にいく
+	if (hx >700 == true)
+	{
+		if (m_key_flag == true)
 		{
-			m_x1 += 5.0f;
-			hero->SetX(hx + 5.0);
-			if (m_x1 < 700)
-			{
-				m_flag = 2;
-			}
-		}*/
-		//else
-		//{
-		//	;
-		//}
+			//主人公
+			g_hero_x = 110;
+			g_hero_y = hy;
+			//敵
+			g_enemy_x = 110;
+			
+			Scene::SetScene(new CSceneMain2());
+			m_key_flag = false;
+		}
+	}
+	else
+	{
+		m_key_flag = true;
+	}
+	
 
+	
 }
 
 //ドロー
@@ -92,14 +78,17 @@ void CObjMap::Draw()
 	//切り取り位置の設定
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
-	src.m_right = 1779.0f;
+	src.m_right = 1035.0f;
 	src.m_bottom = 362.0f;
 
 	//背景１の位置の設定をし描画
 	dst.m_top = 0.0f;
 	dst.m_left = 0.0f + m_x1;
-	dst.m_right = 2948.0f + m_x1;
+	dst.m_right = 1716.0f + m_x1;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(0, &src, &dst, c, 0.0f);
+
+
+
 
 }
