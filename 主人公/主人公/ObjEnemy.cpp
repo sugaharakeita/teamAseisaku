@@ -57,7 +57,7 @@ void CObjEnemy::Action()
 	m_vx = 0;
 	m_vy = 0;
 
-	//主人公の位置を取得
+	////主人公の位置を取得
 	//CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	//float hx = hero->GetX();
 	//float hy = hero->GetY() ;
@@ -118,16 +118,6 @@ void CObjEnemy::Action()
 		m_ani_frame = 0;
 	}
 
-
-
-	//敵の現在向いている角度を取る
-	//float br = atan2(-m_vy, m_vx)* 180.0f / 3.14f;
-
-	//移動方向に-１°加える
-	//m_vx =cos(ar*3.14 / 180);
-	//m_vy =sin(ar*3.14 / 180);
-
-
 	//位置更新
 	m_px += m_vx*1.75;
 	m_py += m_vy*1.75;
@@ -174,8 +164,6 @@ void CObjEnemy::Draw()
 		src.m_right = 50.0f + AniData[m_ani_frame] * 64;
 		src.m_bottom = 188.0f;
 
-
-
 	}
 	else if (m_posture == 3)//左向き
 	{
@@ -186,18 +174,6 @@ void CObjEnemy::Draw()
 		src.m_bottom = 380.0f;
 
 	}
-	////切り取り位置の設定
-	//src.m_top    =  0.0f;
-	//src.m_left   =  0.0f + AniData[m_ani_frame] * 64;
-	//src.m_right  = 64.0f + AniData[m_ani_frame] * 64;
-	//src.m_bottom = 93.0f;
-
-	////表示位置の設定
-	//dst.m_top    =  0.0f + m_py;
-	//dst.m_left   = 64.0f + m_px;
-	//dst.m_right  = 64 - 64.0f + m_px;
-	//dst.m_bottom = 93.0f + m_py;
-
 	//表示位置の設定
 	dst.m_top = 0.0f + m_py;
 	dst.m_left = 0.0f + m_px;

@@ -14,8 +14,8 @@ using namespace GameL;
 extern float g_hero_x;
 extern float g_hero_y;
 
-extern float g_enemy_x = 150.0f;
-extern float g_enemy_y = 0.0f;
+extern float g_objenemy_x = 150.0f;
+extern float g_objenemy_y = 0.0f;
 
 
 
@@ -51,7 +51,7 @@ void CObjMap::Action()
 			g_hero_x = 110;
 			g_hero_y = hy;
 			//“G
-			g_enemy_x = 110;
+			g_objenemy_x = 110;
 			
 			Scene::SetScene(new CSceneMain2());
 			m_key_flag = false;
