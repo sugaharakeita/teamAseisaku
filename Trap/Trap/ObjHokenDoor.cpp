@@ -30,19 +30,21 @@ void CObjHokenDoor::Action()
 	if (HokenDoorOpen == true)
 	{
 		if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-			HIT_flag = true;
+			HIT_flag = 2;
 		else
-			HIT_flag = false;
+			HIT_flag = 0;
 	}
 	else
 	{
 		if (hit->CheckObjNameHit(HOKEN_KEY) != nullptr)
-			HIT_flag = true;
+			HIT_flag = 2;
+		else if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
+			HIT_flag = 1;
 		else
-			HIT_flag = false;
+			HIT_flag = 0;
 	}
 	
-	if (HIT_flag == true)
+	if (HIT_flag == 2)
 	{
 		if (Input::GetVKey(VK_RETURN) == true && hoken_door == false)
 		{
@@ -58,7 +60,7 @@ void CObjHokenDoor::Action()
 			}
 		}
 	}
-	else if (HIT_flag == false)
+	else if (HIT_flag == 1)
 	{
 		if (Input::GetVKey(VK_RETURN) == true && hoken_door == false)
 			Message = 1;
@@ -80,7 +82,21 @@ void CObjHokenDoor::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	if (hoken_door == true)
+	if (hoken_door == false)
+	{
+		src.m_top = 10.0f;
+		src.m_left = 491.0f;
+		src.m_right = 522.0f;
+		src.m_bottom = 105.0f;
+	
+		dst.m_top = 0.0f + m_y;
+		dst.m_left = 0.0f + m_x;
+		dst.m_right = 32.0f + m_x;
+		dst.m_bottom = 160.0f + m_y;
+		
+		Draw::Draw(4, &src, &dst, c, 0.0f);
+	}
+	else
 	{
 		src.m_top = 201.0f;
 		src.m_left = 73.0f;
@@ -92,20 +108,6 @@ void CObjHokenDoor::Draw()
 		dst.m_right = 128.0f + m_x;
 		dst.m_bottom = 160.0f + m_y;
 
-		Draw::Draw(7, &src, &dst, c, 0.0f);
-	}
-	else
-	{
-		src.m_top = 10.0f;
-		src.m_left = 459.0f;
-		src.m_right = 491.0f;
-		src.m_bottom = 105.0f;
-	
-		dst.m_top = 0.0f + m_y;
-		dst.m_left = 0.0f + m_x;
-		dst.m_right = 128.0f + m_x;
-		dst.m_bottom = 160.0f + m_y;
-		
-		Draw::Draw(4, &src, &dst, c, 0.0f);
+		Draw::Draw(9, &src, &dst, c, 0.0f);
 	}
 }

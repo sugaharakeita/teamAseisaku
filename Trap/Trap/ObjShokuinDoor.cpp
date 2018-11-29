@@ -63,13 +63,13 @@ void CObjShokuinDoor::Draw()
 	RECT_F dst;
 
 	src.m_top = 10.0f;
-	src.m_left = 459.0f;
-	src.m_right = 491.0f;
+	src.m_left = 491.0f;
+	src.m_right = 522.0f;
 	src.m_bottom = 105.0f;
 
 	dst.m_top = 0.0f + m_y;
 	dst.m_left = 0.0f + m_x;
-	dst.m_right = 64.0f + m_x;
+	dst.m_right = 104.0f + m_x;
 	dst.m_bottom = 106.0f + m_y;
 
 	Draw::Draw(4, &src, &dst, c, 0.0f);
