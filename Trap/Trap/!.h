@@ -12,9 +12,6 @@ public:
 	void Action();
 	void Draw();
 private:
-	int flag;
 	bool t_flag;
 	int m_time;
-	int m_ani_time;
-	int m_ani_frame;
 };

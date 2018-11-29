@@ -18,6 +18,7 @@ enum OBJ_NAME
 	OBJ_WALL,
 	OBJ_HAKO,
 	KOUCHOU_DOOR,
+	OBJ_HAMMER,
 	SHOKUIN_DOOR,
 	HOKEN_DOOR,
 };
@@ -84,6 +85,7 @@ struct UserData
 #include "KouchouKey.h"
 #include "ObjKouchouDoor.h"
 #include "ObjKouchou.h"
+#include "Hammer.h"
 #include "ObjShokuinDoor.h"
 #include "ObjShokuin.h"
 #include "HokenHako.h"

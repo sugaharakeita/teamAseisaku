@@ -36,7 +36,7 @@ void CObjKouchouHako::Action()
 		{
 			Hits::DeleteHitBox(this);
 			Hits::SetHitBox(this, m_x, m_y, 64, 64, ELEMENT_FIELD, OBJ_WALL, 1);
-			CObjKouchouKey* k = new CObjKouchouKey(HeroX, HeroY);
+			CObjKouchouKey* k = new CObjKouchouKey(HeroX+8, HeroY+8);
 			Objs::InsertObj(k, KOUCHOU_KEY, 1);
 
 			KouchouHakoOpen = true;

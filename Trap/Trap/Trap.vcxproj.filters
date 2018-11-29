@@ -153,6 +153,9 @@
     <ClInclude Include="ObjKouchou.h">
       <Filter>ソース ファイル\オブジェクト</Filter>
     </ClInclude>
+    <ClInclude Include="Hammer.h">
+      <Filter>ソース ファイル\アイテム</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneHoken.cpp">
@@ -271,6 +274,9 @@
     </ClCompile>
     <ClCompile Include="ObjKouchou.cpp">
       <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClCompile>
+    <ClCompile Include="Hammer.cpp">
+      <Filter>ソース ファイル\アイテム</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

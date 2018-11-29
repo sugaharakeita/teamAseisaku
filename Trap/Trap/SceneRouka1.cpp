@@ -80,18 +80,18 @@ void CSceneRouka1::InitScene()
 	}
 	//ÉpÉ^Å[ÉìÇ…ä÷åWÇ»Ç≠ê∂Ç‹ÇÍÇÈÇ‡ÇÃ
 	Objs::InsertObj(h, OBJ_HERO, 2);
-	CObjExcla* x = new CObjExcla(HeroX,HeroY);
+	CObjExcla* x = new CObjExcla(HeroX+8,HeroY+8);
 	Objs::InsertObj(x, OBJ_EXCLAMATION, 2);
 	CObjMessage* m = new CObjMessage(12.0f, 476.0f);
 	Objs::InsertObj(m, OBJ_MESSAGE, 3);
 	if (KouchouKey == 1)
 	{
-		CObjKouchouKey* k = new CObjKouchouKey(HeroX, HeroY);
+		CObjKouchouKey* k = new CObjKouchouKey(HeroX+8, HeroY+8);
 		Objs::InsertObj(k, KOUCHOU_KEY, 1);
 	}
 	if (HokenKey == 1)
 	{
-		CObjHokenKey* k2 = new CObjHokenKey(HeroX, HeroY);
+		CObjHokenKey* k2 = new CObjHokenKey(HeroX+8, HeroY+8);
 		Objs::InsertObj(k2, HOKEN_KEY, 1);
 	}
 
