@@ -15,16 +15,13 @@ using namespace GameL;
 void CObjCorridor1_3::Init()
 {
 	//上壁
-	Hits::SetHitBox(this, 0.0f, 0.0f, 150, 175, ELEMENT_CORRIDOR1_3, OBJ_CORRIDOR1_3, 9);
-
-	//上ドア1
-	//Hits::SetHitBox(this, 150.0f, 0.0f, 130, 175, ELEMENT_CORRIDOR1_3, OBJ_CORRIDOR1_3, 9);
+	Hits::SetHitBox(this, 0.0f, 0.0f, 150, 175, ELEMENT_FIELD, OBJ_CORRIDOR1_3, 9);
 
 	//上壁
-	Hits::SetHitBox(this, 280.0f, 0.0f, 525, 175, ELEMENT_CORRIDOR1_3, OBJ_CORRIDOR1_3, 9);
+	Hits::SetHitBox(this, 280.0f, 0.0f, 525, 175, ELEMENT_FIELD, OBJ_CORRIDOR1_3, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 0.0f, 500.0f, 800, 100, ELEMENT_CORRIDOR1_3, OBJ_CORRIDOR1_3, 9);
+	Hits::SetHitBox(this, 0.0f, 500.0f, 800, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_3, 9);
 	
 }
 
@@ -36,11 +33,13 @@ void CObjCorridor1_3::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+	//画面端左に行くと廊下1-2へ移動
 	if (hx < 0.0f)
 	{
 		Scene::SetScene(new CSceneCorridor1_2());
 	}
 
+	//主人公のy座標yが175.0f以下になると保健室へ移動
 	if (hy + 64.0f < 175.0f && 150.0f < hx < 280.0f)
 	{
 		Scene::SetScene(new CSceneInfirmary());
