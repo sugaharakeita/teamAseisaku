@@ -41,6 +41,8 @@ void CObjHokenHako::Action()
 			Objs::InsertObj(k, HOKEN_KEY, 1);
 
 			HokenHakoOpen = true;
+			HokenKey = 1;
+			Message = 4;
 		}
 	}
 
