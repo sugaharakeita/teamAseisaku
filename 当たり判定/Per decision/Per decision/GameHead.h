@@ -75,11 +75,11 @@ struct UserData
 #include "ObjHero.h"
 #include "ObjClear.h"
 #include "ObjTitle.h"
+#include "ObjPerdecision.h"
 
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
-#include "SceneMain.h"
 #include "SceneStaffroom.h"
 #include "ScenePrincipaloffice.h"
 #include "SceneInfirmary.h"
