@@ -4,6 +4,7 @@
 #include "GameL\SceneManager.h"
 #include "ObjKouchouDoor.h"
 #include "GameHead.h"
+#include "SwitchALL.h"
 #include "TrapALL.h"
 
 using namespace GameL;
@@ -41,17 +42,26 @@ void CObjKouchouDoor::Action()
 			HIT_flag = false;
 	}
 
-	if (HIT_flag == true && kouchou_door == false)
+	if (HIT_flag == true)
 	{
-		if (Input::GetVKey(VK_RETURN) == true)
+		if (Input::GetVKey(VK_RETURN) == true && kouchou_door == false)
 		{
-			m_x -= 64;
+			kouchou_door = true;
 			Hits::DeleteHitBox(this);
 			Hits::SetHitBox(this, 0, 0, 800, 600, ELEMENT_FIELD, OBJ_WALL, 1);
 			hit->SetPos(0, 0);
 
-			KouchouDoorOpen = true;
+			if (KouchouDoorOpen == false)
+			{
+				Message = 3;
+				KouchouDoorOpen = true;
+			}
 		}
+	}
+	else if (HIT_flag == false)
+	{
+		if (Input::GetVKey(VK_RETURN) == true && kouchou_door == false)
+			Message = 1;
 	}
 
 	if (kouchou_door == true)
@@ -60,7 +70,7 @@ void CObjKouchouDoor::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		Scene::SetScene(new CSceneRouka1());
+		Scene::SetScene(new CSceneKouchou());
 	}
 }
 

@@ -1,4 +1,3 @@
-//ƒV[ƒ“‚ª“®‚­‚©‚ÌŒŸØ—p‚Éì‚Á‚½‚¾‚¯
 #include "GameL\SceneObjManager.h"
 #include "GameL\DrawFont.h"
 #include "GameL\Audio.h"

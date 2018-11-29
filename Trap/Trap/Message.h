@@ -3,17 +3,15 @@
 
 using namespace GameL;
 
-class CObjHero : public CObj
+class CObjMessage : public CObj
 {
 public:
-	CObjHero(float x, float y);
-	~CObjHero() {};
+	CObjMessage(float x, float y);
+	~CObjMessage() {};
 	void Init();
 	void Action();
 	void Draw();
 private:
-	bool t_flag;
-	int m_time;
-	int m_ani_time;
-	int m_ani_frame;
+	float m_x;
+	float m_y;
 };

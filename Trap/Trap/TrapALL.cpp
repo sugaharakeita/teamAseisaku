@@ -5,7 +5,7 @@
 #include "GameHead.h"
 #include "TrapALL.h"
 
-bool KouchouDoorOpen;
-bool HokenDoorOpen;
 bool KouchouHakoOpen;
+bool KouchouDoorOpen;
 bool HokenHakoOpen;
+bool HokenDoorOpen;
