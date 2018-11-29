@@ -83,7 +83,7 @@ void CObjRouka1::Action()
 		}
 		if (HeroX > 756.0f)
 		{
-			Rouka1R = room[2] = 1;
+			Rouka1CR = room[2] = 1;
 			room[1] = 0;
 			Scene::SetScene(new CSceneRouka1());
 		}
@@ -93,7 +93,7 @@ void CObjRouka1::Action()
 			HeroY = 540.0f;
 
 		if (m_time == 5)
-			Title = Rouka1L = Rouka1R = 0;
+			Rouka1CR = Rouka1L = 0;
 
 	}
 	else if (room[2] == 1)
@@ -101,7 +101,30 @@ void CObjRouka1::Action()
 		if (HeroX < -20.0f)
 		{
 			room[2] = 0;
-			Rouka1CR = room[1] = 1;
+			Rouka1CL = room[1] = 1;
+			Scene::SetScene(new CSceneRouka1());
+		}
+		if (HeroX > 756.0f)
+		{
+			Rouka1R = room[3] = 1;
+			room[2] = 0;
+			Scene::SetScene(new CSceneRouka1());
+		}
+		if (HeroY < 96.0f)
+			HeroY = 96.0f;
+		if (HeroY > 540.0f)
+			HeroY = 540.0f;
+
+		if (m_time == 5)
+			Title = Rouka1R = Rouka1CL = 0;
+
+	}
+	else if (room[3] == 1)
+	{
+		if (HeroX < -20.0f)
+		{
+			room[3] = 0;
+			Rouka1CR = room[2] = 1;
 			Scene::SetScene(new CSceneRouka1());
 		}
 		if (HeroX > 736.0f)
@@ -113,13 +136,13 @@ void CObjRouka1::Action()
 
 		if (m_time == 5)
 			Rouka1CR = 0;
-
 	}
 }
 
 void CObjRouka1::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c2[4] = { 0,0,0,1 };
 	RECT_F src;
 	RECT_F dst;
 
@@ -127,17 +150,31 @@ void CObjRouka1::Draw()
 	{
 		src.m_top = 0.0f;
 		src.m_left = 0.0f;
-		src.m_right = 1035.0f;
+		src.m_right = 518.0f;
 		src.m_bottom = 362.0f;
 
 		dst.m_top = 0.0f;
 		dst.m_left = 0.0;
-		dst.m_right = 1035.0f;
+		dst.m_right = 800.0f;
 		dst.m_bottom = 600.0f;
 
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
 	else if (room[1] == 1)
+	{
+		src.m_top = 0.0f;
+		src.m_left = 518.0f;
+		src.m_right = 1035.0f;
+		src.m_bottom = 362.0f;
+
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0;
+		dst.m_right = 800.0f;
+		dst.m_bottom = 600.0f;
+
+		Draw::Draw(4, &src, &dst, c, 0.0f);
+	}
+	else if (room[2] == 1)
 	{
 		src.m_top = 0.0f;
 		src.m_left = 0.0f;
@@ -151,7 +188,7 @@ void CObjRouka1::Draw()
 
 		Draw::Draw(5, &src, &dst, c, 0.0f);
 	}
-	else if (room[2] == 1)
+	else if (room[3] == 1)
 	{
 		src.m_top = 0.0f;
 		src.m_left = 0.0f;
@@ -165,5 +202,5 @@ void CObjRouka1::Draw()
 
 		Draw::Draw(6, &src, &dst, c, 0.0f);
 	}
-	Font::SetStrTex(L"1ŠK˜L‰º");
+	Font::StrDraw(L"‚PŠK˜L‰º", 16, 16, 32, c2);
 }
