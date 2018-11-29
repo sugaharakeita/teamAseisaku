@@ -37,10 +37,12 @@ void CObjHokenHako::Action()
 		{
 			Hits::DeleteHitBox(this);
 			Hits::SetHitBox(this, m_x, m_y, 64, 64, ELEMENT_FIELD, OBJ_WALL, 1);
-			CObjHokenKey* k = new CObjHokenKey(HeroX,HeroY);
+			CObjHokenKey* k = new CObjHokenKey(HeroX+8,HeroY+8);
 			Objs::InsertObj(k, HOKEN_KEY, 1);
 
 			HokenHakoOpen = true;
+			HokenKey = 1;
+			Message = 4;
 		}
 	}
 

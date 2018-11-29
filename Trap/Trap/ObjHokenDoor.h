@@ -15,6 +15,6 @@ private:
 	float m_x;
 	float m_y;
 	int m_time;
-	bool HIT_flag;
+	int HIT_flag;
 	bool hoken_door;
 };

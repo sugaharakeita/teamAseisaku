@@ -29,15 +29,9 @@ enum HIT_ELEMENTS
 	//属性は追加可能だが、デバック時の色は初期設定分しか無い
 	ELEMENT_PLAYER,
 	ELEMENT_ENEMY,
-	ELEMENT_STAFFROOM,
-	ELEMENT_PRINCIPALOFFICE,
-	ELEMENT_INFIRMARY,
-	ELEMENT_CORRIDOR1_1,
-	ELEMENT_CORRIDOR1_2,
-	ELEMENT_CORRIDOR1_3,
+	ELEMENT_FIELD,
 	ELEMENT_ITEM,
 	ELEMENT_MAGIC,
-	ELEMENT_FIELD,
 	ELEMENT_RED,
 	ELEMENT_GREEN,
 	ELEMENT_BLUE,
@@ -76,12 +70,11 @@ struct UserData
 #include "ObjHero.h"
 #include "ObjClear.h"
 #include "ObjTitle.h"
-#include "ObjEnemy.h"
-#include "ObjGameOver.h"
+#include "ObjPerdecision.h"
+
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
-#include "SceneMain.h"
 #include "SceneStaffroom.h"
 #include "ScenePrincipaloffice.h"
 #include "SceneInfirmary.h"

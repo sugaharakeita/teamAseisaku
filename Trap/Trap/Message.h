@@ -3,15 +3,15 @@
 
 using namespace GameL;
 
-class CObjExcla : public CObj
+class CObjMessage : public CObj
 {
 public:
-	CObjExcla(float x, float y);
-	~CObjExcla() {};
+	CObjMessage(float x, float y);
+	~CObjMessage() {};
 	void Init();
 	void Action();
 	void Draw();
 private:
-	bool t_flag;
-	int m_time;
+	float m_x;
+	float m_y;
 };

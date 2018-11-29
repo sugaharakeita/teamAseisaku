@@ -144,6 +144,18 @@
     <ClInclude Include="KouchouKey.h">
       <Filter>ソース ファイル\仕掛け</Filter>
     </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneKouchou.h">
+      <Filter>ソース ファイル\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjKouchou.h">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClInclude>
+    <ClInclude Include="Hammer.h">
+      <Filter>ソース ファイル\アイテム</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneHoken.cpp">
@@ -253,6 +265,18 @@
     </ClCompile>
     <ClCompile Include="KouchouKey.cpp">
       <Filter>ソース ファイル\仕掛け</Filter>
+    </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneKouchou.cpp">
+      <Filter>ソース ファイル\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjKouchou.cpp">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClCompile>
+    <ClCompile Include="Hammer.cpp">
+      <Filter>ソース ファイル\アイテム</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

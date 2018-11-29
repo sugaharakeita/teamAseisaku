@@ -21,8 +21,14 @@
     <Filter Include="ソース ファイル\GameTitle">
       <UniqueIdentifier>{9d9ddd33-18d4-4e3f-a898-c3d026dd2e2b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GameOver">
-      <UniqueIdentifier>{15a28eb6-3052-45e5-890c-0e242ce871df}</UniqueIdentifier>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision">
+      <UniqueIdentifier>{2871b7ec-af5d-49af-959d-f3b79ec4b14f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameHero">
+      <UniqueIdentifier>{611bd499-ef9f-4fa2-9006-4328518aa34f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage">
+      <UniqueIdentifier>{ec455dc7-6e59-4170-8fd1-288c4b2fd603}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -68,48 +74,6 @@
     <ClCompile Include="GameL\MultiThread.cpp">
       <Filter>リソースファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ObjCorridor1_1.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjCorridor1_2.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjCorridor1_3.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjHero.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjInfirmary.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjPrincipaloffice.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjStaffroom.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneCorridor1_1.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneCorridor1_2.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneCorridor1_3.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneInfirmary.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneMain.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClCompile>
-    <ClCompile Include="ScenePrincipaloffice.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneStaffroom.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClCompile>
     <ClCompile Include="SceneClear.cpp">
       <Filter>ソース ファイル\GameClear</Filter>
     </ClCompile>
@@ -122,14 +86,47 @@
     <ClCompile Include="ObjTitle.cpp">
       <Filter>ソース ファイル\GameTitle</Filter>
     </ClCompile>
-    <ClCompile Include="ObjEnemy.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
+    <ClCompile Include="ObjCorridor1_1.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
     </ClCompile>
-    <ClCompile Include="SceneGameOver.cpp">
-      <Filter>ソース ファイル\GameOver</Filter>
+    <ClCompile Include="ObjCorridor1_2.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
     </ClCompile>
-    <ClCompile Include="ObjGameOver.cpp">
-      <Filter>ソース ファイル\GameOver</Filter>
+    <ClCompile Include="ObjCorridor1_3.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjInfirmary.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjPerdecision.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjPrincipaloffice.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStaffroom.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjHero.cpp">
+      <Filter>ソース ファイル\GameMain\GameHero</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCorridor1_1.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCorridor1_2.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCorridor1_3.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneInfirmary.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenePrincipaloffice.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneStaffroom.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -178,48 +175,6 @@
     <ClInclude Include="GameL\MultiThread.h">
       <Filter>リソースファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ObjCorridor1_1.h">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjCorridor1_2.h">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjCorridor1_3.h">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjHero.h">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjInfirmary.h">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjPrincipaloffice.h">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjStaffroom.h">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneCorridor1_1.h">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneCorridor1_2.h">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneCorridor1_3.h">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneInfirmary.h">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneMain.h">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClInclude>
-    <ClInclude Include="ScenePrincipaloffice.h">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneStaffroom.h">
-      <Filter>ソース ファイル\GameMain</Filter>
-    </ClInclude>
     <ClInclude Include="SceneClear.h">
       <Filter>ソース ファイル\GameClear</Filter>
     </ClInclude>
@@ -231,6 +186,48 @@
     </ClInclude>
     <ClInclude Include="ObjTitle.h">
       <Filter>ソース ファイル\GameTitle</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCorridor1_1.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCorridor1_2.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCorridor1_3.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjInfirmary.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPerdecision.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPrincipaloffice.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStaffroom.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjHero.h">
+      <Filter>ソース ファイル\GameMain\GameHero</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCorridor1_1.h">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCorridor1_2.h">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCorridor1_3.h">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneInfirmary.h">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenePrincipaloffice.h">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStaffroom.h">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
     </ClInclude>
     <ClInclude Include="ObjEnemy.h">
       <Filter>ソース ファイル\GameMain</Filter>

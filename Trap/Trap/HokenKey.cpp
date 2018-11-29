@@ -19,8 +19,6 @@ CObjHokenKey::CObjHokenKey(float x, float y)
 void CObjHokenKey::Init()
 {
 	HOKENDOOR_flag = false;
-	m_ani_time = 0;
-	m_ani_frame = 1;
 	Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_PLAYER, HOKEN_KEY, 1);
 }
 
@@ -28,69 +26,35 @@ void CObjHokenKey::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
-	if (Input::GetVKey('W') == true && UP_flag == false)
+	if (Input::GetVKey('W') == true && UP_flag == false && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 3)
 			;
 		else
-		{
-			HeroY -= 0.0f;
-			flag = 3;
-			m_ani_time += 1;
 			hit->SetPos(HeroX+8, HeroY);
-		}
 	}
-	else if (Input::GetVKey('S') == true && DOWN_flag == false)
+	else if (Input::GetVKey('S') == true && DOWN_flag == false && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 2)
 			;
 		else
-		{
-			HeroY += 0.0f;
-			flag = 2;
-			m_ani_time += 1;
 			hit->SetPos(HeroX+8, HeroY+16);
-		}
 	}
-	else if (Input::GetVKey('A') == true && LEFT_flag == false)
+	else if (Input::GetVKey('A') == true && LEFT_flag == false && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 1)
 			;
 		else
-		{
-			HeroX -= 0.0f;
-			flag = 1;
-			m_ani_time += 1;
 			hit->SetPos(HeroX, HeroY+8);
-		}
 	}
-	else if (Input::GetVKey('D') == true && RIGHT_flag == false)
+	else if (Input::GetVKey('D') == true && RIGHT_flag == false && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 0)
 			;
 		else
-		{
-			HeroX += 0.0f;
-			flag = 0;
-			m_ani_time += 1;
 			hit->SetPos(HeroX+16, HeroY+8);
-		}
-	}
-	else
-	{
-		m_ani_frame = 0;
-		m_ani_time = 0;
 	}
 	
-	if (m_ani_time > 4)
-	{
-		m_ani_frame += 1;
-		m_ani_time = 0;
-	}
-
-	if (m_ani_frame == 4)
-		m_ani_frame = 0;
-
 	if (Hero == true)
 	{
 		this->SetStatus(false);

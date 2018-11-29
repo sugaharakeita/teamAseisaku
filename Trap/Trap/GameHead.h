@@ -11,12 +11,14 @@ enum OBJ_NAME
 	OBJ_MAIN,
 	OBJ_HERO,
 	OBJ_EXCLAMATION,
+	OBJ_MESSAGE,
 	OBJ_KEY,
 	KOUCHOU_KEY,
 	HOKEN_KEY,
 	OBJ_WALL,
 	OBJ_HAKO,
 	KOUCHOU_DOOR,
+	OBJ_HAMMER,
 	SHOKUIN_DOOR,
 	HOKEN_DOOR,
 };
@@ -75,12 +77,15 @@ struct UserData
 #include "ObjHelp.h"
 #include "Hero.h"
 #include "!.h"
+#include "Message.h"
 #include "TrapALL.h"
 #include "ItemALL.h"
 #include "ObjRouka1.h"
 #include "KouchouHako.h"
 #include "KouchouKey.h"
 #include "ObjKouchouDoor.h"
+#include "ObjKouchou.h"
+#include "Hammer.h"
 #include "ObjShokuinDoor.h"
 #include "ObjShokuin.h"
 #include "HokenHako.h"
@@ -93,6 +98,7 @@ struct UserData
 #include "SceneTitle.h"
 #include "SceneHelp.h"
 #include "SceneRouka1.h"
+#include "SceneKouchou.h"
 #include "SceneShokuin.h"
 #include "SceneHoken.h"
 //-----------------------------------------------
