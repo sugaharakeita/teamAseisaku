@@ -32,7 +32,7 @@ void CObjHero::Init()
 	m_hit_right = false;
 	
 	//当たり判定                                プレイヤー
-	Hits::SetHitBox(this, m_px , m_py , 32, 14, ELEMENT_FIELD, OBJ_HERO, 1);
+	Hits::SetHitBox(this, m_px+15 , m_py+20 , 32, 32,ELEMENT_PLAYER, OBJ_HERO, 1);
 	//					横開始 縦開始 横大きさ 縦大きさ 属性 名前
 }
 
@@ -202,97 +202,99 @@ void CObjHero::Action()
 		{
 			m_ani_frame = 0;
 
-			m_vx = m_vx - 4.0f;
+			/*m_vx = m_vx - 4.0f;*/
 		}
 		//左
 		if (m_posture == 1)
 		{
 			m_ani_frame = 0;
 
-			m_vx = m_vx + 4.0f;
+			/*m_vx = m_vx + 4.0f;*/
 		}
 		//下
 		if (m_posture == 2)
 		{
 			m_ani_frame = 0;
 
-			m_vy = m_vy - 4.0f;
+			/*m_vy = m_vy - 4.0f;*/
 		}
 		//上
 		if (m_posture == 3)
 		{
 			m_ani_frame = 0;
 
-			m_vy = m_vy + 4.0f;
+			/*m_vy = m_vy + 4.0f*/;
 		}
 	}
 
 	if (hit->CheckElementHit(ELEMENT_CORRIDOR1_2) == true)
 	{
-		//右
-		if (m_posture == 0)
-		{
-			m_ani_frame = 0;
+		
 
-			m_vx = m_vx - 4.0f;
-		}
-		//左
-		if (m_posture == 1)
-		{
-			m_ani_frame = 0;
+		////右
+		//if (m_posture == 0)
+		//{
+		//	m_ani_frame = 0;
 
-			m_vx = m_vx + 4.0f;
-		}
-		//下
-		if (m_posture == 2)
-		{
-			m_ani_frame = 0;
+		//	m_vx = -0.4;
+		//}
+		////左
+		//if (m_posture == 1)
+		//{
+		//	m_ani_frame = 0;
 
-			m_vy = m_vy - 4.0f;
-		}
-		//上
-		if (m_posture == 3)
-		{
-			m_ani_frame = 0;
+		//	m_vx = +0.4;
+		//}
+		////下
+		//if (m_posture == 2)
+		//{
+		//	m_ani_frame = 0;
 
-			m_vy = m_vy + 4.0f;
-		}
-		//右下
-		if (Input::GetVKey('D') == true && Input::GetVKey('S') == true)
-		{
-			m_posture == 2;
+		//	m_vy = -0.4;
+		//}
+		////上
+		//if (m_posture == 3)
+		//{
+		//	m_ani_frame = 0;
 
-			m_vx = m_vx + 4.0f;
+		//	m_vy = +0.4;
+		//}
+		////右下
+		//if (Input::GetVKey('D') == true && Input::GetVKey('S') == true)
+		//{
+		//	m_posture == 2;
 
-			m_vy = m_vy - 4.0f;
-		}
-		//右上
-		if (Input::GetVKey('D') == true && Input::GetVKey('W') == true)
-		{
-			m_posture == 3;
+		//	m_vx = m_vx + 0.1f;
 
-			m_vx = m_vx - 4.0f;
+		//	m_vy = m_vy - 0.1f;
+		//}
+		////右上
+		//if (Input::GetVKey('D') == true && Input::GetVKey('W') == true)
+		//{
+		//	m_posture == 3;
 
-			m_vy = m_vy + 4.0f;
-		}
-		//左下
-		if (Input::GetVKey('A') == true && Input::GetVKey('S') == true)
-		{
-			m_posture == 2;
+		//	m_vx = m_vx - 0.1f;
 
-			m_vx = m_vx + 4.0f;
+		//	m_vy = m_vy + 0.1f;
+		//}
+		////左下
+		//if (Input::GetVKey('A') == true && Input::GetVKey('S') == true)
+		//{
+		//	m_posture == 2;
 
-			m_vy = m_vy + 4.0f;
-		}
-		//左上
-		if (Input::GetVKey('A') == true && Input::GetVKey('W') == true)
-		{
-			m_posture == 3;
+		//	m_vx = m_vx + 0.1f;
 
-			m_vx = m_vx + 4.0f;
+		//	m_vy = m_vy + 0.1f;
+		//}
+		////左上
+		//if (Input::GetVKey('A') == true && Input::GetVKey('W') == true)
+		//{
+		//	m_posture == 3;
 
-			m_vy = m_vy - 4.0f;
-		}
+		//	m_vx = m_vx + 0.1f;
+
+		//	m_vy = m_vy - 0.1f;
+		//}
 
 	}
 
@@ -329,19 +331,19 @@ void CObjHero::Action()
 	}
 
 
-	if (m_px+64.0f > 800.0f)
-	{
-		m_px = 800.0f - 64.0f;
-	}
-	if (m_py + 64.0f > 600.0f)
-	{
-		m_py = 600.0f - 64.0f;
-	}
+	//if (m_px+64.0f > 800.0f)
+	//{
+	//	m_px = 800.0f -64.0f;
+	//}
+	//else if (m_py + 64.0f > 600.0f)
+	//{
+	//	m_py = 600.0f - 64.0f;
+	//}
 	if (m_px < 0.0f)
 	{
 		m_px = 0.0f;
 	}
-	if (m_py < 0.0f)
+	else if (m_py < 0.0f)
 	{
 		m_py = 0.0f;
 	}
@@ -353,7 +355,15 @@ void CObjHero::Action()
 
 	
 	//作成したHitBox更新用の入り口を取り出す
-	hit->SetPos(m_px + 16, m_py + 50);//入り口から新しい位置（主人公の位置）情報に置き換える
+	hit->SetPos(m_px + 15, m_py + 20);//入り口から新しい位置（主人公の位置）情報に置き換える
+
+	//敵機オブジェクトと接触したら主人公機削除
+	if (hit->CheckObjNameHit(OBJ_ENEMY) !=nullptr)
+	{
+    	this->SetStatus(false);    //自身に削除命令を出す
+		Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
+    	Scene::SetScene(new CSceneGameOver());
+	}
 }
 
 

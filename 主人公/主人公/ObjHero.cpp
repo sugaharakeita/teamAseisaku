@@ -85,15 +85,263 @@ void CObjHero::Action()
 	{
 		m_ani_frame = 0;
 	}
+	//自身のHitBoxを持ってくる
+	CHitBox* hit = Hits::GetHitBox(this);
+	if (hit->CheckElementHit(ELEMENT_STAFFROOM) == true)
+	{
+		//右
+		if (m_posture == 0)
+		{
+			m_ani_frame = 0;
+
+			m_vx = m_vx - 4.0f;
+		}
+		//左
+		if (m_posture == 1)
+		{
+			m_ani_frame = 0;
+
+			m_vx = m_vx + 4.0f;
+		}
+		//下
+		if (m_posture == 2)
+		{
+			m_ani_frame = 0;
+
+			m_vy = m_vy - 4.0f;
+		}
+		//上
+		if (m_posture == 3)
+		{
+			m_ani_frame = 0;
+
+			m_vy = m_vy + 4.0f;
+		}
+	}
+
+	if (hit->CheckElementHit(ELEMENT_PRINCIPALOFFICE) == true)
+	{
+		//右
+		if (m_posture == 0)
+		{
+			m_ani_frame = 0;
+
+			m_vx = m_vx - 4.0f;
+		}
+		//左
+		if (m_posture == 1)
+		{
+			m_ani_frame = 0;
+
+			m_vx = m_vx + 4.0f;
+		}
+		//下
+		if (m_posture == 2)
+		{
+			m_ani_frame = 0;
+
+			m_vy = m_vy - 4.0f;
+		}
+		//上
+		if (m_posture == 3)
+		{
+			m_ani_frame = 0;
+
+			m_vy = m_vy + 4.0f;
+		}
+	}
+
+	if (hit->CheckElementHit(ELEMENT_INFIRMARY) == true)
+	{
+		//右
+		if (m_posture == 0)
+		{
+			m_ani_frame = 0;
+
+			m_vx = m_vx - 4.0f;
+		}
+		//左
+		if (m_posture == 1)
+		{
+			m_ani_frame = 0;
+
+			m_vx = m_vx + 4.0f;
+		}
+		//下
+		if (m_posture == 2)
+		{
+			m_ani_frame = 0;
+
+			m_vy = m_vy - 4.0f;
+		}
+		//上
+		if (m_posture == 3)
+		{
+			m_ani_frame = 0;
+
+			m_vy = m_vy + 4.0f;
+		}
+	}
+
+	if (hit->CheckElementHit(ELEMENT_CORRIDOR1_1) == true)
+	{
+		//右
+		if (m_posture == 0)
+		{
+			m_ani_frame = 0;
+
+			m_vx = m_vx - 4.0f;
+		}
+		//左
+		if (m_posture == 1)
+		{
+			m_ani_frame = 0;
+
+			m_vx = m_vx + 4.0f;
+		}
+		//下
+		if (m_posture == 2)
+		{
+			m_ani_frame = 0;
+
+			m_vy = m_vy - 4.0f;
+		}
+		//上
+		if (m_posture == 3)
+		{
+			m_ani_frame = 0;
+
+			m_vy = m_vy + 4.0f;
+		}
+	}
+
+	if (hit->CheckElementHit(ELEMENT_CORRIDOR1_2) == true)
+	{
+		//右
+		if (m_posture == 0)
+		{
+			m_ani_frame = 0;
+
+			m_vx = m_vx - 4.0f;
+		}
+		//左
+		if (m_posture == 1)
+		{
+			m_ani_frame = 0;
+
+			m_vx = m_vx + 4.0f;
+		}
+		//下
+		if (m_posture == 2)
+		{
+			m_ani_frame = 0;
+
+			m_vy = m_vy - 4.0f;
+		}
+		//上
+		if (m_posture == 3)
+		{
+			m_ani_frame = 0;
+
+			m_vy = m_vy + 4.0f;
+		}
+		//右下
+		if (Input::GetVKey('D') == true && Input::GetVKey('S') == true)
+		{
+			m_posture == 2;
+
+			m_vx = m_vx + 4.0f;
+
+			m_vy = m_vy - 4.0f;
+		}
+		//右上
+		if (Input::GetVKey('D') == true && Input::GetVKey('W') == true)
+		{
+			m_posture == 3;
+
+			m_vx = m_vx - 4.0f;
+
+			m_vy = m_vy + 4.0f;
+		}
+		//左下
+		if (Input::GetVKey('A') == true && Input::GetVKey('S') == true)
+		{
+			m_posture == 2;
+
+			m_vx = m_vx + 4.0f;
+
+			m_vy = m_vy + 4.0f;
+		}
+		//左上
+		if (Input::GetVKey('A') == true && Input::GetVKey('W') == true)
+		{
+			m_posture == 3;
+
+			m_vx = m_vx + 4.0f;
+
+			m_vy = m_vy - 4.0f;
+		}
+
+	}
+
+	if (hit->CheckElementHit(ELEMENT_CORRIDOR1_3) == true)
+	{
+		//右
+		if (m_posture == 0)
+		{
+			m_ani_frame = 0;
+
+			m_vx = m_vx - 4.0f;
+		}
+		//左
+		if (m_posture == 1)
+		{
+			m_ani_frame = 0;
+
+			m_vx = m_vx + 4.0f;
+		}
+		//下
+		if (m_posture == 2)
+		{
+			m_ani_frame = 0;
+
+			m_vy = m_vy - 4.0f;
+		}
+		//上
+		if (m_posture == 3)
+		{
+			m_ani_frame = 0;
+
+			m_vy = m_vy + 4.0f;
+		}
+	}
+
+
+	if (m_px + 64.0f > 800.0f)
+	{
+		m_px = 800.0f - 64.0f;
+	}
+	if (m_py + 64.0f > 600.0f)
+	{
+		m_py = 600.0f - 64.0f;
+	}
+	if (m_px < 0.0f)
+	{
+		m_px = 0.0f;
+	}
+	if (m_py < 0.0f)
+	{
+		m_py = 0.0f;
+	}
 
 	
 	//位置の更新
 	m_px += m_vx;
 	m_py += m_vy;
 
-	//HitBoxの内容を更新
-	CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
-	hit->SetPos(m_px+15, m_py+20);      //入り口から新しい位置（主人公の位置）情報に置き換える
+	////HitBoxの内容を更新
+	//CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
+	//hit->SetPos(m_px+15, m_py+20);      //入り口から新しい位置（主人公の位置）情報に置き換える
 
 	////敵機オブジェクトと接触したら主人公機削除
 	//if (hit->CheckObjNameHit(OBJ_ENEMY) !=nullptr)
