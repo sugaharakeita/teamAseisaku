@@ -30,6 +30,7 @@ void CSceneRouka1::InitScene()
 	Draw::LoadImage(L"òLâ∫1-2.png", 5, TEX_SIZE_512);
 	Draw::LoadImage(L"òLâ∫1-3.png", 6, TEX_SIZE_512);
 	Draw::LoadImage(L"çZí∑é∫.png", 7, TEX_SIZE_512);
+	Draw::LoadImage(L"êEàıé∫.png", 8, TEX_SIZE_512);
 	Draw::LoadImage(L"ï€åíé∫èCê≥î≈.png", 9, TEX_SIZE_512);
 	CObjRouka1* r = new CObjRouka1();
 	Objs::InsertObj(r, SPOT_ROUKA1, 0);
@@ -41,7 +42,7 @@ void CSceneRouka1::InitScene()
 			CObjHero* h = new CObjHero(736.0f, HeroY);
 		CObjKouchouDoor* d0 = new CObjKouchouDoor(756.0f, 16.0f);
 		Objs::InsertObj(d0, KOUCHOU_DOOR, 1);
-		CObjShokuinDoor* d1 = new CObjShokuinDoor(110.0f, 494.0f);
+		CObjShokuinDoor* d1 = new CObjShokuinDoor(114.0f, 494.0f);
 		Objs::InsertObj(d1, SHOKUIN_DOOR, 1);
 		CObjHokenHako* b2 = new CObjHokenHako(384.0f, 432.0f);
 		Objs::InsertObj(b2, OBJ_HAKO, 1);
@@ -53,7 +54,7 @@ void CSceneRouka1::InitScene()
 			CObjHero* h = new CObjHero(64.0f, HeroY);
 		else if(Rouka1CR==1)
 			CObjHero* h = new CObjHero(736.0f, HeroY);
-		CObjShokuinDoor* d2 = new CObjShokuinDoor(498.0f, 494.0f);
+		CObjShokuinDoor* d2 = new CObjShokuinDoor(502.0f, 494.0f);
 		Objs::InsertObj(d2, SHOKUIN_DOOR, 1);
 
 	}
@@ -73,7 +74,7 @@ void CSceneRouka1::InitScene()
 	{
 		if (Rouka1CR == 1)
 			CObjHero* h = new CObjHero(64.0f, HeroY);
-		CObjHokenDoor* d3 = new CObjHokenDoor(588.0f, 16.0f);
+		CObjHokenDoor* d3 = new CObjHokenDoor(210.0f, 16.0f);
 		Objs::InsertObj(d3, HOKEN_DOOR, 1);
 		
 	}

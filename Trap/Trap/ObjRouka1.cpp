@@ -107,7 +107,7 @@ void CObjRouka1::Action()
 		if (HeroX > 756.0f)
 		{
 			Rouka1R = room[3] = 1;
-			room[1] = 0;
+			room[2] = 0;
 			Scene::SetScene(new CSceneRouka1());
 		}
 		if (HeroY < 96.0f)
@@ -124,7 +124,7 @@ void CObjRouka1::Action()
 		if (HeroX < -20.0f)
 		{
 			room[3] = 0;
-			Rouka1CR = room[1] = 1;
+			Rouka1CR = room[2] = 1;
 			Scene::SetScene(new CSceneRouka1());
 		}
 		if (HeroX > 736.0f)
