@@ -26,10 +26,7 @@ public :
 	void SetVY(float vy) { m_vy = vy; }
 	void SetVX(float vx) { m_vx = vx; }
 
-	void SetUp(bool b) { m_hit_up = b; }
-	void SetDown(bool b) { m_hit_down = b; }
-	void SetLeft(bool b) { m_hit_left = b; }
-	void SetRight(bool b) { m_hit_down = b; }
+	
 
 
 
@@ -40,16 +37,15 @@ private:
 	float m_vx;  //移動ベクトル
 	float m_vy;
 	float m_posture; //姿勢
-	
+	/*
+	float m_ax;
+	float m_bx;*/
+
 
 	int m_ani_time; //アニメーションフレーム動作間隔
 	int m_ani_frame;//描画フレーム
 
-	//blockとの衝突確認用
-	bool m_hit_up;
-	bool m_hit_down;
-	bool m_hit_left;
-	bool m_hit_right;
+	
 };
 
 
