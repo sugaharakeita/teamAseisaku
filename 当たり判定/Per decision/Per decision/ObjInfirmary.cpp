@@ -15,40 +15,37 @@ using namespace GameL;
 void CObjInfirmary::Init()
 {
 	//上壁
-	Hits::SetHitBox(this, 0.0f, 0.0f, 800, 15, ELEMENT_INFIRMARY, OBJ_INFIRMARY, 9);
+	Hits::SetHitBox(this, 0.0f, 0.0f, 800, 15, ELEMENT_FIELD, OBJ_INFIRMARY, 9);
 
 	//机
-	Hits::SetHitBox(this, 15.0f, 15.0f, 60, 205, ELEMENT_INFIRMARY, OBJ_INFIRMARY, 9);
+	Hits::SetHitBox(this, 15.0f, 15.0f, 60, 205, ELEMENT_FIELD, OBJ_INFIRMARY, 9);
 
 	//カーテン・ベット（３つ分）
-	Hits::SetHitBox(this, 305.0f, 15.0f, 405, 210, ELEMENT_INFIRMARY, OBJ_INFIRMARY, 9);
+	Hits::SetHitBox(this, 305.0f, 15.0f, 405, 210, ELEMENT_FIELD, OBJ_INFIRMARY, 9);
 
 	//椅子1
-	Hits::SetHitBox(this, 100.0f, 145.0f, 25, 55, ELEMENT_INFIRMARY, OBJ_INFIRMARY, 9);
+	Hits::SetHitBox(this, 100.0f, 145.0f, 25, 55, ELEMENT_FIELD, OBJ_INFIRMARY, 9);
 
 	//椅子2
-	Hits::SetHitBox(this, 105.0f, 255.0f, 20, 50, ELEMENT_INFIRMARY, OBJ_INFIRMARY, 9);
+	Hits::SetHitBox(this, 105.0f, 255.0f, 20, 50, ELEMENT_FIELD, OBJ_INFIRMARY, 9);
 
 	//机
-	Hits::SetHitBox(this, 340.0f, 335.0f, 50, 200, ELEMENT_INFIRMARY, OBJ_INFIRMARY, 9);
+	Hits::SetHitBox(this, 340.0f, 335.0f, 50, 200, ELEMENT_FIELD, OBJ_INFIRMARY, 9);
 
 	//ソファ
-	Hits::SetHitBox(this, 482.0f, 322.0f, 53, 213, ELEMENT_INFIRMARY, OBJ_INFIRMARY, 9);
+	Hits::SetHitBox(this, 482.0f, 322.0f, 53, 213, ELEMENT_FIELD, OBJ_INFIRMARY, 9);
 
 	//体重計
-	Hits::SetHitBox(this, 690.0f, 430.0f, 35, 150, ELEMENT_INFIRMARY, OBJ_INFIRMARY, 9);
+	Hits::SetHitBox(this, 690.0f, 430.0f, 35, 150, ELEMENT_FIELD, OBJ_INFIRMARY, 9);
 
 	//身長測定器
-	Hits::SetHitBox(this, 725.0f, 375.0f, 60, 205, ELEMENT_INFIRMARY, OBJ_INFIRMARY, 9);
+	Hits::SetHitBox(this, 725.0f, 375.0f, 60, 205, ELEMENT_FIELD, OBJ_INFIRMARY, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 0.0f, 585.0f, 80, 10, ELEMENT_INFIRMARY, OBJ_INFIRMARY, 9);
-
-	//下ドア
-	//Hits::SetHitBox(this, 80.0f, 599.0f, 73, 1, ELEMENT_INFIRMARY, OBJ_INFIRMARY, 9);
+	Hits::SetHitBox(this, 0.0f, 585.0f, 80, 10, ELEMENT_FIELD, OBJ_INFIRMARY, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 153.0f, 585.0f, 647, 10, ELEMENT_INFIRMARY, OBJ_INFIRMARY, 9);
+	Hits::SetHitBox(this, 153.0f, 585.0f, 647, 10, ELEMENT_FIELD, OBJ_INFIRMARY, 9);
 
 }
 
@@ -60,6 +57,7 @@ void CObjInfirmary::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+	//画面端下に行くと廊下1-3へ移動
 	if (hy + 64.0f > 600.0f && 80.0f < hx < 153.0f)
 	{
 		Scene::SetScene(new CSceneCorridor1_3());

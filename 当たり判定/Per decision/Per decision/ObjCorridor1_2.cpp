@@ -15,37 +15,37 @@ using namespace GameL;
 void CObjCorridor1_2::Init()
 {
 	//上壁
-	Hits::SetHitBox(this, 0.0f, 0.0f, 140, 180, ELEMENT_CORRIDOR1_2, OBJ_CORRIDOR1_2, 9);
+	Hits::SetHitBox(this, 0.0f, 0.0f, 140, 180, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
 
 	//上壁
-	Hits::SetHitBox(this, 140.0f, 0.0f, 1, 180, ELEMENT_CORRIDOR1_2, OBJ_CORRIDOR1_2, 9);
+	Hits::SetHitBox(this, 140.0f, 0.0f, 1, 180, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
 
 	//階段
-	//Hits::SetHitBox(this, 130.0f, 0.0f, 200, 1, ELEMENT_CORRIDOR1_2, OBJ_CORRIDOR1_2, 9);
+	//Hits::SetHitBox(this, 130.0f, 0.0f, 200, 1, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
 	
 	//上壁
-	Hits::SetHitBox(this, 331.0f, 0.0f, 1, 180, ELEMENT_CORRIDOR1_2, OBJ_CORRIDOR1_2, 9);
+	Hits::SetHitBox(this, 331.0f, 0.0f, 1, 180, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
 	
 	//ダンボール
-	Hits::SetHitBox(this, 333.0f, 0.0f, 204, 150, ELEMENT_CORRIDOR1_2, OBJ_CORRIDOR1_2, 9);
+	Hits::SetHitBox(this, 333.0f, 0.0f, 204, 150, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
 
 	//上壁
-	Hits::SetHitBox(this, 537.0f, 0.0f, 280, 180, ELEMENT_CORRIDOR1_2, OBJ_CORRIDOR1_2, 9);
+	Hits::SetHitBox(this, 537.0f, 0.0f, 280, 180, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 0.0f, 500.0f, 200, 100, ELEMENT_CORRIDOR1_2, OBJ_CORRIDOR1_2, 9);
+	Hits::SetHitBox(this, 0.0f, 500.0f, 200, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
 
 	//出入り口1
-	Hits::SetHitBox(this, 200.0f, 600.0f, 155, 1, ELEMENT_CORRIDOR1_2, OBJ_CORRIDOR1_2, 9);
+	Hits::SetHitBox(this, 200.0f, 600.0f, 155, 1, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
 	
 	//下壁
-	Hits::SetHitBox(this, 355.0f, 500.0f, 130, 100, ELEMENT_CORRIDOR1_2, OBJ_CORRIDOR1_2, 9);
+	Hits::SetHitBox(this, 355.0f, 500.0f, 130, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
 
 	//出入り口2
-	Hits::SetHitBox(this, 485.0f, 600.0f, 125, 1, ELEMENT_CORRIDOR1_2, OBJ_CORRIDOR1_2, 9);
+	Hits::SetHitBox(this, 485.0f, 600.0f, 125, 1, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 610.0f, 500.0f, 200, 100, ELEMENT_CORRIDOR1_2, OBJ_CORRIDOR1_2, 9);
+	Hits::SetHitBox(this, 610.0f, 500.0f, 200, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
 
 }
 
@@ -58,15 +58,19 @@ void CObjCorridor1_2::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+	//画面端左に行くと廊下1-1へ移動
 	if (hx < 0.0f)
 	{
 		Scene::SetScene(new CSceneCorridor1_1());
 	}
+
+	//画面端右に行くと廊下1-3へ移動
 	if (hx+64.0f > 800.0f)
 	{
 		Scene::SetScene(new CSceneCorridor1_3());
 	}
 
+	//画面端上に行くとクリア画面へ
 	if (hy < 0.0f)
 	{
 		Scene::SetScene(new CSceneClear());
