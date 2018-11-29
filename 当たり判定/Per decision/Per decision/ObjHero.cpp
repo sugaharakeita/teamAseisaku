@@ -33,7 +33,7 @@ void CObjHero::Init()
 	
 	//当たり判定                                プレイヤー
 	Hits::SetHitBox(this, m_px , m_py , 32, 14, ELEMENT_FIELD, OBJ_HERO, 1);
-	//					横開始 縦開始 横大きさ 縦大きさ 属性 名前
+	//横開始 縦開始 横大きさ 縦大きさ 属性 名前
 }
 
 //アクション
