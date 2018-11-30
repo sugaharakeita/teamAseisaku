@@ -7,14 +7,11 @@
 #include "SwitchALL.h"
 //ヒーロー関係
 bool Hero;
-int HERO = 3;
-int HeroStop;
-float HeroX;
+int HERO = 3;//主人公の向き
+int HeroStop;//主人公の動きを止める。数字によって止まる向きが変わる。４なら止まらない
+float HeroX;//主人公のＸ座標を取得する
 float HeroY;
-bool UP_flag;
-bool DOWN_flag;
-bool LEFT_flag;
-bool RIGHT_flag;
+//以下主人公のヒットフラグ
 bool HIT_flag;
 bool HAKO_flag;
 bool DOOR_flag;
@@ -23,7 +20,8 @@ bool ITEM_flag;
 int Message;
 //部屋関係。LCRはそれぞれ左側、中央側、右側を示す。
 int Title;
-int room[32];
+int room[32];//切り替え用
+//切り替え用。roomとは別に動く
 int Rouka1L;
 int Rouka1CL;
 int Rouka1CR;
@@ -55,10 +53,4 @@ void CObjSwitchALL::Draw()
 	dst.m_left = 0.0f + m_x;
 	dst.m_right = 800.0f + m_x;
 	dst.m_bottom = 64.0f + m_y;
-
-	if(HokenHakoOpen==true)
-	{
-		Draw::Draw(7, &src, &dst, c, 0.0f);
-		Font::StrDraw(L"保健室のカギを手に入れた", 260, 220, 96, c);
-	}
 }

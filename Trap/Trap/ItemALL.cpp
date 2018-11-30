@@ -5,8 +5,8 @@
 #include "GameHead.h"
 #include "ItemALL.h"
 
+//アイテム所持個数と使用状況
 int KouchouKey;
-bool KouchouKey_flag;
 int HokenKey;
 int Hammer;
 bool Ham_flag;

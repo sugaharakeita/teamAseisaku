@@ -25,7 +25,7 @@ void CSceneRouka1::InitScene()
 	Draw::LoadImage(L"メッセージウィンドウ.png", 0, TEX_SIZE_512);
 	Draw::LoadImage(L"001.png", 1, TEX_SIZE_512);
 	Draw::LoadImage(L"!.png", 2, TEX_SIZE_512);
-	Draw::LoadImage(L"箱.png", 3, TEX_SIZE_512);
+	Draw::LoadImage(L"アイテム.png", 3, TEX_SIZE_512);
 	Draw::LoadImage(L"廊下1-1.png", 4, TEX_SIZE_512);
 	Draw::LoadImage(L"廊下1-2.png", 5, TEX_SIZE_512);
 	Draw::LoadImage(L"廊下1-3.png", 6, TEX_SIZE_512);

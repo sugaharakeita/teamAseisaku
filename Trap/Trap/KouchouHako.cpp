@@ -35,7 +35,7 @@ void CObjKouchouHako::Action()
 		if (Input::GetVKey(VK_RETURN) == true)
 		{
 			Hits::DeleteHitBox(this);
-			Hits::SetHitBox(this, m_x, m_y, 64, 64, ELEMENT_FIELD, OBJ_WALL, 1);
+			Hits::SetHitBox(this, m_x, m_y, 64, 64, ELEMENT_FIELD, OBJ_WALL, 1);//ただの置物になるため、！を出させない
 			CObjKouchouKey* k = new CObjKouchouKey(HeroX+8, HeroY+8);
 			Objs::InsertObj(k, KOUCHOU_KEY, 1);
 

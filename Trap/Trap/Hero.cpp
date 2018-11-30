@@ -17,7 +17,7 @@ CObjHero::CObjHero(float x, float y)
 
 void CObjHero::Init()
 {
-	Hero = false;//グローバル変数。主人公が生成されていることを示す。
+	Hero = true;//グローバル変数。主人公が生成されていることを示す。
 	t_flag = false;
 	m_time = 0;
 	m_ani_time = 0;
@@ -30,7 +30,7 @@ void CObjHero::Action()
 	CHitBox*hit = Hits::GetHitBox(this);
 	hit->SetPos(HeroX + 24, HeroY + 48);
 
-	if (Input::GetVKey('W') == true && UP_flag == false && Message == 0)
+	if (Input::GetVKey('W') == true && Message == 0)
 		{
 		if (HIT_flag == true || t_flag == true || HeroStop == 3)
 				;
@@ -41,7 +41,7 @@ void CObjHero::Action()
 				m_ani_time += 1;
 			}
 		}
-		else if (Input::GetVKey('S') == true && DOWN_flag == false && Message == 0)
+		else if (Input::GetVKey('S') == true && Message == 0)
 		{
 			if (HIT_flag == true || t_flag == true || HeroStop == 2)
 				;
@@ -52,7 +52,7 @@ void CObjHero::Action()
 				m_ani_time += 1;
 			}
 		}
-		else if (Input::GetVKey('A') == true && LEFT_flag == false && Message == 0)
+		else if (Input::GetVKey('A') == true && Message == 0)
 		{
 			if (HIT_flag == true || t_flag == true || HeroStop == 1)
 				;
@@ -63,7 +63,7 @@ void CObjHero::Action()
 				m_ani_time += 1;
 			}
 		}
-		else if (Input::GetVKey('D') == true && RIGHT_flag == false && Message == 0)
+		else if (Input::GetVKey('D') == true && Message == 0)
 		{
 			if (HIT_flag == true || t_flag == true || HeroStop == 0)
 				;
@@ -91,20 +91,9 @@ void CObjHero::Action()
 
 	if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
 	{
-		Hero = true;
+		Hero = false;//敵とぶつかると喪失する
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-	}
-	
-	if (Input::GetVKey(VK_RETURN) == true && DOOR_flag == true)
-		t_flag = true;
-	
-	if (t_flag == true)
-		m_time++;
-	if (m_time >= 79)
-	{
-		UP_flag = DOWN_flag = LEFT_flag = RIGHT_flag = t_flag = false;
-		m_time = 0;
 	}
 }
 

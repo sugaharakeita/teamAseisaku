@@ -36,6 +36,8 @@ void CObjHammer::Action()
 		{
 			Hammer = 1;
 			Hits::DeleteHitBox(this);
+			CObjHammer* i = new CObjHammer(HeroX + 8, HeroY + 8);
+			Objs::InsertObj(i, OBJ_HAMMER, 1);
 			Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_PLAYER, OBJ_HAMMER, 1);
 			hit->SetPos(HeroX+8, HeroY+8);
 			Message = 6;
@@ -44,28 +46,28 @@ void CObjHammer::Action()
 
 	if (Hammer == 1)
 	{
-		if (Input::GetVKey('W') == true && UP_flag == false && Message == 0)
+		if (Input::GetVKey('W') == true && Message == 0)
 		{
 			if (HIT_flag == true || t_flag == true || HeroStop == 3)
 				;
 			else
 				hit->SetPos(HeroX + 8, HeroY);
 		}
-		else if (Input::GetVKey('S') == true && DOWN_flag == false && Message == 0)
+		else if (Input::GetVKey('S') == true && Message == 0)
 		{
 			if (HIT_flag == true || t_flag == true || HeroStop == 2)
 				;
 			else
 				hit->SetPos(HeroX + 8, HeroY + 16);
 		}
-		else if (Input::GetVKey('A') == true && LEFT_flag == false && Message == 0)
+		else if (Input::GetVKey('A') == true && Message == 0)
 		{
 			if (HIT_flag == true || t_flag == true || HeroStop == 1)
 				;
 			else
 				hit->SetPos(HeroX, HeroY + 8);
 		}
-		else if (Input::GetVKey('D') == true && RIGHT_flag == false && Message == 0)
+		else if (Input::GetVKey('D') == true && Message == 0)
 		{
 			if (HIT_flag == true || t_flag == true || HeroStop == 0)
 				;
@@ -73,7 +75,7 @@ void CObjHammer::Action()
 				hit->SetPos(HeroX + 16, HeroY + 8);
 		}
 		
-		if (Hero == true)
+		if (Hero == false)
 		{
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);
@@ -106,10 +108,10 @@ void CObjHammer::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	src.m_top = 64.0f;
-	src.m_left = 448.0f;
-	src.m_right = 512.0f;
-	src.m_bottom = 128.0f;
+	src.m_top = 0.0f;
+	src.m_left = 33.0f;
+	src.m_right = 48.0f;
+	src.m_bottom = 16.0f;
 
 	dst.m_top = 0.0f + m_y;
 	dst.m_left = 0.0f + m_x;
