@@ -4,11 +4,11 @@
 
 using namespace GameL;
 
-class CObjHokenKey :public CObj
+class CObjHammer :public CObj
 {
 public:
-	CObjHokenKey(float x, float y);
-	~CObjHokenKey() {};
+	CObjHammer(float x, float y);
+	~CObjHammer() {};
 	void Init();
 	void Action();
 	void Draw();
@@ -17,7 +17,7 @@ private:
 	float m_y;
 	float m_vx;
 	bool m_del;
-	bool HOKENDOOR_flag;
+	bool HIT_flag;
 	bool t_flag;
 	int m_time;
 	RECT_F m_eff;

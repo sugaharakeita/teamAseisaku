@@ -27,19 +27,19 @@ void CObjKouchouDoor::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
-	if (KouchouDoorOpen == true)
+	if (KouchouDoorOpen == true)//鍵開け済み
 	{
 		if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-			HIT_flag = 2;
+			HIT_flag = 2;//開けることができる
 		else
 			HIT_flag = 0;
 	}
 	else
 	{
 		if (hit->CheckObjNameHit(KOUCHOU_KEY) != nullptr)
-			HIT_flag = 2;
+			HIT_flag = 2;//鍵を開ける
 		else if(hit->CheckElementHit(ELEMENT_PLAYER) == true)
-			HIT_flag = 1;
+			HIT_flag = 1;//鍵がなくて開けられない
 		else
 			HIT_flag = 0;
 	}
@@ -50,12 +50,12 @@ void CObjKouchouDoor::Action()
 		{
 			kouchou_door = true;
 			Hits::DeleteHitBox(this);
-			Hits::SetHitBox(this, 0, 0, 800, 600, ELEMENT_FIELD, OBJ_WALL, 1);
+			Hits::SetHitBox(this, 0, 0, 800, 600, ELEMENT_FIELD, OBJ_WALL, 1);//自動移動
 			hit->SetPos(0, 0);
 
 			if (KouchouDoorOpen == false)
 			{
-				Message = 3;
+				Message = 3;//３番にセットしたメッセージを表示する
 				KouchouDoorOpen = true;
 			}
 		}
@@ -96,7 +96,7 @@ void CObjKouchouDoor::Draw()
 		
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
-	else
+	else//開けると部屋が見える
 	{
 		src.m_top = 653.0f;
 		src.m_left = 341.0f;

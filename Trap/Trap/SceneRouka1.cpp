@@ -25,7 +25,7 @@ void CSceneRouka1::InitScene()
 	Draw::LoadImage(L"メッセージウィンドウ.png", 0, TEX_SIZE_512);
 	Draw::LoadImage(L"001.png", 1, TEX_SIZE_512);
 	Draw::LoadImage(L"!.png", 2, TEX_SIZE_512);
-	Draw::LoadImage(L"箱.png", 3, TEX_SIZE_512);
+	Draw::LoadImage(L"アイテム.png", 3, TEX_SIZE_512);
 	Draw::LoadImage(L"廊下1-1.png", 4, TEX_SIZE_512);
 	Draw::LoadImage(L"廊下1-2.png", 5, TEX_SIZE_512);
 	Draw::LoadImage(L"廊下1-3.png", 6, TEX_SIZE_512);
@@ -80,18 +80,18 @@ void CSceneRouka1::InitScene()
 	}
 	//パターンに関係なく生まれるもの
 	Objs::InsertObj(h, OBJ_HERO, 2);
-	CObjExcla* x = new CObjExcla(HeroX,HeroY);
+	CObjExcla* x = new CObjExcla(HeroX+8,HeroY+8);
 	Objs::InsertObj(x, OBJ_EXCLAMATION, 2);
 	CObjMessage* m = new CObjMessage(12.0f, 476.0f);
 	Objs::InsertObj(m, OBJ_MESSAGE, 3);
 	if (KouchouKey == 1)
 	{
-		CObjKouchouKey* k = new CObjKouchouKey(HeroX, HeroY);
+		CObjKouchouKey* k = new CObjKouchouKey(HeroX+8, HeroY+8);
 		Objs::InsertObj(k, KOUCHOU_KEY, 1);
 	}
 	if (HokenKey == 1)
 	{
-		CObjHokenKey* k2 = new CObjHokenKey(HeroX, HeroY);
+		CObjHokenKey* k2 = new CObjHokenKey(HeroX+8, HeroY+8);
 		Objs::InsertObj(k2, HOKEN_KEY, 1);
 	}
 

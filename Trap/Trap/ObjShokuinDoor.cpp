@@ -32,7 +32,6 @@ void CObjShokuinDoor::Action()
 		{
 			if (Input::GetVKey(VK_RETURN) == true)
 			{
-				m_x -= 64;
 				shokuin_door = true;
 				Hits::DeleteHitBox(this);
 				Hits::SetHitBox(this, 0, 0, 800, 600, ELEMENT_FIELD, OBJ_WALL, 1);
@@ -79,7 +78,7 @@ void CObjShokuinDoor::Draw()
 	else
 	{
 		src.m_top = 128.0f;
-		src.m_left = 36.0f;
+		src.m_left = 0.0f;
 		src.m_right = 74.0f;
 		src.m_bottom = 208.0f;
 
