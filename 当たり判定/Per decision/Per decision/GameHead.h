@@ -71,7 +71,8 @@ struct UserData
 #include "ObjClear.h"
 #include "ObjTitle.h"
 #include "ObjPerdecision.h"
-
+#include "ObjEnemy.h"
+#include "ObjGameOver.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

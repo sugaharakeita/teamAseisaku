@@ -30,7 +30,7 @@ CSceneTitle::~CSceneTitle()
 //初期化メゾット
 void CSceneTitle::InitScene()
 {
-	Font::SetStrTex(L"School Horror");
+	Font::SetStrTex(L"School");
 	Font::SetStrTex(L"Enterキーでスタート");
 
 

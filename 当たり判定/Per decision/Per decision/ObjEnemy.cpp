@@ -48,8 +48,14 @@ void CObjEnemy::Init()
 	m_speed_power = 0.5f;
 	m_ani_max_time = 4;
 
+	//衝突状態確認用初期化
+	m_hit_up = false;
+	m_hit_down = false;
+	m_hit_left = false;
+	m_hit_right = false;
+
 	//当たり判定用HitBoxを作成
-	Hits::SetHitBox(this, m_px, m_py+35, 45, 30, ELEMENT_ENEMY, OBJ_ENEMY,1);
+	Hits::SetHitBox(this, m_px, m_py+35, 45, 60, ELEMENT_ENEMY, OBJ_ENEMY,1);
 }
 
 //アクション
@@ -68,41 +74,88 @@ void CObjEnemy::Action()
 	int x = obj->GetX()- m_px ;
 	int y = obj->GetY()- m_py ;
 
-
-
-
-	int ar = atan2(y,x)*180.0f / 3.14;
-
-	if (ar < 0)
-	{
-		ar = 360 + ar;
-
-	}
 	
-	if (ar >= 45 && ar < 136)//上 45度以上　136度未満
+	static int   count = 0;
+	static float br = 0.0f;
+	count++;
+	if (count > 30)
+	{
+		count = 0;
+		int ar = atan2(y, x)*180.0f / 3.14;
+
+		if (ar < 0)
+		{
+			ar = 360 + ar;
+		}
+		br = ar;
+	}
+
+		if (br >= 45 && br < 136)//上 45度以上　136度未満
+		{
+
+			m_vy += m_speed_power;
+			m_posture = 0.0f;
+			m_ani_time += 1;
+		}
+		else if (br > 0 && br < 45 || br >= 315) //右　0度以上かつ45度未満　315度以上
+		{
+			m_vx += m_speed_power;
+			m_posture = 1.0f;
+			m_ani_time += 1;
+		}
+		else if (br > 225 && br < 316)//下　225度以上　316未満
+		{
+			m_vy -= m_speed_power;
+			m_posture = 2.0f;
+			m_ani_time += 1;
+		}
+		else if (br >= 135 && br <= 225)//左　135度以上　225度未満
+		{
+			m_vx -= m_speed_power;
+			m_posture = 3.0f;
+			m_ani_time += 1;
+		}
+	
+	//自身のHitBoxを持ってくる
+	CHitBox* hit = Hits::GetHitBox(this);
+
+	//主人公がステージの当たり判定に当たった時の処理（全ステージ対応）
+	if (hit->CheckElementHit(ELEMENT_FIELD) == true)
 	{
 
-		m_vy += m_speed_power;
-		m_posture = 0.0f;
-		m_ani_time += 1;
-	}
-	else if (ar > 0 && ar < 45 || ar >= 315) //右　0度以上かつ45度未満　315度以上
-	{
-		m_vx += m_speed_power;
-		m_posture = 1.0f;
-		m_ani_time += 1;
-	}
-	else if (ar > 225 && ar < 316)//下　225度以上　316未満
-	{
-		m_vy -= m_speed_power;
-		m_posture = 2.0f;
-		m_ani_time += 1;
-	}
-	else if (ar >= 135 && ar <= 225)//左　135度以上　225度未満
-	{
-		m_vx -= m_speed_power;
-		m_posture = 3.0f;
-		m_ani_time += 1;
+		//上下左右判定
+		//角度を求める
+
+		//右に当たり判定があった場合
+		if (m_hit_left == true)
+		{
+			
+
+			m_vx = m_vx - 4.0f;
+		}
+
+		//左に当たり判定があった場合
+		if (m_hit_right == true)
+		{
+			
+
+			m_vx = m_vx + 4.0f;
+		}
+
+		//下に当たり判定があった場合
+		if (m_hit_down == true)
+		{
+			
+
+			m_vy = m_vy + 4.0f;
+		}
+
+		//上に当たり判定があった場合
+		if (m_hit_up == true)
+		{
+			
+			m_vy = m_vy - 4.0f;
+		}
 	}
 	
 	
@@ -124,7 +177,7 @@ void CObjEnemy::Action()
 	m_py += m_vy*1.75;
 
 	//HitBoxの内容を更新
-	CHitBox* hit = Hits::GetHitBox(this);
+	
 	hit -> SetPos(m_px, m_py+35);
 
 }

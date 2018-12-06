@@ -33,5 +33,9 @@ class CObjEnemy	: public CObj
 		float m_speed_power;	//スピードパワー
 		float m_ani_max_time;	//アニメーション動作間隔最大値
 
-		
+		//衝突状態確認用初期化
+		bool m_hit_up = false;
+		bool m_hit_down = false;
+		bool m_hit_left = false;
+		bool m_hit_right = false;
 };
