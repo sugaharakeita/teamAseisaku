@@ -81,6 +81,8 @@ void CObjHero::Action()
 	{
 		m_vy = 0.0f;
 		m_posture = 3;
+		m_ani_frame = 0;
+		m_ani_time = 0;
 	}
 
 	//左キーかつ当たり判定と当たっている場合
@@ -88,6 +90,8 @@ void CObjHero::Action()
 	{
 		m_vx = 0.0f;
 		m_posture = 1;
+		m_ani_frame = 0;
+		m_ani_time = 0;
 	}
 
 	//下キーかつ当たり判定と当たっている場合
@@ -95,6 +99,8 @@ void CObjHero::Action()
 	{
 		m_vy = 0.0f;
 		m_posture = 2;
+		m_ani_frame = 0;
+		m_ani_time = 0;
 	}
 
 	//右キーかつ当たり判定と当たっている場合
@@ -102,7 +108,12 @@ void CObjHero::Action()
 	{
 		m_vx = 0.0f;
 		m_posture = 0;
+		m_ani_frame = 0;
+		m_ani_time = 0;
 	}
+
+
+	//キー入力が無い場合
 	else
 	{
 		m_ani_frame = 0; //キー入力が無い場合は静止フレームにする
@@ -133,7 +144,7 @@ void CObjHero::Action()
 	if (hit->CheckElementHit(ELEMENT_FIELD) == true)
 	{
 
-		//右に当たり判定があった場合
+		//右キーを押した場合
 		if (Input::GetVKey('D') == true)
 		{
 			m_vx -= 4.0f;
@@ -143,7 +154,7 @@ void CObjHero::Action()
 			m_hit_down = false;
 		}
 
-		//左に当たり判定があった場合
+		//左キーを押した場合
 		if (Input::GetVKey('A') == true)
 		{
 			m_vx += 4.0f;
@@ -153,7 +164,7 @@ void CObjHero::Action()
 			m_hit_left = false;
 		}
 
-		//下に当たり判定があった場合
+		//下キーを押した場合
 		if (Input::GetVKey('S') == true)
 		{
 			m_vy -= 4.0f;
@@ -163,7 +174,7 @@ void CObjHero::Action()
 			m_hit_left = false;
 		}
 
-		//上に当たり判定があった場合
+		//上キーを押した場合
 		if (Input::GetVKey('W') == true)
 		{
 			m_vy += 4.0f;
@@ -173,53 +184,54 @@ void CObjHero::Action()
 			m_hit_left = false;
 		}
 
-		//上・左に当たり判定があった場合
+		//上・左キーを押した場合
 		if (Input::GetVKey('W') == true &&
 			Input::GetVKey('A') == true)
 		{
-			m_vx += 4.0f;
-			m_vy += 4.0f;
+			m_vx = 0.0f;
+			m_vy = 0.0f;
 			m_hit_up = true;
 			m_hit_right = true;
 			m_hit_down = false;
 			m_hit_left = false;
 		}
 
-		//上・右に当たり判定があった場合
+		//上・右キーを押した場合
 		if (Input::GetVKey('W') == true &&
 			Input::GetVKey('D') == true)
 		{
-			m_vx -= 4.0f;
-			m_vy += 4.0f;
+			m_vx = 0.0f;
+			m_vy = 0.0f;
 			m_hit_up = true;
 			m_hit_left = true;
 			m_hit_right = false;
 			m_hit_down = false;
 		}
 
-		//下・左に当たり判定があった場合
+		//下・左キーを押した場合
 		if (Input::GetVKey('S') == true &&
 			Input::GetVKey('A') == true)
 		{
-			m_vx += 4.0f;
-			m_vy -= 4.0f;
+			m_vx = 0.0f;
+			m_vy = 0.0f;
 			m_hit_down = true;
 			m_hit_right = true;
 			m_hit_up = false;
 			m_hit_left = false;
 		}
 
-		//下・右に当たり判定があった場合
+		//下・右キーを押した場合
 		if (Input::GetVKey('S') == true &&
 			Input::GetVKey('D') == true)
 		{
-			m_vx -= 4.0f;
-			m_vy -= 4.0f;
+			m_vx = 0.0f;
+			m_vy = 0.0f;
 			m_hit_down = true;
 			m_hit_left = true;
 			m_hit_up = false;
 			m_hit_right = false;
 		}
+
 	}
 
 	//画面外に出ないようにする処理
