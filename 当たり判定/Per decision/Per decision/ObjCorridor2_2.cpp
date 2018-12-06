@@ -21,10 +21,6 @@ void CObjCorridor2_2::Init()
 	Hits::SetHitBox(this, 140.0f, 0.0f, 1, 180, ELEMENT_FIELD, OBJ_CORRIDOR2_2, 9);
 
 	//階段1
-	if (Input::GetVKey(VK_RETURN) == false)
-	{
-		Hits::SetHitBox(this, 141.0f, 50.0f, 200, 1, ELEMENT_FIELD, OBJ_CORRIDOR2_2, 9);
-	}
 
 	//上壁
 	Hits::SetHitBox(this, 331.0f, 0.0f, 16, 180, ELEMENT_FIELD, OBJ_CORRIDOR2_2, 9);
@@ -65,7 +61,7 @@ void CObjCorridor2_2::Action()
 	}
 
 	//画面端上に行くとクリア画面
-	if (hy < 0.0f && 130.0f < hx < 331.0f)
+	if (hy < 0.0f && Input::GetVKey(VK_RETURN) == true)
 	{
 		Scene::SetScene(new CSceneClear());
 	}

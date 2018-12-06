@@ -64,7 +64,6 @@ void CObjHero::Action()
 	//下キーかつ当たり判定と当たっていない場合
 	else if (Input::GetVKey('S') == true && m_hit_down == false)
 	{
-
 		m_vy = +4.0f;
 		m_posture = 2;
 		m_ani_time += 1;
@@ -77,33 +76,43 @@ void CObjHero::Action()
 		m_posture = 0;
 		m_ani_time += 1;
 	}
+	//上キーかつ当たり判定と当たっている場合
+	else if (Input::GetVKey('W') == true && m_hit_up == true)
+	{
+		m_vy = 0.0f;
+		m_posture = 3;
+	}
+
+	//左キーかつ当たり判定と当たっている場合
+	else if (Input::GetVKey('A') == true && m_hit_right == true)
+	{
+		m_vx = 0.0f;
+		m_posture = 1;
+	}
+
+	//下キーかつ当たり判定と当たっている場合
+	else if (Input::GetVKey('S') == true && m_hit_down == true)
+	{
+		m_vy = 0.0f;
+		m_posture = 2;
+	}
+
+	//右キーかつ当たり判定と当たっている場合
+	else if (Input::GetVKey('D') == true && m_hit_left == true)
+	{
+		m_vx = 0.0f;
+		m_posture = 0;
+	}
 	else
 	{
 		m_ani_frame = 0; //キー入力が無い場合は静止フレームにする
 		m_ani_time = 0;
-	}
-
-	//キー入力がない場合
-	//上
-	if (Input::GetVKey('W') == false)
-	{
 		m_hit_up = false;
-	}
-	//左
-	if (Input::GetVKey('A') == false)
-	{
+		m_hit_down = false;
+		m_hit_left = false;
 		m_hit_right = false;
 	}
-	//下
-	if (Input::GetVKey('S') == false)
-	{
-		m_hit_down = false;
-	}
-	//右
-	if (Input::GetVKey('D') == false)
-	{
-		m_hit_left = false;
-	}
+	
 
 	if (m_ani_time > 4)
 	{
@@ -123,36 +132,93 @@ void CObjHero::Action()
 	//主人公がステージの当たり判定に当たった時の処理（全ステージ対応）
 	if (hit->CheckElementHit(ELEMENT_FIELD) == true)
 	{
+
 		//右に当たり判定があった場合
 		if (Input::GetVKey('D') == true)
 		{
+			m_vx -= 4.0f;
 			m_hit_left = true;
-
-			m_vx = m_vx - 4.0f;
+			m_hit_up = false;
+			m_hit_right = false;
+			m_hit_down = false;
 		}
 
 		//左に当たり判定があった場合
 		if (Input::GetVKey('A') == true)
 		{
+			m_vx += 4.0f;
 			m_hit_right = true;
-
-			m_vx = m_vx + 4.0f;
+			m_hit_up = false;
+			m_hit_down = false;
+			m_hit_left = false;
 		}
 
 		//下に当たり判定があった場合
 		if (Input::GetVKey('S') == true)
 		{
+			m_vy -= 4.0f;
 			m_hit_down = true;
-
-			m_vy = m_vy - 4.0f;
+			m_hit_up = false;
+			m_hit_right = false;
+			m_hit_left = false;
 		}
 
 		//上に当たり判定があった場合
 		if (Input::GetVKey('W') == true)
 		{
+			m_vy += 4.0f;
 			m_hit_up = true;
+			m_hit_right = false;
+			m_hit_down = false;
+			m_hit_left = false;
+		}
 
-			m_vy = m_vy + 4.0f;
+		//上・左に当たり判定があった場合
+		if (Input::GetVKey('W') == true &&
+			Input::GetVKey('A') == true)
+		{
+			m_vx += 4.0f;
+			m_vy += 4.0f;
+			m_hit_up = true;
+			m_hit_right = true;
+			m_hit_down = false;
+			m_hit_left = false;
+		}
+
+		//上・右に当たり判定があった場合
+		if (Input::GetVKey('W') == true &&
+			Input::GetVKey('D') == true)
+		{
+			m_vx -= 4.0f;
+			m_vy += 4.0f;
+			m_hit_up = true;
+			m_hit_left = true;
+			m_hit_right = false;
+			m_hit_down = false;
+		}
+
+		//下・左に当たり判定があった場合
+		if (Input::GetVKey('S') == true &&
+			Input::GetVKey('A') == true)
+		{
+			m_vx += 4.0f;
+			m_vy -= 4.0f;
+			m_hit_down = true;
+			m_hit_right = true;
+			m_hit_up = false;
+			m_hit_left = false;
+		}
+
+		//下・右に当たり判定があった場合
+		if (Input::GetVKey('S') == true &&
+			Input::GetVKey('D') == true)
+		{
+			m_vx -= 4.0f;
+			m_vy -= 4.0f;
+			m_hit_down = true;
+			m_hit_left = true;
+			m_hit_up = false;
+			m_hit_right = false;
 		}
 	}
 

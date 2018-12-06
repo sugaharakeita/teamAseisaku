@@ -71,7 +71,7 @@ void CObjCorridor1_2::Action()
 	}
 
 	//‰æ–Ê’[ã‚És‚­‚Æ˜L‰º2-2‚ÖˆÚ“®
-	if (hy < 0.0f)
+	if (hy < 0.0f && Input::GetVKey(VK_RETURN) == true)
 	{
 		Scene::SetScene(new CSceneCorridor2_2());
 	}
