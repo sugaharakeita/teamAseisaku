@@ -39,15 +39,9 @@ void CSceneInfirmary::InitScene()
 	CObjInfirmary* objb = new CObjInfirmary();
 	Objs::InsertObj(objb, OBJ_INFIRMARY, 9);
 
-	//敵オブジェクト作成
-	CObjEnemy* objh = new CObjEnemy(0, 0);
-	Objs::InsertObj(objh, OBJ_ENEMY, 10);
 
 	//グラフィック読み込み
-	Draw::LoadImage(L"二宮金次郎透過.png", 10, TEX_SIZE_512);
-
-	//グラフィック読み込み
-	Draw::LoadImage(L"HeroTouka.png", 1, TEX_SIZE_512);
+	Draw::LoadImage(L"主人公.png", 1, TEX_SIZE_512);
 
 	Draw::LoadImage(L"保健室修正版.png", 9, TEX_SIZE_512);
 

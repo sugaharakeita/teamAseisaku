@@ -76,8 +76,8 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(obj, OBJ_HERO, 10);
 
 	//blockオブジェクト作成
-	CObjBlock* objb = new CObjBlock(map);
-	Objs::InsertObj(objb, OBJ_BLOCK, 9);
+	/*CObjBlock* objb = new CObjBlock(map);
+	Objs::InsertObj(objb, OBJ_BLOCK, 9);*/
 
 	//敵オブジェクト作成
 	CObjEnemy* obje = new CObjEnemy(0,0);

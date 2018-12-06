@@ -20,6 +20,7 @@ enum OBJ_NAME
 	OBJ_CORRIDOR2_3,
 	OBJ_CLEAR,
 	OBJ_TITLE,
+	OBJ_GAME_OVER,
 };
 //------------------------------------------------
 
@@ -76,7 +77,8 @@ struct UserData
 #include "ObjClear.h"
 #include "ObjTitle.h"
 #include "ObjPerdecision.h"
-
+#include "ObjEnemy.h"
+#include "ObjGameOver.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
@@ -91,6 +93,7 @@ struct UserData
 #include "SceneCorridor2_3.h"
 #include "SceneClear.h"
 #include "SceneTitle.h"
+#include "SceneGameOver.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
@@ -107,5 +110,6 @@ struct UserData
 #define SET_GAME_START  CSceneCorridor2_3
 #define SET_GAME_START  CSceneClear
 */
+
 #define SET_GAME_START  CSceneTitle
 //-----------------------------------------------

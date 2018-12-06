@@ -37,9 +37,7 @@ private:
 	float m_vx;  //移動ベクトル
 	float m_vy;
 	float m_posture; //姿勢
-	/*
-	float m_ax;
-	float m_bx;*/
+	
 
 
 	int m_ani_time; //アニメーションフレーム動作間隔
