@@ -15,8 +15,12 @@ enum OBJ_NAME
 	OBJ_CORRIDOR1_1,
 	OBJ_CORRIDOR1_2,
 	OBJ_CORRIDOR1_3,
+	OBJ_CORRIDOR2_1,
+	OBJ_CORRIDOR2_2,
+	OBJ_CORRIDOR2_3,
 	OBJ_CLEAR,
 	OBJ_TITLE,
+	OBJ_GAME_OVER,
 };
 //------------------------------------------------
 
@@ -28,15 +32,9 @@ enum HIT_ELEMENTS
 	//属性は追加可能だが、デバック時の色は初期設定分しか無い
 	ELEMENT_PLAYER,
 	ELEMENT_ENEMY,
-	ELEMENT_STAFFROOM,
-	ELEMENT_PRINCIPALOFFICE,
-	ELEMENT_INFIRMARY,
-	ELEMENT_CORRIDOR1_1,
-	ELEMENT_CORRIDOR1_2,
-	ELEMENT_CORRIDOR1_3,
+	ELEMENT_FIELD,
 	ELEMENT_ITEM,
 	ELEMENT_MAGIC,
-	ELEMENT_FIELD,
 	ELEMENT_RED,
 	ELEMENT_GREEN,
 	ELEMENT_BLUE,
@@ -72,11 +70,15 @@ struct UserData
 #include "ObjCorridor1_1.h"
 #include "ObjCorridor1_2.h"
 #include "ObjCorridor1_3.h"
+#include "ObjCorridor2_1.h"
+#include "ObjCorridor2_2.h"
+#include "ObjCorridor2_3.h"
 #include "ObjHero.h"
 #include "ObjClear.h"
 #include "ObjTitle.h"
 #include "ObjPerdecision.h"
-
+#include "ObjEnemy.h"
+#include "ObjGameOver.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
@@ -86,8 +88,12 @@ struct UserData
 #include "SceneCorridor1_1.h"
 #include "SceneCorridor1_2.h"
 #include "SceneCorridor1_3.h"
+#include "SceneCorridor2_1.h"
+#include "SceneCorridor2_2.h"
+#include "SceneCorridor2_3.h"
 #include "SceneClear.h"
 #include "SceneTitle.h"
+#include "SceneGameOver.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
@@ -99,7 +105,11 @@ struct UserData
 #define SET_GAME_START  CSceneCorridor1_1
 #define SET_GAME_START  CSceneCorridor1_2
 #define SET_GAME_START  CSceneCorridor1_3
+#define SET_GAME_START  CSceneCorridor2_1
+#define SET_GAME_START  CSceneCorridor2_2
+#define SET_GAME_START  CSceneCorridor2_3
 #define SET_GAME_START  CSceneClear
 */
+
 #define SET_GAME_START  CSceneTitle
 //-----------------------------------------------

@@ -25,11 +25,12 @@ void CSceneRouka1::InitScene()
 	Draw::LoadImage(L"メッセージウィンドウ.png", 0, TEX_SIZE_512);
 	Draw::LoadImage(L"001.png", 1, TEX_SIZE_512);
 	Draw::LoadImage(L"!.png", 2, TEX_SIZE_512);
-	Draw::LoadImage(L"箱.png", 3, TEX_SIZE_512);
+	Draw::LoadImage(L"アイテム.png", 3, TEX_SIZE_512);
 	Draw::LoadImage(L"廊下1-1.png", 4, TEX_SIZE_512);
 	Draw::LoadImage(L"廊下1-2.png", 5, TEX_SIZE_512);
 	Draw::LoadImage(L"廊下1-3.png", 6, TEX_SIZE_512);
 	Draw::LoadImage(L"校長室.png", 7, TEX_SIZE_512);
+	Draw::LoadImage(L"職員室.png", 8, TEX_SIZE_512);
 	Draw::LoadImage(L"保健室修正版.png", 9, TEX_SIZE_512);
 	CObjRouka1* r = new CObjRouka1();
 	Objs::InsertObj(r, SPOT_ROUKA1, 0);
@@ -41,7 +42,7 @@ void CSceneRouka1::InitScene()
 			CObjHero* h = new CObjHero(736.0f, HeroY);
 		CObjKouchouDoor* d0 = new CObjKouchouDoor(756.0f, 16.0f);
 		Objs::InsertObj(d0, KOUCHOU_DOOR, 1);
-		CObjShokuinDoor* d1 = new CObjShokuinDoor(110.0f, 494.0f);
+		CObjShokuinDoor* d1 = new CObjShokuinDoor(114.0f, 494.0f);
 		Objs::InsertObj(d1, SHOKUIN_DOOR, 1);
 		CObjHokenHako* b2 = new CObjHokenHako(384.0f, 432.0f);
 		Objs::InsertObj(b2, OBJ_HAKO, 1);
@@ -53,7 +54,7 @@ void CSceneRouka1::InitScene()
 			CObjHero* h = new CObjHero(64.0f, HeroY);
 		else if(Rouka1CR==1)
 			CObjHero* h = new CObjHero(736.0f, HeroY);
-		CObjShokuinDoor* d2 = new CObjShokuinDoor(498.0f, 494.0f);
+		CObjShokuinDoor* d2 = new CObjShokuinDoor(502.0f, 494.0f);
 		Objs::InsertObj(d2, SHOKUIN_DOOR, 1);
 
 	}
@@ -73,24 +74,24 @@ void CSceneRouka1::InitScene()
 	{
 		if (Rouka1CR == 1)
 			CObjHero* h = new CObjHero(64.0f, HeroY);
-		CObjHokenDoor* d3 = new CObjHokenDoor(588.0f, 16.0f);
+		CObjHokenDoor* d3 = new CObjHokenDoor(210.0f, 16.0f);
 		Objs::InsertObj(d3, HOKEN_DOOR, 1);
 		
 	}
 	//パターンに関係なく生まれるもの
 	Objs::InsertObj(h, OBJ_HERO, 2);
-	CObjExcla* x = new CObjExcla(HeroX,HeroY);
+	CObjExcla* x = new CObjExcla(HeroX+8,HeroY+8);
 	Objs::InsertObj(x, OBJ_EXCLAMATION, 2);
 	CObjMessage* m = new CObjMessage(12.0f, 476.0f);
 	Objs::InsertObj(m, OBJ_MESSAGE, 3);
 	if (KouchouKey == 1)
 	{
-		CObjKouchouKey* k = new CObjKouchouKey(HeroX, HeroY);
+		CObjKouchouKey* k = new CObjKouchouKey(HeroX+8, HeroY+8);
 		Objs::InsertObj(k, KOUCHOU_KEY, 1);
 	}
 	if (HokenKey == 1)
 	{
-		CObjHokenKey* k2 = new CObjHokenKey(HeroX, HeroY);
+		CObjHokenKey* k2 = new CObjHokenKey(HeroX+8, HeroY+8);
 		Objs::InsertObj(k2, HOKEN_KEY, 1);
 	}
 

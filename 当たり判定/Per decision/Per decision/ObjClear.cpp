@@ -13,14 +13,18 @@ using namespace GameL;
 //イニシャライズ
 void CObjClear::Init()
 {
+	//キーフラグ初期化
 	m_key_flag = false;
 }
 
 //アクション
 void CObjClear::Action()
 {
+	//Enterキーを押したとき
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
+		//キーフラグがtrueになった時、タイトル表示
+		//その後キーフラグ初期化
 		if (m_key_flag == true)
 		{
 			Scene::SetScene(new CSceneTitle());

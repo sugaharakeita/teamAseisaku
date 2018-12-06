@@ -39,9 +39,15 @@ void CSceneCorridor1_2::InitScene()
 	CObjCorridor1_2* objb = new CObjCorridor1_2();
 	Objs::InsertObj(objb, OBJ_CORRIDOR1_2, 9);
 
+	//敵オブジェクト作成
+	CObjEnemy* objh = new CObjEnemy(0, 0);
+	Objs::InsertObj(objh, OBJ_ENEMY, 10);
 
 	//グラフィック読み込み
-	Draw::LoadImage(L"主人公.png", 1, TEX_SIZE_512);
+	Draw::LoadImage(L"二宮金次郎透過.png", 10, TEX_SIZE_512);
+
+	//グラフィック読み込み
+	Draw::LoadImage(L"HeroTouka.png", 1, TEX_SIZE_512);
 
 	Draw::LoadImage(L"廊下1-2.png", 9, TEX_SIZE_512);
 }

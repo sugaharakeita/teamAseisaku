@@ -18,10 +18,7 @@ private:
 	float m_vx;
 	bool m_del;
 	bool HOKENDOOR_flag;
-	int flag;
 	bool t_flag;
 	int m_time;
-	int m_ani_time;
-	int m_ani_frame;
 	RECT_F m_eff;
 };

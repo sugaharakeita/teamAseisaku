@@ -91,7 +91,7 @@ void CObjHokenDoor::Draw()
 	
 		dst.m_top = 0.0f + m_y;
 		dst.m_left = 0.0f + m_x;
-		dst.m_right = 32.0f + m_x;
+		dst.m_right = 74.0f + m_x;
 		dst.m_bottom = 160.0f + m_y;
 		
 		Draw::Draw(4, &src, &dst, c, 0.0f);
@@ -105,7 +105,7 @@ void CObjHokenDoor::Draw()
 
 		dst.m_top = 0.0f + m_y;
 		dst.m_left = 0.0f + m_x;
-		dst.m_right = 128.0f + m_x;
+		dst.m_right = 74.0f + m_x;
 		dst.m_bottom = 160.0f + m_y;
 
 		Draw::Draw(9, &src, &dst, c, 0.0f);

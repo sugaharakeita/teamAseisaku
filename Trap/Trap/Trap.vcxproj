@@ -125,6 +125,7 @@
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WICTextureLoader.h" />
     <ClInclude Include="GameL\WinInputs.h" />
+    <ClInclude Include="Hammer.h" />
     <ClInclude Include="HokenHako.h" />
     <ClInclude Include="HokenKey.h" />
     <ClInclude Include="ItemALL.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WICTextureLoader.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
+    <ClCompile Include="Hammer.cpp" />
     <ClCompile Include="HokenHako.cpp" />
     <ClCompile Include="HokenKey.cpp" />
     <ClCompile Include="ItemALL.cpp" />

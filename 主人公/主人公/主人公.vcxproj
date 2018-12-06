@@ -33,7 +33,9 @@
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WICTextureLoader.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
-    <ClCompile Include="ObjBlock.cpp" />
+    <ClCompile Include="ObjBlock.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="ObjEnemy.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
     <ClCompile Include="ObjHero.cpp" />
@@ -64,10 +66,9 @@
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WICTextureLoader.h" />
     <ClInclude Include="GameL\WinInputs.h" />
-    <ClInclude Include="ObjMap2.h" />
-    <ClInclude Include="ObjMap3.h" />
-    <ClInclude Include="SceneMain2.h" />
-    <ClInclude Include="ObjBlock.h" />
+    <ClInclude Include="ObjBlock.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="ObjEnemy.h" />
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjHero.h" />
