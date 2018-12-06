@@ -23,7 +23,7 @@ void CObjExcla::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
-	if (Input::GetVKey('W') == true && UP_flag == false && Message == 0)
+	if (Input::GetVKey('W') == true && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 3)
 			;
@@ -33,7 +33,7 @@ void CObjExcla::Action()
 			hit->SetPos(HeroX + 8, HeroY);
 		}
 	}
-	else if (Input::GetVKey('S') == true && DOWN_flag == false && Message == 0)
+	else if (Input::GetVKey('S') == true && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 2)
 			;
@@ -43,7 +43,7 @@ void CObjExcla::Action()
 			hit->SetPos(HeroX + 8, HeroY + 16);
 		}
 	}
-	else if (Input::GetVKey('A') == true && LEFT_flag == false && Message == 0)
+	else if (Input::GetVKey('A') == true && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 1)
 			;
@@ -53,7 +53,7 @@ void CObjExcla::Action()
 			hit->SetPos(HeroX, HeroY + 8);
 		}
 	}
-	else if (Input::GetVKey('D') == true && RIGHT_flag == false && Message == 0)
+	else if (Input::GetVKey('D') == true && Message == 0)
 	{
 		if (HIT_flag == true || t_flag ==true || HeroStop == 0)
 			;
@@ -71,47 +71,43 @@ void CObjExcla::Action()
 		Hits::DeleteHitBox(this);
 	}
 
-	if (Hero == true)
+	if (Hero == false)//ŽålŒö‚ª‘rŽ¸‚·‚ê‚Î‚±‚ê‚ç‚à‘rŽ¸‚·‚é
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 	}
 
-	if (Input::GetVKey(VK_RETURN) == true && DOOR_flag == true)
-		UP_flag = DOWN_flag = LEFT_flag = RIGHT_flag = t_flag = true;
 	if (hit->CheckElementHit(ELEMENT_FIELD) == true
 		|| hit->CheckElementHit(ELEMENT_OBJECT) == true
 		|| hit->CheckElementHit(ELEMENT_ITEM) == true)
 		HeroStop = HERO;
 	else
-	{
-		UP_flag = DOWN_flag = LEFT_flag = RIGHT_flag = false;
 		HeroStop = 4;
-	}
 	
-	if (t_flag == true)
-		m_time++;
-	if (m_time >= 79)
-	{
-		UP_flag = DOWN_flag = LEFT_flag = RIGHT_flag = t_flag = false;
-		m_time = 0;
-	}
-
 	if (hit->CheckElementHit(ELEMENT_DOOR) == true)
 	{
 		DOOR_flag = true;
 		HeroStop = HERO;
 	}
 	else
+	{
 		DOOR_flag = false;
+		HeroStop = 4;
+	}
 	if (hit->CheckObjNameHit(OBJ_HAKO) != nullptr)
 		HAKO_flag = true;
 	else
+	{
 		HAKO_flag = false;
+		HeroStop = 4;
+	}
 	if (hit->CheckElementHit(ELEMENT_ITEM) == true)
 		ITEM_flag = true;
 	else
+	{
 		ITEM_flag = false;
+		HeroStop = 4;
+	}
 }
 
 void CObjExcla::Draw()

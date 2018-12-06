@@ -13,14 +13,17 @@ using namespace GameL;
 //イニシャライズ
 void CObjTitle::Init()
 {
-	m_key_flag = false;
+	m_key_flag = false; //キーフラグ初期化
 }
 
 //アクション
 void CObjTitle::Action()
 {
+	//Enterキーを押したとき
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
+		//キーフラグがtrueになった時、廊下1-2表示
+		//その後キーフラグ初期化
 		if (m_key_flag == true)
 		{
 			Scene::SetScene(new CSceneCorridor1_2());

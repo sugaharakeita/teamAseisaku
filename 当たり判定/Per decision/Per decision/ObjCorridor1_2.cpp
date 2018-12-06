@@ -70,10 +70,10 @@ void CObjCorridor1_2::Action()
 		Scene::SetScene(new CSceneCorridor1_3());
 	}
 
-	//画面端上に行くとクリア画面へ
-	if (hy < 0.0f)
+	//画面端上に行くと廊下2-2へ移動
+	if (hy < 0.0f && Input::GetVKey(VK_RETURN) == true)
 	{
-		Scene::SetScene(new CSceneClear());
+		Scene::SetScene(new CSceneCorridor2_2());
 	}
 
 }

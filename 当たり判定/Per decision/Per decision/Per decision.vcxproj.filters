@@ -128,14 +128,23 @@
     <ClCompile Include="SceneStaffroom.cpp">
       <Filter>ソース ファイル\GameMain\GameStage</Filter>
     </ClCompile>
-    <ClCompile Include="ObjGameOver.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="SceneCorridor2_2.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
     </ClCompile>
-    <ClCompile Include="SceneGameOver.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="ObjCorridor2_2.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
     </ClCompile>
-    <ClCompile Include="ObjEnemy.cpp">
-      <Filter>ソース ファイル\GameMain</Filter>
+    <ClCompile Include="SceneCorridor2_1.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjCorridor2_1.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCorridor2_3.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjCorridor2_3.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -238,14 +247,23 @@
     <ClInclude Include="SceneStaffroom.h">
       <Filter>ソース ファイル\GameMain\GameStage</Filter>
     </ClInclude>
-    <ClInclude Include="ObjEnemy.h">
-      <Filter>ソース ファイル\GameMain</Filter>
+    <ClInclude Include="SceneCorridor2_2.h">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
     </ClInclude>
-    <ClInclude Include="ObjGameOver.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="ObjCorridor2_2.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
     </ClInclude>
-    <ClInclude Include="SceneGameOver.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="SceneCorridor2_1.h">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCorridor2_1.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCorridor2_3.h">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCorridor2_3.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

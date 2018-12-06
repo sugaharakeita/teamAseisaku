@@ -20,7 +20,7 @@ void CObjMessage::Init()
 void CObjMessage::Action()
 {
 	if (Message != 0 && Input::GetVKey(VK_BACK) == true)
-		Message = 0;
+		Message = 0;//表示を消す。
 }
 
 void CObjMessage::Draw()
@@ -41,7 +41,7 @@ void CObjMessage::Draw()
 	dst.m_bottom = 128.0f + m_y;
 
 	if (Message == 0)
-		;
+		;//０の時は表示しない。
 	else if (Message == 1)
 	{
 		Draw::Draw(0, &src, &dst, c, 0.0f);

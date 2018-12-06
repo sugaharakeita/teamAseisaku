@@ -26,28 +26,28 @@ void CObjHokenKey::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
-	if (Input::GetVKey('W') == true && UP_flag == false && Message == 0)
+	if (Input::GetVKey('W') == true && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 3)
 			;
 		else
 			hit->SetPos(HeroX+8, HeroY);
 	}
-	else if (Input::GetVKey('S') == true && DOWN_flag == false && Message == 0)
+	else if (Input::GetVKey('S') == true && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 2)
 			;
 		else
 			hit->SetPos(HeroX+8, HeroY+16);
 	}
-	else if (Input::GetVKey('A') == true && LEFT_flag == false && Message == 0)
+	else if (Input::GetVKey('A') == true && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 1)
 			;
 		else
 			hit->SetPos(HeroX, HeroY+8);
 	}
-	else if (Input::GetVKey('D') == true && RIGHT_flag == false && Message == 0)
+	else if (Input::GetVKey('D') == true && Message == 0)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 0)
 			;
@@ -55,7 +55,7 @@ void CObjHokenKey::Action()
 			hit->SetPos(HeroX+16, HeroY+8);
 	}
 	
-	if (Hero == true)
+	if (Hero == false)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
