@@ -1,4 +1,3 @@
-
 //使用するヘッダーファイル
 #include "GameL\DrawTexture.h"
 #include "GameL\WinInputs.h"
@@ -31,8 +30,8 @@ void CObjHero::Init()
 	m_hit_left = false;
 	m_hit_right = false;
 	
-	//当たり判定                                プレイヤー
-	Hits::SetHitBox(this, m_px+15 , m_py+20 , 32, 40, ELEMENT_PLAYER, OBJ_HERO, 1);
+	//当たり判定                                
+	Hits::SetHitBox(this, m_px , m_py , 32, 10, ELEMENT_PLAYER, OBJ_HERO, 1);
 	//					横開始 縦開始 横大きさ 縦大きさ 属性 名前
 }
 
@@ -258,8 +257,8 @@ void CObjHero::Action()
 
 	
 	//作成したHitBox更新用の入り口を取り出す
-	hit->SetPos(m_px + 15, m_py + 20);//入り口から新しい位置（主人公の位置）情報に置き換える
-
+	hit->SetPos(m_px + 15, m_py + 50);//入り口から新しい位置（主人公の位置）情報に置き換える
+	/*
 	//敵機オブジェクトと接触したら主人公機削除
 	if (hit->CheckObjNameHit(OBJ_ENEMY) !=nullptr)
 	{
@@ -267,6 +266,7 @@ void CObjHero::Action()
 		Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
     	Scene::SetScene(new CSceneGameOver());
 	}
+	*/
 }
 
 

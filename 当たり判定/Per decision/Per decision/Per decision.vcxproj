@@ -138,6 +138,8 @@
     </ClCompile>
     <ClCompile Include="ObjCorridor2_2.cpp" />
     <ClCompile Include="ObjCorridor2_3.cpp" />
+    <ClCompile Include="ObjEnemy.cpp" />
+    <ClCompile Include="ObjGameOver.cpp" />
     <ClCompile Include="ObjHero.cpp" />
     <ClCompile Include="ObjInfirmary.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -165,6 +167,7 @@
     <ClCompile Include="SceneCorridor2_1.cpp" />
     <ClCompile Include="SceneCorridor2_2.cpp" />
     <ClCompile Include="SceneCorridor2_3.cpp" />
+    <ClCompile Include="SceneGameOver.cpp" />
     <ClCompile Include="SceneInfirmary.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
@@ -205,6 +208,8 @@
     </ClInclude>
     <ClInclude Include="ObjCorridor2_2.h" />
     <ClInclude Include="ObjCorridor2_3.h" />
+    <ClInclude Include="ObjEnemy.h" />
+    <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjHero.h" />
     <ClInclude Include="ObjInfirmary.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -232,6 +237,7 @@
     <ClInclude Include="SceneCorridor2_1.h" />
     <ClInclude Include="SceneCorridor2_2.h" />
     <ClInclude Include="SceneCorridor2_3.h" />
+    <ClInclude Include="SceneGameOver.h" />
     <ClInclude Include="SceneInfirmary.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>

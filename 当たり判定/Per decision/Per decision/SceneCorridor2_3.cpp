@@ -7,6 +7,7 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\DrawFont.h"
 #include "GameL\UserData.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -30,6 +31,15 @@ CSceneCorridor2_3::~CSceneCorridor2_3()
 //初期化メゾット
 void CSceneCorridor2_3::InitScene()
 {
+	//音楽読み込み
+	Audio::LoadAudio(0, L"謀略の間.wav", BACK_MUSIC); //通常
+	Audio::LoadAudio(1, L"死神の斧.wav", BACK_MUSIC); //Enemy出現
+
+	//ボリュームを0.8減らす
+	float v = Audio::VolumeMaster(0.8);
+
+	//音楽スタート
+	Audio::Start(0);
 
 	//主人公オブジェクト作成
 	CObjHero* obj = new CObjHero();
@@ -41,7 +51,7 @@ void CSceneCorridor2_3::InitScene()
 
 
 	//グラフィック読み込み
-	Draw::LoadImage(L"主人公.png", 1, TEX_SIZE_512);
+	Draw::LoadImage(L"HeroTouka.png", 1, TEX_SIZE_512);
 
 	Draw::LoadImage(L"廊下2-3.png", 9, TEX_SIZE_512);
 }

@@ -30,6 +30,12 @@
     <Filter Include="ソース ファイル\GameMain\GameStage">
       <UniqueIdentifier>{ec455dc7-6e59-4170-8fd1-288c4b2fd603}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameEnemy">
+      <UniqueIdentifier>{cb6eea57-5850-416b-a545-b30e0e1a72c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameOver">
+      <UniqueIdentifier>{0caea7a0-8ccb-4ef4-a224-342a75f87909}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\SceneManager.cpp">
@@ -145,6 +151,15 @@
     </ClCompile>
     <ClCompile Include="ObjCorridor2_3.cpp">
       <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy.cpp">
+      <Filter>ソース ファイル\GameMain\GameEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGameOver.cpp">
+      <Filter>ソース ファイル\GameOver</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGameOver.cpp">
+      <Filter>ソース ファイル\GameOver</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +279,15 @@
     </ClInclude>
     <ClInclude Include="ObjCorridor2_3.h">
       <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy.h">
+      <Filter>ソース ファイル\GameMain\GameEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGameOver.h">
+      <Filter>ソース ファイル\GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGameOver.h">
+      <Filter>ソース ファイル\GameOver</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
