@@ -258,7 +258,7 @@ void CObjHero::Action()
 	
 	//作成したHitBox更新用の入り口を取り出す
 	hit->SetPos(m_px + 15, m_py + 50);//入り口から新しい位置（主人公の位置）情報に置き換える
-	/*
+	
 	//敵機オブジェクトと接触したら主人公機削除
 	if (hit->CheckObjNameHit(OBJ_ENEMY) !=nullptr)
 	{
@@ -266,7 +266,7 @@ void CObjHero::Action()
 		Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
     	Scene::SetScene(new CSceneGameOver());
 	}
-	*/
+	
 }
 
 
