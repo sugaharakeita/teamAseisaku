@@ -30,6 +30,13 @@ enum HIT_ELEMENTS
 	ELEMENT_BLUE,
 	ELEMENT_BLACK,
 	ELEMENT_WHITE,
+	ELEMENT_STAFFROOM,
+	ELEMENT_PRINCIPALOFFICE,
+	ELEMENT_INFIRMARY,
+	ELEMENT_CORRIDOR1_1,
+	ELEMENT_CORRIDOR1_2,
+	ELEMENT_CORRIDOR1_3,
+
 };
 //------------------------------------------------
 
@@ -59,12 +66,28 @@ struct UserData
 #include "ObjTitle.h"
 #include "ObjEnemy.h"
 #include "ObjHokensitu.h"
+#include "ObjCorridor1_1.h"
+#include "ObjCorridor1_2.h"
+#include "ObjCorridor1_3.h"
+#include "ObjInfirmary.h"
+#include "ObjKoutyousitu.h"
+#include "ObjObstacle.h"
+#include "ObjPrincipaloffice.h"
+#include "ObjStaffroom.h"
+#include "RoomHitBox.h"
+
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
 #include "SceneMain.h"
 #include "SceneTitle.h"
 #include "SceneGameOver.h"
+#include "SceneCorridor1_1.h"
+#include "SceneCorridor1_2.h"
+#include "SceneCorridor1_3.h"
+#include "SceneInfirmary.h"
+#include "ScenePrincipaloffice.h"
+#include "SceneStaffroom.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------

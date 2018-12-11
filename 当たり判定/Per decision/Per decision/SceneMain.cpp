@@ -32,39 +32,37 @@ void CSceneMain::InitScene()
 {
 			
 
-	/*
-
-	//主人公オブジェクト作成
-	CObjHero* obj = new CObjHero();
-	Objs::InsertObj(obj, OBJ_HERO, 10);
-
-	//Staffroomオブジェクト生成
-	CObjStaffroom* objb = new CObjStaffroom();
-	Objs::InsertObj(objb, OBJ_STAFFROOM, 9);
-
-	//Principalofficeオブジェクト生成
-	CObjPrincipaloffice* objb = new CObjPrincipaloffice();
-	Objs::InsertObj(objb, OBJ_PRINCIPALOFFICE, 9);
 	
-	//Infirmaryオブジェクト生成
-	CObjInfirmary* objb = new CObjInfirmary();
-	Objs::InsertObj(objb, OBJ_INFIRMARY, 9);
 
-	//Corridor1_1オブジェクト生成
-	CObjCorridor1_1* objb = new CObjCorridor1_1();
-	Objs::InsertObj(objb, OBJ_CORRIDOR1_1, 9);
+	////主人公オブジェクト作成
+	//CObjHero* obj = new CObjHero();
+	//Objs::InsertObj(obj, OBJ_HERO, 10);
 
-	//Corridor1_2オブジェクト生成
-	CObjCorridor1_2* objb = new CObjCorridor1_2();
-	Objs::InsertObj(objb, OBJ_CORRIDOR1_2, 9);
+	////Staffroomオブジェクト生成
+	//CObjStaffroom* objb = new CObjStaffroom();
+	//Objs::InsertObj(objb, OBJ_STAFFROOM, 9);
 
-	//Corridor1_3オブジェクト生成
-	CObjCorridor1_3* objb = new CObjCorridor1_3();
-	Objs::InsertObj(objb, OBJ_CORRIDOR1_3, 9);
+	////Principalofficeオブジェクト生成
+	//CObjPrincipaloffice* objc = new CObjPrincipaloffice();
+	//Objs::InsertObj(objc, OBJ_PRINCIPALOFFICE, 9);
+	//
+	////Infirmaryオブジェクト生成
+	//CObjInfirmary* objd = new CObjInfirmary();
+	//Objs::InsertObj(objd, OBJ_INFIRMARY, 9);
 
-	*/
+	////Corridor1_1オブジェクト生成
+	//CObjCorridor1_1* obje = new CObjCorridor1_1();
+	//Objs::InsertObj(obje, OBJ_CORRIDOR1_1, 9);
 
+	////Corridor1_2オブジェクト生成
+	//CObjCorridor1_2* objf = new CObjCorridor1_2();
+	//Objs::InsertObj(objf, OBJ_CORRIDOR1_2, 9);
 
+	////Corridor1_3オブジェクト生成
+	//CObjCorridor1_3* objg = new CObjCorridor1_3();
+	//Objs::InsertObj(objg, OBJ_CORRIDOR1_3, 9);
+
+	
 
 
 	//グラフィック読み込み
@@ -82,9 +80,10 @@ void CSceneMain::InitScene()
 
 	Draw::LoadImage(L"廊下1-3.png", 9, TEX_SIZE_512);
 
-	Draw::LoadImage(L"保健室修正版.png", 9, TEX_SIZE_512);
+	Draw::LoadImage(L"保健室修正版.png", 9, TEX_SIZE_512);*/
 
-	*/
+	
+	
 
 	
 

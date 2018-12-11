@@ -7,6 +7,7 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\DrawFont.h"
 #include "GameL\UserData.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -30,9 +31,15 @@ CSceneTitle::~CSceneTitle()
 //初期化メゾット
 void CSceneTitle::InitScene()
 {
-	Font::SetStrTex(L"School Horror");
+	Font::SetStrTex(L"School");
 	Font::SetStrTex(L"Enterキーでスタート");
 
+	//音楽の読み込み
+	Audio::LoadAudio(0, L"VEIL オープニング.wav", SOUND_TYPE::BACK_MUSIC);
+
+	//バックミュージックスタート
+	float Volume = Audio::VolumeMaster(-0.6f); //ボリュームを0.6下げる
+	Audio::Start(0);
 
 	//クリアオブジェクト生成
 	CObjTitle* obj = new CObjTitle();

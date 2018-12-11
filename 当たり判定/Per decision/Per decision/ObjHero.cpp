@@ -1,4 +1,3 @@
-
 //使用するヘッダーファイル
 #include "GameL\DrawTexture.h"
 #include "GameL\WinInputs.h"
@@ -31,8 +30,8 @@ void CObjHero::Init()
 	m_hit_left = false;
 	m_hit_right = false;
 	
-	//当たり判定                                プレイヤー
-	Hits::SetHitBox(this, m_px , m_py , 32, 14, ELEMENT_PLAYER, OBJ_HERO, 1);
+	//当たり判定                                
+	Hits::SetHitBox(this, m_px , m_py , 32, 10, ELEMENT_PLAYER, OBJ_HERO, 1);
 	//					横開始 縦開始 横大きさ 縦大きさ 属性 名前
 }
 
@@ -64,7 +63,6 @@ void CObjHero::Action()
 	//下キーかつ当たり判定と当たっていない場合
 	else if (Input::GetVKey('S') == true && m_hit_down == false)
 	{
-
 		m_vy = +4.0f;
 		m_posture = 2;
 		m_ani_time += 1;
@@ -77,33 +75,54 @@ void CObjHero::Action()
 		m_posture = 0;
 		m_ani_time += 1;
 	}
+	//上キーかつ当たり判定と当たっている場合
+	else if (Input::GetVKey('W') == true && m_hit_up == true)
+	{
+		m_vy = 0.0f;
+		m_posture = 3;
+		m_ani_frame = 0;
+		m_ani_time = 0;
+	}
+
+	//左キーかつ当たり判定と当たっている場合
+	else if (Input::GetVKey('A') == true && m_hit_right == true)
+	{
+		m_vx = 0.0f;
+		m_posture = 1;
+		m_ani_frame = 0;
+		m_ani_time = 0;
+	}
+
+	//下キーかつ当たり判定と当たっている場合
+	else if (Input::GetVKey('S') == true && m_hit_down == true)
+	{
+		m_vy = 0.0f;
+		m_posture = 2;
+		m_ani_frame = 0;
+		m_ani_time = 0;
+	}
+
+	//右キーかつ当たり判定と当たっている場合
+	else if (Input::GetVKey('D') == true && m_hit_left == true)
+	{
+		m_vx = 0.0f;
+		m_posture = 0;
+		m_ani_frame = 0;
+		m_ani_time = 0;
+	}
+
+
+	//キー入力が無い場合
 	else
 	{
 		m_ani_frame = 0; //キー入力が無い場合は静止フレームにする
 		m_ani_time = 0;
-	}
-
-	//キー入力がない場合
-	//上
-	if (Input::GetVKey('W') == false)
-	{
 		m_hit_up = false;
-	}
-	//左
-	if (Input::GetVKey('A') == false)
-	{
+		m_hit_down = false;
+		m_hit_left = false;
 		m_hit_right = false;
 	}
-	//下
-	if (Input::GetVKey('S') == false)
-	{
-		m_hit_down = false;
-	}
-	//右
-	if (Input::GetVKey('D') == false)
-	{
-		m_hit_left = false;
-	}
+	
 
 	if (m_ani_time > 4)
 	{
@@ -123,37 +142,95 @@ void CObjHero::Action()
 	//主人公がステージの当たり判定に当たった時の処理（全ステージ対応）
 	if (hit->CheckElementHit(ELEMENT_FIELD) == true)
 	{
-		//右に当たり判定があった場合
+
+		//右キーを押した場合
 		if (Input::GetVKey('D') == true)
 		{
+			m_vx -= 4.0f;
 			m_hit_left = true;
-
-			m_vx = m_vx - 4.0f;
+			m_hit_up = false;
+			m_hit_right = false;
+			m_hit_down = false;
 		}
 
-		//左に当たり判定があった場合
+		//左キーを押した場合
 		if (Input::GetVKey('A') == true)
 		{
+			m_vx += 4.0f;
 			m_hit_right = true;
-
-			m_vx = m_vx + 4.0f;
+			m_hit_up = false;
+			m_hit_down = false;
+			m_hit_left = false;
 		}
 
-		//下に当たり判定があった場合
+		//下キーを押した場合
 		if (Input::GetVKey('S') == true)
 		{
+			m_vy -= 4.0f;
 			m_hit_down = true;
-
-			m_vy = m_vy - 4.0f;
+			m_hit_up = false;
+			m_hit_right = false;
+			m_hit_left = false;
 		}
 
-		//上に当たり判定があった場合
+		//上キーを押した場合
 		if (Input::GetVKey('W') == true)
 		{
+			m_vy += 4.0f;
 			m_hit_up = true;
-
-			m_vy = m_vy + 4.0f;
+			m_hit_right = false;
+			m_hit_down = false;
+			m_hit_left = false;
 		}
+
+		//上・左キーを押した場合
+		if (Input::GetVKey('W') == true &&
+			Input::GetVKey('A') == true)
+		{
+			m_vx = 0.0f;
+			m_vy = 0.0f;
+			m_hit_up = true;
+			m_hit_right = true;
+			m_hit_down = false;
+			m_hit_left = false;
+		}
+
+		//上・右キーを押した場合
+		if (Input::GetVKey('W') == true &&
+			Input::GetVKey('D') == true)
+		{
+			m_vx = 0.0f;
+			m_vy = 0.0f;
+			m_hit_up = true;
+			m_hit_left = true;
+			m_hit_right = false;
+			m_hit_down = false;
+		}
+
+		//下・左キーを押した場合
+		if (Input::GetVKey('S') == true &&
+			Input::GetVKey('A') == true)
+		{
+			m_vx = 0.0f;
+			m_vy = 0.0f;
+			m_hit_down = true;
+			m_hit_right = true;
+			m_hit_up = false;
+			m_hit_left = false;
+		}
+
+		//下・右キーを押した場合
+		if (Input::GetVKey('S') == true &&
+			Input::GetVKey('D') == true)
+		{
+			m_vx = 0.0f;
+			m_vy = 0.0f;
+			m_hit_down = true;
+			m_hit_left = true;
+			m_hit_up = false;
+			m_hit_right = false;
+		}
+
 	}
 
 	//画面外に出ないようにする処理
@@ -169,7 +246,7 @@ void CObjHero::Action()
 	{
 		m_px = 0.0f;
 	}
-	if (m_py < 0.0f)
+	else if (m_py < 0.0f)
 	{
 		m_py = 0.0f;
 	}
@@ -180,7 +257,16 @@ void CObjHero::Action()
 
 	
 	//作成したHitBox更新用の入り口を取り出す
-	hit->SetPos(m_px + 16, m_py + 50);//入り口から新しい位置（主人公の位置）情報に置き換える
+	hit->SetPos(m_px + 15, m_py + 50);//入り口から新しい位置（主人公の位置）情報に置き換える
+	
+	//敵機オブジェクトと接触したら主人公機削除
+	if (hit->CheckObjNameHit(OBJ_ENEMY) !=nullptr)
+	{
+    	this->SetStatus(false);    //自身に削除命令を出す
+		Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
+    	Scene::SetScene(new CSceneGameOver());
+	}
+	
 }
 
 

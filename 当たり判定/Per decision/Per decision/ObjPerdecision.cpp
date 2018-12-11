@@ -78,7 +78,7 @@ bool CObjPerdecision::LineCrossPoint(
 	if (SGN(t1) == SGN(t2))
 		return false; //交点無し
 
-					  //射影を絶対値化
+	//射影を絶対値化
 	t1 = abs(t1); t2 = abs(t2);
 
 	//交点を求める
@@ -99,7 +99,7 @@ bool CObjPerdecision::LineCrossPoint(
 	if (SGN(w1) == SGN(w2))
 		return false; //交点が外
 
-					  //交点を返す
+	//交点を返す
 	*out_px = px; *out_py = py;
 
 	return true;
@@ -116,7 +116,7 @@ bool CObjPerdecision::HeroPerdecisionCrossPoint(
 	bool pb = false; //交点確認用
 	float len = 99999.0f; //交点との距離
 
-						  //ブロックの辺ベクトル　
+	//ブロックの辺ベクトル　
 	float edge[4][4] =
 	{
 		{ 0, 0, 64, 0 }, //→
@@ -159,7 +159,7 @@ bool CObjPerdecision::HeroPerdecisionCrossPoint(
 }
 
 
-//Corridor1_1Hit関数
+//PerdecisionHit関数
 void CObjPerdecision::PerdecisionHit
 (
 	float * x, float * y, bool scroll_on,
@@ -197,7 +197,6 @@ void CObjPerdecision::PerdecisionHit
 			r = abs(r);
 		else
 			r = 360.0f - abs(r);
-
 	}
 
 }

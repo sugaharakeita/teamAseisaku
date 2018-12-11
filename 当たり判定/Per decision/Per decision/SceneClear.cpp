@@ -7,6 +7,7 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\DrawFont.h"
 #include "GameL\UserData.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -33,6 +34,16 @@ void CSceneClear::InitScene()
 	Font::SetStrTex(L"α版はここまでです");
 	Font::SetStrTex(L"続きはβ版で");
 	Font::SetStrTex(L"Enterキーでタイトルへ");
+
+	//音楽読み込み
+	Audio::LoadAudio(0,L"果物屋.wav", BACK_MUSIC);
+
+	//ボリュームを1.0に戻す
+	float v = Audio::VolumeMaster(0);
+	v = Audio::VolumeMaster((1.0 - v));
+
+	//音楽スタート
+	Audio::Start(0);
 
 	//クリアオブジェクト生成
 	CObjClear* obj = new CObjClear();
