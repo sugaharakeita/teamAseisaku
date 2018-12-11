@@ -23,7 +23,8 @@ void CObjExcla::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
-	if (Input::GetVKey('W') == true && Message == 0 && Menu == 0 && HeroStop != 4)
+	if (Input::GetVKey('W') == true && Text == 0 
+		&& Message == 0 && Menu == 0 && HeroStop != 4)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 3)
 			;
@@ -33,7 +34,8 @@ void CObjExcla::Action()
 			hit->SetPos(HeroX + 8, HeroY);
 		}
 	}
-	else if (Input::GetVKey('S') == true && Message == 0 && Menu == 0 && HeroStop != 4)
+	else if (Input::GetVKey('S') == true && Text == 0
+		&& Message == 0 && Menu == 0 && HeroStop != 4)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 2)
 			;
@@ -43,7 +45,8 @@ void CObjExcla::Action()
 			hit->SetPos(HeroX + 8, HeroY + 16);
 		}
 	}
-	else if (Input::GetVKey('A') == true && Message == 0 && Menu == 0 && HeroStop != 4)
+	else if (Input::GetVKey('A') == true && Text == 0
+		&& Message == 0 && Menu == 0 && HeroStop != 4)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 1)
 			;
@@ -53,7 +56,8 @@ void CObjExcla::Action()
 			hit->SetPos(HeroX, HeroY + 8);
 		}
 	}
-	else if (Input::GetVKey('D') == true && Message == 0 && Menu == 0 && HeroStop != 4)
+	else if (Input::GetVKey('D') == true && Text == 0
+		&& Message == 0 && Menu == 0 && HeroStop != 4)
 	{
 		if (HIT_flag == true || t_flag ==true || HeroStop == 0)
 			;
@@ -108,6 +112,13 @@ void CObjExcla::Action()
 		ITEM_flag = false;
 		HeroStop = 5;
 	}
+	if (hit->CheckObjNameHit(OBJ_TEXTURE) != nullptr)
+		TEXT_flag = true;
+	else
+	{
+		TEXT_flag = false;
+		HeroStop = 5;
+	}
 
 	if (HeroX < 368)
 	{
@@ -137,7 +148,8 @@ void CObjExcla::Draw()
 	dst.m_right = 32.0f + (HeroX+16);
 	dst.m_bottom = 32.0f + (HeroY-24);
 
-	if (HAKO_flag == true || DOOR_flag == true || ITEM_flag == true)
+	if (HAKO_flag == true || DOOR_flag == true 
+		|| ITEM_flag == true || TEXT_flag == true)
 		Draw::Draw(2, &src, &dst, c, 0.0f);
 	else
 		;

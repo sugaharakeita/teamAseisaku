@@ -15,8 +15,10 @@ extern bool HIT_flag;
 extern bool HAKO_flag;
 extern bool DOOR_flag;
 extern bool ITEM_flag;
+extern bool TEXT_flag;
 
 extern int Message;
+extern int Text;
 extern int Menu;
 
 extern int Title;

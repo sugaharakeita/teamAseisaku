@@ -41,7 +41,7 @@ void CObjMessage::Draw()
 	dst.m_right = 784.0f + m_x;
 	dst.m_bottom = 128.0f + m_y;
 
-	if (Menu != 0)
+	if (Text != 0 || Menu != 0)
 		;
 	else
 	{
@@ -55,7 +55,7 @@ void CObjMessage::Draw()
 			Font::StrDraw(L"保健室", 10, 16, 32, c2);
 	}
 	if (Message == 0)
-		;//０の時は表示しない。
+		;//0の時は表示しない。
 	else if (Message != 0)
 	{
 		Draw::Draw(0, &src, &dst, c, 0.0f);

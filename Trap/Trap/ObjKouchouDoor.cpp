@@ -20,7 +20,7 @@ void CObjKouchouDoor::Init()
 	kouchou_door = false;
 
 	if (room[0] == 1)
-		Hits::SetHitBox(this, m_x, m_y, 42, 158, ELEMENT_DOOR, KOUCHOU_DOOR, 1);
+		Hits::SetHitBox(this, m_x, m_y, 100, 158, ELEMENT_DOOR, KOUCHOU_DOOR, 1);
 	if (room[4] == 1)
 		Hits::SetHitBox(this, m_x, m_y, 120, 120, ELEMENT_DOOR, KOUCHOU_DOOR, 1);
 }
@@ -107,7 +107,7 @@ void CObjKouchouDoor::Draw()
 
 			dst.m_top = 0.0f + m_y;
 			dst.m_left = 0.0f + m_x;
-			dst.m_right = 42.0f + m_x;
+			dst.m_right = 100.0f + m_x;
 			dst.m_bottom = 158.0f + m_y;
 
 			Draw::Draw(4, &src, &dst, c, 0.0f);
@@ -121,7 +121,7 @@ void CObjKouchouDoor::Draw()
 
 			dst.m_top = 0.0f + m_y;
 			dst.m_left = 0.0f + m_x;
-			dst.m_right = 42.0f + m_x;
+			dst.m_right = 100.0f + m_x;
 			dst.m_bottom = 158.0f + m_y;
 
 			Draw::Draw(7, &src, &dst, c, 0.0f);

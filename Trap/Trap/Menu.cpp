@@ -19,8 +19,6 @@ void CObjMenu::Init()
 
 void CObjMenu::Action()
 {
-	if (Message != 0)
-		Menu = 0;
 	if (Menu != 0 && Input::GetVKey(VK_BACK) == true)
 		Menu = 0;
 	if (Menu == 1)

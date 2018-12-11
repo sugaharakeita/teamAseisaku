@@ -76,10 +76,13 @@ void CObjRouka1::Action()
 	}
 	else if (room[2] == 1)
 	{
-		if (Hammer == 1)
+		do
 		{
-			Message = 7;//ここに金次郎が突っ込んでくるイベント
-		}
+			if (Hammer == 1)
+			{
+				Message = 7;//ここに金次郎が突っ込んでくるイベント
+			}
+		} while (room[2] == 0);
 
 		if (HeroX <= -20.0f)
 		{

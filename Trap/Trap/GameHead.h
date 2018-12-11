@@ -14,6 +14,7 @@ enum OBJ_NAME
 	OBJ_MESSAGE,
 	OBJ_MENU,
 	OBJ_SWITCH,
+	OBJ_TEXTURE,
 	OBJ_KEY,
 	KOUCHOU_KEY,
 	HOKEN_KEY,
@@ -80,6 +81,7 @@ struct UserData
 #include "SwitchALL.h"
 #include "ItemALL.h"
 #include "TrapALL.h"
+#include "TextALL.h"
 #include "Message.h"
 #include "Menu.h"
 #include "Hero.h"
@@ -92,6 +94,7 @@ struct UserData
 #include "Hammer.h"
 #include "ObjShokuinDoor.h"
 #include "ObjShokuin.h"
+#include "ShokuinPaper.h"
 #include "HokenHako.h"
 #include "HokenKey.h"
 #include "ObjHokenDoor.h"

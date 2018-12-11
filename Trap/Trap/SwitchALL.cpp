@@ -18,8 +18,10 @@ bool HIT_flag;
 bool HAKO_flag;
 bool DOOR_flag;
 bool ITEM_flag;
+bool TEXT_flag;
 //システム関係
 int Message;
+int Text;
 int Menu;
 //部屋関係。LCRはそれぞれ左側、中央側、右側を示す。
 int Title;

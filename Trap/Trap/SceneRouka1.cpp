@@ -44,7 +44,7 @@ void CSceneRouka1::InitScene()
 			CObjHero* h = new CObjHero(42.0f, 416.0f);
 		else if (Kouchou == 1)
 			CObjHero* h = new CObjHero(736, 180.0f);
-		CObjKouchouDoor* d0 = new CObjKouchouDoor(758.0f, 16.0f);
+		CObjKouchouDoor* d0 = new CObjKouchouDoor(708.0f, 16.0f);
 		Objs::InsertObj(d0, KOUCHOU_DOOR, 1);
 		CObjShokuinDoor* d1 = new CObjShokuinDoor(114.0f, 494.0f);
 		Objs::InsertObj(d1, SHOKUIN_DOOR, 1);
@@ -85,6 +85,8 @@ void CSceneRouka1::InitScene()
 	Objs::InsertObj(h, OBJ_HERO, 2);
 	CObjExcla* x = new CObjExcla(HeroX+8,HeroY+8);
 	Objs::InsertObj(x, OBJ_EXCLAMATION, 2);
+	CObjTextALL* m = new CObjTextALL(0.0f, 0.0f);
+	Objs::InsertObj(m, OBJ_TEXTURE, 3);
 	CObjMessage* m1 = new CObjMessage(12.0f, 476.0f);
 	Objs::InsertObj(m1, OBJ_MESSAGE, 3);
 	CObjMenu* m2 = new CObjMenu(0.0f, 0.0f);

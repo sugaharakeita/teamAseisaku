@@ -159,6 +159,12 @@
     <ClInclude Include="TrapALL.h">
       <Filter>ソース ファイル\スイッチ</Filter>
     </ClInclude>
+    <ClInclude Include="ShokuinPaper.h">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClInclude>
+    <ClInclude Include="TextALL.h">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneHoken.cpp">
@@ -283,6 +289,12 @@
     </ClCompile>
     <ClCompile Include="TrapALL.cpp">
       <Filter>ソース ファイル\スイッチ</Filter>
+    </ClCompile>
+    <ClCompile Include="ShokuinPaper.cpp">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClCompile>
+    <ClCompile Include="TextALL.cpp">
+      <Filter>ソース ファイル\オブジェクト</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

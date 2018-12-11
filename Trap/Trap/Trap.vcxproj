@@ -149,7 +149,9 @@
     <ClInclude Include="SceneRouka1.h" />
     <ClInclude Include="SceneShokuin.h" />
     <ClInclude Include="SceneTitle.h" />
+    <ClInclude Include="ShokuinPaper.h" />
     <ClInclude Include="SwitchALL.h" />
+    <ClInclude Include="TextALL.h" />
     <ClInclude Include="TrapALL.h" />
     <ClInclude Include="Hero.h" />
   </ItemGroup>
@@ -193,7 +195,9 @@
     <ClCompile Include="SceneShokuin.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
     <ClCompile Include="Hero.cpp" />
+    <ClCompile Include="ShokuinPaper.cpp" />
     <ClCompile Include="SwitchALL.cpp" />
+    <ClCompile Include="TextALL.cpp" />
     <ClCompile Include="TrapALL.cpp" />
   </ItemGroup>
   <ItemGroup>

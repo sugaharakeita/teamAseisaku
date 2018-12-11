@@ -38,6 +38,8 @@ void CSceneShokuin::InitScene()
 	Objs::InsertObj(h, OBJ_HERO, 2); 
 	CObjExcla* x = new CObjExcla(HeroX + 8, HeroY + 8);
 	Objs::InsertObj(x, OBJ_EXCLAMATION, 2);
+	CObjTextALL* m = new CObjTextALL(0.0f, 0.0f);
+	Objs::InsertObj(m, OBJ_TEXTURE, 3);
 	CObjMessage* m1 = new CObjMessage(12.0f, 476.0f);
 	Objs::InsertObj(m1, OBJ_MESSAGE, 3);
 	CObjMenu* m2 = new CObjMenu(0.0f, 0.0f);
@@ -48,6 +50,8 @@ void CSceneShokuin::InitScene()
 	Objs::InsertObj(d2, SHOKUIN_DOOR, 1);
 	CObjHokenHako* b2 = new CObjHokenHako(0.0f, 534.0f);
 	Objs::InsertObj(b2, OBJ_HAKO, 1);
+	CObjShokuinPaper* t1 = new CObjShokuinPaper(90.0f, 44.0f);
+	Objs::InsertObj(t1, OBJ_TEXTURE, 1);
 	if (KouchouKey == 1)
 	{
 		CObjKouchouKey* k = new CObjKouchouKey(HeroX + 8, HeroY + 8);

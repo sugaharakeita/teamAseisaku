@@ -34,6 +34,8 @@ void CSceneHoken::InitScene()
 	Objs::InsertObj(h, OBJ_HERO, 2);
 	CObjExcla* x = new CObjExcla(HeroX + 8, HeroY + 8);
 	Objs::InsertObj(x, OBJ_EXCLAMATION, 2);
+	CObjTextALL* m = new CObjTextALL(0.0f, 0.0f);
+	Objs::InsertObj(m, OBJ_TEXTURE, 3);
 	CObjMessage* m1 = new CObjMessage(12.0f, 476.0f);
 	Objs::InsertObj(m1, OBJ_MESSAGE, 3);
 	CObjMenu* m2 = new CObjMenu(0.0f, 0.0f);

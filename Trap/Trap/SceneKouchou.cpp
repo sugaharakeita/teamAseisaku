@@ -34,20 +34,24 @@ void CSceneKouchou::InitScene()
 	Objs::InsertObj(h, OBJ_HERO, 2);
 	CObjExcla* x = new CObjExcla(HeroX + 8, HeroY + 8);
 	Objs::InsertObj(x, OBJ_EXCLAMATION, 2);
+	CObjTextALL* m = new CObjTextALL(0.0f, 0.0f);
+	Objs::InsertObj(m, OBJ_TEXTURE, 3);
 	CObjMessage* m1 = new CObjMessage(12.0f, 476.0f);
 	Objs::InsertObj(m1, OBJ_MESSAGE, 3);
 	CObjMenu* m2 = new CObjMenu(0.0f, 0.0f);
 	Objs::InsertObj(m2, OBJ_MENU, 3);
-	CObjHammer* i = new CObjHammer(188,164);
-	Objs::InsertObj(i, OBJ_HAMMER, 1);
 	CObjKouchouDoor* d0 = new CObjKouchouDoor(580.0f, 586.0f);
 	Objs::InsertObj(d0, KOUCHOU_DOOR, 1);
-	if (Hammer == 1)
+	if (Hammer == 0)
+	{
+		CObjHammer* i = new CObjHammer(188, 164);
+		Objs::InsertObj(i, OBJ_HAMMER, 1);
+	}
+	else if (Hammer == 1)
 	{
 		CObjHammer* i = new CObjHammer(HeroX + 8, HeroY + 8);
 		Objs::InsertObj(i, OBJ_HAMMER, 1);
 	}
-
 }
 
 void CSceneKouchou::Scene()

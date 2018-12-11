@@ -39,43 +39,47 @@ void CObjHammer::Action()
 		{
 			if (Input::GetVKey(VK_RETURN) == true && Hammer == 0)
 			{
-				Hammer = 1;
 				this->SetStatus(false);
 				Hits::DeleteHitBox(this);
 				CObjHammer* i = new CObjHammer(HeroX + 8, HeroY + 8);
 				Objs::InsertObj(i, OBJ_HAMMER, 1);
 				Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_PLAYER, OBJ_HAMMER, 1);
 				hit->SetPos(HeroX + 8, HeroY + 8);
+				Hammer = 1;
 				Message = 6;
 			}
 		}
 	}
 	else if (Hammer == 1)
 	{
-		if (Input::GetVKey('W') == true && Message == 0 && Menu == 0 && HeroStop != 4)
+		if (Input::GetVKey('W') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-			if (HIT_flag == true || t_flag == true || HeroStop == 3)
+			if (HIT_flag == true || HeroStop == 3)
 				;
 			else
 				hit->SetPos(HeroX + 8, HeroY);
 		}
-		else if (Input::GetVKey('S') == true && Message == 0 && Menu == 0 && HeroStop != 4)
+		else if (Input::GetVKey('S') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-			if (HIT_flag == true || t_flag == true || HeroStop == 2)
+			if (HIT_flag == true || HeroStop == 2)
 				;
 			else
 				hit->SetPos(HeroX + 8, HeroY + 16);
 		}
-		else if (Input::GetVKey('A') == true && Message == 0 && Menu == 0 && HeroStop != 4)
+		else if (Input::GetVKey('A') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-			if (HIT_flag == true || t_flag == true || HeroStop == 1)
+			if (HIT_flag == true || HeroStop == 1)
 				;
 			else
 				hit->SetPos(HeroX, HeroY + 8);
 		}
-		else if (Input::GetVKey('D') == true && Message == 0 && Menu == 0 && HeroStop != 4)
+		else if (Input::GetVKey('D') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-			if (HIT_flag == true || t_flag == true || HeroStop == 0)
+			if (HIT_flag == true || HeroStop == 0)
 				;
 			else
 				hit->SetPos(HeroX + 16, HeroY + 8);
@@ -91,7 +95,7 @@ void CObjHammer::Action()
 			Ham_flag = true;
 			
 		if (Ham_flag == true/* && CheckObjNamehit->(KINJIRO) != nullptr*/)
-			//Hammer = 0;“ñ‹{‹àŽŸ˜Y‚Æ‚Ô‚Â‚©‚Á‚½”»’èª‚ð’Ç‰Á‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
+			Hammer = 0;//“ñ‹{‹àŽŸ˜Y‚Æ‚Ô‚Â‚©‚Á‚½”»’èª‚ð’Ç‰Á‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
 
 		if (m_x > 736.f)
 			m_x = 736.0f;
@@ -129,21 +133,29 @@ void CObjHammer::Draw()
 	{
 		if (Menu == 2)
 		{
-			if (Hammer == 1)
+			do
 			{
-				CObjHammer* i = new CObjHammer(64, 16);
+				CObjHammer* i = new CObjHammer(64, 32);
 				Objs::InsertObj(i, OBJ_HAMMER, 1);
+			} while (Hammer == 0);
+
+			dst.m_top = 0.0f + m_y;
+			dst.m_left = 0.0f + m_x;
+			dst.m_right = 32.0f + m_x;
+			dst.m_bottom = 32.0f + m_y;
 				
-				dst.m_top = 0.0f + m_y;
-				dst.m_left = 0.0f + m_x;
-				dst.m_right = 32.0f + m_x;
-				dst.m_bottom = 32.0f + m_y;
-				
-				Draw::Draw(3, &src, &dst, c, 0.0f);
-			}
+			Draw::Draw(3, &src, &dst, c, 0.0f);
 		}
 		else
-			;
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+			do
+			{
+				CObjHammer* i = new CObjHammer(HeroX+8, HeroY+8);
+				Objs::InsertObj(i, OBJ_HAMMER, 1);
+			} while (Hammer == 0);
+		}
 	}
 	else if (Ham_flag == false && Hammer == 0)
 		Draw::Draw(3, &src, &dst, c, 0.0f);
