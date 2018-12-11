@@ -17,10 +17,12 @@ CObjKouchouDoor::CObjKouchouDoor(float x, float y)
 
 void CObjKouchouDoor::Init()
 {
-	m_time = 0;
 	kouchou_door = false;
 
-	Hits::SetHitBox(this, m_x, m_y, 64, 110, ELEMENT_DOOR, KOUCHOU_DOOR, 1);
+	if (room[0] == 1)
+		Hits::SetHitBox(this, m_x, m_y, 42, 158, ELEMENT_DOOR, KOUCHOU_DOOR, 1);
+	if (room[4] == 1)
+		Hits::SetHitBox(this, m_x, m_y, 120, 120, ELEMENT_DOOR, KOUCHOU_DOOR, 1);
 }
 
 void CObjKouchouDoor::Action()
@@ -52,7 +54,7 @@ void CObjKouchouDoor::Action()
 			Hits::DeleteHitBox(this);
 			Hits::SetHitBox(this, 0, 0, 800, 600, ELEMENT_FIELD, OBJ_WALL, 1);//自動移動
 			hit->SetPos(0, 0);
-
+			
 			if (KouchouDoorOpen == false)
 			{
 				Message = 3;//３番にセットしたメッセージを表示する
@@ -67,47 +69,86 @@ void CObjKouchouDoor::Action()
 	}
 
 	if (kouchou_door == true)
-		m_time++;
-	if (m_time >= 80)
 	{
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
-		Scene::SetScene(new CSceneKouchou());
+		if (Message == 0)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+			if (Rouka1L == 1)
+			{
+				Kouchou = room[4] = 1;
+				room[0] = 0;
+				Scene::SetScene(new CSceneKouchou());
+			}
+			else if (Kouchou == 1)
+			{
+				Rouka1L = room[0] = 1;
+				room[4] = 0;
+				Scene::SetScene(new CSceneRouka1());
+			}
+		}
 	}
 }
 
 void CObjKouchouDoor::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 0.45f,0.45f,0.45f,1.0f };
 	RECT_F src;
 	RECT_F dst;
 
-	if (kouchou_door == false)
+	if (Rouka1L == 1)
 	{
-		src.m_top = 10.0f;
-		src.m_left = 491.0f;
-		src.m_right = 522.0f;
-		src.m_bottom = 105.0f;
-	
-		dst.m_top = 0.0f + m_y;
-		dst.m_left = 0.0f + m_x;
-		dst.m_right = 44.0f + m_x;
-		dst.m_bottom = 160.0f + m_y;
-		
-		Draw::Draw(4, &src, &dst, c, 0.0f);
+		if (kouchou_door == false)
+		{
+			src.m_top = 10.0f;
+			src.m_left = 490.0f;
+			src.m_right = 522.0f;
+			src.m_bottom = 105.0f;
+
+			dst.m_top = 0.0f + m_y;
+			dst.m_left = 0.0f + m_x;
+			dst.m_right = 42.0f + m_x;
+			dst.m_bottom = 158.0f + m_y;
+
+			Draw::Draw(4, &src, &dst, c, 0.0f);
+		}
+		else
+		{
+			src.m_top = 654.0f;
+			src.m_left = 341.0f;
+			src.m_right = 404.0f;
+			src.m_bottom = 729.0f;
+
+			dst.m_top = 0.0f + m_y;
+			dst.m_left = 0.0f + m_x;
+			dst.m_right = 42.0f + m_x;
+			dst.m_bottom = 158.0f + m_y;
+
+			Draw::Draw(7, &src, &dst, c, 0.0f);
+		}
 	}
-	else//開けると部屋が見える
+	else if (Kouchou == 1)
 	{
-		src.m_top = 653.0f;
-		src.m_left = 341.0f;
-		src.m_right = 404.0f;
-		src.m_bottom = 730.0f;
+		if (kouchou_door == false)
+		{
+			src.m_top = 10.0f;
+			src.m_left = 490.0f;
+			src.m_right = 522.0f;
+			src.m_bottom = 105.0f;
+		}
+		else
+		{
+			src.m_top = 106.0f;
+			src.m_left = 490.0f;
+			src.m_right = 522.0f;
+			src.m_bottom = 201.0f;
+		}
 
 		dst.m_top = 0.0f + m_y;
 		dst.m_left = 0.0f + m_x;
-		dst.m_right = 64.0f + m_x;
-		dst.m_bottom = 160.0f + m_y;
+		dst.m_right = 120.0f + m_x;
+		dst.m_bottom = 120.0f + m_y;
 
-		Draw::Draw(7, &src, &dst, c, 0.0f);
+		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
 }

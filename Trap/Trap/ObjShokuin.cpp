@@ -31,29 +31,40 @@ void CObjShokuin::SetMap(int x, int y, int id)
 
 void CObjShokuin::Init()
 {
-	
+	m_time = 0;
 }
 
 void CObjShokuin::Action()
 {
-	
+	m_time++;
+	if (HeroX <= 0.0f)
+		HeroX = 0.0f;
+	if (HeroX >= 744.0f)
+		HeroX = 744.0f;
+	if (HeroY <= 86.0f)
+		HeroY = 86.0f;
+	if (HeroY >= 494.0f)
+		HeroY = 494.0f;
+
+	if (m_time == 5)
+		Rouka1L = Rouka1CL = 0;
 }
 
 void CObjShokuin::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 1.0f,1.0f,1.0f,0.45f };
 	RECT_F src;
 	RECT_F dst;
 
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
-	src.m_right = 64.0f;
-	src.m_bottom = 64.0f;
+	src.m_right = 896.0f;
+	src.m_bottom = 640.0f;
 
 	dst.m_top = 0.0f;
 	dst.m_left = 0.0;
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	Draw::Draw(8, &src, &dst, c, 0.0f);
 }

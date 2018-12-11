@@ -39,12 +39,6 @@
     <ClInclude Include="ObjHoken.h">
       <Filter>ソース ファイル\オブジェクト</Filter>
     </ClInclude>
-    <ClInclude Include="TrapALL.h">
-      <Filter>ソース ファイル\仕掛け</Filter>
-    </ClInclude>
-    <ClInclude Include="ItemALL.h">
-      <Filter>ソース ファイル\アイテム</Filter>
-    </ClInclude>
     <ClInclude Include="main.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -141,9 +135,6 @@
     <ClInclude Include="KouchouHako.h">
       <Filter>ソース ファイル\仕掛け</Filter>
     </ClInclude>
-    <ClInclude Include="KouchouKey.h">
-      <Filter>ソース ファイル\仕掛け</Filter>
-    </ClInclude>
     <ClInclude Include="Message.h">
       <Filter>ソース ファイル\オブジェクト</Filter>
     </ClInclude>
@@ -155,6 +146,18 @@
     </ClInclude>
     <ClInclude Include="Hammer.h">
       <Filter>ソース ファイル\アイテム</Filter>
+    </ClInclude>
+    <ClInclude Include="KouchouKey.h">
+      <Filter>ソース ファイル\アイテム</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemALL.h">
+      <Filter>ソース ファイル\スイッチ</Filter>
+    </ClInclude>
+    <ClInclude Include="TrapALL.h">
+      <Filter>ソース ファイル\スイッチ</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -236,12 +239,6 @@
     <ClCompile Include="ObjKouchouDoor.cpp">
       <Filter>ソース ファイル\仕掛け</Filter>
     </ClCompile>
-    <ClCompile Include="TrapALL.cpp">
-      <Filter>ソース ファイル\仕掛け</Filter>
-    </ClCompile>
-    <ClCompile Include="ItemALL.cpp">
-      <Filter>ソース ファイル\アイテム</Filter>
-    </ClCompile>
     <ClCompile Include="SceneTitle.cpp">
       <Filter>ソース ファイル\ゲーム外</Filter>
     </ClCompile>
@@ -263,9 +260,6 @@
     <ClCompile Include="KouchouHako.cpp">
       <Filter>ソース ファイル\仕掛け</Filter>
     </ClCompile>
-    <ClCompile Include="KouchouKey.cpp">
-      <Filter>ソース ファイル\仕掛け</Filter>
-    </ClCompile>
     <ClCompile Include="Message.cpp">
       <Filter>ソース ファイル\オブジェクト</Filter>
     </ClCompile>
@@ -277,6 +271,18 @@
     </ClCompile>
     <ClCompile Include="Hammer.cpp">
       <Filter>ソース ファイル\アイテム</Filter>
+    </ClCompile>
+    <ClCompile Include="KouchouKey.cpp">
+      <Filter>ソース ファイル\アイテム</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemALL.cpp">
+      <Filter>ソース ファイル\スイッチ</Filter>
+    </ClCompile>
+    <ClCompile Include="TrapALL.cpp">
+      <Filter>ソース ファイル\スイッチ</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

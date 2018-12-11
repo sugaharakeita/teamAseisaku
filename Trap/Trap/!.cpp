@@ -23,7 +23,7 @@ void CObjExcla::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
-	if (Input::GetVKey('W') == true && Message == 0)
+	if (Input::GetVKey('W') == true && Message == 0 && Menu == 0 && HeroStop != 4)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 3)
 			;
@@ -33,7 +33,7 @@ void CObjExcla::Action()
 			hit->SetPos(HeroX + 8, HeroY);
 		}
 	}
-	else if (Input::GetVKey('S') == true && Message == 0)
+	else if (Input::GetVKey('S') == true && Message == 0 && Menu == 0 && HeroStop != 4)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 2)
 			;
@@ -43,7 +43,7 @@ void CObjExcla::Action()
 			hit->SetPos(HeroX + 8, HeroY + 16);
 		}
 	}
-	else if (Input::GetVKey('A') == true && Message == 0)
+	else if (Input::GetVKey('A') == true && Message == 0 && Menu == 0 && HeroStop != 4)
 	{
 		if (HIT_flag == true || t_flag == true || HeroStop == 1)
 			;
@@ -53,7 +53,7 @@ void CObjExcla::Action()
 			hit->SetPos(HeroX, HeroY + 8);
 		}
 	}
-	else if (Input::GetVKey('D') == true && Message == 0)
+	else if (Input::GetVKey('D') == true && Message == 0 && Menu == 0 && HeroStop != 4)
 	{
 		if (HIT_flag == true || t_flag ==true || HeroStop == 0)
 			;
@@ -82,7 +82,7 @@ void CObjExcla::Action()
 		|| hit->CheckElementHit(ELEMENT_ITEM) == true)
 		HeroStop = HERO;
 	else
-		HeroStop = 4;
+		HeroStop = 5;
 	
 	if (hit->CheckElementHit(ELEMENT_DOOR) == true)
 	{
@@ -92,21 +92,32 @@ void CObjExcla::Action()
 	else
 	{
 		DOOR_flag = false;
-		HeroStop = 4;
+		HeroStop = 5;
 	}
 	if (hit->CheckObjNameHit(OBJ_HAKO) != nullptr)
 		HAKO_flag = true;
 	else
 	{
 		HAKO_flag = false;
-		HeroStop = 4;
+		HeroStop = 5;
 	}
 	if (hit->CheckElementHit(ELEMENT_ITEM) == true)
 		ITEM_flag = true;
 	else
 	{
 		ITEM_flag = false;
-		HeroStop = 4;
+		HeroStop = 5;
+	}
+
+	if (HeroX < 368)
+	{
+		HeroL = true;
+		HeroR = false;
+	}
+	if (HeroX >= 368)
+	{
+		HeroL = false;
+		HeroR = true;
 	}
 }
 

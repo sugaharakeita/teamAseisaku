@@ -132,6 +132,7 @@
     <ClInclude Include="KouchouHako.h" />
     <ClInclude Include="KouchouKey.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="ObjHelp.h" />
     <ClInclude Include="ObjHoken.h" />
@@ -174,6 +175,7 @@
     <ClCompile Include="ItemALL.cpp" />
     <ClCompile Include="KouchouHako.cpp" />
     <ClCompile Include="KouchouKey.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="ObjHelp.cpp" />
     <ClCompile Include="ObjKouchou.cpp" />

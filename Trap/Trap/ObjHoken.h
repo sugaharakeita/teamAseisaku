@@ -22,4 +22,5 @@ public:
 	void SetMap(int x, int y, int id);
 private:
 	int m_map[MAP_Y_MAX][MAP_X_MAX];
+	int m_time;
 };

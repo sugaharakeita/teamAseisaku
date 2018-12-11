@@ -4,6 +4,7 @@
 #include "GameL\SceneManager.h"
 #include "ObjShokuinDoor.h"
 #include "GameHead.h"
+#include "SwitchALL.h"
 
 using namespace GameL;
 
@@ -16,10 +17,12 @@ CObjShokuinDoor::CObjShokuinDoor(float x, float y)
 
 void CObjShokuinDoor::Init()
 {
-	m_time = 0;
 	shokuin_door = false;
 
-	Hits::SetHitBox(this, m_x, m_y, 102, 110, ELEMENT_DOOR, SHOKUIN_DOOR, 1);
+	if (room[0] == 1 && Rouka1L == 1 || room[1] == 1 && Rouka1CL == 1)
+		Hits::SetHitBox(this, m_x, m_y, 102, 160, ELEMENT_DOOR, SHOKUIN_DOOR, 1);
+	else if (room[5] == 1 && Shokuin == 1)
+		Hits::SetHitBox(this, m_x, m_y, 68,120, ELEMENT_DOOR, SHOKUIN_DOOR, 1);
 }
 
 void CObjShokuinDoor::Action()
@@ -40,13 +43,33 @@ void CObjShokuinDoor::Action()
 		}
 	}
 
-	if(shokuin_door==true)
-		m_time++;
-	if (m_time >= 80)
+	if (shokuin_door == true)
 	{
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
-		Scene::SetScene(new CSceneShokuin());
+		if (Message == 0)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+			if (Rouka1L == 1 || Rouka1CL == 1)
+			{
+				Shokuin = room[5] = 1;
+				room[0] = room[1] = 0;
+				Scene::SetScene(new CSceneShokuin());
+			}
+			else if (Shokuin == 1)
+			{
+				if (HeroL == true)
+				{
+					Rouka1L = room[0] = 1;
+					Scene::SetScene(new CSceneRouka1());
+				}
+				else if (HeroR == true)
+				{
+					Rouka1CL = room[1] = 1;
+					Scene::SetScene(new CSceneRouka1());
+				}
+				room[5] = 0;
+			}
+		}
 	}
 	
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
@@ -57,7 +80,7 @@ void CObjShokuinDoor::Action()
 
 void CObjShokuinDoor::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 0.45f,0.45f,0.45f,1.0f };
 	RECT_F src;
 	RECT_F dst;
 
@@ -67,26 +90,28 @@ void CObjShokuinDoor::Draw()
 		src.m_left = 0.0f;
 		src.m_right = 74.0f;
 		src.m_bottom = 128.0f;
-
-		dst.m_top = 0.0f + m_y;
-		dst.m_left = 0.0f + m_x;
-		dst.m_right = 102.0f + m_x;
-		dst.m_bottom = 160.0f + m_y;
-
-		Draw::Draw(8, &src, &dst, c, 0.0f);
 	}
-	else
+	else//äJÇØÇÈÇ∆ïîâÆÇ™å©Ç¶ÇÈ
 	{
 		src.m_top = 128.0f;
 		src.m_left = 0.0f;
 		src.m_right = 74.0f;
 		src.m_bottom = 208.0f;
-
+	}
+	if (Rouka1L == 1 || Rouka1CL == 1)//ïîâÆÇ…ÇÊÇ¡Çƒèké⁄Ç™àŸÇ»ÇÈÇΩÇﬂ
+	{
 		dst.m_top = 0.0f + m_y;
 		dst.m_left = 0.0f + m_x;
 		dst.m_right = 102.0f + m_x;
 		dst.m_bottom = 160.0f + m_y;
-
-		Draw::Draw(8, &src, &dst, c, 0.0f);
 	}
+	else if (Shokuin == 1)
+	{
+		dst.m_top = 0.0f + m_y;
+		dst.m_left = 0.0f + m_x;
+		dst.m_right = 68.0f + m_x;
+		dst.m_bottom = 120.0f + m_y;
+	}
+
+	Draw::Draw(8, &src, &dst, c, 0.0f);
 }

@@ -12,6 +12,8 @@ enum OBJ_NAME
 	OBJ_HERO,
 	OBJ_EXCLAMATION,
 	OBJ_MESSAGE,
+	OBJ_MENU,
+	OBJ_SWITCH,
 	OBJ_KEY,
 	KOUCHOU_KEY,
 	HOKEN_KEY,
@@ -75,11 +77,13 @@ struct UserData
 //ゲームシーンオブジェクトヘッダ------------------
 #include "ObjTitle.h"
 #include "ObjHelp.h"
+#include "SwitchALL.h"
+#include "ItemALL.h"
+#include "TrapALL.h"
+#include "Message.h"
+#include "Menu.h"
 #include "Hero.h"
 #include "!.h"
-#include "Message.h"
-#include "TrapALL.h"
-#include "ItemALL.h"
 #include "ObjRouka1.h"
 #include "KouchouHako.h"
 #include "KouchouKey.h"

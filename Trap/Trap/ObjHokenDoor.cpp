@@ -17,10 +17,13 @@ CObjHokenDoor::CObjHokenDoor(float x, float y)
 
 void CObjHokenDoor::Init()
 {
-	m_time = 0;
 	hoken_door = false;
 	
-	Hits::SetHitBox(this, m_x, m_y, 128, 110, ELEMENT_DOOR, HOKEN_DOOR, 1);
+	if (room[3] == 1 && Rouka1R == 1)
+		Hits::SetHitBox(this, m_x, m_y, 74, 160, ELEMENT_DOOR, HOKEN_DOOR, 1);
+	else if (room[6] == 1 && Hoken == 1)
+		Hits::SetHitBox(this, m_x, m_y, 68, 120, ELEMENT_DOOR, SHOKUIN_DOOR, 1); 
+	
 }
 
 void CObjHokenDoor::Action()
@@ -67,47 +70,85 @@ void CObjHokenDoor::Action()
 	}
 
 	if (hoken_door == true)
-		m_time++;
-	if (m_time >= 80)
 	{
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
-		Scene::SetScene(new CSceneHoken());
+		if (Message == 0)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+			if (Rouka1R == 1)
+			{
+				Hoken = room[6] = 1;
+				room[3] = 0;
+				Scene::SetScene(new CSceneHoken());
+			}
+			else if (Hoken == 1)
+			{
+				Rouka1R = room[3] = 1;
+				Scene::SetScene(new CSceneRouka1());
+			}
+		}
 	}
 }
 
 void CObjHokenDoor::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 0.45f,0.45f,0.45f,1.0f };
 	RECT_F src;
 	RECT_F dst;
 
-	if (hoken_door == false)
+	if (Rouka1R == 1)
 	{
-		src.m_top = 10.0f;
-		src.m_left = 491.0f;
-		src.m_right = 522.0f;
-		src.m_bottom = 105.0f;
-	
-		dst.m_top = 0.0f + m_y;
-		dst.m_left = 0.0f + m_x;
-		dst.m_right = 74.0f + m_x;
-		dst.m_bottom = 160.0f + m_y;
-		
-		Draw::Draw(4, &src, &dst, c, 0.0f);
+		if (hoken_door == false)
+		{
+			src.m_top = 10.0f;
+			src.m_left = 96.0f;
+			src.m_right = 128.0f;
+			src.m_bottom = 105.0f;
+
+			dst.m_top = 0.0f + m_y;
+			dst.m_left = 0.0f + m_x;
+			dst.m_right = 74.0f + m_x;
+			dst.m_bottom = 160.0f + m_y;
+
+			Draw::Draw(6, &src, &dst, c, 0.0f);
+		}
+		else
+		{
+			src.m_top = 201.0f;
+			src.m_left = 73.0f;
+			src.m_right = 136.0f;
+			src.m_bottom = 321.0f;
+
+			dst.m_top = 0.0f + m_y;
+			dst.m_left = 0.0f + m_x;
+			dst.m_right = 74.0f + m_x;
+			dst.m_bottom = 160.0f + m_y;
+
+			Draw::Draw(9, &src, &dst, c, 0.0f);
+		}
 	}
-	else
+	else if (Hoken == 1)
 	{
-		src.m_top = 201.0f;
-		src.m_left = 73.0f;
-		src.m_right = 136.0f;
-		src.m_bottom = 361.0f;
+		if (hoken_door == false)
+		{
+			src.m_top = 10.0f;
+			src.m_left = 96.0f;
+			src.m_right = 128.0f;
+			src.m_bottom = 105.0f;
+		}
+		else
+		{
+			src.m_top = 201.0f;
+			src.m_left = 73.0f;
+			src.m_right = 136.0f;
+			src.m_bottom = 321.0f;
+		}
 
 		dst.m_top = 0.0f + m_y;
 		dst.m_left = 0.0f + m_x;
-		dst.m_right = 74.0f + m_x;
-		dst.m_bottom = 160.0f + m_y;
+		dst.m_right = 76.0f + m_x;
+		dst.m_bottom = 120.0f + m_y;
 
-		Draw::Draw(9, &src, &dst, c, 0.0f);
+		Draw::Draw(6, &src, &dst, c, 0.0f);
 	}
 }
