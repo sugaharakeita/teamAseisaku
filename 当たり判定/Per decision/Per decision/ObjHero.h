@@ -31,6 +31,8 @@ private:
 
 	int m_ani_time; //アニメーションフレーム動作間隔
 	int m_ani_frame;//描画フレーム
+	int m_footsteps_co; //足音秒数カウント
+	bool m_footsteps_switching; //足音オン・オフ
 
 	//blockとの衝突状態確認用
 	bool m_hit_up;
