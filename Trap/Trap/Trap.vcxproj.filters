@@ -162,7 +162,49 @@
     <ClInclude Include="ShokuinPaper.h">
       <Filter>ソース ファイル\オブジェクト</Filter>
     </ClInclude>
+    <ClInclude Include="ObjKateikaDoor.h">
+      <Filter>ソース ファイル\仕掛け</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjKateikaJunbiDoor.h">
+      <Filter>ソース ファイル\仕掛け</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjKyoushituDoor.h">
+      <Filter>ソース ファイル\仕掛け</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjToshoDoor.h">
+      <Filter>ソース ファイル\仕掛け</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneRouka2.h">
+      <Filter>ソース ファイル\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjRouka2.h">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClInclude>
     <ClInclude Include="TextALL.h">
+      <Filter>ソース ファイル\スイッチ</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneKyoushitu.h">
+      <Filter>ソース ファイル\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTosho.h">
+      <Filter>ソース ファイル\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneKateika.h">
+      <Filter>ソース ファイル\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneKateikaJunbi.h">
+      <Filter>ソース ファイル\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjKyoushitu.h">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTosho.h">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjKateika.h">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjKateikaJunbi.h">
       <Filter>ソース ファイル\オブジェクト</Filter>
     </ClInclude>
   </ItemGroup>
@@ -293,7 +335,49 @@
     <ClCompile Include="ShokuinPaper.cpp">
       <Filter>ソース ファイル\オブジェクト</Filter>
     </ClCompile>
+    <ClCompile Include="ObjKateikaDoor.cpp">
+      <Filter>ソース ファイル\仕掛け</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjKateikaJunbiDoor.cpp">
+      <Filter>ソース ファイル\仕掛け</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjKyoushituDoor.cpp">
+      <Filter>ソース ファイル\仕掛け</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjToshoDoor.cpp">
+      <Filter>ソース ファイル\仕掛け</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneRouka2.cpp">
+      <Filter>ソース ファイル\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjRouka2.cpp">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClCompile>
     <ClCompile Include="TextALL.cpp">
+      <Filter>ソース ファイル\スイッチ</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneKyouhsitu.cpp">
+      <Filter>ソース ファイル\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTosho.cpp">
+      <Filter>ソース ファイル\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneKateika.cpp">
+      <Filter>ソース ファイル\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneKateikaJunbi.cpp">
+      <Filter>ソース ファイル\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjKyoushitu.cpp">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTosho.cpp">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjKateika.cpp">
+      <Filter>ソース ファイル\オブジェクト</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjKateikaJunbi.cpp">
       <Filter>ソース ファイル\オブジェクト</Filter>
     </ClCompile>
   </ItemGroup>

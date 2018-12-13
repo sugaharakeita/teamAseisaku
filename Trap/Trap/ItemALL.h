@@ -10,6 +10,10 @@ extern int HokenKey;
 extern bool Hok_flag;
 extern int Hammer;
 extern bool Ham_flag;
+extern int Kateika_Key;
+extern bool Kate_flag;
+extern int Tosho_Key;
+extern bool Tosho_flag;
 
 class CObjItemALL :public CObj
 {

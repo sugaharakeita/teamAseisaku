@@ -29,7 +29,7 @@ void CObjShokuinDoor::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
-	if (HIT_flag == true)
+	if (HIT_flag == 1)
 	{
 		if (shokuin_door == false)
 		{
@@ -73,9 +73,9 @@ void CObjShokuinDoor::Action()
 	}
 	
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-		HIT_flag = true;
+		HIT_flag = 1;
 	else
-		HIT_flag = false;
+		HIT_flag = 0;
 }
 
 void CObjShokuinDoor::Draw()

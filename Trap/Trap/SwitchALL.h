@@ -30,6 +30,13 @@ extern int Rouka1R;
 extern int Kouchou;
 extern int Shokuin;
 extern int Hoken;
+extern int Rouka2L;
+extern int Rouka2C;
+extern int Rouka2R;
+extern int Kateika;
+extern int KateikaJunbi;
+extern int Kyoushitu;
+extern int Tosho;
 
 class CObjSwitchALL :public CObj
 {

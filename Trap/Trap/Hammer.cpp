@@ -39,13 +39,9 @@ void CObjHammer::Action()
 		{
 			if (Input::GetVKey(VK_RETURN) == true && Hammer == 0)
 			{
+				Hammer = 1;
 				this->SetStatus(false);
 				Hits::DeleteHitBox(this);
-				CObjHammer* i = new CObjHammer(HeroX + 8, HeroY + 8);
-				Objs::InsertObj(i, OBJ_HAMMER, 1);
-				Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_PLAYER, OBJ_HAMMER, 1);
-				hit->SetPos(HeroX + 8, HeroY + 8);
-				Hammer = 1;
 				Message = 6;
 			}
 		}

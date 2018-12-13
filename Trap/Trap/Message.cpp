@@ -53,6 +53,10 @@ void CObjMessage::Draw()
 			Font::StrDraw(L"職員室", 10, 16, 32, c2);
 		else if (room[6] == 1)
 			Font::StrDraw(L"保健室", 10, 16, 32, c2);
+		else if(room[7] == 1 || room[8] == 1 || room[9] == 1)
+			Font::StrDraw(L"２階廊下", 10, 16, 32, c2);
+		else if (room[10] == 1)
+			Font::StrDraw(L"家庭科室", 10, 16, 32, c2);
 	}
 	if (Message == 0)
 		;//0の時は表示しない。
@@ -94,6 +98,31 @@ void CObjMessage::Draw()
 			Font::StrDraw(L"不穏な気配がする！", m_x + 16, m_y + 16, 64, c3);
 			Font::StrDraw(L"▼", 760, 560, 16, c3);
 		}
-	}
+		else if (Message == 8)
+		{
+			Font::StrDraw(L"図書室のカギを手に入れた", m_x + 16, m_y + 16, 32, c3);
+			Font::StrDraw(L"▼", 760, 560, 16, c3);
+		}
+		else if (Message == 9)
+		{
+			Font::StrDraw(L"図書室のカギを開けた", m_x + 16, m_y + 16, 32, c3);
+			Font::StrDraw(L"▼", 760, 560, 16, c3);
+		}
+		else if (Message == 10)
+		{
+			Font::StrDraw(L"家庭科室のカギを手に入れた", m_x + 16, m_y + 16, 32, c3);
+			Font::StrDraw(L"▼", 760, 560, 16, c3);
+		}
+		else if (Message == 11)
+		{
+			Font::StrDraw(L"家庭科室のカギを開けた", m_x + 16, m_y + 16, 32, c3);
+			Font::StrDraw(L"▼", 760, 560, 16, c3);
+		}
+		else if (Message == 12)
+		{
+			Font::StrDraw(L"家庭科準備室のカギを開けた", m_x + 16, m_y + 16, 32, c3);
+			Font::StrDraw(L"▼", 760, 560, 16, c3);
+		}
 
+	}
 }

@@ -76,8 +76,7 @@ void CObjRouka1::Action()
 	}
 	else if (room[2] == 1)
 	{
-		do
-		{
+		do{
 			if (Hammer == 1)
 			{
 				Message = 7;//ここに金次郎が突っ込んでくるイベント

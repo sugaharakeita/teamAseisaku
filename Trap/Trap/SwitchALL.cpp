@@ -34,6 +34,13 @@ int Rouka1R;
 int Kouchou;
 int Shokuin;
 int Hoken;
+int Rouka2L;
+int Rouka2C;
+int Rouka2R;
+int Kateika;
+int KateikaJunbi;
+int Kyoushitu;
+int Tosho;
 
 void CObjSwitchALL::Init()
 {

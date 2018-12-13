@@ -8,6 +8,11 @@ extern bool KouchouDoorOpen;
 extern bool HokenDoorOpen;
 extern bool KouchouHakoOpen;
 extern bool HokenHakoOpen;
+extern bool KateikaHakoOpen;
+extern bool KateikaDoorOpen;
+extern bool KateikaJunbiDoorOpen;
+extern bool ToshoHakoOpen;
+extern bool ToshoDoorOpen;
 
 class CObjTrapALL :public CObj
 {

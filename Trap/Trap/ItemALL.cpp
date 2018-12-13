@@ -12,3 +12,7 @@ int HokenKey;
 bool Hok_flag;
 int Hammer;
 bool Ham_flag;
+int Kateika_Key;
+bool Kate_flag;
+int Tosho_Key;
+bool Tosho_flag;
