@@ -3,6 +3,7 @@
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
 #include "GameL\HitBoxManager.h"
+#include "GameL\Audio.h"
 
 
 #include "GameHead.h"
@@ -23,6 +24,8 @@ void CObjHero::Init()
 
 	m_ani_time = 0;
 	m_ani_frame = 1;  //静止フレームを初期にする
+	m_footsteps_co = 0; //足音秒数カウント初期化
+	m_footsteps_switching = false; //足音オフ化
 
 	//衝突状態確認用初期化
 	m_hit_up = false;
@@ -31,7 +34,7 @@ void CObjHero::Init()
 	m_hit_right = false;
 	
 	//当たり判定                                
-	Hits::SetHitBox(this, m_px , m_py , 32, 10, ELEMENT_PLAYER, OBJ_HERO, 1);
+	Hits::SetHitBox(this, m_px+16 , m_py+50 , 32, 10, ELEMENT_PLAYER, OBJ_HERO, 1);
 	//					横開始 縦開始 横大きさ 縦大きさ 属性 名前
 }
 
@@ -50,6 +53,7 @@ void CObjHero::Action()
 		m_vy = -4.0f;
 		m_posture = 3;
 		m_ani_time += 1;
+		m_footsteps_switching = true; //足音オン
 	}
 
 	//左キーかつ当たり判定と当たっていない場合
@@ -58,6 +62,7 @@ void CObjHero::Action()
 		m_vx -= 4.0f;
 		m_posture = 1;
 		m_ani_time += 1;
+		m_footsteps_switching = true; //足音オン
 	}
 
 	//下キーかつ当たり判定と当たっていない場合
@@ -66,6 +71,7 @@ void CObjHero::Action()
 		m_vy = +4.0f;
 		m_posture = 2;
 		m_ani_time += 1;
+		m_footsteps_switching = true; //足音オン
 	}
 
 	//右キーかつ当たり判定と当たっていない場合
@@ -74,6 +80,7 @@ void CObjHero::Action()
 		m_vx += 4.0f;
 		m_posture = 0;
 		m_ani_time += 1;
+		m_footsteps_switching = true; //足音オン
 	}
 	//上キーかつ当たり判定と当たっている場合
 	else if (Input::GetVKey('W') == true && m_hit_up == true)
@@ -117,10 +124,13 @@ void CObjHero::Action()
 	{
 		m_ani_frame = 0; //キー入力が無い場合は静止フレームにする
 		m_ani_time = 0;
+		m_footsteps_co = 0;
+		m_footsteps_switching = false; //足音オフ化
 		m_hit_up = false;
 		m_hit_down = false;
 		m_hit_left = false;
 		m_hit_right = false;
+		Audio::Stop(2);
 	}
 	
 
@@ -130,9 +140,26 @@ void CObjHero::Action()
 		m_ani_time = 0;
 	}
 
+
 	if (m_ani_frame == 4)
 	{
 		m_ani_frame = 0;
+	}
+
+	//足音がオンの時
+	if (m_footsteps_switching == true)
+	{
+		if (m_footsteps_co == 0)
+		{
+			Audio::Start(2);
+			m_footsteps_co += 1;
+		}
+
+		if (m_footsteps_co == 9)
+		{
+			Audio::Stop(2);
+			m_footsteps_co = 0;
+		}
 	}
 
 
@@ -257,8 +284,8 @@ void CObjHero::Action()
 
 	
 	//作成したHitBox更新用の入り口を取り出す
-	hit->SetPos(m_px + 15, m_py + 50);//入り口から新しい位置（主人公の位置）情報に置き換える
-	
+	hit->SetPos(m_px + 16, m_py + 50);//入り口から新しい位置（主人公の位置）情報に置き換える
+	/*
 	//敵機オブジェクトと接触したら主人公機削除
 	if (hit->CheckObjNameHit(OBJ_ENEMY) !=nullptr)
 	{
@@ -266,7 +293,7 @@ void CObjHero::Action()
 		Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
     	Scene::SetScene(new CSceneGameOver());
 	}
-	
+	*/
 }
 
 

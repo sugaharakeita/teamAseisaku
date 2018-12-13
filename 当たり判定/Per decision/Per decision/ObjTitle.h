@@ -16,5 +16,7 @@ public:
 
 private:
 	bool m_key_flag;//キーフラグ
+	bool m_start; //スタートフラグ
+	int m_start_co; //スタートカウント
 
 };

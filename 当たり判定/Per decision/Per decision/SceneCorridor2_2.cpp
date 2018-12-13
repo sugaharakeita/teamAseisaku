@@ -35,6 +35,8 @@ void CSceneCorridor2_2::InitScene()
 	Audio::LoadAudio(0, L"謀略の間.wav", BACK_MUSIC); //通常
 	Audio::LoadAudio(1, L"死神の斧.wav", BACK_MUSIC); //Enemy出現
 
+	Audio::LoadAudio(2, L"学校の廊下を歩く .wav", BACK_MUSIC); //主人公足音
+
 	//ボリュームを0.8減らす
 	float v = Audio::VolumeMaster(0.8);
 
