@@ -5,8 +5,9 @@
 using namespace GameL;
 
 extern int KouchouKey;
-extern bool KouchouKey_flag;
+extern bool Kou_flag;
 extern int HokenKey;
+extern bool Hok_flag;
 extern int Hammer;
 extern bool Ham_flag;
 

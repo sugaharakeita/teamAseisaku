@@ -3,17 +3,15 @@
 
 using namespace GameL;
 
-class CObjHokenDoor :public CObj
+class CObjMenu : public CObj
 {
 public:
-	CObjHokenDoor(float x, float y);
-	~CObjHokenDoor() {};
+	CObjMenu(float x, float y);
+	~CObjMenu() {};
 	void Init();
 	void Action();
 	void Draw();
 private:
 	float m_x;
 	float m_y;
-	int HIT_flag;
-	bool hoken_door;
 };

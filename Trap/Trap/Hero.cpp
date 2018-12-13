@@ -30,7 +30,8 @@ void CObjHero::Action()
 	CHitBox*hit = Hits::GetHitBox(this);
 	hit->SetPos(HeroX + 24, HeroY + 48);
 
-	if (Input::GetVKey('W') == true && Message == 0)
+	if (Input::GetVKey('W') == true && Text == 0
+		&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
 		if (HIT_flag == true || t_flag == true || HeroStop == 3)
 				;
@@ -41,7 +42,8 @@ void CObjHero::Action()
 				m_ani_time += 1;
 			}
 		}
-		else if (Input::GetVKey('S') == true && Message == 0)
+		else if (Input::GetVKey('S') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
 			if (HIT_flag == true || t_flag == true || HeroStop == 2)
 				;
@@ -52,7 +54,8 @@ void CObjHero::Action()
 				m_ani_time += 1;
 			}
 		}
-		else if (Input::GetVKey('A') == true && Message == 0)
+		else if (Input::GetVKey('A') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
 			if (HIT_flag == true || t_flag == true || HeroStop == 1)
 				;
@@ -63,7 +66,8 @@ void CObjHero::Action()
 				m_ani_time += 1;
 			}
 		}
-		else if (Input::GetVKey('D') == true && Message == 0)
+		else if (Input::GetVKey('D') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
 			if (HIT_flag == true || t_flag == true || HeroStop == 0)
 				;
@@ -88,6 +92,11 @@ void CObjHero::Action()
 
 	if (m_ani_frame == 4)
 		m_ani_frame = 0;
+
+	if (Text == 0 && Message == 0 && Input::GetVKey('X') == true)
+	{
+		Menu = 1;
+	}
 
 	if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
 	{

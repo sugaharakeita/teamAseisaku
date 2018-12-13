@@ -7,6 +7,8 @@
 
 //アイテム所持個数と使用状況
 int KouchouKey;
+bool Kou_flag;
 int HokenKey;
+bool Hok_flag;
 int Hammer;
 bool Ham_flag;

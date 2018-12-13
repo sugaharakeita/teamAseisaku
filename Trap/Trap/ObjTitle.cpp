@@ -25,7 +25,11 @@ void CObjTitle::Action()
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
 		this->SetStatus(false);
-		Rouka1CR = room[2] = Title = 1;
+		Rouka1CR = room[2] = Title = 1; //素早くスタート位置を変えるため
+		//Rouka1L = room[0] = 1;
+		//Rouka1CL = room[1] = 1;
+		//Rouka1R = room[3] = 1;
+		
 		Scene::SetScene(new CSceneRouka1());
 	}
 }

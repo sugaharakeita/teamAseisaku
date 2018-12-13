@@ -3,17 +3,17 @@
 
 using namespace GameL;
 
-class CObjHokenDoor :public CObj
+class CObjShokuinPaper :public CObj
 {
 public:
-	CObjHokenDoor(float x, float y);
-	~CObjHokenDoor() {};
+	CObjShokuinPaper(float x, float y);
+	~CObjShokuinPaper() {};
 	void Init();
 	void Action();
 	void Draw();
 private:
 	float m_x;
 	float m_y;
-	int HIT_flag;
-	bool hoken_door;
+	int m_time;
+	bool HIT_flag;
 };

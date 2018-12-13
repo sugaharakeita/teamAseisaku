@@ -19,9 +19,9 @@ void CObjKouchouHako::Init()
 {
 	m_time = 0;
 
-	Hits::SetHitBox(this, m_x, m_y, 64, 14, ELEMENT_OBJECT, OBJ_HAKO, 1);
+	Hits::SetHitBox(this, m_x, m_y, 64, 64, ELEMENT_OBJECT, OBJ_HAKO, 1);
 	if (KouchouHakoOpen == true)
-		Hits::SetHitBox(this, m_x, m_y, 64, 14, ELEMENT_FIELD, OBJ_WALL, 1);
+		Hits::SetHitBox(this, m_x, m_y, 64, 64, ELEMENT_FIELD, OBJ_WALL, 1);
 }
 
 void CObjKouchouHako::Action()
@@ -53,7 +53,7 @@ void CObjKouchouHako::Action()
 
 void CObjKouchouHako::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 0.45f,0.45f,0.45f,1.0f };
 	RECT_F src;
 	RECT_F dst;
 	if (KouchouHakoOpen == true)
