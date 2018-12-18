@@ -100,25 +100,35 @@ void CObjMessage::Draw()
 		}
 		else if (Message == 8)
 		{
-			Font::StrDraw(L"図書室のカギを手に入れた", m_x + 16, m_y + 16, 32, c3);
+			Font::StrDraw(L"二宮金次郎の像は崩れ去った。", m_x + 16, m_y + 16, 32, c3);
 			Font::StrDraw(L"▼", 760, 560, 16, c3);
 		}
 		else if (Message == 9)
 		{
-			Font::StrDraw(L"図書室のカギを開けた", m_x + 16, m_y + 16, 32, c3);
+			Font::StrDraw(L"上の階に行けるようになったようだ…", m_x + 16, m_y + 16, 32, c3);
 			Font::StrDraw(L"▼", 760, 560, 16, c3);
 		}
 		else if (Message == 10)
 		{
-			Font::StrDraw(L"家庭科室のカギを手に入れた", m_x + 16, m_y + 16, 32, c3);
+			Font::StrDraw(L"図書室のカギを手に入れた", m_x + 16, m_y + 16, 32, c3);
 			Font::StrDraw(L"▼", 760, 560, 16, c3);
 		}
 		else if (Message == 11)
 		{
-			Font::StrDraw(L"家庭科室のカギを開けた", m_x + 16, m_y + 16, 32, c3);
+			Font::StrDraw(L"図書室のカギを開けた", m_x + 16, m_y + 16, 32, c3);
 			Font::StrDraw(L"▼", 760, 560, 16, c3);
 		}
 		else if (Message == 12)
+		{
+			Font::StrDraw(L"家庭科室のカギを手に入れた", m_x + 16, m_y + 16, 32, c3);
+			Font::StrDraw(L"▼", 760, 560, 16, c3);
+		}
+		else if (Message == 13)
+		{
+			Font::StrDraw(L"家庭科室のカギを開けた", m_x + 16, m_y + 16, 32, c3);
+			Font::StrDraw(L"▼", 760, 560, 16, c3);
+		}
+		else if (Message == 14)
 		{
 			Font::StrDraw(L"家庭科準備室のカギを開けた", m_x + 16, m_y + 16, 32, c3);
 			Font::StrDraw(L"▼", 760, 560, 16, c3);

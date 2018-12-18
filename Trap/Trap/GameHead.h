@@ -107,7 +107,6 @@ struct UserData
 #include "ObjShokuinDoor.h"
 #include "ObjShokuin.h"
 #include "ShokuinPaper.h"
-#include "HokenHako.h"
 #include "HokenKey.h"
 #include "ObjHokenDoor.h"
 #include "ObjHoken.h"

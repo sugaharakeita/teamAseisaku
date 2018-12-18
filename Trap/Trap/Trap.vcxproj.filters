@@ -129,9 +129,6 @@
     <ClInclude Include="SwitchALL.h">
       <Filter>ソース ファイル\スイッチ</Filter>
     </ClInclude>
-    <ClInclude Include="HokenHako.h">
-      <Filter>ソース ファイル\仕掛け</Filter>
-    </ClInclude>
     <ClInclude Include="KouchouHako.h">
       <Filter>ソース ファイル\仕掛け</Filter>
     </ClInclude>
@@ -301,9 +298,6 @@
     </ClCompile>
     <ClCompile Include="SwitchALL.cpp">
       <Filter>ソース ファイル\スイッチ</Filter>
-    </ClCompile>
-    <ClCompile Include="HokenHako.cpp">
-      <Filter>ソース ファイル\仕掛け</Filter>
     </ClCompile>
     <ClCompile Include="KouchouHako.cpp">
       <Filter>ソース ファイル\仕掛け</Filter>

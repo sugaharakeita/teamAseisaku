@@ -96,7 +96,7 @@ void CObjKouchouDoor::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	if (Rouka1L == 1)
+	if (room[0] == 1)
 	{
 		if (kouchou_door == false)
 		{
@@ -127,7 +127,7 @@ void CObjKouchouDoor::Draw()
 			Draw::Draw(7, &src, &dst, c, 0.0f);
 		}
 	}
-	else if (Kouchou == 1)
+	else if (room[4] == 1)
 	{
 		if (kouchou_door == false)
 		{

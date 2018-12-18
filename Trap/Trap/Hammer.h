@@ -17,7 +17,7 @@ private:
 	float m_y;
 	float m_vx;
 	bool m_del;
-	bool HIT_flag;
+	bool Hit_flag;
 	int m_time;
 	RECT_F m_eff;
 };

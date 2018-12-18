@@ -59,9 +59,9 @@ void CObjKouchouHako::Draw()
 	if (KouchouHakoOpen == true)
 	{
 		src.m_top = 0.0f;
-		src.m_left = 16.0f;
-		src.m_right = 32.0f;
-		src.m_bottom = 16.0f;
+		src.m_left = 69.0f;
+		src.m_right = 84.0f;
+		src.m_bottom = 15.0f;
 
 		dst.m_top = 0.0f + m_y;
 		dst.m_left = 0.0f + m_x;
@@ -73,9 +73,9 @@ void CObjKouchouHako::Draw()
 	else
 	{
 		src.m_top = 0.0f;
-		src.m_left = 0.0f;
-		src.m_right = 16.0f;
-		src.m_bottom = 16.0f;
+		src.m_left = 48.0f;
+		src.m_right = 63.0f;
+		src.m_bottom = 15.0f;
 
 		dst.m_top = 0.0f + m_y;
 		dst.m_left = 0.0f + m_x;

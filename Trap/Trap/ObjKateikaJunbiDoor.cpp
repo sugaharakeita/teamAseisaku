@@ -40,9 +40,9 @@ void CObjKateikaJunbiDoor::Action()
 	{
 		if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 			if (room[11] == 1)
-				HIT_flag == 2;
+				HIT_flag = 2;
 			else if (room[8] == 1)
-				HIT_flag == 1;
+				HIT_flag = 1;//ŠO‘¤‚©‚ç‚ÍŠJ‚¯‚ç‚ê‚È‚¢
 		else
 			HIT_flag = 0;
 	}
@@ -58,7 +58,7 @@ void CObjKateikaJunbiDoor::Action()
 
 			if (KateikaJunbiDoorOpen == false)
 			{
-				Message = 12;
+				Message = 14;
 				ToshoDoorOpen = true;
 			}
 		}

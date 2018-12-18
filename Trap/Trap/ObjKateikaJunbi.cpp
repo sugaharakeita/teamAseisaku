@@ -50,7 +50,7 @@ void CObjKateikaJunbi::Action()
 		Kateika = 0;
 }
 
-void CObjKateika::Draw()
+void CObjKateikaJunbi::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,0.45f };
 	RECT_F src;

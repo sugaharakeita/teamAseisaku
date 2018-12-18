@@ -25,7 +25,7 @@ void CSceneRouka2::InitScene()
 	Draw::LoadImage(L"メッセージウィンドウ.png", 0, TEX_SIZE_512);
 	Draw::LoadImage(L"001.png", 1, TEX_SIZE_512);
 	Draw::LoadImage(L"!.png", 2, TEX_SIZE_512);
-	Draw::LoadImage(L"アイテム.png", 3, TEX_SIZE_512);
+	Draw::LoadImage(L"アイテム全部.png", 3, TEX_SIZE_512);
 	Draw::LoadImage(L"廊下2全体図.png", 10, TEX_SIZE_512);
 	Draw::LoadImage(L"家庭科室完成版", 11, TEX_SIZE_512);
 	Draw::LoadImage(L"家庭科準備室完成版.png", 12, TEX_SIZE_512);
@@ -37,6 +37,7 @@ void CSceneRouka2::InitScene()
 	if (room[7] == 1)
 	{
 		
+
 	}
 	else if (room[8] == 1)
 	{

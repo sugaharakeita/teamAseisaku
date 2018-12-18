@@ -25,7 +25,7 @@ void CSceneShokuin::InitScene()
 	Draw::LoadImage(L"メッセージウィンドウ.png", 0, TEX_SIZE_512);
 	Draw::LoadImage(L"001.png", 1, TEX_SIZE_512);
 	Draw::LoadImage(L"!.png", 2, TEX_SIZE_512);
-	Draw::LoadImage(L"アイテム.png", 3, TEX_SIZE_512);
+	Draw::LoadImage(L"アイテム全部.png", 3, TEX_SIZE_512);
 	Draw::LoadImage(L"廊下1-1.png", 4, TEX_SIZE_512);
 	Draw::LoadImage(L"職員室.png", 8, TEX_SIZE_512);
 	CObjShokuin* r2 = new CObjShokuin();
@@ -48,21 +48,24 @@ void CSceneShokuin::InitScene()
 	Objs::InsertObj(d1, SHOKUIN_DOOR, 1);
 	CObjShokuinDoor* d2 = new CObjShokuinDoor(732.0f, 0.0f);
 	Objs::InsertObj(d2, SHOKUIN_DOOR, 1);
-	CObjHokenHako* b2 = new CObjHokenHako(0.0f, 534.0f);
-	Objs::InsertObj(b2, OBJ_HAKO, 1);
-	CObjShokuinPaper* t1 = new CObjShokuinPaper(90.0f, 44.0f);
+	CObjShokuinPaper* t1 = new CObjShokuinPaper(78.0f, 34.0f);
 	Objs::InsertObj(t1, OBJ_TEXTURE, 1);
-	if (KouchouKey == 1)
+	if (KouchouKey == 1 && Kou_flag == false)
 	{
 		CObjKouchouKey* k = new CObjKouchouKey(HeroX + 8, HeroY + 8);
 		Objs::InsertObj(k, KOUCHOU_KEY, 1);
 	}
-	if (HokenKey == 1)
+	if (HokenKey == 0)
+	{
+		CObjHokenKey* k2 = new CObjHokenKey(177.0f, 72.0f);
+		Objs::InsertObj(k2, HOKEN_KEY, 1);
+	}
+	else if (HokenKey == 1 && Hok_flag == false)
 	{
 		CObjHokenKey* k2 = new CObjHokenKey(HeroX + 8, HeroY + 8);
 		Objs::InsertObj(k2, HOKEN_KEY, 1);
 	}
-	if (Hammer == 1)
+	if (Hammer == 1 && Ham_flag == false)
 	{
 		CObjHammer* i = new CObjHammer(HeroX + 8, HeroY + 8);
 		Objs::InsertObj(i, OBJ_HAMMER, 1);

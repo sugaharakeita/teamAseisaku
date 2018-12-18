@@ -48,8 +48,8 @@ void CObjTextALL::Draw()
 		if (Text == 1)
 		{
 			Font::StrDraw(L"図書委員の人へ", m_x + 16, m_y + 16, 32, c2);
-			Font::StrDraw(L"", m_x+64, m_y+64, 32, c2);
-
+			Font::StrDraw(L"図書室の本が散らかっています。", m_x+16, m_y+64, 32, c2);
+			Font::StrDraw(L"片付けてください。", m_x + 16, m_y + 96, 32, c2);
 		}
 		else if (Text == 2)
 		{

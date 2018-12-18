@@ -66,11 +66,8 @@ void CObjKouchouKey::Action()
 	}
 
 	if (KOUCHOUDOOR_flag == true && Input::GetVKey(VK_RETURN) == true)
-	{
-		KouchouKey = 0;
 		Kou_flag = true;
-	}
-
+	
 	if (hit->CheckObjNameHit(KOUCHOU_DOOR) != nullptr)
 		KOUCHOUDOOR_flag = true;
 	else
@@ -94,44 +91,13 @@ void CObjKouchouKey::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	src.m_top = 16.0f;
-	src.m_left = 0.0f;
-	src.m_right = 150.0f;
-	src.m_bottom = 315.0f;
+	src.m_top = 0.0f;
+	src.m_left = 13.0f;
+	src.m_right = 23.0f;
+	src.m_bottom = 13.0f;
 
-	dst.m_top = 0.0f + m_y;
-	dst.m_left = 0.0f + m_x;
-	dst.m_right = 60.0f + m_x;
-	dst.m_bottom = 120.0f + m_y;
-
-	if (KouchouKey == 1)
-	{
-		if (Menu == 2)
-		{
-			do
-			{
-				CObjKouchouKey* k = new CObjKouchouKey(0, 32);
-				Objs::InsertObj(k, KOUCHOU_KEY, 1);
-			} while (KouchouKey == 0);
-
-			dst.m_top = 0.0f + m_y;
-			dst.m_left = 0.0f + m_x;
-			dst.m_right = 32.0f + m_x;
-			dst.m_bottom = 32.0f + m_y;
-
-			Draw::Draw(3, &src, &dst, c, 0.0f);
-		}
-		else
-		{
-			this->SetStatus(false);
-			Hits::DeleteHitBox(this);
-			do
-			{
-				CObjKouchouKey* k = new CObjKouchouKey(HeroX+8, HeroY+8);
-				Objs::InsertObj(k, KOUCHOU_KEY, 1);
-			} while (KouchouKey == 0);
-		};
-	}
-	else if (Kou_flag == false && KouchouKey == 0)
-		Draw::Draw(3, &src, &dst, c, 0.0f);
+	dst.m_top = 0.0f;
+	dst.m_left = 0.0f;
+	dst.m_right = 40.0f;
+	dst.m_bottom = 52.0f;
 }

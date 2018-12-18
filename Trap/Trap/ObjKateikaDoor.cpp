@@ -57,7 +57,7 @@ void CObjKateikaDoor::Action()
 
 			if (KateikaDoorOpen == false)
 			{
-				Message = 11;
+				Message = 13;
 				KateikaDoorOpen = true;
 			}
 		}

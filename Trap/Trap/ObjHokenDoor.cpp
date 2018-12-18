@@ -96,7 +96,7 @@ void CObjHokenDoor::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	if (Rouka1R == 1)
+	if (room[3] == 1)
 	{
 		if (hoken_door == false)
 		{
@@ -127,7 +127,7 @@ void CObjHokenDoor::Draw()
 			Draw::Draw(9, &src, &dst, c, 0.0f);
 		}
 	}
-	else if (Hoken == 1)
+	else if (room[6] == 1)
 	{
 		if (hoken_door == false)
 		{

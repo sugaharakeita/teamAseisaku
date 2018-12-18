@@ -25,7 +25,7 @@ void CSceneKouchou::InitScene()
 	Draw::LoadImage(L"メッセージウィンドウ.png", 0, TEX_SIZE_512);
 	Draw::LoadImage(L"001.png", 1, TEX_SIZE_512);
 	Draw::LoadImage(L"!.png", 2, TEX_SIZE_512);
-	Draw::LoadImage(L"アイテム.png", 3, TEX_SIZE_512);
+	Draw::LoadImage(L"アイテム全部.png", 3, TEX_SIZE_512);
 	Draw::LoadImage(L"廊下1-1.png", 4, TEX_SIZE_512);
 	Draw::LoadImage(L"校長室.png", 7, TEX_SIZE_512);
 	CObjKouchou* r1 = new CObjKouchou();
@@ -47,7 +47,7 @@ void CSceneKouchou::InitScene()
 		CObjHammer* i = new CObjHammer(188, 164);
 		Objs::InsertObj(i, OBJ_HAMMER, 1);
 	}
-	else if (Hammer == 1)
+	else if (Hammer == 1 && Ham_flag == false)
 	{
 		CObjHammer* i = new CObjHammer(HeroX + 8, HeroY + 8);
 		Objs::InsertObj(i, OBJ_HAMMER, 1);

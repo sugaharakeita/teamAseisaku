@@ -4,6 +4,7 @@
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
 #include "SwitchALL.h"
+#include "ObjRouka1.h"
 #include "ObjRouka2.h"
 #include "GameHead.h"
 
@@ -31,6 +32,7 @@ void CObjRouka2::SetMap(int x, int y, int id)
 void CObjRouka2::Init()
 {
 	m_time = 0;
+	ev_mass = 0;
 }
 
 void CObjRouka2::Action()
@@ -43,7 +45,7 @@ void CObjRouka2::Action()
 		if (HeroX >= 756.0f)
 		{
 			room[7] = 0;
-			Rouka1CL = room[8] = 1;
+			Rouka2C = room[8] = 1;
 			Scene::SetScene(new CSceneRouka2());
 		}
 		if (HeroY <= 140.0f)
@@ -72,7 +74,7 @@ void CObjRouka2::Action()
 		if (HeroY >= 440.0f)
 			HeroY = 440.0f;
 		if (m_time == 5)
-			Rouka2L = Rouka2R = KateikaJunbi = 0;
+			Rouka1CR = Rouka2L = Rouka2R = KateikaJunbi = 0;
 	}
 	else if (room[9] == 1)
 	{

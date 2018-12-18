@@ -57,7 +57,7 @@ void CObjToshoDoor::Action()
 
 			if (ToshoDoorOpen == false)
 			{
-				Message = 9;
+				Message = 11;
 				ToshoDoorOpen = true;
 			}
 		}

@@ -31,6 +31,7 @@ void CObjRouka1::SetMap(int x, int y, int id)
 void CObjRouka1::Init()
 {
 	m_time = 0;
+	ev_mass = 0;
 }
 
 void CObjRouka1::Action()
@@ -76,13 +77,6 @@ void CObjRouka1::Action()
 	}
 	else if (room[2] == 1)
 	{
-		do{
-			if (Hammer == 1)
-			{
-				Message = 7;//ここに金次郎が突っ込んでくるイベント
-			}
-		} while (room[2] == 0);
-
 		if (HeroX <= -20.0f)
 		{
 			room[2] = 0;
@@ -101,6 +95,35 @@ void CObjRouka1::Action()
 			HeroY = 540.0f;
 		if (m_time == 5)
 			Rouka1CL = Rouka1R = 0;
+		
+		if (Hammer == 1 && Ham_flag ==false && ev_mass == 0)
+		{	
+			Message = 7;
+			if (Message == 7 && Input::GetVKey(VK_BACK) == true)
+				ev_mass = 1;
+		}
+		if (ev_mass == 1)
+		{	
+			/*ここに金次郎が突っ込んでくるイベント
+			CObjKinjiro* e1 = new CObjKinjiro(800,HeroY);
+			Objs::InsertObj(e1, OBJ_KINJIRO, 2);*/
+
+			Message = 8;
+			if (Message == 8 && Input::GetVKey(VK_RETURN) == true)
+				ev_mass = 2;
+		}
+		if (ev_mass == 2)
+		{
+			Message = 9;
+			if (Message == 9 && Input::GetVKey(VK_SPACE) == true)
+				ev_mass = 3;
+		}
+		if (ev_mass == 3)
+		{
+			room[2] = 0;
+			Rouka2C = room[8] = 1;
+			Scene::SetScene(new CSceneRouka2());
+		}
 	}
 	else if (room[3] == 1)
 	{

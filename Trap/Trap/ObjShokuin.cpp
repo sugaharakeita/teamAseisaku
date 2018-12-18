@@ -66,5 +66,6 @@ void CObjShokuin::Draw()
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 
-	Draw::Draw(8, &src, &dst, c, 0.0f);
+	if(room[0] ==1 || room[1] ==1 || room[5] == 1)
+		Draw::Draw(8, &src, &dst, c, 0.0f);
 }

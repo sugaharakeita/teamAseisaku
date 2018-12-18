@@ -19,7 +19,7 @@ void CObjShokuinPaper::Init()
 {
 	m_time = 0;
 
-	Hits::SetHitBox(this, m_x, m_y, 36, 48, ELEMENT_OBJECT, OBJ_TEXTURE, 1);
+	Hits::SetHitBox(this, m_x, m_y, 60, 68, ELEMENT_OBJECT, OBJ_TEXTURE, 1);
 }
 
 void CObjShokuinPaper::Action()
@@ -45,14 +45,14 @@ void CObjShokuinPaper::Draw()
 	RECT_F dst;
 
 	src.m_top = 0.0f;
-	src.m_left = 190.0f;
-	src.m_right = 356.0f;
-	src.m_bottom = 214.0f;
+	src.m_left = 27.0f;
+	src.m_right = 42.0f;
+	src.m_bottom = 17.0f;
 
 	dst.m_top = 0.0f + m_y;
 	dst.m_left = 0.0f + m_x;
-	dst.m_right = 36.0f + m_x;
-	dst.m_bottom = 48.0f + m_y;
+	dst.m_right = 60.0f + m_x;
+	dst.m_bottom = 68.0f + m_y;
 
 	Draw::Draw(3, &src, &dst, c, 0.0f);
 }

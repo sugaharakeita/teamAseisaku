@@ -25,7 +25,7 @@ void CSceneTosho::InitScene()
 	Draw::LoadImage(L"メッセージウィンドウ.png", 0, TEX_SIZE_512);
 	Draw::LoadImage(L"001.png", 1, TEX_SIZE_512);
 	Draw::LoadImage(L"!.png", 2, TEX_SIZE_512);
-	Draw::LoadImage(L"アイテム.png", 3, TEX_SIZE_512);
+	Draw::LoadImage(L"アイテム全部.png", 3, TEX_SIZE_512);
 	Draw::LoadImage(L"廊下2全体図.png", 10, TEX_SIZE_512);
 	Draw::LoadImage(L"教室完成版.png", 13, TEX_SIZE_512);
 	CObjTosho* r8 = new CObjTosho();
