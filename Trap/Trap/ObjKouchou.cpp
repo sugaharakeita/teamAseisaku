@@ -47,7 +47,7 @@ void CObjKouchou::Action()
 		HeroY = 540.0f;
 
 	if (m_time == 5)
-		Rouka1L = 0;
+		Rouka1L = 0;//SwitchALL‚Ì¬“¯‚ğ”ğ‚¯‚é‚½‚ß
 }
 
 void CObjKouchou::Draw()

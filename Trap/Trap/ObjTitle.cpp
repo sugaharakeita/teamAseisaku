@@ -17,28 +17,16 @@ void CObjTitle::Init()
 
 void CObjTitle::Action()
 {
-	if (Input::GetVKey(VK_SPACE) == true)
+	if (Input::GetVKey(VK_SPACE) == true)//スペースキーが入力された場合操作説明画面に移行する
 	{
 		this->SetStatus(false);
 		Scene::SetScene(new CSceneHelp());
 	}
-	if (Input::GetVKey(VK_RETURN) == true)
+	if (Input::GetVKey(VK_RETURN) == true)//エンターキーが入力された場合ゲームを開始する
 	{
 		this->SetStatus(false);
-		//素早くスタート位置を変えるため
-		//Rouka1L = room[0] = 1;
-		//Rouka1CL = room[1] = 1;
-		Rouka1CR = room[2] = Title = 1;
-		//Rouka1R = room[3] = 1;
+		Rouka1CR = room[2] = Title = 1;//１階廊下右側のスタート位置に移動する
 		Scene::SetScene(new CSceneRouka1());
-		//Scene::SetScene(new CSceneKouchou());
-		//Scene::SetScene(new CSceneShokuin());
-		//Scene::SetScene(new CSceneHoken());
-		
-		//Rouka2L = room[7] = 1;
-		//Rouka2C = room[8] = 1;
-		//Rouka2R = room[9] = 1;
-		//Scene::SetScene(new CSceneRouka2());
 	}
 }
 

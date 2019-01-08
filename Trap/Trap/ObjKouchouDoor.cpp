@@ -18,10 +18,11 @@ CObjKouchouDoor::CObjKouchouDoor(float x, float y)
 void CObjKouchouDoor::Init()
 {
 	kouchou_door = false;
+	Hit_flag = 0;
 
-	if (room[0] == 1)
+	if (room[0] == 1)//１階廊下左側に居る場合
 		Hits::SetHitBox(this, m_x, m_y, 100, 158, ELEMENT_DOOR, KOUCHOU_DOOR, 1);
-	if (room[4] == 1)
+	if (room[4] == 1)//校長室に居る場合
 		Hits::SetHitBox(this, m_x, m_y, 120, 120, ELEMENT_DOOR, KOUCHOU_DOOR, 1);
 }
 
@@ -32,21 +33,21 @@ void CObjKouchouDoor::Action()
 	if (KouchouDoorOpen == true)//鍵開け済み
 	{
 		if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-			HIT_flag = 2;//開けることができる
+			Hit_flag = 1;//開けることができる
 		else
-			HIT_flag = 0;
+			Hit_flag = 0;
 	}
 	else
 	{
 		if (hit->CheckObjNameHit(KOUCHOU_KEY) != nullptr)
-			HIT_flag = 2;//鍵を開ける
+			Hit_flag = 1;//鍵を開ける
 		else if(hit->CheckElementHit(ELEMENT_PLAYER) == true)
-			HIT_flag = 1;//鍵がなくて開けられない
+			Hit_flag = 2;//鍵がなくて開けられない
 		else
-			HIT_flag = 0;
+			Hit_flag = 0;
 	}
 
-	if (HIT_flag == 2)
+	if (Hit_flag == 1 && Menu == 0)
 	{
 		if (Input::GetVKey(VK_RETURN) == true && kouchou_door == false)
 		{
@@ -57,15 +58,15 @@ void CObjKouchouDoor::Action()
 			
 			if (KouchouDoorOpen == false)
 			{
-				Message = 3;//３番にセットしたメッセージを表示する
+				Message = 4;//4番にセットしたメッセージを表示する
 				KouchouDoorOpen = true;
 			}
 		}
 	}
-	else if (HIT_flag == 1)
+	else if (Hit_flag == 2)
 	{
 		if (Input::GetVKey(VK_RETURN) == true && kouchou_door == false)
-			Message = 1;
+			Message = 1;//1番にセットしたメッセージを表示する
 	}
 
 	if (kouchou_door == true)
@@ -74,16 +75,16 @@ void CObjKouchouDoor::Action()
 		{
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);
-			if (Rouka1L == 1)
+			if (Rouka1L == 1)//１階廊下左側に居る場合
 			{
-				Kouchou = room[4] = 1;
-				room[0] = 0;
+				room[0] = 0;//この部屋からは居なくなる
+				Kouchou = room[4] = 1;//校長室に移動する
 				Scene::SetScene(new CSceneKouchou());
 			}
-			else if (Kouchou == 1)
+			else if (Kouchou == 1)//校長室に居る場合
 			{
-				Rouka1L = room[0] = 1;
-				room[4] = 0;
+				room[4] = 0;//この部屋からは居なくなる
+				Rouka1L = room[0] = 1;//１階廊下左側に移動する
 				Scene::SetScene(new CSceneRouka1());
 			}
 		}
@@ -96,7 +97,7 @@ void CObjKouchouDoor::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	if (room[0] == 1)
+	if (room[0] == 1)//１階廊下左側に居る場合
 	{
 		if (kouchou_door == false)
 		{
@@ -127,7 +128,7 @@ void CObjKouchouDoor::Draw()
 			Draw::Draw(7, &src, &dst, c, 0.0f);
 		}
 	}
-	else if (room[4] == 1)
+	else if (room[4] == 1)//校長室に居る場合
 	{
 		if (kouchou_door == false)
 		{

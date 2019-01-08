@@ -18,7 +18,7 @@ CObjHammer::CObjHammer(float x, float y)
 
 void CObjHammer::Init()
 {
-	Hit_flag = false;
+	Hit_flag = 0;
 	if (Hammer == 1)
 		Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_PLAYER, OBJ_HAMMER, 1);
 	else if (Hammer == 0)
@@ -32,18 +32,18 @@ void CObjHammer::Action()
 	if (Hammer == 0)
 	{
 		if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-			Hit_flag = true;
+			Hit_flag = 1;
 		else
-			Hit_flag = false;
+			Hit_flag = 0;
 
-		if (Hit_flag == true)
+		if (Hit_flag == 1)
 		{
 			if (Input::GetVKey(VK_RETURN) == true && Hammer == 0)
 			{
 				Hammer = 1;
 				this->SetStatus(false);
 				Hits::DeleteHitBox(this);
-				Message = 6;
+				Message = 7;//7番にセットしたメッセージを表示する
 			}
 		}
 	}

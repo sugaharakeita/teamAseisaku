@@ -17,7 +17,7 @@ void CObjHelp::Init()
 
 void CObjHelp::Action()
 {
-	if (Input::GetVKey(VK_BACK) == true)
+	if (Input::GetVKey(VK_BACK) == true)//バックキーが入力された場合タイトル画面に戻る
 	{
 		this->SetStatus(false);
 		Scene::SetScene(new CSceneTitle());

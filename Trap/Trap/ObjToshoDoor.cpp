@@ -19,9 +19,9 @@ void CObjToshoDoor::Init()
 {
 	tosho_door = false;
 
-	if (room[7] == 1)
+	if (room[7] == 1)//２階廊下左側に居る場合
 		Hits::SetHitBox(this, m_x, m_y, 100, 158, ELEMENT_DOOR, TOSHO_DOOR, 1);
-	if (room[13] == 1)
+	if (room[13] == 1)//図書室に居る場合
 		Hits::SetHitBox(this, m_x, m_y, 120, 120, ELEMENT_DOOR, TOSHO_DOOR, 1);
 }
 
@@ -32,21 +32,21 @@ void CObjToshoDoor::Action()
 	if (ToshoDoorOpen == true)
 	{
 		if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-			HIT_flag = 2;
+			HIT_flag = 1;//開けることができる
 		else
 			HIT_flag = 0;
 	}
 	else
 	{
 		if (hit->CheckObjNameHit(TOSHO_KEY) != nullptr)
-			HIT_flag = 2;
+			HIT_flag = 1;//鍵を開ける
 		else if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-			HIT_flag = 1;
+			HIT_flag = 2;//鍵がなくて開けられない
 		else
 			HIT_flag = 0;
 	}
 
-	if (HIT_flag == 2)
+	if (HIT_flag == 1)
 	{
 		if (Input::GetVKey(VK_RETURN) == true && tosho_door == false)
 		{
@@ -57,15 +57,15 @@ void CObjToshoDoor::Action()
 
 			if (ToshoDoorOpen == false)
 			{
-				Message = 11;
+				Message = 12;//12番にセットしたメッセージを表示する
 				ToshoDoorOpen = true;
 			}
 		}
 	}
-	else if (HIT_flag == 1)
+	else if (HIT_flag == 2)
 	{
 		if (Input::GetVKey(VK_RETURN) == true && tosho_door == false)
-			Message = 1;
+			Message = 1;//1番にセットしたメッセージを表示する
 	}
 
 	if (tosho_door == true)
@@ -74,16 +74,16 @@ void CObjToshoDoor::Action()
 		{
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);
-			if (Rouka2R == 1)
+			if (Rouka2R == 1)//２階廊下右側に居る場合
 			{
-				Tosho = room[13] = 1;
-				room[7] = 0;
+				room[7] = 0;//この部屋からは居なくなる
+				Tosho = room[13] = 1;//図書室に移動する
 				Scene::SetScene(new CSceneTosho());
 			}
-			else if (Tosho == 1)
+			else if (Tosho == 1)//図書室に居る場合
 			{
-				Rouka2L = room[7] = 1;
-				room[13] = 0;
+				room[13] = 0;//この部屋からは居なくなる
+				Rouka2L = room[7] = 1;//２階廊下左側に移動する
 				Scene::SetScene(new CSceneRouka2());
 			}
 		}
@@ -96,7 +96,7 @@ void CObjToshoDoor::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	if (Rouka2L == 1)
+	if (Rouka2L == 1)//２階廊下左側に居る場合
 	{
 		dst.m_top = 0.0f + m_y;
 		dst.m_left = 0.0f + m_x;
@@ -122,7 +122,7 @@ void CObjToshoDoor::Draw()
 			Draw::Draw(14, &src, &dst, c, 0.0f);
 		}
 	}
-	else if (Tosho == 1)
+	else if (Tosho == 1)//図書室に居る場合
 	{
 		dst.m_top = 0.0f + m_y;
 		dst.m_left = 0.0f + m_x;

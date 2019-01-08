@@ -18,11 +18,11 @@ CObjHokenKey::CObjHokenKey(float x, float y)
 
 void CObjHokenKey::Init()
 {
-	Hit_flag = false;
-	HOKENDOOR_flag = false;
-	if(HokenKey==1)
+	Hit_flag = 1;
+	HOKENDOOR_flag = 0;
+	if(HokenKey==1&&Hok_flag == false)//保健室のカギを所持している場合
 		Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_PLAYER, HOKEN_KEY, 1);
-	else if(HokenKey==0)
+	else if(HokenKey==0)//保健室のカギを所持していない場合
 		Hits::SetHitBox(this, m_x, m_y, 18, 18, ELEMENT_ITEM, HOKEN_KEY, 1);
 }
 
@@ -33,18 +33,18 @@ void CObjHokenKey::Action()
 	if (HokenKey == 0)
 	{
 		if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-			Hit_flag = true;
+			Hit_flag = 1;//拾うことができる
 		else
-			Hit_flag = false;
+			Hit_flag = 0;
 
-		if (Hit_flag == true)
+		if (Hit_flag == 1)
 		{
 			if (Input::GetVKey(VK_RETURN) == true && HokenKey == 0)
 			{
 				HokenKey = 1;
 				this->SetStatus(false);
 				Hits::DeleteHitBox(this);
-				Message = 4;
+				Message = 5;//5番にセットしたメッセージを表示する
 			}
 		}
 	}
@@ -89,13 +89,13 @@ void CObjHokenKey::Action()
 			Hits::DeleteHitBox(this);
 		}
 
-		if (HOKENDOOR_flag == true && Input::GetVKey(VK_RETURN) == true)
+		if (HOKENDOOR_flag == 1 && Input::GetVKey(VK_RETURN) == true)
 			Hok_flag = true;
 
 		if (hit->CheckObjNameHit(HOKEN_DOOR) != nullptr)
-			HOKENDOOR_flag = true;
+			HOKENDOOR_flag = 1;
 		else
-			HOKENDOOR_flag = false;
+			HOKENDOOR_flag = 0;
 
 		if (m_x > 736.f)
 			m_x = 736.0f;

@@ -4,7 +4,6 @@
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
 #include "SwitchALL.h"
-#include "ObjRouka1.h"
 #include "ObjRouka2.h"
 #include "GameHead.h"
 
@@ -38,51 +37,51 @@ void CObjRouka2::Init()
 void CObjRouka2::Action()
 {
 	m_time++;
-	if (room[7] == 1)
+	if (room[7] == 1)//‚QŠK˜L‰º¶‘¤‚É‹‚éê‡
 	{
 		if (HeroX <= 11.0f)
 			HeroX = 11.0f;
 		if (HeroX >= 756.0f)
 		{
-			room[7] = 0;
-			Rouka2C = room[8] = 1;
-			Scene::SetScene(new CSceneRouka2());
+			room[7] = 0;//‚±‚Ì•”‰®‚©‚ç‚Í‹‚È‚­‚È‚é
+			Rouka2C = room[8] = 1;//‚QŠK˜L‰º’†‰›‚ÉˆÚ“®‚·‚é
+			Scene::SetScene(new CSceneRouka2());//ˆÚ“®Œã‚ÌƒV[ƒ“‚É‡‚í‚¹‚é
 		}
 		if (HeroY <= 140.0f)
 			HeroY = 140.0f;
 		if (HeroY >= 440.0f)
 			HeroY = 440.0f;
 		if (m_time == 5)
-			Rouka2C = Tosho = Kateika = 0;
+			Rouka2C = Tosho = Kateika = 0;//SwitchALL‚Ì¬“¯‚ğ”ğ‚¯‚é‚½‚ß
 	}
-	else if (room[8] == 1)
+	else if (room[8] == 1)//‚QŠK˜L‰º’†‰›‚É‹‚éê‡
 	{
 		if (HeroX <= -20.0f)
 		{
-			Rouka2L = room[7] = 1;
-			room[8] = 0;
-			Scene::SetScene(new CSceneRouka2());
+			room[8] = 0;//‚±‚Ì•”‰®‚©‚ç‚Í‹‚È‚­‚È‚é
+			Rouka2L = room[7] = 1;//‚QŠK˜L‰º¶‘¤‚ÉˆÚ“®‚·‚é
+			Scene::SetScene(new CSceneRouka2());//ˆÚ“®Œã‚ÌƒV[ƒ“‚É‡‚í‚¹‚é
 		}
 		if (HeroX >= 756.0f)
 		{
-			Rouka2R = room[9] = 1;
-			room[8] = 0;
-			Scene::SetScene(new CSceneRouka2());
+			room[8] = 0;//‚±‚Ì•”‰®‚©‚ç‚Í‹‚È‚­‚È‚é
+			Rouka2R = room[9] = 1;//‚QŠK˜L‰º‰E‘¤‚ÉˆÚ“®‚·‚é
+			Scene::SetScene(new CSceneRouka2());//ˆÚ“®Œã‚ÌƒV[ƒ“‚É‡‚í‚¹‚é
 		}
 		if (HeroY <= 140.0f)
 			HeroY = 140.0f;
 		if (HeroY >= 440.0f)
 			HeroY = 440.0f;
 		if (m_time == 5)
-			Rouka1CR = Rouka2L = Rouka2R = KateikaJunbi = 0;
+			Rouka1CR = Rouka2L = Rouka2R = KateikaJunbi = 0;//SwitchALL‚Ì¬“¯‚ğ”ğ‚¯‚é‚½‚ß
 	}
-	else if (room[9] == 1)
+	else if (room[9] == 1)//‚QŠK˜L‰º‰E‘¤‚É‹‚éê‡
 	{
 		if (HeroX <= -20.0f)
 		{
-			room[9] = 0;
-			Rouka2C = room[8] = 1;
-			Scene::SetScene(new CSceneRouka2());
+			room[9] = 0;//‚±‚Ì•”‰®‚©‚ç‚Í‹‚È‚­‚È‚é
+			Rouka2C = room[8] = 1;//‚QŠK˜L‰º’†‰›‚ÉˆÚ“®‚·‚é
+			Scene::SetScene(new CSceneRouka2());//ˆÚ“®Œã‚ÌƒV[ƒ“‚É‡‚í‚¹‚é
 		}
 		if (HeroX >= 756.0f)
 			HeroX = 756.0f;
@@ -91,7 +90,7 @@ void CObjRouka2::Action()
 		if (HeroY >= 540.0f)
 			HeroY = 540.0f;
 		if (m_time == 5)
-			Rouka2C = Kyoushitu = 0;
+			Rouka2C = Kyoushitu = 0;//SwitchALL‚Ì¬“¯‚ğ”ğ‚¯‚é‚½‚ß
 	}
 }
 
@@ -101,7 +100,7 @@ void CObjRouka2::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	if (room[7] == 1)
+	if (room[7] == 1)//‚QŠK˜L‰º¶‘¤‚É‹‚éê‡
 	{
 		src.m_top = 0.0f;
 		src.m_left = 0.0f;
@@ -115,7 +114,7 @@ void CObjRouka2::Draw()
 
 		Draw::Draw(10, &src, &dst, c, 0.0f);
 	}
-	else if (room[8] == 1)
+	else if (room[8] == 1)//‚QŠK˜L‰º’†‰›‚É‹‚éê‡
 	{
 		src.m_top = 0.0f;
 		src.m_left = 650.0f;
@@ -129,7 +128,7 @@ void CObjRouka2::Draw()
 
 		Draw::Draw(10, &src, &dst, c, 0.0f);
 	}
-	else if (room[9] == 1)
+	else if (room[9] == 1)//‚QŠK˜L‰º‰E‘¤‚É‹‚éê‡
 	{
 		src.m_top = 0.0f;
 		src.m_left = 1300.0f;

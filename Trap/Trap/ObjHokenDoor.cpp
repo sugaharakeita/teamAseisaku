@@ -18,10 +18,11 @@ CObjHokenDoor::CObjHokenDoor(float x, float y)
 void CObjHokenDoor::Init()
 {
 	hoken_door = false;
-	
-	if (room[3] == 1 && Rouka1R == 1)
+	Hit_flag = 0;
+
+	if (room[3] == 1 && Rouka1R == 1)//１階廊下右側に居る場合
 		Hits::SetHitBox(this, m_x, m_y, 74, 160, ELEMENT_DOOR, HOKEN_DOOR, 1);
-	else if (room[6] == 1 && Hoken == 1)
+	else if (room[6] == 1 && Hoken == 1)//保健室に居る場合
 		Hits::SetHitBox(this, m_x, m_y, 68, 120, ELEMENT_DOOR, SHOKUIN_DOOR, 1); 
 	
 }
@@ -33,40 +34,40 @@ void CObjHokenDoor::Action()
 	if (HokenDoorOpen == true)
 	{
 		if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-			HIT_flag = 2;
+			Hit_flag = 1;//開けることができる
 		else
-			HIT_flag = 0;
+			Hit_flag = 0;
 	}
 	else
 	{
 		if (hit->CheckObjNameHit(HOKEN_KEY) != nullptr)
-			HIT_flag = 2;
+			Hit_flag = 1;//鍵を開ける
 		else if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-			HIT_flag = 1;
+			Hit_flag = 2;//鍵がなくて開けられない
 		else
-			HIT_flag = 0;
+			Hit_flag = 0;
 	}
 	
-	if (HIT_flag == 2)
+	if (Hit_flag == 1 && Menu == 0)
 	{
 		if (Input::GetVKey(VK_RETURN) == true && hoken_door == false)
 		{
 			hoken_door = true;
 			Hits::DeleteHitBox(this);
-			Hits::SetHitBox(this, 0, 0, 800, 600, ELEMENT_FIELD, OBJ_WALL, 1);
+			Hits::SetHitBox(this, 0, 0, 800, 600, ELEMENT_FIELD, OBJ_WALL, 1);//自動移動
 			hit->SetPos(0, 0);
 
 			if (HokenDoorOpen == false)
 			{
-				Message = 5;
+				Message = 6;//6番にセットしたメッセージを表示する
 				HokenDoorOpen = true;
 			}
 		}
 	}
-	else if (HIT_flag == 1)
+	else if (Hit_flag == 2)
 	{
 		if (Input::GetVKey(VK_RETURN) == true && hoken_door == false)
-			Message = 1;
+			Message = 1;//1番にセットしたメッセージを表示する
 	}
 
 	if (hoken_door == true)
@@ -75,15 +76,15 @@ void CObjHokenDoor::Action()
 		{
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);
-			if (Rouka1R == 1)
+			if (Rouka1R == 1)//１階廊下右側に居る場合
 			{
-				Hoken = room[6] = 1;
-				room[3] = 0;
+				room[3] = 0;//この部屋からは居なくなる
+				Hoken = room[6] = 1;//保健室に移動する
 				Scene::SetScene(new CSceneHoken());
 			}
-			else if (Hoken == 1)
+			else if (Hoken == 1)//保健室に居る場合
 			{
-				Rouka1R = room[3] = 1;
+				Rouka1R = room[3] = 1;//１階廊下右側に移動する
 				Scene::SetScene(new CSceneRouka1());
 			}
 		}
@@ -96,7 +97,7 @@ void CObjHokenDoor::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	if (room[3] == 1)
+	if (room[3] == 1)//１階廊下右側に居る場合
 	{
 		if (hoken_door == false)
 		{
@@ -127,7 +128,7 @@ void CObjHokenDoor::Draw()
 			Draw::Draw(9, &src, &dst, c, 0.0f);
 		}
 	}
-	else if (room[6] == 1)
+	else if (room[6] == 1)//保健室に居る場合
 	{
 		if (hoken_door == false)
 		{

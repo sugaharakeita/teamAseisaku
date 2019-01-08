@@ -18,10 +18,9 @@ CObjKouchouHako::CObjKouchouHako(float x, float y)
 void CObjKouchouHako::Init()
 {
 	m_time = 0;
+	Hit_flag = 0;
 
 	Hits::SetHitBox(this, m_x, m_y, 64, 64, ELEMENT_OBJECT, OBJ_HAKO, 1);
-	if (KouchouHakoOpen == true)
-		Hits::SetHitBox(this, m_x, m_y, 64, 64, ELEMENT_FIELD, OBJ_WALL, 1);
 }
 
 void CObjKouchouHako::Action()
@@ -30,25 +29,29 @@ void CObjKouchouHako::Action()
 
 	if (KouchouHakoOpen == true)
 		;
-	else if (HIT_flag == true)
+	else if (Hit_flag == 1)
 	{
 		if (Input::GetVKey(VK_RETURN) == true)
 		{
 			Hits::DeleteHitBox(this);
-			Hits::SetHitBox(this, m_x, m_y, 64, 64, ELEMENT_FIELD, OBJ_WALL, 1);//ただの置物になるため、！を出させない
 			CObjKouchouKey* k = new CObjKouchouKey(HeroX+8, HeroY+8);
 			Objs::InsertObj(k, KOUCHOU_KEY, 1);
 
-			KouchouHakoOpen = true;
-			KouchouKey = 1;
-			Message = 2;
+			if (KouchouHakoOpen == false)
+			{
+				KouchouHakoOpen = true;
+				KouchouKey = 1;
+				Message = 2;//2番目にセットしたメッセージを表示する
+			}
+			else
+				Message = 3;//3番目にセットしたメッセージを表示する
 		}
 	}
 
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-		HIT_flag = true;
+		Hit_flag = 1;//開けることができる
 	else
-		HIT_flag = false;
+		Hit_flag = 0;
 }
 
 void CObjKouchouHako::Draw()

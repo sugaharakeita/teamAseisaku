@@ -17,11 +17,12 @@ CObjKateikaDoor::CObjKateikaDoor(float x, float y)
 
 void CObjKateikaDoor::Init()
 {
+	Hit_flag = 0;
 	kateika_door = false;
 
-	if (room[7] == 1)
+	if (room[7] == 1)//２階廊下左側に居る場合
 		Hits::SetHitBox(this, m_x, m_y, 100, 158, ELEMENT_DOOR, KATEIKA_DOOR, 1);
-	if (room[10] == 1)
+	if (room[10] == 1)//家庭科室に居る場合
 		Hits::SetHitBox(this, m_x, m_y, 120, 120, ELEMENT_DOOR, KATEIKA_DOOR, 1);
 }
 
@@ -32,21 +33,21 @@ void CObjKateikaDoor::Action()
 	if (KateikaDoorOpen == true)
 	{
 		if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-			HIT_flag = 2;
+			HIT_flag = 1;//開けることができる
 		else
 			HIT_flag = 0;
 	}
 	else
 	{
 		if (hit->CheckObjNameHit(KATEIKA_KEY) != nullptr)
-			HIT_flag = 2;
+			HIT_flag = 1;//鍵を開ける
 		else if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-			HIT_flag = 1;
+			HIT_flag = 2;//鍵がなくて開けられない
 		else
 			HIT_flag = 0;
 	}
 
-	if (HIT_flag == 2)
+	if (HIT_flag == 1)
 	{
 		if (Input::GetVKey(VK_RETURN) == true && kateika_door == false)
 		{
@@ -57,15 +58,15 @@ void CObjKateikaDoor::Action()
 
 			if (KateikaDoorOpen == false)
 			{
-				Message = 13;
+				Message = 14;//14番にセットしたメッセージを表示する
 				KateikaDoorOpen = true;
 			}
 		}
 	}
-	else if (HIT_flag == 1)
+	else if (HIT_flag == 2)
 	{
 		if (Input::GetVKey(VK_RETURN) == true && kateika_door == false)
-			Message = 1;
+			Message = 1;//1番にセットしたメッセージを表示する
 	}
 
 	if (kateika_door == true)
@@ -74,16 +75,16 @@ void CObjKateikaDoor::Action()
 		{
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);
-			if (Rouka2L == 1)
+			if (Rouka2L == 1)//２階廊下左側に居る場合
 			{
-				Kateika = room[10] = 1;
-				room[7] = 0;
+				room[7] = 0;//この部屋からは居なくなる
+				Kateika = room[10] = 1;//家庭科室に移動する
 				Scene::SetScene(new CSceneKateika());
 			}
-			else if (Kateika == 1)
+			else if (Kateika == 1)//家庭科室に居る場合
 			{
-				Rouka2L = room[7] = 1;
-				room[10] = 0;
+				room[10] = 0;//この部屋からは居なくなる
+				Rouka2L = room[7] = 1;//２階廊下左側に移動する
 				Scene::SetScene(new CSceneRouka2());
 			}
 		}
@@ -96,7 +97,7 @@ void CObjKateikaDoor::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	if (Rouka2L == 1)
+	if (Rouka2L == 1)//２階廊下左側に居る場合
 	{
 		if (kateika_door == false)
 		{
@@ -119,7 +120,7 @@ void CObjKateikaDoor::Draw()
 
 			Draw::Draw(11, &src, &dst, c, 0.0f);
 	}
-	else if (Kateika == 1)
+	else if (Kateika == 1)//家庭科室に居る場合
 	{
 		dst.m_top = 0.0f + m_y;
 		dst.m_left = 0.0f + m_x;

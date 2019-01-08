@@ -29,7 +29,7 @@ void CObjKouchouKey::Action()
 	if (Input::GetVKey('W') == true && Text == 0
 		&& Message == 0 && Menu == 0 && HeroStop != 4)
 	{
-		if (HIT_flag == true || t_flag == true || HeroStop == 3)
+		if (HIT_flag == true || HeroStop == 3)
 			;
 		else
 			hit->SetPos(HeroX + 8, HeroY);
@@ -37,7 +37,7 @@ void CObjKouchouKey::Action()
 	else if (Input::GetVKey('S') == true && Text == 0
 		&& Message == 0 && Menu == 0 && HeroStop != 4)
 	{
-		if (HIT_flag == true || t_flag == true || HeroStop == 2)
+		if (HIT_flag == true || HeroStop == 2)
 			;
 		else
 			hit->SetPos(HeroX + 8, HeroY + 16);
@@ -45,7 +45,7 @@ void CObjKouchouKey::Action()
 	else if (Input::GetVKey('A') == true && Text == 0
 		&& Message == 0 && Menu == 0 && HeroStop != 4)
 	{
-		if (HIT_flag == true || t_flag == true || HeroStop == 1)
+		if (HIT_flag == true || HeroStop == 1)
 			;
 		else
 			hit->SetPos(HeroX, HeroY + 8);
@@ -53,7 +53,7 @@ void CObjKouchouKey::Action()
 	else if (Input::GetVKey('D') == true && Text == 0
 		&& Message == 0 && Menu == 0 && HeroStop != 4)
 	{
-		if (HIT_flag == true || t_flag == true || HeroStop == 0)
+		if (HIT_flag == true || HeroStop == 0)
 			;
 		else
 			hit->SetPos(HeroX + 16, HeroY + 8);
@@ -77,27 +77,9 @@ void CObjKouchouKey::Action()
 		m_x = 736.0f;
 	if (m_x < 11.0f)
 		m_x = 11.0f;
-
-	if (m_time >= 79)
-	{
-		t_flag = false;
-		m_time = 0;
-	}
 }
 
 void CObjKouchouKey::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,0.8f };
-	RECT_F src;
-	RECT_F dst;
-
-	src.m_top = 0.0f;
-	src.m_left = 13.0f;
-	src.m_right = 23.0f;
-	src.m_bottom = 13.0f;
-
-	dst.m_top = 0.0f;
-	dst.m_left = 0.0f;
-	dst.m_right = 40.0f;
-	dst.m_bottom = 52.0f;
+	
 }

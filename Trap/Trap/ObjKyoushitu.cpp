@@ -47,7 +47,7 @@ void CObjKyoushitu::Action()
 		HeroY = 494.0f;
 
 	if (m_time == 5)
-		Rouka2R = 0;
+		Rouka2R = 0;//SwitchALL‚Ì¬“¯‚ğ”ğ‚¯‚é‚½‚ß
 }
 
 void CObjKyoushitu::Draw()

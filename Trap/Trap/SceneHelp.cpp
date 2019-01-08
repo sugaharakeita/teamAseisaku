@@ -20,6 +20,7 @@ CSceneHelp::~CSceneHelp()
 
 void CSceneHelp::InitScene()
 {
+	//操作説明オブジェクトの作成
 	CObjHelp* p = new CObjHelp();
 	Objs::InsertObj(p, OBJ_HELP, 0);
 }

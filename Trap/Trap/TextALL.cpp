@@ -1,6 +1,5 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\DrawFont.h"
-#include "GameL\HitBoxManager.h"
 #include "GameL\WinInputs.h"
 #include "GameHead.h"
 #include "TextALL.h"
@@ -12,6 +11,11 @@ CObjTextALL::CObjTextALL(float x, float y)
 	m_y = y;
 }
 
+CObjTextALL::~CObjTextALL()
+{
+
+}
+
 void CObjTextALL::Init()
 {
 
@@ -20,7 +24,7 @@ void CObjTextALL::Init()
 void CObjTextALL::Action()
 {
 	if (Text != 0 && Input::GetVKey(VK_BACK) == true)
-		Text = 0;
+		Text = 0;//バックキーが入力された場合に表示を消す。
 }
 
 void CObjTextALL::Draw()
@@ -41,10 +45,10 @@ void CObjTextALL::Draw()
 	dst.m_bottom = 600.0f + m_y;
 
 	if (Text == 0)
-		;
-	else if (Text != 0)
+		;//0なら何も表示しない
+	else//0でないなら数字に応じてテキストを表示する
 	{
-		Draw::Draw(2, &src, &dst, c, 0.0f);
+		Draw::Draw(2, &src, &dst, c, 0.0f);//白い文字のテキストを見やすくするため画面を暗くする
 		if (Text == 1)
 		{
 			Font::StrDraw(L"図書委員の人へ", m_x + 16, m_y + 16, 32, c2);

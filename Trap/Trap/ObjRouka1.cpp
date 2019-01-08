@@ -32,115 +32,106 @@ void CObjRouka1::Init()
 {
 	m_time = 0;
 	ev_mass = 0;
+	ev_time = 0;
 }
 
 void CObjRouka1::Action()
 {
 	m_time++;
-	if (room[0] == 1)
+	if (room[0] == 1)//１階廊下左側に居る場合
 	{
 		if (HeroX <= 11.0f)
 			HeroX = 11.0f;
 		if (HeroX >= 756.0f)
 		{
-			room[0] = 0;
-			Rouka1CL = room[1] = 1;
-			Scene::SetScene(new CSceneRouka1());
+			room[0] = 0;//この部屋からは居なくなる
+			Rouka1CL = room[1] = 1;//１階廊下中央左側に移動する
+			Scene::SetScene(new CSceneRouka1());//移動後のシーンに合わせる
 		}
-		if (HeroY <= 140.0f)
-			HeroY = 140.0f;
-		if (HeroY >= 440.0f)
-			HeroY = 440.0f;
-		if (m_time == 5)
+		if (m_time == 5)//SwitchALLの混同を避けるため
 			Rouka1CL = Kouchou = Shokuin = 0;
 	}
-	else if (room[1] == 1)
+	else if (room[1] == 1)//１階廊下中央左側に居る場合
 	{
 		if (HeroX <= -20.0f)
 		{
-			Rouka1L = room[0] = 1;
-			room[1] = 0;
-			Scene::SetScene(new CSceneRouka1());
+			room[1] = 0;//この部屋からは居なくなる
+			Rouka1L = room[0] = 1;//１階廊下左側に移動する
+			Scene::SetScene(new CSceneRouka1());//移動後のシーンに合わせる
 		}
 		if (HeroX >= 756.0f)
 		{
-			Rouka1CR = room[2] = 1;
-			room[1] = 0;
-			Scene::SetScene(new CSceneRouka1());
+			room[1] = 0;//この部屋からは居なくなる
+			Rouka1CR = room[2] = 1;//１階廊下中央右側に移動する
+			Scene::SetScene(new CSceneRouka1());//移動後のシーンに合わせる
 		}
-		if (HeroY <= 140.0f)
-			HeroY = 140.0f;
-		if (HeroY >= 440.0f)
-			HeroY = 440.0f;
-		if (m_time == 5)
+		if (m_time == 5)//SwitchALLの混同を避けるため
 			Rouka1L = Rouka1CR = Shokuin = 0;
 	}
-	else if (room[2] == 1)
+	else if (room[2] == 1)//１階廊下中央右側に居る場合
 	{
 		if (HeroX <= -20.0f)
 		{
-			room[2] = 0;
-			Rouka1CL = room[1] = 1;
-			Scene::SetScene(new CSceneRouka1());
+			room[2] = 0;//この部屋からは居なくなる
+			Rouka1CL = room[1] = 1;//１階廊下中央左側に移動する
+			Scene::SetScene(new CSceneRouka1());//移動後のシーンに合わせる
 		}
 		if (HeroX >= 756.0f)
 		{
-			Rouka1R = room[3] = 1;
-			room[2] = 0;
-			Scene::SetScene(new CSceneRouka1());
+			room[2] = 0;//この部屋からは居なくなる
+			Rouka1R = room[3] = 1;//１階廊下右側に移動する
+			Scene::SetScene(new CSceneRouka1());//移動後のシーンに合わせる
 		}
-		if (HeroY <= 140.0f)
-			HeroY = 140.0f;
-		if (HeroY >= 540.0f)
-			HeroY = 540.0f;
 		if (m_time == 5)
-			Rouka1CL = Rouka1R = 0;
+			Rouka1CL = Rouka1R = 0;//SwitchALLの混同を避けるため、用済みになると0にする
 		
 		if (Hammer == 1 && Ham_flag ==false && ev_mass == 0)
 		{	
-			Message = 7;
-			if (Message == 7 && Input::GetVKey(VK_BACK) == true)
-				ev_mass = 1;
+			Message = 8;//8番にセットしたメッセージを表示する
+			if (Message == 8 && Input::GetVKey(VK_BACK) == true)
+				ev_mass = 1;//バックキーが入力された場合に進める
 		}
-		if (ev_mass == 1)
+		if (ev_mass == 1)//イベントメッセージが進められた場合にイベントタイムを加算する
+			ev_time++;
+		if (ev_time >= 20)//イベントタイムが一定値以上になった時に次のメッセージを表示する
 		{	
+			ev_time = 20;/*メッセージを進めていなくても次のメッセージに移る、
+			またはすぐに次のメッセージに移ってしまうことがないようにする*/
 			/*ここに金次郎が突っ込んでくるイベント
 			CObjKinjiro* e1 = new CObjKinjiro(800,HeroY);
 			Objs::InsertObj(e1, OBJ_KINJIRO, 2);*/
 
-			Message = 8;
-			if (Message == 8 && Input::GetVKey(VK_RETURN) == true)
-				ev_mass = 2;
+			Message = 9;//9番にセットしたメッセージを表示する
+			if (Message == 9 && Input::GetVKey(VK_BACK) == true)
+				ev_mass = 2;//バックキーが入力された場合に進める
 		}
-		if (ev_mass == 2)
+		if (ev_mass == 2)//イベントメッセージが進められた場合にイベントタイムを加算する
+			ev_time++;
+		if(ev_time >= 40)//イベントタイムが一定値以上になった時に次のメッセージを表示する
 		{
-			Message = 9;
-			if (Message == 9 && Input::GetVKey(VK_SPACE) == true)
-				ev_mass = 3;
+			Message = 10;//9番にセットしたメッセージを表示する
+			if (Message == 10 && Input::GetVKey(VK_BACK) == true)
+				ev_mass = 3;//バックキーが入力された場合に進める
 		}
-		if (ev_mass == 3)
+		if (ev_mass == 3 && HeroY <= -48.0f)
 		{
-			room[2] = 0;
-			Rouka2C = room[8] = 1;
+			room[2] = 0;//この部屋からは居なくなる
+			Rouka2C = room[8] = 1;//２階廊下中央に移動する
 			Scene::SetScene(new CSceneRouka2());
 		}
 	}
-	else if (room[3] == 1)
+	else if (room[3] == 1)//１階廊下右側に居る場合
 	{
 		if (HeroX <= -20.0f)
 		{
-			room[3] = 0;
-			Rouka1CR = room[2] = 1;
-			Scene::SetScene(new CSceneRouka1());
+			room[3] = 0;//この部屋からは居なくなる
+			Rouka1CR = room[2] = 1;//１階廊下中央右側に移動する
+			Scene::SetScene(new CSceneRouka1());//移動後のシーンに合わせる
 		}
 		if (HeroX >= 736.0f)
 			HeroX = 736.0f;
-		if (HeroY <= 140.0f)
-			HeroY = 140.0f;
-		if (HeroY >= 440.0f)
-			HeroY = 440.0f;
 		if (m_time == 5)
-			Rouka1CR = Hoken = 0;
+			Rouka1CR = Hoken = 0;//SwitchALLの混同を避けるため
 	}
 }
 
@@ -150,7 +141,7 @@ void CObjRouka1::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	if (room[0] == 1)
+	if (room[0] == 1)//１階廊下左側に居る場合
 	{
 		src.m_top = 0.0f;
 		src.m_left = 0.0f;
@@ -164,7 +155,7 @@ void CObjRouka1::Draw()
 
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
-	else if (room[1] == 1)
+	else if (room[1] == 1)//１階廊下中央左側に居る場合
 	{
 		src.m_top = 0.0f;
 		src.m_left = 518.0f;
@@ -178,7 +169,7 @@ void CObjRouka1::Draw()
 
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
-	else if (room[2] == 1)
+	else if (room[2] == 1)//１階廊下中央右側に居る場合
 	{
 		src.m_top = 0.0f;
 		src.m_left = 0.0f;
@@ -192,7 +183,7 @@ void CObjRouka1::Draw()
 
 		Draw::Draw(5, &src, &dst, c, 0.0f);
 	}
-	else if (room[3] == 1)
+	else if (room[3] == 1)//１階廊下右側に居る場合
 	{
 		src.m_top = 0.0f;
 		src.m_left = 0.0f;
