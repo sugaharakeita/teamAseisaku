@@ -14,22 +14,3 @@ extern int Kateika_Key;
 extern bool Kate_flag;
 extern int Tosho_Key;
 extern bool Tosho_flag;
-
-class CObjItemALL :public CObj
-{
-public:
-	CObjItemALL(float x, float y);
-	~CObjItemALL() {};
-	static int ItemALL;
-	void Init();
-	void Action();
-	void Draw();
-private:
-	float m_x;
-	float m_y;
-	float m_vx;
-	bool m_del;
-	int m_time;
-	static char ITEM[36];
-	RECT_F m_eff;
-};

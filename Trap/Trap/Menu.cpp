@@ -1,6 +1,5 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\DrawFont.h"
-#include "GameL\HitBoxManager.h"
 #include "GameL\WinInputs.h"
 #include "GameHead.h"
 #include "Menu.h"
@@ -12,6 +11,11 @@ CObjMenu::CObjMenu(float x, float y)
 	m_y = y;
 }
 
+CObjMenu::~CObjMenu()
+{
+
+}
+
 void CObjMenu::Init()
 {
 
@@ -19,8 +23,14 @@ void CObjMenu::Init()
 
 void CObjMenu::Action()
 {
-	if (Menu != 0 && Input::GetVKey(VK_BACK) == true)
-		Menu--;
+	if (Input::GetVKey(VK_BACK) == true)//バックキーが入力された場合にメニュー画面を戻す
+	{
+		if (Menu == 1)
+			Menu = 0;
+		else if (Menu >= 2)
+			Menu = 1;
+	}
+	
 	if (Menu == 1)
 	{
 		/*if (Input::GetVKey('W') == true)
@@ -29,7 +39,7 @@ void CObjMenu::Action()
 			;メニュー行動の選択*/
 		if (/* && */Input::GetVKey(VK_RETURN) == true)
 		{
-			Menu = 2;//アイテムコマンドを選んでいた場合
+			Menu = 2;//アイテムコマンドが選ばれているときにエンターキーが入力された場合、アイテムメニューを開く
 		}
 	}
 }
@@ -53,15 +63,15 @@ void CObjMenu::Draw()
 	dst.m_right = 800.0f + m_x;
 	dst.m_bottom = 600.0f + m_y;
 
-	if (Menu != 0)
+	if (Menu != 0)//0でないなら白いテキストを見やすくするため画面を暗くする
 		Draw::Draw(2, &src, &dst, c, 0.0f);
-	if (Menu == 1)
+	if (Menu == 1)//メニュー画面でできることを表示する
 	{
-		Font::StrDraw(L"アイテム", m_x + 16, m_y + 16, 32, c3);
+		Font::StrDraw(L"アイテムの確認", m_x + 16, m_y + 16, 32, c3);
 		Font::StrDraw(L"セーブ", m_x + 16, m_y + 64, 32, c3);
 		
 	}
-	if (Menu == 2)
+	else if (Menu == 2)
 	{
 		if (HokenKey == 1)
 		{
@@ -75,9 +85,9 @@ void CObjMenu::Draw()
 			dst.m_right = 40.0f + m_x;
 			dst.m_bottom = 52.0f + m_y;
 
-			if(Hok_flag == true)
+			if(Hok_flag == true)//保健室のカギを使用済みの場合
 				Draw::Draw(3, &src, &dst, c2, 0.0f);
-			else
+			else//保健室のカギを持っている場合
 				Draw::Draw(3, &src, &dst, c3, 0.0f);
 		}
 		if (KouchouKey == 1)
@@ -92,9 +102,9 @@ void CObjMenu::Draw()
 			dst.m_right = 40.0f + 60;
 			dst.m_bottom = 52.0f + m_y;
 
-			if (Kou_flag == true)
+			if (Kou_flag == true)//校長室のカギを使用済みの場合
 				Draw::Draw(3, &src, &dst, c2, 0.0f);
-			else
+			else//校長室のカギを持っている場合
 				Draw::Draw(3, &src, &dst, c4, 0.0f);
 		}
 		if (Hammer == 1)
@@ -109,9 +119,9 @@ void CObjMenu::Draw()
 			dst.m_right = 52.0f + 120;
 			dst.m_bottom = 52.0f + m_y;
 
-			if (Ham_flag == true)
+			if (Ham_flag == true)//ハンマーを使用済みの場合
 				Draw::Draw(3, &src, &dst, c2, 0.0f);
-			else
+			else//ハンマーを持っている場合
 				Draw::Draw(3, &src, &dst, c3, 0.0f);
 		}
 

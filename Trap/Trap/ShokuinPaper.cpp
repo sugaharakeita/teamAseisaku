@@ -18,6 +18,7 @@ CObjShokuinPaper::CObjShokuinPaper(float x, float y)
 void CObjShokuinPaper::Init()
 {
 	m_time = 0;
+	Hit_flag = 0;
 
 	Hits::SetHitBox(this, m_x, m_y, 60, 68, ELEMENT_OBJECT, OBJ_TEXTURE, 1);
 }
@@ -26,16 +27,13 @@ void CObjShokuinPaper::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
-	if (HIT_flag == true)
-	{
-		if (Input::GetVKey(VK_RETURN) == true)
-			Text = 1;
-	}
+	if (Hit_flag == 1 && Input::GetVKey(VK_RETURN) == true)
+		Text = 1;//1番目にセットしたテキストを表示する
 
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-		HIT_flag = true;
+		Hit_flag = 1;
 	else
-		HIT_flag = false;
+		Hit_flag = 0;
 }
 
 void CObjShokuinPaper::Draw()

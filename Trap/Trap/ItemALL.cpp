@@ -5,14 +5,17 @@
 #include "GameHead.h"
 #include "ItemALL.h"
 
-//アイテム所持個数と使用状況
+//アイテム所持個数
 int KouchouKey;
-bool Kou_flag;
 int HokenKey;
-bool Hok_flag;
 int Hammer;
-bool Ham_flag;
 int Kateika_Key;
-bool Kate_flag;
 int Tosho_Key;
+
+
+//アイテムの使用状況
+bool Kou_flag;
+bool Hok_flag;
+bool Ham_flag;
+bool Kate_flag;
 bool Tosho_flag;

@@ -10,7 +10,6 @@ extern int HeroStop;
 extern float HeroX;
 extern float HeroY;
 extern bool HeroL;
-extern bool HeroR;
 extern bool HIT_flag;
 extern bool HAKO_flag;
 extern bool DOOR_flag;
@@ -37,22 +36,3 @@ extern int Kateika;
 extern int KateikaJunbi;
 extern int Kyoushitu;
 extern int Tosho;
-
-class CObjSwitchALL :public CObj
-{
-public:
-	CObjSwitchALL(float x, float y);
-	~CObjSwitchALL() {};
-	void Init();
-	void Action();
-	void Draw();
-	bool hoken_door;
-private:
-	float m_x;
-	float m_y;
-	float m_vx;
-	bool m_del;
-	bool HIT_flag;
-	int m_time;
-	RECT_F m_eff;
-};

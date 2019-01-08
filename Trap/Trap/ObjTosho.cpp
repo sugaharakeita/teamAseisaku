@@ -47,7 +47,7 @@ void CObjTosho::Action()
 		HeroY = 494.0f;
 
 	if (m_time == 5)
-		Rouka2L = 0;
+		Rouka2L = 0;//SwitchALL‚Ì¬“¯‚ğ”ğ‚¯‚é‚½‚ß
 }
 
 void CObjTosho::Draw()

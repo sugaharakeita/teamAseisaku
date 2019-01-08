@@ -47,7 +47,7 @@ void CObjKateikaJunbi::Action()
 		HeroY = 494.0f;
 
 	if (m_time == 5)
-		Kateika = 0;
+		Kateika = 0;//SwitchALL‚Ì¬“¯‚ğ”ğ‚¯‚é‚½‚ß
 }
 
 void CObjKateikaJunbi::Draw()

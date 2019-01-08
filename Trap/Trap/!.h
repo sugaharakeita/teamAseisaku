@@ -11,7 +11,4 @@ public:
 	void Init();
 	void Action();
 	void Draw();
-private:
-	bool t_flag;
-	int m_time;
 };

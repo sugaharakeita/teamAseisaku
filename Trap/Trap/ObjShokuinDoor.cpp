@@ -18,10 +18,11 @@ CObjShokuinDoor::CObjShokuinDoor(float x, float y)
 void CObjShokuinDoor::Init()
 {
 	shokuin_door = false;
+	Hit_flag = 0;
 
-	if (room[0] == 1 && Rouka1L == 1 || room[1] == 1 && Rouka1CL == 1)
+	if (room[0] == 1 && Rouka1L == 1 || room[1] == 1 && Rouka1CL == 1)//‚PŠK˜L‰º¶‘¤‚Ü‚½‚Í’†‰›¶‘¤‚É‹‚éê‡
 		Hits::SetHitBox(this, m_x, m_y, 102, 160, ELEMENT_DOOR, SHOKUIN_DOOR, 1);
-	else if (room[5] == 1 && Shokuin == 1)
+	else if (room[5] == 1 && Shokuin == 1)//Eˆõº‚É‹‚éê‡
 		Hits::SetHitBox(this, m_x, m_y, 68,120, ELEMENT_DOOR, SHOKUIN_DOOR, 1);
 }
 
@@ -29,7 +30,7 @@ void CObjShokuinDoor::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
-	if (HIT_flag == 1)
+	if (Hit_flag == 1 && Menu == 0)
 	{
 		if (shokuin_door == false)
 		{
@@ -37,7 +38,7 @@ void CObjShokuinDoor::Action()
 			{
 				shokuin_door = true;
 				Hits::DeleteHitBox(this);
-				Hits::SetHitBox(this, 0, 0, 800, 600, ELEMENT_FIELD, OBJ_WALL, 1);
+				Hits::SetHitBox(this, 0, 0, 800, 600, ELEMENT_FIELD, OBJ_WALL, 1);//©“®ˆÚ“®
 				hit->SetPos(0,0);
 			}
 		}
@@ -49,33 +50,33 @@ void CObjShokuinDoor::Action()
 		{
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);
-			if (Rouka1L == 1 || Rouka1CL == 1)
+			if (Rouka1L == 1 || Rouka1CL == 1)//‚PŠK˜L‰º¶‘¤‚Ü‚½‚Í’†‰›¶‘¤‚É‹‚éê‡
 			{
-				Shokuin = room[5] = 1;
-				room[0] = room[1] = 0;
+				room[0] = room[1] = 0;//‚±‚Ì•”‰®‚©‚ç‚Í‹‚È‚­‚È‚é
+				Shokuin = room[5] = 1;//Eˆõº‚ÉˆÚ“®‚·‚é
 				Scene::SetScene(new CSceneShokuin());
 			}
-			else if (Shokuin == 1)
+			else if (Shokuin == 1)//Eˆõº‚É‹‚éê‡
 			{
-				if (HeroL == true)
+				room[5] = 0;//‚±‚Ì•”‰®‚©‚ç‚Í‹‚È‚­‚È‚é
+				if (HeroL == true)//ålŒö‚ª¶‘¤‚Ì”à‚ğŠJ‚¯‚½ê‡
 				{
-					Rouka1L = room[0] = 1;
+					Rouka1L = room[0] = 1;//‚PŠK˜L‰º¶‘¤‚ÉˆÚ“®‚·‚é
 					Scene::SetScene(new CSceneRouka1());
 				}
-				else if (HeroR == true)
+				else//ålŒö‚ª‰E‘¤‚Ì”à‚ğŠJ‚¯‚½ê‡
 				{
-					Rouka1CL = room[1] = 1;
+					Rouka1CL = room[1] = 1;//‚PŠK˜L‰º’†‰›¶‘¤‚ÉˆÚ“®‚·‚é
 					Scene::SetScene(new CSceneRouka1());
 				}
-				room[5] = 0;
 			}
 		}
 	}
 	
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-		HIT_flag = 1;
+		Hit_flag = 1;
 	else
-		HIT_flag = 0;
+		Hit_flag = 0;
 }
 
 void CObjShokuinDoor::Draw()
@@ -91,21 +92,21 @@ void CObjShokuinDoor::Draw()
 		src.m_right = 74.0f;
 		src.m_bottom = 128.0f;
 	}
-	else//ŠJ‚¯‚é‚Æ•”‰®‚ªŒ©‚¦‚é
+	else
 	{
 		src.m_top = 128.0f;
 		src.m_left = 0.0f;
 		src.m_right = 74.0f;
 		src.m_bottom = 208.0f;
 	}
-	if (Rouka1L == 1 || Rouka1CL == 1)//•”‰®‚É‚æ‚Á‚ÄkÚ‚ªˆÙ‚È‚é‚½‚ß
+	if (Rouka1L == 1 || Rouka1CL == 1)//‚PŠK˜L‰º¶‘¤‚Ü‚½‚Í‚PŠK˜L‰º’†‰›¶‘¤‚É‹‚éê‡
 	{
 		dst.m_top = 0.0f + m_y;
 		dst.m_left = 0.0f + m_x;
 		dst.m_right = 102.0f + m_x;
 		dst.m_bottom = 160.0f + m_y;
 	}
-	else if (Shokuin == 1)
+	else if (Shokuin == 1)//Eˆõº‚É‹‚éê‡
 	{
 		dst.m_top = 0.0f + m_y;
 		dst.m_left = 0.0f + m_x;

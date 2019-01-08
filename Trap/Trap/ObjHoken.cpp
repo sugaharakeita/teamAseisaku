@@ -46,7 +46,7 @@ void CObjHoken::Action()
 		HeroY = 540.0f;
 
 	if (m_time == 5)
-		Rouka1R = 0;
+		Rouka1R = 0;//SwitchALL‚Ì¬“¯‚ğ”ğ‚¯‚é‚½‚ß
 }
 
 void CObjHoken::Draw()

@@ -17,9 +17,7 @@ CObjHero::CObjHero(float x, float y)
 
 void CObjHero::Init()
 {
-	Hero = true;//グローバル変数。主人公が生成されていることを示す。
-	t_flag = false;
-	m_time = 0;
+	Hero = true;
 	m_ani_time = 0;
 	m_ani_frame = 1;
 	Hits::SetHitBox(this, HeroX,HeroY, 16, 16, ELEMENT_PLAYER, OBJ_HERO, 1);
@@ -33,7 +31,7 @@ void CObjHero::Action()
 	if (Input::GetVKey('W') == true && Text == 0
 		&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-		if (HIT_flag == true || t_flag == true || HeroStop == 3)
+		if (HIT_flag == true || HeroStop == 3)
 				;
 			else
 			{
@@ -45,7 +43,7 @@ void CObjHero::Action()
 		else if (Input::GetVKey('S') == true && Text == 0
 			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-			if (HIT_flag == true || t_flag == true || HeroStop == 2)
+			if (HIT_flag == true || HeroStop == 2)
 				;
 			else
 			{
@@ -57,7 +55,7 @@ void CObjHero::Action()
 		else if (Input::GetVKey('A') == true && Text == 0
 			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-			if (HIT_flag == true || t_flag == true || HeroStop == 1)
+			if (HIT_flag == true || HeroStop == 1)
 				;
 			else
 			{
@@ -69,7 +67,7 @@ void CObjHero::Action()
 		else if (Input::GetVKey('D') == true && Text == 0
 			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-			if (HIT_flag == true || t_flag == true || HeroStop == 0)
+			if (HIT_flag == true || HeroStop == 0)
 				;
 			else
 			{
@@ -119,6 +117,7 @@ void CObjHero::Draw()
 	dst.m_right = 64.0f + HeroX;
 	dst.m_bottom = 64.0f + HeroY;
 
+	//主人公の向きに応じて描画情報を変更する
 	if (HERO == 0)
 	{
 		src.m_top = 128.0f;
