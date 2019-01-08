@@ -54,14 +54,15 @@ void CObjCorridor1_2::Init()
 //アクション
 void CObjCorridor1_2::Action()
 {
+	
 	CHitBox* hit = Hits::GetHitBox(this);
 
 	if (hit->CheckObjNameHit(OBJ_CORRIDOR1_1) != nullptr ||
-		hit->CheckObjNameHit(OBJ_CORRIDOR1_3) != nullptr)
+	hit->CheckObjNameHit(OBJ_CORRIDOR1_3) != nullptr)
 	{
 		Hits::DeleteHitBox(this);
 	}
-
+	
 	/*
 	//主人公の位置を取得
 	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);

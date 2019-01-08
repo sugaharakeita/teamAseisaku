@@ -12,11 +12,15 @@
 //使用するネームスペース
 using namespace GameL;
 
+float g_hero_x = 150.0f;
+float g_hero_y = 150.0f;
+
 //イニシャライズ
 void CObjHero::Init()
 {
-	m_px = 400.0f;//位置 
-	m_py = 300.0f;
+	m_px = g_hero_x; //位置 
+	m_py = g_hero_y;
+	
 	m_vx = 0.0f;  //移動ベクトル
 	m_vy = 0.0f;
 	m_posture = 0;   //右向き0.0f　左向き1.0f 正面2.0f 後ろ3.0f
@@ -41,10 +45,15 @@ void CObjHero::Init()
 //アクション
 void CObjHero::Action()
 {
+
 	//移動ベクトルの破棄
 	m_vx = 0.0f;
 	m_vy = 0.0f;
 
+	//主人公と追尾で角度を取る
+	CObjHero*obj = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	int x = obj->GetX() - m_px;
+	int y = obj->GetY() - m_py;
 
 	//キーの入力方向
 	//上キーかつ当たり判定と当たっていない場合
@@ -260,6 +269,58 @@ void CObjHero::Action()
 			m_hit_up = false;
 			m_hit_right = false;
 		}
+
+
+		/*
+		//主人公と障害物がどの角度で当たっているか調べる
+		HIT_DATA** hit_data;
+		hit_data = hit->SearchElementHit(ELEMENT_FIELD);
+
+
+		float r = hit_data[0]->r;
+
+		//角度で上下左右を判定
+		if (r > 0 && r < 45 || r >= 315)
+		{
+		//右
+		m_hit_right = true;
+		}
+		else if (r >= 45 && r < 136)
+		{
+		//上
+		m_hit_up = true;
+		}
+		else if (r >= 135 && r <= 225)
+		{
+		//左
+		m_hit_left = true;
+		}
+		else if (r > 225 && r < 316)
+		{
+		//下
+		m_hit_down = true;
+		}
+
+
+
+		if (m_hit_left == true)//左に当たり判定があった場合
+		{
+		m_vx = m_vx + 5.0f;
+		}
+		else if (m_hit_right == true)//右に当たり判定があった場合
+		{
+		m_vx = m_vx - 5.0f;
+		}
+		else if (m_hit_down == true)//下に当たり判定があった場合
+		{
+		m_vy = m_vy - 5.0f;
+		}
+		else if (m_hit_up == true)//上に当たり判定があった場合
+		{
+		m_vy = m_vy + 5.0f;
+		}
+
+		*/
 
 	}
 

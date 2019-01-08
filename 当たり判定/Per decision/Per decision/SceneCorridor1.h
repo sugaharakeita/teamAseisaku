@@ -19,8 +19,13 @@ private:
 	bool m_flag_Corridor1_1;
 	bool m_flag_Corridor1_2;
 	bool m_flag_Corridor1_3;
+	bool m_flag_Corridor2_1;
+	bool m_flag_Corridor2_2;
+	bool m_flag_Corridor2_3;
 	//エリア番号
 	int m_Corridor1_co;
 	//連続移動防止フラグ
 	bool m_flag_go;
+	//階層分け
+	int m_Storey;
 };

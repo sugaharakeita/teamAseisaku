@@ -37,7 +37,7 @@ void CObjCorridor2_1::Init()
 //アクション
 void CObjCorridor2_1::Action()
 {
-
+	/*
 	//主人公の位置を取得
 	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	float hx = hero->GetX();
@@ -46,8 +46,9 @@ void CObjCorridor2_1::Action()
 	//画面端左に行くと廊下2-1へ移動
 	if (hx + 64.0f > 800.0f)
 	{
-		Scene::SetScene(new CSceneCorridor2_2());
+	Scene::SetScene(new CSceneCorridor2_2());
 	}
+	*/
 
 }
 

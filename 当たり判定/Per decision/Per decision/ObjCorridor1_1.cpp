@@ -15,6 +15,9 @@ using namespace GameL;
 //イニシャライズ
 void CObjCorridor1_1::Init()
 {
+	m_x = 0; //当たり判定位置 x初期化
+	m_y = 0; //当たり判定位置 y初期化
+
 	//上壁
 	Hits::SetHitBox(this, 0.0f, 70.0f, 352, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
 
@@ -49,13 +52,16 @@ void CObjCorridor1_1::Init()
 //アクション
 void CObjCorridor1_1::Action()
 {
+	
 	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(m_x, m_y);
 
-	if (hit->CheckObjNameHit(OBJ_CORRIDOR1_2) != nullptr || 
-		hit->CheckObjNameHit(OBJ_CORRIDOR1_3) != nullptr)
+	if (hit->CheckObjNameHit(OBJ_CORRIDOR1_2) != nullptr ||
+	hit->CheckObjNameHit(OBJ_CORRIDOR1_3) != nullptr)
 	{
 		Hits::DeleteHitBox(this);
 	}
+	
 
 	/*
 	//主人公の位置を取得

@@ -15,6 +15,8 @@ public:
 	void Action();  //アクション
 	void Draw();    //ドロー
 private:
+	int m_x; //当たり判定位置 x
+	int m_y; //当たり判定位置 y
 	//エリア移動フラグ
 	//bool m_flag_Corridor1_1;
 };
