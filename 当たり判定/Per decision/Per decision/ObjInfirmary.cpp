@@ -57,11 +57,13 @@ void CObjInfirmary::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+	/*
 	//‰æ–Ê’[‰º‚És‚­‚Æ˜L‰º1-3‚ÖˆÚ“®
 	if (hy + 64.0f > 600.0f && 80.0f < hx < 153.0f)
 	{
 		Scene::SetScene(new CSceneCorridor1_3());
 	}
+	*/
 
 }
 

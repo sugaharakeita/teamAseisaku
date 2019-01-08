@@ -21,6 +21,7 @@ enum OBJ_NAME
 	OBJ_CLEAR,
 	OBJ_TITLE,
 	OBJ_GAME_OVER,
+	OBJ_BACKGROUND,
 };
 //------------------------------------------------
 
@@ -79,6 +80,8 @@ struct UserData
 #include "ObjPerdecision.h"
 #include "ObjEnemy.h"
 #include "ObjGameOver.h"
+#include "ObjBackground.h"
+#include "ObjCorridor1.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
@@ -94,6 +97,7 @@ struct UserData
 #include "SceneClear.h"
 #include "SceneTitle.h"
 #include "SceneGameOver.h"
+#include "SceneCorridor1.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------

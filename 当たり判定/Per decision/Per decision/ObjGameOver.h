@@ -16,6 +16,8 @@ public:
 
 private:
 	bool m_key_flag;//キーフラグ
+	bool m_gameover; //ゲームオーバーフラグ
+	int m_gameover_co; //ゲームオーバーカウント
 
 };
 

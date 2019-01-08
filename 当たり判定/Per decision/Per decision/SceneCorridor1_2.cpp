@@ -32,29 +32,37 @@ CSceneCorridor1_2::~CSceneCorridor1_2()
 void CSceneCorridor1_2::InitScene()
 {
 	//音楽読み込み
-	Audio::LoadAudio(0, L"黒い足音.wav", BACK_MUSIC); //通常
+	Audio::LoadAudio(0, L"黒い足音.wav", BACK_MUSIC); //通常　廊下
 	Audio::LoadAudio(1, L"死神の斧.wav", BACK_MUSIC); //Enemy出現
 
 	Audio::LoadAudio(2, L"学校の廊下を歩く .wav", BACK_MUSIC); //主人公足音
 
 
-	//ボリュームを0.8減らす
-	float v = Audio::VolumeMaster(0.8);
+	//ボリュームを0.6減らす
+	float v = Audio::VolumeMaster(0.6);
 
 	//音楽スタート
 	Audio::Start(0);
+
+	//秒数カウント初期化
+	m_time = 0;
 
 	//主人公オブジェクト作成
 	CObjHero* obj = new CObjHero();
 	Objs::InsertObj(obj, OBJ_HERO, 10);
 
+	/*
+	//背景オブジェクト作成
+	CObjBackground* back = new CObjBackground();
+	Objs::InsertObj(back, OBJ_BACKGROUND, 9);
+	Draw::LoadImage(L"廊下1全体図.png", 9, TEX_SIZE_512);
+	*/
+
+
 	//Corridor1_2オブジェクト生成
 	CObjCorridor1_2* objb = new CObjCorridor1_2();
 	Objs::InsertObj(objb, OBJ_CORRIDOR1_2, 9);
 
-	//敵オブジェクト作成
-	CObjEnemy* objh = new CObjEnemy(0, 0);
-	Objs::InsertObj(objh, OBJ_ENEMY, 11);
 
 	//グラフィック読み込み
 	Draw::LoadImage(L"二宮金次郎透過.png", 11, TEX_SIZE_512);
@@ -62,6 +70,7 @@ void CSceneCorridor1_2::InitScene()
 	//グラフィック読み込み
 	Draw::LoadImage(L"HeroTouka.png", 1, TEX_SIZE_512);
 
+	//グラフィック読み込み
 	Draw::LoadImage(L"廊下1-2.png", 9, TEX_SIZE_512);
 }
 
@@ -69,5 +78,17 @@ void CSceneCorridor1_2::InitScene()
 //実行中メゾット
 void CSceneCorridor1_2::Scene()
 {
+	/*
+	m_time++;
 
+	//敵オブジェクト作成・敵出現時BGM変更
+	if (m_time == 90)
+	{
+		CObjEnemy* objh = new CObjEnemy(0, 0);
+		Objs::InsertObj(objh, OBJ_ENEMY, 11);
+
+		Audio::Stop(0);
+		Audio::Start(1);
+	}
+*/
 }

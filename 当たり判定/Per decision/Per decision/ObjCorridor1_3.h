@@ -14,5 +14,7 @@ public:
 	void Init();    //イニシャライズ
 	void Action();  //アクション
 	void Draw();    //ドロー
-
+private:
+	//エリア移動フラグ
+	//bool m_flag_Corridor1_3;
 };

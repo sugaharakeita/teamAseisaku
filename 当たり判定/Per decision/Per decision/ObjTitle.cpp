@@ -30,26 +30,19 @@ void CObjTitle::Action()
 		m_key_flag = true;
 	}
 
-	//キーフラグがtrueになった時、かつEnterキーを押してから20f後廊下1-2表示
+	//キーフラグがtrueになった時、かつEnterキーを押したら廊下1-2表示
 	//その後キーフラグ・スタートフラグ・スタートカウント初期化
 	if (m_key_flag == true)
 	{
 		m_start_co += 1.0f;
 		if (m_start_co == 20)
 		{
-			Scene::SetScene(new CSceneCorridor1_2());
+			Scene::SetScene(new CSceneCorridor1());
 			m_key_flag = false;
 			m_start = false;
 			m_start_co = 0;
 		}
 	}
-
-	/*
-		if (m_start == true)
-	{
-		m_start_co += 1.0f;
-	}
-	*/
 }
 
 //ドロー

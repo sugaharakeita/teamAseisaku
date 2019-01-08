@@ -62,12 +62,14 @@ void CObjStaffroom::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+	/*
 	//ŽålŒö‚ÌyÀ•W‚ª120.0fˆÈ‰º‚É‚È‚é‚Æ˜L‰º1-1‚ÖˆÚ“®
 	if (hy + 64.0f < 120.0f && 0.0f < hx < 60.0f || 
 		hy + 64.0f < 120.0f && 732.0f < hx < 800.0f)
 	{
 		Scene::SetScene(new CSceneCorridor1_1());
 	}
+	*/
 
 }
 

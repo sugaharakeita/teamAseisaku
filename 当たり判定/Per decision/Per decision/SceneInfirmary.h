@@ -14,6 +14,7 @@ public:
 	void InitScene(); //初期化メゾット
 	void Scene(); //実行中メゾット
 private:
+	int m_time; //出現カウント
 
 };
 

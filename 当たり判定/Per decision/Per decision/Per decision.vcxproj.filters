@@ -161,6 +161,15 @@
     <ClCompile Include="ObjGameOver.cpp">
       <Filter>ソース ファイル\GameOver</Filter>
     </ClCompile>
+    <ClCompile Include="ObjBackground.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCorridor1.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjCorridor1.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -288,6 +297,15 @@
     </ClInclude>
     <ClInclude Include="ObjGameOver.h">
       <Filter>ソース ファイル\GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjBackground.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCorridor1.h">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCorridor1.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
