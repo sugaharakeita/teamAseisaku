@@ -15,35 +15,22 @@ using namespace GameL;
 //イニシャライズ
 void CObjCorridor1_1::Init()
 {
-	m_x = 0; //当たり判定位置 x初期化
-	m_y = 0; //当たり判定位置 y初期化
 
 	//上壁
-	Hits::SetHitBox(this, 0.0f, 70.0f, 352, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+	Hits::SetHitBox(this, 0.0f, 70.0f, 410, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
 
 	//上壁
-	Hits::SetHitBox(this, 404.0f, 70.0f, 210, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
-
-	//上ドア2
-	Hits::SetHitBox(this, 614.0f, 70.0f, 46, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
-
-	//上壁
-	Hits::SetHitBox(this, 660.0f, 70.0f, 30, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
-
-	//上ドア3
-	Hits::SetHitBox(this, 690.0f, 70.0f, 43, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
-
-	//上壁
-	Hits::SetHitBox(this, 733.0f, 70.0f, 95, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+	Hits::SetHitBox(this, 510.0f, 70.0f, 290, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 0.0f, 500.0f, 56, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+	Hits::SetHitBox(this, 0.0f, 500.0f,115, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 106.0f, 500.0f, 545, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+	Hits::SetHitBox(this, 215.0f, 500.0f, 445, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 699.0f, 500.0f, 100, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+	Hits::SetHitBox(this, 755.0f, 500.0f, 40, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+
 
 	//エリア移動フラグ初期化
 	//m_flag_Corridor1_1 = false;
@@ -52,16 +39,6 @@ void CObjCorridor1_1::Init()
 //アクション
 void CObjCorridor1_1::Action()
 {
-	
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_x, m_y);
-
-	if (hit->CheckObjNameHit(OBJ_CORRIDOR1_2) != nullptr ||
-	hit->CheckObjNameHit(OBJ_CORRIDOR1_3) != nullptr)
-	{
-		Hits::DeleteHitBox(this);
-	}
-	
 
 	/*
 	//主人公の位置を取得
@@ -111,6 +88,7 @@ void CObjCorridor1_1::Action()
 //ドロー
 void CObjCorridor1_1::Draw()
 {
+	/*
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f };
 
@@ -127,5 +105,6 @@ void CObjCorridor1_1::Draw()
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(9, &src, &dst, c, 0.0f);
+	*/
 
 }

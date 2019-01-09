@@ -25,6 +25,7 @@ enum OBJ_NAME
 	OBJ_BACKGROUND,
 	OBJ_PROLOGUE,
 	OBJ_HITBOX,
+	OBJ_MAP,
 };
 //------------------------------------------------
 
@@ -86,12 +87,17 @@ struct HitBoxs
 #include "ObjCorridor2_1.h"
 #include "ObjCorridor2_2.h"
 #include "ObjCorridor2_3.h"
+#include "ObjMap7.h"
+#include "ObjMap8.h"
+#include "ObjMap9.h"
+#include "ObjClassroom.h"
 #include "ObjHomeeconomicsroom.h"
 #include "ObjHomepreparationroom.h"
 #include "ObjHero.h"
 #include "ObjClear.h"
 #include "ObjTitle.h"
 #include "ObjPerdecision.h"
+#include "ObjLibrary.h"
 #include "ObjEnemy.h"
 #include "ObjEnemy2.h"
 #include "ObjGameOver.h"
@@ -110,8 +116,13 @@ struct HitBoxs
 #include "SceneCorridor2_1.h"
 #include "SceneCorridor2_2.h"
 #include "SceneCorridor2_3.h"
+#include "SceneMain7.h"
+#include "SceneMain8.h"
+#include "SceneMain9.h"
+#include "SceneClassroom.h"
 #include "SceneHomeeconomicsroom.h"
 #include "SceneHomepreparationroom.h"
+#include "SceneLibrary.h"
 #include "SceneClear.h"
 #include "SceneTitle.h"
 #include "SceneGameOver.h"
@@ -134,8 +145,8 @@ struct HitBoxs
 #define SET_GAME_START  CSceneCorridor2_3
 #define SET_GAME_START  CSceneHomeeconomicsroom
 #define SET_GAME_START  CSceneClear
-
+#define SET_GAME_START  CSceneTitle
 */
 
-#define SET_GAME_START  CSceneTitle
+#define SET_GAME_START  CSceneCorridor1
 //-----------------------------------------------

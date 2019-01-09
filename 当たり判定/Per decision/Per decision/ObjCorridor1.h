@@ -19,4 +19,15 @@ private:
 	bool m_flag_Corridor1_1;
 	bool m_flag_Corridor1_2;
 	bool m_flag_Corridor1_3;
+	bool m_flag_Staffroom;
+	bool m_flag_Principaloffice;
+	bool m_flag_Infirmary;
+	bool m_flag_Corridor2_1;
+	bool m_flag_Corridor2_2;
+	bool m_flag_Corridor2_3;
+	bool m_flag_Corridor3_1;
+	bool m_flag_Corridor3_2;
+	bool m_flag_Corridor3_3;
+	//ŠK‘w•ª‚¯
+	int m_Storey;
 };

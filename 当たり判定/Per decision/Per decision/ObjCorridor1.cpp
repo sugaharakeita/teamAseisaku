@@ -18,9 +18,19 @@ void CObjCorridor1::Init()
 
 	//エリア移動フラグ初期化
 	m_flag_Corridor1_1 = false;
-	m_flag_Corridor1_2 = false;
+	m_flag_Corridor1_2 = true;
 	m_flag_Corridor1_3 = false;
+	m_flag_Staffroom = false;
+	m_flag_Principaloffice = false;
+	m_flag_Infirmary = false;
+	m_flag_Corridor2_1 = false;
+	m_flag_Corridor2_2 = false;
+	m_flag_Corridor2_3 = false;
+	m_flag_Corridor3_1 = false;
+	m_flag_Corridor3_2 = false;
+	m_flag_Corridor3_3 = false;
 
+	m_Storey = 0;
 }
 
 //アクション
@@ -32,129 +42,203 @@ void CObjCorridor1::Action()
 	float hy = hero->GetY();
 
 
-	if (m_flag_Corridor1_1 == true)
-	{
-		//Corridor1_1オブジェクト生成
-		CObjCorridor1_1* objb = new CObjCorridor1_1();
-		Objs::InsertObj(objb, OBJ_CORRIDOR1_1, 9);
-
-		Draw::LoadImage(L"廊下1-1.png", 9, TEX_SIZE_512);
-
-		m_flag_Corridor1_2 = false;
-		m_flag_Corridor1_3 = false;
-	}
-
-	if (m_flag_Corridor1_2 == true)
-	{
-		//Corridor1_2オブジェクト生成
-		CObjCorridor1_2* objb = new CObjCorridor1_2();
-		Objs::InsertObj(objb, OBJ_CORRIDOR1_2, 9);
-
-		Draw::LoadImage(L"廊下1-2.png", 9, TEX_SIZE_512);
-
-		m_flag_Corridor1_1 = false;
-		m_flag_Corridor1_3 = false;
-	}
-
-	if (m_flag_Corridor1_3 == true)
-	{
-		//Corridor1_3オブジェクト生成
-		CObjCorridor1_3* objb = new CObjCorridor1_3();
-		Objs::InsertObj(objb, OBJ_CORRIDOR1_3, 9);
-
-		Draw::LoadImage(L"廊下1-3.png", 9, TEX_SIZE_512);
-
-		m_flag_Corridor1_1 = false;
-		m_flag_Corridor1_2 = false;
-	}
-
-	/*
-	//廊下1-1画面端右に行くと廊下1-2へ移動
-	if (hx + 64.0f > 800.0f && m_flag_Corridor1_1 == true)
-	{
-	//Corridor1_2オブジェクト生成
-	CObjCorridor1_2* objb = new CObjCorridor1_2();
-	Objs::InsertObj(objb, OBJ_CORRIDOR1_2, 9);
-
-	Draw::LoadImage(L"廊下1-2.png", 9, TEX_SIZE_512);
-
-	m_flag_Corridor1_1 = false;
-	m_flag_Corridor1_2 = true;
-	}
-
-	//廊下1-2画面端左に行くと廊下1-1へ移動
+	//1階
 	if (hx < 0.0f && m_flag_Corridor1_2 == true)
 	{
-	//Corridor1_1オブジェクト生成
-	CObjCorridor1_1* objb = new CObjCorridor1_1();
-	Objs::InsertObj(objb, OBJ_CORRIDOR1_1, 9);
-
-	Draw::LoadImage(L"廊下1-1.png", 9, TEX_SIZE_512);
-
-	m_flag_Corridor1_1 = true;
-	m_flag_Corridor1_2 = false;
+		m_flag_Corridor1_1 = true;
+		m_flag_Corridor1_2 = false;
 	}
 
-	//廊下1-2画面端右に行くと廊下1-3へ移動
+	if (hx + 64.0f > 800.0f && m_flag_Corridor1_1 == true)
+	{
+		m_flag_Corridor1_1 = false;
+		m_flag_Corridor1_2 = true;
+	}
+
 	if (hx + 64.0f > 800.0f && m_flag_Corridor1_2 == true)
 	{
-	//Corridor1_3オブジェクト生成
-	CObjCorridor1_3* objb = new CObjCorridor1_3();
-	Objs::InsertObj(objb, OBJ_CORRIDOR1_3, 9);
-
-	Draw::LoadImage(L"廊下1-3.png", 9, TEX_SIZE_512);
-
-	m_flag_Corridor1_2 = false;
-	m_flag_Corridor1_3 = true;
+		m_flag_Corridor1_2 = false;
+		m_flag_Corridor1_3 = true;
 	}
 
-	//廊下1-3画面端左に行くと廊下1-2へ移動
-	if (hx < 0.0f && m_flag_Corridor1_3 == true)
+	if (hx < 0.0f&& m_flag_Corridor1_3 == true)
 	{
-	//Corridor1_2オブジェクト生成
-	CObjCorridor1_2* objb = new CObjCorridor1_2();
-	Objs::InsertObj(objb, OBJ_CORRIDOR1_2, 9);
-
-	Draw::LoadImage(L"廊下1-2.png", 9, TEX_SIZE_512);
-
-	m_flag_Corridor1_3 = false;
-	m_flag_Corridor1_2 = true;
+		m_flag_Corridor1_2 = true;
+		m_flag_Corridor1_3 = false;
 	}
-	*/
 
-
-	/*
-	//廊下1-1画面端下に行くと職員室に移動
-	if ((hy + 64.0f > 600.0f && 56.0f < hx < 106.0f) ||
-	(hy + 64.0f > 600.0f && 645.0f < hx < 695.0f))
+	//職員室
+	if (hy > 450.0f && m_flag_Corridor1_1 == true)
 	{
-	Scene::SetScene(new CSceneStaffroom());
+		m_flag_Corridor1_1 = false;
+		m_flag_Staffroom = true;
 	}
 
-	//廊下1-1画面端上に行くと校長室に移動
-	if (hy < 110.0f && 352.0f < hx < 406.0f)
+	if (hy < 70.0f && m_flag_Staffroom == true)
 	{
-	Scene::SetScene(new CScenePrincipaloffice());
+		m_flag_Staffroom = false;
+		m_flag_Corridor1_1 = true;
 	}
 
-	//廊下1-2画面端上に行くと廊下2-2へ移動
-	if (hy < 0.0f && Input::GetVKey(VK_RETURN) == true)
+	//校長室
+	if (hy < 120 && m_flag_Corridor1_1 == true)
 	{
-		Scene::SetScene(new CSceneCorridor2_2());
+		m_flag_Corridor1_1 = false;
+		m_flag_Principaloffice = true;
 	}
-
-	//廊下1-3主人公のy座標yが175.0f以下になると保健室へ移動
-	if (hy + 64.0f < 175.0f && 150.0f < hx < 280.0f)
+	
+	if (hy + 64.0f > 600.0f && m_flag_Principaloffice == true)
 	{
-	Scene::SetScene(new CSceneInfirmary());
+		m_flag_Principaloffice = false;
+		m_flag_Corridor1_1 = true;
 	}
-	*/
 
+	//保健室
+	if(hy < 120 && m_flag_Corridor1_3 == true)
+	{
+		m_flag_Corridor1_3 = false;
+		m_flag_Infirmary = true;
+	}
+
+	if (hy + 64.0f > 600.0f && m_flag_Infirmary == true)
+	{
+		m_flag_Infirmary = false;
+		m_flag_Corridor1_3 = true;
+	}
+
+
+	//2階
+
+
+	//3階
 }
 
 //ドロー
 void CObjCorridor1::Draw()
 {
+	//描画カラー情報
+	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f };
 
+	RECT_F src;
+	RECT_F dst;
 
+	//1階
+	if (m_flag_Corridor1_1 == true)
+	{
+		//背景
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 519.0f;
+		src.m_bottom = 360.0f;
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0f;
+		dst.m_right = 800.0f;
+		dst.m_bottom = 600.0f;
+		Draw::Draw(9, &src, &dst, c, 0.0f);
+	}
+
+	if (m_flag_Corridor1_2 == true)
+	{
+		//背景
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 380.0f;
+		src.m_bottom = 360.0f;
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0f;
+		dst.m_right = 800.0f;
+		dst.m_bottom = 600.0f;
+		Draw::Draw(9, &src, &dst, c, 0.0f);
+	}
+
+	if (m_flag_Corridor1_3 == true)
+	{
+		//背景
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 360.0f;
+		src.m_bottom = 360.0f;
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0f;
+		dst.m_right = 800.0f;
+		dst.m_bottom = 600.0f;
+		Draw::Draw(9, &src, &dst, c, 0.0f);
+	}
+
+	//職員室
+	if (m_flag_Staffroom == true)
+	{
+		//背景
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 896.0f;
+		src.m_bottom = 640.0f;
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0f;
+		dst.m_right = 800.0f;
+		dst.m_bottom = 600.0f;
+		Draw::Draw(9, &src, &dst, c, 0.0f);
+	}
+
+	//校長室
+	if (m_flag_Principaloffice == true)
+	{
+		//背景
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 470.0f;
+		src.m_bottom = 730.0f;
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0f;
+		dst.m_right = 800.0f;
+		dst.m_bottom = 600.0f;
+		Draw::Draw(9, &src, &dst, c, 0.0f);
+	}
+
+	//保健室
+	if (m_flag_Infirmary == true)
+	{
+		//背景
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 720.0f;
+		src.m_bottom = 370.0f;
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0f;
+		dst.m_right = 800.0f;
+		dst.m_bottom = 600.0f;
+		Draw::Draw(9, &src, &dst, c, 0.0f);
+	}
+
+	//2階
+	if (m_flag_Corridor2_1 == true)
+	{
+
+	}
+
+	if (m_flag_Corridor2_2 == true)
+	{
+
+	}
+
+	if (m_flag_Corridor2_3 == true)
+	{
+
+	}
+
+	//3階
+	if (m_flag_Corridor3_1 == true)
+	{
+
+	}
+
+	if (m_flag_Corridor3_2 == true)
+	{
+
+	}
+
+	if (m_flag_Corridor3_3 == true)
+	{
+
+	}
 }

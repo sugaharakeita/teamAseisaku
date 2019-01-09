@@ -97,7 +97,6 @@ void CObjLibrary::Action()
 			//“G
 			//g_enemy_x = 110;
 
-			Scene::SetScene(new CSceneMain4());
 			m_key_flag = false;
 		}
 	}

@@ -139,7 +139,6 @@ void CObjHero::Action()
 		m_hit_down = false;
 		m_hit_left = false;
 		m_hit_right = false;
-		Audio::Stop(2);
 	}
 	
 
@@ -172,6 +171,10 @@ void CObjHero::Action()
 			Audio::Stop(2);
 			m_footsteps_co = 0;
 		}
+	}
+	else
+	{
+		Audio::Stop(2);
 	}
 
 

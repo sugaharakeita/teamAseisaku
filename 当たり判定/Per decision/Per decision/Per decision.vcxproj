@@ -114,8 +114,9 @@
     <ClCompile Include="ObjBackground.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="ObjClassroom.cpp" />
     <ClCompile Include="ObjCorridor1.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="ObjCorridor2_1.cpp" />
     <ClCompile Include="ObjClear.cpp" />
@@ -156,6 +157,10 @@
     <ClCompile Include="ObjInfirmary.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="ObjLibrary.cpp" />
+    <ClCompile Include="ObjMap7.cpp" />
+    <ClCompile Include="ObjMap8.cpp" />
+    <ClCompile Include="ObjMap9.cpp" />
     <ClCompile Include="ObjPerdecision.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
@@ -167,6 +172,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="ObjTitle.cpp" />
+    <ClCompile Include="SceneClassroom.cpp" />
     <ClCompile Include="SceneClear.cpp" />
     <ClCompile Include="SceneCorridor1.cpp" />
     <ClCompile Include="SceneCorridor1_1.cpp">
@@ -195,6 +201,16 @@
     <ClCompile Include="SceneInfirmary.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="SceneLibrary.cpp" />
+    <ClCompile Include="SceneMain7.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="SceneMain8.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="SceneMain9.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="ScenePrincipaloffice.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
@@ -208,8 +224,9 @@
     <ClInclude Include="ObjBackground.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="ObjClassroom.h" />
     <ClInclude Include="ObjCorridor1.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="ObjCorridor2_1.h" />
     <ClInclude Include="ObjClear.h" />
@@ -251,6 +268,10 @@
     <ClInclude Include="ObjInfirmary.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="ObjLibrary.h" />
+    <ClInclude Include="ObjMap7.h" />
+    <ClInclude Include="ObjMap8.h" />
+    <ClInclude Include="ObjMap9.h" />
     <ClInclude Include="ObjPerdecision.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
@@ -262,6 +283,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="ObjTitle.h" />
+    <ClInclude Include="SceneClassroom.h" />
     <ClInclude Include="SceneClear.h" />
     <ClInclude Include="SceneCorridor1.h" />
     <ClInclude Include="SceneCorridor1_1.h">
@@ -289,6 +311,16 @@
     <ClInclude Include="SceneHomepreparationroom.h" />
     <ClInclude Include="SceneInfirmary.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="SceneLibrary.h" />
+    <ClInclude Include="SceneMain7.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="SceneMain8.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="SceneMain9.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="ScenePrincipaloffice.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>

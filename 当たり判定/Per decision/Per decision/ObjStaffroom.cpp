@@ -57,10 +57,6 @@ void CObjStaffroom::Init()
 //アクション
 void CObjStaffroom::Action()
 {
-	//主人公の位置を取得
-	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
-	float hx = hero->GetX();
-	float hy = hero->GetY();
 
 	/*
 	//主人公のy座標が120.0f以下になると廊下1-1へ移動
@@ -76,6 +72,7 @@ void CObjStaffroom::Action()
 //ドロー
 void CObjStaffroom::Draw()
 {
+	/*
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f };
 
@@ -92,5 +89,6 @@ void CObjStaffroom::Draw()
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(9, &src, &dst, c, 0.0f);
+	*/
 
 }

@@ -19,13 +19,20 @@ private:
 	bool m_flag_Corridor1_1;
 	bool m_flag_Corridor1_2;
 	bool m_flag_Corridor1_3;
+	bool m_flag_Staffroom;
+	bool m_flag_Principaloffice;
+	bool m_flag_Infirmary;
 	bool m_flag_Corridor2_1;
 	bool m_flag_Corridor2_2;
 	bool m_flag_Corridor2_3;
+	bool m_flag_Corridor3_1;
+	bool m_flag_Corridor3_2;
+	bool m_flag_Corridor3_3;
 	//ƒGƒŠƒA”Ô†
-	int m_Corridor1_co;
+	int m_Corridor_co;
 	//˜A‘±ˆÚ“®–h~ƒtƒ‰ƒO
 	bool m_flag_go;
-	//ŠK‘w•ª‚¯
+	//ŠK‘w•ª‚¯ 1=1ŠK 2=2ŠK 3=3ŠK
 	int m_Storey;
+	
 };

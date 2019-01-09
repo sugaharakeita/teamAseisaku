@@ -52,11 +52,6 @@ void CObjInfirmary::Init()
 //アクション
 void CObjInfirmary::Action()
 {
-	//主人公の位置を取得
-	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
-	float hx = hero->GetX();
-	float hy = hero->GetY();
-
 	/*
 	//画面端下に行くと廊下1-3へ移動
 	if (hy + 64.0f > 600.0f && 80.0f < hx < 153.0f)
@@ -70,6 +65,7 @@ void CObjInfirmary::Action()
 //ドロー
 void CObjInfirmary::Draw()
 {
+	/*
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f };
 
@@ -86,5 +82,6 @@ void CObjInfirmary::Draw()
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(9, &src, &dst, c, 0.0f);
+	*/
 
 }
