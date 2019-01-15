@@ -23,28 +23,22 @@ void CObjCorridor1_3::Init()
 	//下壁
 	Hits::SetHitBox(this, 0.0f, 500.0f, 800, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_3, 9);
 	
-	//エリア移動フラグ初期化
-	//m_flag_Corridor1_3 = false;
 }
 
 //アクション
 void CObjCorridor1_3::Action()
 {
-	
-	CHitBox* hit = Hits::GetHitBox(this);
-
-	if (hit->CheckObjNameHit(OBJ_CORRIDOR1_1) != nullptr ||
-	hit->CheckObjNameHit(OBJ_CORRIDOR1_2) != nullptr)
-	{
-		Hits::DeleteHitBox(this);
-	}
-	
-
-	/*
 	//主人公の位置を取得
 	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	float hx = hero->GetX();
 	float hy = hero->GetY();
+
+	if (hx < 115.0f )
+	{
+		Hits::DeleteHitBox(this);
+	}
+
+	/*
 
 	if (m_flag_Corridor1_3 == true)
 	{

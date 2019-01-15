@@ -61,13 +61,17 @@ void CObjPrincipaloffice::Init()
 //アクション
 void CObjPrincipaloffice::Action()
 {
-	/*
-	//画面端下に行くと廊下1-1へ移動
-	if (hy +64.0f > 600.0f && 580.0f < hx < 690.0f)
+	//主人公の位置を取得
+	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	float hx = hero->GetX();
+	float hy = hero->GetY();
+
+
+	if (hy + 64.0f > 580.0f)
 	{
-	Scene::SetScene(new CSceneCorridor1_1());
+		Hits::DeleteHitBox(this);
 	}
-	*/
+
 }
 
 //ドロー

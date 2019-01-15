@@ -50,7 +50,7 @@ void CObjMap8::Action()
 
 
 
-	//700Å`800Ç…Ç¢Ç≠Ç∆òLâ∫2-3Ç…Ç¢Ç≠
+	//700Å`800Ç…Ç¢Ç≠Ç∆òLâ∫3-3Ç…Ç¢Ç≠
 	if (hx >700 == true)
 	{
 		if (m_key_flag == true)
@@ -64,7 +64,7 @@ void CObjMap8::Action()
 	{
 		m_key_flag = true;
 	}
-	//0Å`100Ç…Ç¢Ç≠Ç∆òLâ∫2-1Ç…Ç¢Ç≠
+	//0Å`100Ç…Ç¢Ç≠Ç∆òLâ∫3-1Ç…Ç¢Ç≠
 	if (hx < 100 == true)
 	{
 		if (m_key_flag == true)
@@ -87,13 +87,14 @@ void CObjMap8::Action()
 //ÉhÉçÅ[
 void CObjMap8::Draw()
 {
+	/*
 	//ï`âÊÉJÉâÅ[èÓïÒ R G B al(ìßâﬂèÓïÒ)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	RECT_F src;	//ï`âÊå≥êÿÇËéÊÇËà íu
 	RECT_F dst;	//ï`âÊêÊï\é¶à íu
 
-				//êÿÇËéÊÇËà íuÇÃê›íË
+	//êÿÇËéÊÇËà íuÇÃê›íË
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
 	src.m_right = 384.0f;
@@ -106,7 +107,7 @@ void CObjMap8::Draw()
 	dst.m_bottom = 600.0f;
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 
-
+	*/
 
 
 }

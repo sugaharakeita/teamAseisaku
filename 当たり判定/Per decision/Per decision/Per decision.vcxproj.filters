@@ -176,12 +176,6 @@
     <ClCompile Include="ObjBackground.cpp">
       <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
     </ClCompile>
-    <ClCompile Include="SceneCorridor1.cpp">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjCorridor1.cpp">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClCompile>
     <ClCompile Include="ObjPrologue.cpp">
       <Filter>ソース ファイル\GameSummary</Filter>
     </ClCompile>
@@ -296,6 +290,15 @@
     <ClCompile Include="ObjPrincipaloffice.cpp">
       <Filter>ソース ファイル\GameMain\GamePerdecision\校長室</Filter>
     </ClCompile>
+    <ClCompile Include="ObjCorridor.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjCorridor1.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\一階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCorridor.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h">
@@ -365,12 +368,6 @@
       <Filter>ソース ファイル\GameOver</Filter>
     </ClInclude>
     <ClInclude Include="ObjBackground.h">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneCorridor1.h">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjCorridor1.h">
       <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
     </ClInclude>
     <ClInclude Include="ObjPrologue.h">
@@ -486,6 +483,15 @@
     </ClInclude>
     <ClInclude Include="SceneClassroom.h">
       <Filter>ソース ファイル\GameMain\GameStage\二階教室</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCorridor.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCorridor1.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\一階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCorridor.h">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

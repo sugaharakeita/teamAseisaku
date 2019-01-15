@@ -57,15 +57,15 @@ void CObjStaffroom::Init()
 //アクション
 void CObjStaffroom::Action()
 {
+	//主人公の位置を取得
+	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	float hx = hero->GetX();
+	float hy = hero->GetY();
 
-	/*
-	//主人公のy座標が120.0f以下になると廊下1-1へ移動
-	if (hy + 64.0f < 120.0f && 0.0f < hx < 60.0f || 
-		hy + 64.0f < 120.0f && 732.0f < hx < 800.0f)
+	if (hy < 20.0f)
 	{
-		Scene::SetScene(new CSceneCorridor1_1());
+		Hits::DeleteHitBox(this);
 	}
-	*/
 
 }
 

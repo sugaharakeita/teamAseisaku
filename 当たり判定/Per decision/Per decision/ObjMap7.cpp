@@ -92,7 +92,7 @@ void CObjMap7::Action()
 			{
 				g_hero_x = 650;
 				g_hero_y = hy;
-				Scene::SetScene(new CSceneHomeeconomicsroom());
+				//Scene::SetScene(new CSceneHomeeconomicsroom());
 				m_key_flag = false;
 			}
 		}
@@ -111,7 +111,7 @@ void CObjMap7::Action()
 			{
 				g_hero_x = 650;
 				g_hero_y = hy;
-				Scene::SetScene(new CSceneHomepreparationroom());
+				//Scene::SetScene(new CSceneHomepreparationroom());
 				m_key_flag = false;
 			}
 		}
@@ -129,7 +129,7 @@ void CObjMap7::Action()
 		{
 			g_hero_x = 650;
 			g_hero_y = hy;
-			Scene::SetScene(new CSceneLibrary());
+			//Scene::SetScene(new CSceneLibrary());
 			m_key_flag = false;
 		}
 	}
@@ -146,7 +146,8 @@ void CObjMap7::Action()
 //ドロー
 void CObjMap7::Draw()
 {
-	//描画カラー情報 R G B al(透過情報)
+	/*
+		//描画カラー情報 R G B al(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	RECT_F src;	//描画元切り取り位置
@@ -180,5 +181,7 @@ void CObjMap7::Draw()
 
 		}
 	}
+
+	*/
 
 }

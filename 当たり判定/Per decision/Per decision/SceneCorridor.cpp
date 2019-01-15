@@ -16,23 +16,23 @@
 using namespace GameL;
 
 //使用ヘッダー
-#include "SceneCorridor1.h"
+#include "SceneCorridor.h"
 #include "GameHead.h"
 
 //コンストラクタ
-CSceneCorridor1::CSceneCorridor1()
+CSceneCorridor::CSceneCorridor()
 {
 
 }
 
 //デストラクタ
-CSceneCorridor1::~CSceneCorridor1()
+CSceneCorridor::~CSceneCorridor()
 {
 
 }
 
 //初期化メゾット
-void CSceneCorridor1::InitScene()
+void CSceneCorridor::InitScene()
 {
 	//音楽読み込み
 	Audio::LoadAudio(0, L"黒い足音.wav", BACK_MUSIC); //通常　廊下1
@@ -76,14 +76,18 @@ void CSceneCorridor1::InitScene()
 	m_flag_go = false;
 
 	//Test Corridor1オブジェクト生成
+	//CObjCorridor* objb = new CObjCorridor();
+	//Test Corridorオブジェクト生成
 	CObjCorridor* objb = new CObjCorridor();
 
 	//Corridor1_2オブジェクト生成
 	CObjCorridor1_2* objb1_2 = new CObjCorridor1_2();
+
 	Objs::InsertObj(objb, OBJ_ROOM, 9);
-	//Objs::InsertObj(objb1_2, OBJ_ROOM, 9);
+	Objs::InsertObj(objb1_2, OBJ_ROOM, 9);
 
 	Draw::LoadImage(L"廊下1-2.png", 9, TEX_SIZE_512);
+
 
 	/*
 	//Corridor1_1オブジェクト生成
@@ -116,17 +120,19 @@ void CSceneCorridor1::InitScene()
 
 
 //実行中メゾット
-void CSceneCorridor1::Scene()
+void CSceneCorridor::Scene()
 {
+
 	//主人公の位置を取得
 	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+
 	//Test Corridorオブジェクト生成
 	CObjCorridor* objb = new CObjCorridor();
 	//Test Corridor1オブジェクト生成
-	CObjCorridor1* objb1 = new CObjCorridor1();
+	//CObjCorridor1* objb1 = new CObjCorridor1();
 
 
 	//Corridor1_1オブジェクト生成
@@ -471,7 +477,7 @@ void CSceneCorridor1::Scene()
 		&& m_Storey == 2)
 	{
 		Objs::InsertObj(objb, OBJ_ROOM, 9);
-		Objs::InsertObj(objb2_2, OBJ_ROOM, 9);
+		//Objs::InsertObj(objb2_2, OBJ_ROOM, 9);
 
 		Draw::LoadImage(L"廊下2-2.png", 9, TEX_SIZE_512);
 	}

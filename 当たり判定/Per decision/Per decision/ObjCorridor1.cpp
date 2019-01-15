@@ -10,235 +10,134 @@
 
 using namespace GameL;
 
+extern float g_hero_x;
+extern float g_hero_y;
 
 
 //ÉCÉjÉVÉÉÉâÉCÉY
 void CObjCorridor1::Init()
 {
-
 	//ÉGÉäÉAà⁄ìÆÉtÉâÉOèâä˙âª
 	m_flag_Corridor1_1 = false;
-	m_flag_Corridor1_2 = true;
-	m_flag_Corridor1_3 = false;
-	m_flag_Staffroom = false;
-	m_flag_Principaloffice = false;
-	m_flag_Infirmary = false;
-	m_flag_Corridor2_1 = false;
-	m_flag_Corridor2_2 = false;
-	m_flag_Corridor2_3 = false;
-	m_flag_Corridor3_1 = false;
-	m_flag_Corridor3_2 = false;
-	m_flag_Corridor3_3 = false;
 
-	m_Storey = 0;
+	m_flag_Corridor1_2 = false;
+
+	//òAë±ï`âÊñhé~èâä˙âª
+	f_co = 0;
+
+	/*
+	//è„ï«
+	Hits::SetHitBox(this, 0.0f, 70.0f, 410, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+
+	//è„ï«
+	Hits::SetHitBox(this, 510.0f, 70.0f, 290, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+
+	//â∫ï«
+	Hits::SetHitBox(this, 0.0f, 500.0f, 115, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+
+	//â∫ï«
+	Hits::SetHitBox(this, 215.0f, 500.0f, 445, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+
+	//â∫ï«
+	Hits::SetHitBox(this, 755.0f, 500.0f, 40, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+	
+
+	
+	//è„ï«
+	Hits::SetHitBox(this, 0.0f, 0.0f, 140, 180, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
+
+	//è„ï«
+	Hits::SetHitBox(this, 140.0f, 0.0f, 1, 180, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
+
+	//äKíi
+	//Hits::SetHitBox(this, 130.0f, 0.0f, 200, 1, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
+
+	//è„ï«
+	Hits::SetHitBox(this, 331.0f, 0.0f, 1, 180, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
+
+	//É_ÉìÉ{Å[Éã
+	Hits::SetHitBox(this, 333.0f, 0.0f, 204, 150, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
+
+	//è„ï«
+	Hits::SetHitBox(this, 537.0f, 0.0f, 280, 180, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
+
+	//â∫ï«
+	Hits::SetHitBox(this, 0.0f, 500.0f, 200, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
+
+	//èoì¸ÇËå˚1
+	Hits::SetHitBox(this, 200.0f, 600.0f, 155, 1, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
+
+	//â∫ï«
+	Hits::SetHitBox(this, 355.0f, 500.0f, 130, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
+
+	//èoì¸ÇËå˚2
+	Hits::SetHitBox(this, 485.0f, 600.0f, 125, 1, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
+
+	//â∫ï«
+	Hits::SetHitBox(this, 610.0f, 500.0f, 200, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
+	*/
 }
 
 //ÉAÉNÉVÉáÉì
 void CObjCorridor1::Action()
 {
+	//Corridor1_1ÉIÉuÉWÉFÉNÉgê∂ê¨
+	CObjCorridor1_1* objb1_1 = new CObjCorridor1_1();
+	//Corridor1_2ÉIÉuÉWÉFÉNÉgê∂ê¨
+	CObjCorridor1_2* objb1_2 = new CObjCorridor1_2();
+
+	
+
 	//éÂêlåˆÇÃà íuÇéÊìæ
 	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+	//ï\é¶
+	if (m_flag_Corridor1_1 == false)
+	{
+		Hits::DeleteHitBox(this);
+		f_co = 0;
+	}
 
-	//1äK
-	if (hx < 0.0f && m_flag_Corridor1_2 == true)
+	if (m_flag_Corridor1_2 == false)
+	{
+		Hits::DeleteHitBox(this);
+		f_co = 0;
+	}
+
+	if (m_flag_Corridor1_1 == true && f_co == 0)
+	{
+		Objs::InsertObj(objb1_1, OBJ_ROOM, 9);
+		f_co = 1;
+	}
+
+	if (m_flag_Corridor1_2 == true && f_co == 0)
+	{
+		Objs::InsertObj(objb1_2, OBJ_ROOM, 9);
+		f_co = 1;
+	}
+
+
+	//à⁄ìÆèàóù
+	if (hx >= 750.0f && m_flag_Corridor1_1 == false)
+	{
+		m_flag_Corridor1_1 = false;
+		m_flag_Corridor1_2 = true;
+
+	}
+
+	if (hx <= 100.0f && m_flag_Corridor1_2 == false)
 	{
 		m_flag_Corridor1_1 = true;
 		m_flag_Corridor1_2 = false;
 	}
 
-	if (hx + 64.0f > 800.0f && m_flag_Corridor1_1 == true)
-	{
-		m_flag_Corridor1_1 = false;
-		m_flag_Corridor1_2 = true;
-	}
 
-	if (hx + 64.0f > 800.0f && m_flag_Corridor1_2 == true)
-	{
-		m_flag_Corridor1_2 = false;
-		m_flag_Corridor1_3 = true;
-	}
-
-	if (hx < 0.0f&& m_flag_Corridor1_3 == true)
-	{
-		m_flag_Corridor1_2 = true;
-		m_flag_Corridor1_3 = false;
-	}
-
-	//êEàıé∫
-	if (hy > 450.0f && m_flag_Corridor1_1 == true)
-	{
-		m_flag_Corridor1_1 = false;
-		m_flag_Staffroom = true;
-	}
-
-	if (hy < 70.0f && m_flag_Staffroom == true)
-	{
-		m_flag_Staffroom = false;
-		m_flag_Corridor1_1 = true;
-	}
-
-	//çZí∑é∫
-	if (hy < 120 && m_flag_Corridor1_1 == true)
-	{
-		m_flag_Corridor1_1 = false;
-		m_flag_Principaloffice = true;
-	}
-	
-	if (hy + 64.0f > 600.0f && m_flag_Principaloffice == true)
-	{
-		m_flag_Principaloffice = false;
-		m_flag_Corridor1_1 = true;
-	}
-
-	//ï€åíé∫
-	if(hy < 120 && m_flag_Corridor1_3 == true)
-	{
-		m_flag_Corridor1_3 = false;
-		m_flag_Infirmary = true;
-	}
-
-	if (hy + 64.0f > 600.0f && m_flag_Infirmary == true)
-	{
-		m_flag_Infirmary = false;
-		m_flag_Corridor1_3 = true;
-	}
-
-
-	//2äK
-
-
-	//3äK
 }
 
 //ÉhÉçÅ[
 void CObjCorridor1::Draw()
 {
-	//ï`âÊÉJÉâÅ[èÓïÒ
-	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f };
 
-	RECT_F src;
-	RECT_F dst;
-
-	//1äK
-	if (m_flag_Corridor1_1 == true)
-	{
-		//îwåi
-		src.m_top = 0.0f;
-		src.m_left = 0.0f;
-		src.m_right = 519.0f;
-		src.m_bottom = 360.0f;
-		dst.m_top = 0.0f;
-		dst.m_left = 0.0f;
-		dst.m_right = 800.0f;
-		dst.m_bottom = 600.0f;
-		Draw::Draw(9, &src, &dst, c, 0.0f);
-	}
-
-	if (m_flag_Corridor1_2 == true)
-	{
-		//îwåi
-		src.m_top = 0.0f;
-		src.m_left = 0.0f;
-		src.m_right = 380.0f;
-		src.m_bottom = 360.0f;
-		dst.m_top = 0.0f;
-		dst.m_left = 0.0f;
-		dst.m_right = 800.0f;
-		dst.m_bottom = 600.0f;
-		Draw::Draw(9, &src, &dst, c, 0.0f);
-	}
-
-	if (m_flag_Corridor1_3 == true)
-	{
-		//îwåi
-		src.m_top = 0.0f;
-		src.m_left = 0.0f;
-		src.m_right = 360.0f;
-		src.m_bottom = 360.0f;
-		dst.m_top = 0.0f;
-		dst.m_left = 0.0f;
-		dst.m_right = 800.0f;
-		dst.m_bottom = 600.0f;
-		Draw::Draw(9, &src, &dst, c, 0.0f);
-	}
-
-	//êEàıé∫
-	if (m_flag_Staffroom == true)
-	{
-		//îwåi
-		src.m_top = 0.0f;
-		src.m_left = 0.0f;
-		src.m_right = 896.0f;
-		src.m_bottom = 640.0f;
-		dst.m_top = 0.0f;
-		dst.m_left = 0.0f;
-		dst.m_right = 800.0f;
-		dst.m_bottom = 600.0f;
-		Draw::Draw(9, &src, &dst, c, 0.0f);
-	}
-
-	//çZí∑é∫
-	if (m_flag_Principaloffice == true)
-	{
-		//îwåi
-		src.m_top = 0.0f;
-		src.m_left = 0.0f;
-		src.m_right = 470.0f;
-		src.m_bottom = 730.0f;
-		dst.m_top = 0.0f;
-		dst.m_left = 0.0f;
-		dst.m_right = 800.0f;
-		dst.m_bottom = 600.0f;
-		Draw::Draw(9, &src, &dst, c, 0.0f);
-	}
-
-	//ï€åíé∫
-	if (m_flag_Infirmary == true)
-	{
-		//îwåi
-		src.m_top = 0.0f;
-		src.m_left = 0.0f;
-		src.m_right = 720.0f;
-		src.m_bottom = 370.0f;
-		dst.m_top = 0.0f;
-		dst.m_left = 0.0f;
-		dst.m_right = 800.0f;
-		dst.m_bottom = 600.0f;
-		Draw::Draw(9, &src, &dst, c, 0.0f);
-	}
-
-	//2äK
-	if (m_flag_Corridor2_1 == true)
-	{
-
-	}
-
-	if (m_flag_Corridor2_2 == true)
-	{
-
-	}
-
-	if (m_flag_Corridor2_3 == true)
-	{
-
-	}
-
-	//3äK
-	if (m_flag_Corridor3_1 == true)
-	{
-
-	}
-
-	if (m_flag_Corridor3_2 == true)
-	{
-
-	}
-
-	if (m_flag_Corridor3_3 == true)
-	{
-
-	}
 }

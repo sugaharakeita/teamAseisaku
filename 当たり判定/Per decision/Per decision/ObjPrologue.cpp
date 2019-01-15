@@ -38,7 +38,7 @@ void CObjPrologue::Action()
 		m_start_co += 1.0f;
 		if (m_start_co == 20)
 		{
-			Scene::SetScene(new CSceneCorridor1());
+			Scene::SetScene(new CSceneCorridor());
 			m_key_flag = false;
 			m_start = false;
 			m_start_co = 0;

@@ -52,13 +52,15 @@ void CObjInfirmary::Init()
 //アクション
 void CObjInfirmary::Action()
 {
-	/*
-	//画面端下に行くと廊下1-3へ移動
-	if (hy + 64.0f > 600.0f && 80.0f < hx < 153.0f)
+	//主人公の位置を取得
+	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	float hx = hero->GetX();
+	float hy = hero->GetY();
+
+	if (hy + 64.0f > 580.0f)
 	{
-		Scene::SetScene(new CSceneCorridor1_3());
+		Hits::DeleteHitBox(this);
 	}
-	*/
 
 }
 

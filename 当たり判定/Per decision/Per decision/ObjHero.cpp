@@ -23,8 +23,9 @@ void CObjHero::Init()
 	
 	m_vx = 0.0f;  //移動ベクトル
 	m_vy = 0.0f;
-	m_posture = 0;   //右向き0.0f　左向き1.0f 正面2.0f 後ろ3.0f
-
+	m_posture = 3;   //右向き0.0f　左向き1.0f 正面2.0f 後ろ3.0f
+	m_go_cox = 2; //廊下移動数x初期化
+	m_go_coy = 1; //部屋移動数y初期化
 
 	m_ani_time = 0;
 	m_ani_frame = 1;  //静止フレームを初期にする
@@ -49,6 +50,11 @@ void CObjHero::Action()
 	//移動ベクトルの破棄
 	m_vx = 0.0f;
 	m_vy = 0.0f;
+
+	//主人公の位置を取得
+	CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	float hx = hero->GetX();
+	float hy = hero->GetY();
 
 	//主人公と追尾で角度を取る
 	CObjHero*obj = (CObjHero*)Objs::GetObj(OBJ_HERO);
@@ -274,7 +280,7 @@ void CObjHero::Action()
 		}
 
 
-		/*
+		
 		//主人公と障害物がどの角度で当たっているか調べる
 		HIT_DATA** hit_data;
 		hit_data = hit->SearchElementHit(ELEMENT_FIELD);
@@ -323,9 +329,64 @@ void CObjHero::Action()
 		m_vy = m_vy + 5.0f;
 		}
 
-		*/
+		
 
 	}
+
+  //画面移動
+	//廊下移動
+	if (m_px + 64.0f > 800.0f && (m_go_cox == 1 || m_go_cox == 2))
+	{
+		if (m_go_cox == 1)
+		{
+			m_go_cox = 2;
+			m_px = 800.0f - 700.0f;
+		}
+		if (m_go_cox == 2)
+		{
+			m_go_cox = 3;
+			m_px = 800.0f - 700.0f;
+		}
+	}
+	if (m_px < 0.0f && (m_go_cox == 2 || m_go_cox == 3))
+	{	
+		if (m_go_cox == 2)
+		{
+			m_go_cox = 1;
+			m_px = 710.0f;
+		}
+		if (m_go_cox == 3)
+		{
+			m_go_cox = 2;
+			m_px = 710.0f;
+		}
+	}
+
+	//部屋移動
+	if (m_py + 64.0f > 600.0f && (m_go_coy == 0 || m_go_coy == 1))
+	{
+		if (m_go_cox == 1 || m_go_cox == 3)
+		{
+			if (m_go_coy == 1)
+			{
+				m_go_coy = 2;
+				m_py = 600.0f - 400.0f;
+			}
+		}
+	}
+
+	if (m_py < 0.0f && (m_go_coy == 1 || m_go_coy == 2))
+	{	
+		if (m_go_cox == 1 || m_go_cox == 3)
+		{
+			if (m_go_coy == 0)
+			{
+				m_go_coy = 1;
+				m_py = 400.0f;
+			}
+		}
+	}
+
 
 	//画面外に出ないようにする処理
 	if (m_px+64.0f > 800.0f)

@@ -102,6 +102,7 @@ struct HitBoxs
 #include "ObjEnemy2.h"
 #include "ObjGameOver.h"
 #include "ObjBackground.h"
+#include "ObjCorridor.h"
 #include "ObjCorridor1.h"
 #include "ObjPrologue.h"
 //------------------------------------------------
@@ -126,7 +127,7 @@ struct HitBoxs
 #include "SceneClear.h"
 #include "SceneTitle.h"
 #include "SceneGameOver.h"
-#include "SceneCorridor1.h"
+#include "SceneCorridor.h"
 #include "ScenePrologue.h"
 
 //-----------------------------------------------
@@ -148,5 +149,5 @@ struct HitBoxs
 #define SET_GAME_START  CSceneTitle
 */
 
-#define SET_GAME_START  CSceneCorridor1
+#define SET_GAME_START  CSceneCorridor
 //-----------------------------------------------

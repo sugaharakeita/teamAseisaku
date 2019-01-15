@@ -48,7 +48,7 @@ void CObjMap9::Action()
 	float hy = hero->GetY();
 
 
-	//0～100にいくと廊下2-2にいく
+	//0～100にいくと廊下3-2にいく
 	if (hx < 50 == true)
 	{
 		if (m_key_flag == true)
@@ -70,7 +70,7 @@ void CObjMap9::Action()
 		{
 			g_hero_x = 650;
 			g_hero_y = hy;
-			Scene::SetScene(new CSceneClassroom());
+			//Scene::SetScene(new CSceneClassroom());
 			m_key_flag = false;
 		}
 	}
@@ -82,6 +82,7 @@ void CObjMap9::Action()
 //ドロー
 void CObjMap9::Draw()
 {
+	/*
 	//描画カラー情報 R G B al(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
@@ -89,7 +90,7 @@ void CObjMap9::Draw()
 	RECT_F dst;	//描画先表示位置
 
 
-				//切り取り位置の設定
+	//切り取り位置の設定
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
 	src.m_right = 360.0f;
@@ -101,6 +102,8 @@ void CObjMap9::Draw()
 	dst.m_right = 800.0f + m_x1;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(0, &src, &dst, c, 0.0f);
+
+	*/
 
 
 

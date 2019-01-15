@@ -10,12 +10,12 @@
 
 using namespace GameL;
 
-
+extern float g_hero_x;
+extern float g_hero_y;
 
 //イニシャライズ
 void CObjCorridor1_1::Init()
 {
-
 	//上壁
 	Hits::SetHitBox(this, 0.0f, 70.0f, 410, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
 
@@ -23,7 +23,7 @@ void CObjCorridor1_1::Init()
 	Hits::SetHitBox(this, 510.0f, 70.0f, 290, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 0.0f, 500.0f,115, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+	Hits::SetHitBox(this, 0.0f, 500.0f, 115, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
 
 	//下壁
 	Hits::SetHitBox(this, 215.0f, 500.0f, 445, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
@@ -32,19 +32,24 @@ void CObjCorridor1_1::Init()
 	Hits::SetHitBox(this, 755.0f, 500.0f, 40, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
 
 
-	//エリア移動フラグ初期化
-	//m_flag_Corridor1_1 = false;
 }
 
 //アクション
 void CObjCorridor1_1::Action()
 {
-
-	/*
 	//主人公の位置を取得
 	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	float hx = hero->GetX();
 	float hy = hero->GetY();
+
+
+	if (hx + 64.0f > 787.0f || hy > 450.0f || hy < 120)
+	{
+		Hits::DeleteHitBox(this);
+	}
+
+
+	/*
 
 	if (m_flag_Corridor1_1 == true)
 	{
