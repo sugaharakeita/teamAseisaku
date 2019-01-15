@@ -18,9 +18,14 @@ enum OBJ_NAME
 	OBJ_CORRIDOR2_1,
 	OBJ_CORRIDOR2_2,
 	OBJ_CORRIDOR2_3,
+	OBJ_ROOM,
 	OBJ_CLEAR,
 	OBJ_TITLE,
 	OBJ_GAME_OVER,
+	OBJ_BACKGROUND,
+	OBJ_PROLOGUE,
+	OBJ_HITBOX,
+	OBJ_MAP,
 };
 //------------------------------------------------
 
@@ -54,6 +59,14 @@ struct UserData
 
 
 //ゲーム内で使用されるグローバル変数・定数・列挙--
+struct HitBoxs
+{
+	int pos_x;			//当たり判定x座標
+	int pos_y;			//当たり判定y座標
+	int height;			//当たり判定高さ
+	int width;			//当たり判定横幅
+	int id;	//当たり判定
+};
 
 
 
@@ -66,6 +79,7 @@ struct UserData
 //ゲームシーンオブジェクトヘッダ------------------
 #include "ObjStaffroom.h"
 #include "ObjPrincipaloffice.h"
+#include "ObjHitBox.h"
 #include "ObjInfirmary.h"
 #include "ObjCorridor1_1.h"
 #include "ObjCorridor1_2.h"
@@ -73,12 +87,24 @@ struct UserData
 #include "ObjCorridor2_1.h"
 #include "ObjCorridor2_2.h"
 #include "ObjCorridor2_3.h"
+#include "ObjMap7.h"
+#include "ObjMap8.h"
+#include "ObjMap9.h"
+#include "ObjClassroom.h"
+#include "ObjHomeeconomicsroom.h"
+#include "ObjHomepreparationroom.h"
 #include "ObjHero.h"
 #include "ObjClear.h"
 #include "ObjTitle.h"
 #include "ObjPerdecision.h"
+#include "ObjLibrary.h"
 #include "ObjEnemy.h"
+#include "ObjEnemy2.h"
 #include "ObjGameOver.h"
+#include "ObjBackground.h"
+#include "ObjCorridor.h"
+#include "ObjCorridor1.h"
+#include "ObjPrologue.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
@@ -91,9 +117,19 @@ struct UserData
 #include "SceneCorridor2_1.h"
 #include "SceneCorridor2_2.h"
 #include "SceneCorridor2_3.h"
+#include "SceneMain7.h"
+#include "SceneMain8.h"
+#include "SceneMain9.h"
+#include "SceneClassroom.h"
+#include "SceneHomeeconomicsroom.h"
+#include "SceneHomepreparationroom.h"
+#include "SceneLibrary.h"
 #include "SceneClear.h"
 #include "SceneTitle.h"
 #include "SceneGameOver.h"
+#include "SceneCorridor.h"
+#include "ScenePrologue.h"
+
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
@@ -108,8 +144,10 @@ struct UserData
 #define SET_GAME_START  CSceneCorridor2_1
 #define SET_GAME_START  CSceneCorridor2_2
 #define SET_GAME_START  CSceneCorridor2_3
+#define SET_GAME_START  CSceneHomeeconomicsroom
 #define SET_GAME_START  CSceneClear
+#define SET_GAME_START  CSceneTitle
 */
 
-#define SET_GAME_START  CSceneTitle
+#define SET_GAME_START  CSceneCorridor
 //-----------------------------------------------

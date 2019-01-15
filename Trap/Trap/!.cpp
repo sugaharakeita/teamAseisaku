@@ -14,8 +14,6 @@ CObjExcla::CObjExcla(float x, float y)
 
 void CObjExcla::Init()
 {
-	t_flag = false;
-	m_time = 0;
 	Hits::SetHitBox(this, HeroX,HeroY, 48, 48, ELEMENT_PLAYER, OBJ_HERO, 1);
 }
 
@@ -23,9 +21,10 @@ void CObjExcla::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
-	if (Input::GetVKey('W') == true && Message == 0)
+	if (Input::GetVKey('W') == true && Text == 0 
+		&& Message == 0 && Menu == 0 && HeroStop != 4)
 	{
-		if (HIT_flag == true || t_flag == true || HeroStop == 3)
+		if (HIT_flag == true || HeroStop == 3)
 			;
 		else
 		{
@@ -33,9 +32,10 @@ void CObjExcla::Action()
 			hit->SetPos(HeroX + 8, HeroY);
 		}
 	}
-	else if (Input::GetVKey('S') == true && Message == 0)
+	else if (Input::GetVKey('S') == true && Text == 0
+		&& Message == 0 && Menu == 0 && HeroStop != 4)
 	{
-		if (HIT_flag == true || t_flag == true || HeroStop == 2)
+		if (HIT_flag == true || HeroStop == 2)
 			;
 		else
 		{
@@ -43,9 +43,10 @@ void CObjExcla::Action()
 			hit->SetPos(HeroX + 8, HeroY + 16);
 		}
 	}
-	else if (Input::GetVKey('A') == true && Message == 0)
+	else if (Input::GetVKey('A') == true && Text == 0
+		&& Message == 0 && Menu == 0 && HeroStop != 4)
 	{
-		if (HIT_flag == true || t_flag == true || HeroStop == 1)
+		if (HIT_flag == true || HeroStop == 1)
 			;
 		else
 		{
@@ -53,9 +54,10 @@ void CObjExcla::Action()
 			hit->SetPos(HeroX, HeroY + 8);
 		}
 	}
-	else if (Input::GetVKey('D') == true && Message == 0)
+	else if (Input::GetVKey('D') == true && Text == 0
+		&& Message == 0 && Menu == 0 && HeroStop != 4)
 	{
-		if (HIT_flag == true || t_flag ==true || HeroStop == 0)
+		if (HIT_flag == true || HeroStop == 0)
 			;
 		else
 		{
@@ -71,7 +73,7 @@ void CObjExcla::Action()
 		Hits::DeleteHitBox(this);
 	}
 
-	if (Hero == false)//主人公が喪失すればこれらも喪失する
+	if (Hero == false)//主人公が喪失すればプレイヤー属性のものも喪失する
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
@@ -82,7 +84,7 @@ void CObjExcla::Action()
 		|| hit->CheckElementHit(ELEMENT_ITEM) == true)
 		HeroStop = HERO;
 	else
-		HeroStop = 4;
+		HeroStop = 5;
 	
 	if (hit->CheckElementHit(ELEMENT_DOOR) == true)
 	{
@@ -92,22 +94,34 @@ void CObjExcla::Action()
 	else
 	{
 		DOOR_flag = false;
-		HeroStop = 4;
+		HeroStop = 5;
 	}
 	if (hit->CheckObjNameHit(OBJ_HAKO) != nullptr)
 		HAKO_flag = true;
 	else
 	{
 		HAKO_flag = false;
-		HeroStop = 4;
+		HeroStop = 5;
 	}
 	if (hit->CheckElementHit(ELEMENT_ITEM) == true)
 		ITEM_flag = true;
 	else
 	{
 		ITEM_flag = false;
-		HeroStop = 4;
+		HeroStop = 5;
 	}
+	if (hit->CheckObjNameHit(OBJ_TEXTURE) != nullptr)
+		TEXT_flag = true;
+	else
+	{
+		TEXT_flag = false;
+		HeroStop = 5;
+	}
+
+	if (HeroX < 368)
+		HeroL = true;
+	if (HeroX >= 368)
+		HeroL = false;
 }
 
 void CObjExcla::Draw()
@@ -126,7 +140,9 @@ void CObjExcla::Draw()
 	dst.m_right = 32.0f + (HeroX+16);
 	dst.m_bottom = 32.0f + (HeroY-24);
 
-	if (HAKO_flag == true || DOOR_flag == true || ITEM_flag == true)
+	//エンターキーを入力すると何か行動できる場合に表示する
+	if (HAKO_flag == true || DOOR_flag == true 
+		|| ITEM_flag == true || TEXT_flag == true)
 		Draw::Draw(2, &src, &dst, c, 0.0f);
 	else
 		;

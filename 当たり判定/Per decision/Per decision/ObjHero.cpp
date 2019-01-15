@@ -1,9 +1,9 @@
-
 //使用するヘッダーファイル
 #include "GameL\DrawTexture.h"
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
 #include "GameL\HitBoxManager.h"
+#include "GameL\Audio.h"
 
 
 #include "GameHead.h"
@@ -12,18 +12,25 @@
 //使用するネームスペース
 using namespace GameL;
 
+float g_hero_x = 150.0f;
+float g_hero_y = 150.0f;
+
 //イニシャライズ
 void CObjHero::Init()
 {
-	m_px = 400.0f;//位置 
-	m_py = 300.0f;
+	m_px = g_hero_x; //位置 
+	m_py = g_hero_y;
+	
 	m_vx = 0.0f;  //移動ベクトル
 	m_vy = 0.0f;
-	m_posture = 0;   //右向き0.0f　左向き1.0f 正面2.0f 後ろ3.0f
-
+	m_posture = 3;   //右向き0.0f　左向き1.0f 正面2.0f 後ろ3.0f
+	m_go_cox = 2; //廊下移動数x初期化
+	m_go_coy = 1; //部屋移動数y初期化
 
 	m_ani_time = 0;
 	m_ani_frame = 1;  //静止フレームを初期にする
+	m_footsteps_co = 0; //足音秒数カウント初期化
+	m_footsteps_switching = false; //足音オフ化
 
 	//衝突状態確認用初期化
 	m_hit_up = false;
@@ -31,18 +38,28 @@ void CObjHero::Init()
 	m_hit_left = false;
 	m_hit_right = false;
 	
-	//当たり判定                                プレイヤー
-	Hits::SetHitBox(this, m_px+15 , m_py+20 , 32, 40, ELEMENT_PLAYER, OBJ_HERO, 1);
+	//当たり判定                                
+	Hits::SetHitBox(this, m_px+16 , m_py+50 , 32, 10, ELEMENT_PLAYER, OBJ_HERO, 1);
 	//					横開始 縦開始 横大きさ 縦大きさ 属性 名前
 }
 
 //アクション
 void CObjHero::Action()
 {
+
 	//移動ベクトルの破棄
 	m_vx = 0.0f;
 	m_vy = 0.0f;
 
+	//主人公の位置を取得
+	CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	float hx = hero->GetX();
+	float hy = hero->GetY();
+
+	//主人公と追尾で角度を取る
+	CObjHero*obj = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	int x = obj->GetX() - m_px;
+	int y = obj->GetY() - m_py;
 
 	//キーの入力方向
 	//上キーかつ当たり判定と当たっていない場合
@@ -51,6 +68,7 @@ void CObjHero::Action()
 		m_vy = -4.0f;
 		m_posture = 3;
 		m_ani_time += 1;
+		m_footsteps_switching = true; //足音オン
 	}
 
 	//左キーかつ当たり判定と当たっていない場合
@@ -59,6 +77,7 @@ void CObjHero::Action()
 		m_vx -= 4.0f;
 		m_posture = 1;
 		m_ani_time += 1;
+		m_footsteps_switching = true; //足音オン
 	}
 
 	//下キーかつ当たり判定と当たっていない場合
@@ -67,6 +86,7 @@ void CObjHero::Action()
 		m_vy = +4.0f;
 		m_posture = 2;
 		m_ani_time += 1;
+		m_footsteps_switching = true; //足音オン
 	}
 
 	//右キーかつ当たり判定と当たっていない場合
@@ -75,12 +95,15 @@ void CObjHero::Action()
 		m_vx += 4.0f;
 		m_posture = 0;
 		m_ani_time += 1;
+		m_footsteps_switching = true; //足音オン
 	}
 	//上キーかつ当たり判定と当たっている場合
 	else if (Input::GetVKey('W') == true && m_hit_up == true)
 	{
 		m_vy = 0.0f;
 		m_posture = 3;
+		m_ani_frame = 0;
+		m_ani_time = 0;
 	}
 
 	//左キーかつ当たり判定と当たっている場合
@@ -88,6 +111,8 @@ void CObjHero::Action()
 	{
 		m_vx = 0.0f;
 		m_posture = 1;
+		m_ani_frame = 0;
+		m_ani_time = 0;
 	}
 
 	//下キーかつ当たり判定と当たっている場合
@@ -95,6 +120,8 @@ void CObjHero::Action()
 	{
 		m_vy = 0.0f;
 		m_posture = 2;
+		m_ani_frame = 0;
+		m_ani_time = 0;
 	}
 
 	//右キーかつ当たり判定と当たっている場合
@@ -102,11 +129,18 @@ void CObjHero::Action()
 	{
 		m_vx = 0.0f;
 		m_posture = 0;
+		m_ani_frame = 0;
+		m_ani_time = 0;
 	}
+
+
+	//キー入力が無い場合
 	else
 	{
 		m_ani_frame = 0; //キー入力が無い場合は静止フレームにする
 		m_ani_time = 0;
+		m_footsteps_co = 0;
+		m_footsteps_switching = false; //足音オフ化
 		m_hit_up = false;
 		m_hit_down = false;
 		m_hit_left = false;
@@ -120,9 +154,33 @@ void CObjHero::Action()
 		m_ani_time = 0;
 	}
 
+
 	if (m_ani_frame == 4)
 	{
 		m_ani_frame = 0;
+	}
+
+	//足音がオンの時
+	if (m_footsteps_switching == true)
+	{
+		if (m_footsteps_co == 0)
+		{
+			float v = Audio::VolumeMaster(2);
+			v = Audio::VolumeMaster((1.0 - v));
+
+			Audio::Start(2);
+			m_footsteps_co += 1;
+		}
+
+		if (m_footsteps_co == 9)
+		{
+			Audio::Stop(2);
+			m_footsteps_co = 0;
+		}
+	}
+	else
+	{
+		Audio::Stop(2);
 	}
 
 
@@ -133,7 +191,7 @@ void CObjHero::Action()
 	if (hit->CheckElementHit(ELEMENT_FIELD) == true)
 	{
 
-		//右に当たり判定があった場合
+		//右キーを押した場合
 		if (Input::GetVKey('D') == true)
 		{
 			m_vx -= 4.0f;
@@ -143,7 +201,7 @@ void CObjHero::Action()
 			m_hit_down = false;
 		}
 
-		//左に当たり判定があった場合
+		//左キーを押した場合
 		if (Input::GetVKey('A') == true)
 		{
 			m_vx += 4.0f;
@@ -153,7 +211,7 @@ void CObjHero::Action()
 			m_hit_left = false;
 		}
 
-		//下に当たり判定があった場合
+		//下キーを押した場合
 		if (Input::GetVKey('S') == true)
 		{
 			m_vy -= 4.0f;
@@ -163,7 +221,7 @@ void CObjHero::Action()
 			m_hit_left = false;
 		}
 
-		//上に当たり判定があった場合
+		//上キーを押した場合
 		if (Input::GetVKey('W') == true)
 		{
 			m_vy += 4.0f;
@@ -173,54 +231,162 @@ void CObjHero::Action()
 			m_hit_left = false;
 		}
 
-		//上・左に当たり判定があった場合
+		//上・左キーを押した場合
 		if (Input::GetVKey('W') == true &&
 			Input::GetVKey('A') == true)
 		{
-			m_vx += 4.0f;
-			m_vy += 4.0f;
+			m_vx = 0.0f;
+			m_vy = 0.0f;
 			m_hit_up = true;
 			m_hit_right = true;
 			m_hit_down = false;
 			m_hit_left = false;
 		}
 
-		//上・右に当たり判定があった場合
+		//上・右キーを押した場合
 		if (Input::GetVKey('W') == true &&
 			Input::GetVKey('D') == true)
 		{
-			m_vx -= 4.0f;
-			m_vy += 4.0f;
+			m_vx = 0.0f;
+			m_vy = 0.0f;
 			m_hit_up = true;
 			m_hit_left = true;
 			m_hit_right = false;
 			m_hit_down = false;
 		}
 
-		//下・左に当たり判定があった場合
+		//下・左キーを押した場合
 		if (Input::GetVKey('S') == true &&
 			Input::GetVKey('A') == true)
 		{
-			m_vx += 4.0f;
-			m_vy -= 4.0f;
+			m_vx = 0.0f;
+			m_vy = 0.0f;
 			m_hit_down = true;
 			m_hit_right = true;
 			m_hit_up = false;
 			m_hit_left = false;
 		}
 
-		//下・右に当たり判定があった場合
+		//下・右キーを押した場合
 		if (Input::GetVKey('S') == true &&
 			Input::GetVKey('D') == true)
 		{
-			m_vx -= 4.0f;
-			m_vy -= 4.0f;
+			m_vx = 0.0f;
+			m_vy = 0.0f;
 			m_hit_down = true;
 			m_hit_left = true;
 			m_hit_up = false;
 			m_hit_right = false;
+		}
+
+
+		
+		//主人公と障害物がどの角度で当たっているか調べる
+		HIT_DATA** hit_data;
+		hit_data = hit->SearchElementHit(ELEMENT_FIELD);
+
+
+		float r = hit_data[0]->r;
+
+		//角度で上下左右を判定
+		if (r > 0 && r < 45 || r >= 315)
+		{
+		//右
+		m_hit_right = true;
+		}
+		else if (r >= 45 && r < 136)
+		{
+		//上
+		m_hit_up = true;
+		}
+		else if (r >= 135 && r <= 225)
+		{
+		//左
+		m_hit_left = true;
+		}
+		else if (r > 225 && r < 316)
+		{
+		//下
+		m_hit_down = true;
+		}
+
+
+
+		if (m_hit_left == true)//左に当たり判定があった場合
+		{
+		m_vx = m_vx + 5.0f;
+		}
+		else if (m_hit_right == true)//右に当たり判定があった場合
+		{
+		m_vx = m_vx - 5.0f;
+		}
+		else if (m_hit_down == true)//下に当たり判定があった場合
+		{
+		m_vy = m_vy - 5.0f;
+		}
+		else if (m_hit_up == true)//上に当たり判定があった場合
+		{
+		m_vy = m_vy + 5.0f;
+		}
+
+		
+
+	}
+
+  //画面移動
+	//廊下移動
+	if (m_px + 64.0f > 800.0f && (m_go_cox == 1 || m_go_cox == 2))
+	{
+		if (m_go_cox == 1)
+		{
+			m_go_cox = 2;
+			m_px = 800.0f - 700.0f;
+		}
+		if (m_go_cox == 2)
+		{
+			m_go_cox = 3;
+			m_px = 800.0f - 700.0f;
 		}
 	}
+	if (m_px < 0.0f && (m_go_cox == 2 || m_go_cox == 3))
+	{	
+		if (m_go_cox == 2)
+		{
+			m_go_cox = 1;
+			m_px = 710.0f;
+		}
+		if (m_go_cox == 3)
+		{
+			m_go_cox = 2;
+			m_px = 710.0f;
+		}
+	}
+
+	//部屋移動
+	if (m_py + 64.0f > 600.0f && (m_go_coy == 0 || m_go_coy == 1))
+	{
+		if (m_go_cox == 1 || m_go_cox == 3)
+		{
+			if (m_go_coy == 1)
+			{
+				m_go_coy = 2;
+				m_py = 600.0f - 400.0f;
+			}
+		}
+	}
+
+	if (m_py < 0.0f && (m_go_coy == 1 || m_go_coy == 2))
+	{	
+		if (m_go_cox == 1 || m_go_cox == 3)
+		{
+			if (m_go_coy == 0)
+			{
+				m_go_coy = 1;
+				m_py = 400.0f;
+			}
+		}
+	}
+
 
 	//画面外に出ないようにする処理
 	if (m_px+64.0f > 800.0f)
@@ -246,7 +412,7 @@ void CObjHero::Action()
 
 	
 	//作成したHitBox更新用の入り口を取り出す
-	hit->SetPos(m_px + 15, m_py + 20);//入り口から新しい位置（主人公の位置）情報に置き換える
+	hit->SetPos(m_px + 16, m_py + 50);//入り口から新しい位置（主人公の位置）情報に置き換える
 
 	//敵機オブジェクトと接触したら主人公機削除
 	if (hit->CheckObjNameHit(OBJ_ENEMY) !=nullptr)

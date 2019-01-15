@@ -23,4 +23,6 @@ public:
 private:
 	int m_map[MAP_Y_MAX][MAP_X_MAX];
 	int m_time;
+	int ev_mass;
+	int ev_time;
 };

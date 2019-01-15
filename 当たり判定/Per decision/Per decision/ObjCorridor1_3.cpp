@@ -33,23 +33,49 @@ void CObjCorridor1_3::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	//画面端左に行くと廊下1-2へ移動
-	if (hx < 0.0f)
+	if (hx < 115.0f )
 	{
-		Scene::SetScene(new CSceneCorridor1_2());
+		Hits::DeleteHitBox(this);
 	}
 
-	//主人公のy座標yが175.0f以下になると保健室へ移動
+	/*
+
+	if (m_flag_Corridor1_3 == true)
+	{
+		//Corridor1_3オブジェクト生成
+		CObjCorridor1_3* objb = new CObjCorridor1_3();
+		Objs::InsertObj(objb, OBJ_CORRIDOR1_3, 9);
+
+		Draw::LoadImage(L"廊下1-3.png", 9, TEX_SIZE_512);
+	}
+
+	//廊下1-3画面端左に行くと廊下1-2へ移動
+	if (hx < 0.0f && m_flag_Corridor1_3 == true)
+	{
+		//Corridor1_2オブジェクト生成
+		CObjCorridor1_2* objb = new CObjCorridor1_2();
+		Objs::InsertObj(objb, OBJ_CORRIDOR1_2, 9);
+
+		Draw::LoadImage(L"廊下1-2.png", 9, TEX_SIZE_512);
+
+		m_flag_Corridor1_3 = false;
+	}
+	*/
+
+	/*
+	//廊下1-3主人公のy座標yが175.0f以下になると保健室へ移動
 	if (hy + 64.0f < 175.0f && 150.0f < hx < 280.0f)
 	{
 		Scene::SetScene(new CSceneInfirmary());
 	}
+	*/
 
 }
 
 //ドロー
 void CObjCorridor1_3::Draw()
 {
+	/*
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f };
 
@@ -66,5 +92,6 @@ void CObjCorridor1_3::Draw()
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(9, &src, &dst, c, 0.0f);
-
+	*/
+	
 }

@@ -17,9 +17,7 @@ CObjHero::CObjHero(float x, float y)
 
 void CObjHero::Init()
 {
-	Hero = true;//グローバル変数。主人公が生成されていることを示す。
-	t_flag = false;
-	m_time = 0;
+	Hero = true;
 	m_ani_time = 0;
 	m_ani_frame = 1;
 	Hits::SetHitBox(this, HeroX,HeroY, 16, 16, ELEMENT_PLAYER, OBJ_HERO, 1);
@@ -30,9 +28,10 @@ void CObjHero::Action()
 	CHitBox*hit = Hits::GetHitBox(this);
 	hit->SetPos(HeroX + 24, HeroY + 48);
 
-	if (Input::GetVKey('W') == true && Message == 0)
+	if (Input::GetVKey('W') == true && Text == 0
+		&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-		if (HIT_flag == true || t_flag == true || HeroStop == 3)
+		if (HIT_flag == true || HeroStop == 3)
 				;
 			else
 			{
@@ -41,9 +40,10 @@ void CObjHero::Action()
 				m_ani_time += 1;
 			}
 		}
-		else if (Input::GetVKey('S') == true && Message == 0)
+		else if (Input::GetVKey('S') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-			if (HIT_flag == true || t_flag == true || HeroStop == 2)
+			if (HIT_flag == true || HeroStop == 2)
 				;
 			else
 			{
@@ -52,9 +52,10 @@ void CObjHero::Action()
 				m_ani_time += 1;
 			}
 		}
-		else if (Input::GetVKey('A') == true && Message == 0)
+		else if (Input::GetVKey('A') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-			if (HIT_flag == true || t_flag == true || HeroStop == 1)
+			if (HIT_flag == true || HeroStop == 1)
 				;
 			else
 			{
@@ -63,9 +64,10 @@ void CObjHero::Action()
 				m_ani_time += 1;
 			}
 		}
-		else if (Input::GetVKey('D') == true && Message == 0)
+		else if (Input::GetVKey('D') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-			if (HIT_flag == true || t_flag == true || HeroStop == 0)
+			if (HIT_flag == true || HeroStop == 0)
 				;
 			else
 			{
@@ -89,6 +91,11 @@ void CObjHero::Action()
 	if (m_ani_frame == 4)
 		m_ani_frame = 0;
 
+	if (Text == 0 && Message == 0 && Input::GetVKey('X') == true)
+	{
+		Menu = 1;
+	}
+
 	if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
 	{
 		Hero = false;//敵とぶつかると喪失する
@@ -110,6 +117,7 @@ void CObjHero::Draw()
 	dst.m_right = 64.0f + HeroX;
 	dst.m_bottom = 64.0f + HeroY;
 
+	//主人公の向きに応じて描画情報を変更する
 	if (HERO == 0)
 	{
 		src.m_top = 128.0f;

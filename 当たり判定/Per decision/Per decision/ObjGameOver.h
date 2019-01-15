@@ -5,17 +5,19 @@
 using namespace GameL;
 
 //オブジェクト：ゲームオーバー
-class CObjGameOver:public CObj
+class CObjGameOver :public CObj
 {
-	public:
-		CObjGameOver() {};
-		~CObjGameOver() {};
-		void Init();			//イニシャライズ
-		void Action();			//アクション
-		void Draw();			//ドロー
+public:
+	CObjGameOver() {};
+	~CObjGameOver() {};
+	void Init();			//イニシャライズ
+	void Action();			//アクション
+	void Draw();			//ドロー
 
-	private:
-		bool m_key_flag;//キーフラグ
+private:
+	bool m_key_flag;//キーフラグ
+	bool m_gameover; //ゲームオーバーフラグ
+	int m_gameover_co; //ゲームオーバーカウント
 
 };
 

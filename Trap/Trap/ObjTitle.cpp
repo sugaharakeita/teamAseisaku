@@ -17,15 +17,15 @@ void CObjTitle::Init()
 
 void CObjTitle::Action()
 {
-	if (Input::GetVKey(VK_SPACE) == true)
+	if (Input::GetVKey(VK_SPACE) == true)//スペースキーが入力された場合操作説明画面に移行する
 	{
 		this->SetStatus(false);
 		Scene::SetScene(new CSceneHelp());
 	}
-	if (Input::GetVKey(VK_RETURN) == true)
+	if (Input::GetVKey(VK_RETURN) == true)//エンターキーが入力された場合ゲームを開始する
 	{
 		this->SetStatus(false);
-		Rouka1CR = room[2] = Title = 1;
+		Rouka1CR = room[2] = Title = 1;//１階廊下右側のスタート位置に移動する
 		Scene::SetScene(new CSceneRouka1());
 	}
 }

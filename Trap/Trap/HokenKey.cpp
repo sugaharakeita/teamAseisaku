@@ -18,84 +18,110 @@ CObjHokenKey::CObjHokenKey(float x, float y)
 
 void CObjHokenKey::Init()
 {
-	HOKENDOOR_flag = false;
-	Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_PLAYER, HOKEN_KEY, 1);
+	Hit_flag = 1;
+	HOKENDOOR_flag = 0;
+	if(HokenKey==1&&Hok_flag == false)//保健室のカギを所持している場合
+		Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_PLAYER, HOKEN_KEY, 1);
+	else if(HokenKey==0)//保健室のカギを所持していない場合
+		Hits::SetHitBox(this, m_x, m_y, 18, 18, ELEMENT_ITEM, HOKEN_KEY, 1);
 }
 
 void CObjHokenKey::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
-	if (Input::GetVKey('W') == true && Message == 0)
+	if (HokenKey == 0)
 	{
-		if (HIT_flag == true || t_flag == true || HeroStop == 3)
-			;
+		if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
+			Hit_flag = 1;//拾うことができる
 		else
-			hit->SetPos(HeroX+8, HeroY);
+			Hit_flag = 0;
+
+		if (Hit_flag == 1)
+		{
+			if (Input::GetVKey(VK_RETURN) == true && HokenKey == 0)
+			{
+				HokenKey = 1;
+				this->SetStatus(false);
+				Hits::DeleteHitBox(this);
+				Message = 5;//5番にセットしたメッセージを表示する
+			}
+		}
 	}
-	else if (Input::GetVKey('S') == true && Message == 0)
+	else if (HokenKey == 1)
 	{
-		if (HIT_flag == true || t_flag == true || HeroStop == 2)
-			;
+		if (Input::GetVKey('W') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
+		{
+			if (HIT_flag == true || HeroStop == 3)
+				;
+			else
+				hit->SetPos(HeroX + 8, HeroY);
+		}
+		else if (Input::GetVKey('S') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
+		{
+			if (HIT_flag == true || HeroStop == 2)
+				;
+			else
+				hit->SetPos(HeroX + 8, HeroY + 16);
+		}
+		else if (Input::GetVKey('A') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
+		{
+			if (HIT_flag == true || HeroStop == 1)
+				;
+			else
+				hit->SetPos(HeroX, HeroY + 8);
+		}
+		else if (Input::GetVKey('D') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
+		{
+			if (HIT_flag == true || HeroStop == 0)
+				;
+			else
+				hit->SetPos(HeroX + 16, HeroY + 8);
+		}
+
+		if (Hero == false)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+		}
+
+		if (HOKENDOOR_flag == 1 && Input::GetVKey(VK_RETURN) == true)
+			Hok_flag = true;
+
+		if (hit->CheckObjNameHit(HOKEN_DOOR) != nullptr)
+			HOKENDOOR_flag = 1;
 		else
-			hit->SetPos(HeroX+8, HeroY+16);
-	}
-	else if (Input::GetVKey('A') == true && Message == 0)
-	{
-		if (HIT_flag == true || t_flag == true || HeroStop == 1)
-			;
-		else
-			hit->SetPos(HeroX, HeroY+8);
-	}
-	else if (Input::GetVKey('D') == true && Message == 0)
-	{
-		if (HIT_flag == true || t_flag == true || HeroStop == 0)
-			;
-		else
-			hit->SetPos(HeroX+16, HeroY+8);
-	}
-	
-	if (Hero == false)
-	{
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
-	}
+			HOKENDOOR_flag = 0;
 
-	if (HOKENDOOR_flag == true && Input::GetVKey(VK_RETURN) == true)
-		HokenKey = 0;
-
-	if (hit->CheckObjNameHit(HOKEN_DOOR) != nullptr)
-		HOKENDOOR_flag = true;
-	else
-		HOKENDOOR_flag = false;
-
-	if (m_x > 736.f)
-		m_x = 736.0f;
-	if (m_x < 11.0f)
-		m_x = 11.0f;
-
-	if (m_time >= 79)
-	{
-		t_flag = false;
-		m_time = 0;
+		if (m_x > 736.f)
+			m_x = 736.0f;
+		if (m_x < 11.0f)
+			m_x = 11.0f;
 	}
 }
 
 void CObjHokenKey::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 1.0f,1.0f,0.5f,0.8f };
 	RECT_F src;
 	RECT_F dst;
 
-	src.m_top = 64.0f;
-	src.m_left = 448.0f;
-	src.m_right = 512.0f;
-	src.m_bottom = 128.0f;
+	if (HokenKey == 0)
+	{
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 9.0f;
+		src.m_bottom = 4.0f;
 
-	dst.m_top = 0.0f + m_y;
-	dst.m_left = 0.0f + m_x;
-	dst.m_right = 64.0f + m_x;
-	dst.m_bottom = 64.0f + m_y;
+		dst.m_top = 0.0f + m_y - 16.0f;
+		dst.m_left = 0.0f + m_x - 10.0f;
+		dst.m_right = 36.0f + m_x - 10.0f;
+		dst.m_bottom = 16.0f + m_y - 16.0f;
 
-	Draw::Draw(3, &src, &dst, c, 0.0f);
+		Draw::Draw(3, &src, &dst, c, 0.0f);
+	}
 }

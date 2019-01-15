@@ -12,6 +12,9 @@ enum OBJ_NAME
 	OBJ_HERO,
 	OBJ_EXCLAMATION,
 	OBJ_MESSAGE,
+	OBJ_MENU,
+	OBJ_SWITCH,
+	OBJ_TEXTURE,
 	OBJ_KEY,
 	KOUCHOU_KEY,
 	HOKEN_KEY,
@@ -21,6 +24,12 @@ enum OBJ_NAME
 	OBJ_HAMMER,
 	SHOKUIN_DOOR,
 	HOKEN_DOOR,
+	KATEIKA_KEY,
+	TOSHO_KEY,
+	KATEIKA_DOOR,
+	KATEIKAJUNBI_DOOR,
+	KYOUSHITU_DOOR,
+	TOSHO_DOOR,
 };
 //------------------------------------------------
 
@@ -30,6 +39,11 @@ enum SPOT_NAME
 	SPOT_KOUCHOU,
 	SPOT_SHOKUIN,
 	SPOT_HOKEN,
+	SPOT_ROUKA2,
+	SPOT_KATEIKA,
+	SPOT_KATEIKAJUNBI,
+	SPOT_KYOUSHITU,
+	SPOT_TOSHO,
 };
 
 //当たり判定属性----------------------------------
@@ -75,11 +89,14 @@ struct UserData
 //ゲームシーンオブジェクトヘッダ------------------
 #include "ObjTitle.h"
 #include "ObjHelp.h"
+#include "SwitchALL.h"
+#include "ItemALL.h"
+#include "TrapALL.h"
+#include "TextALL.h"
+#include "Message.h"
+#include "Menu.h"
 #include "Hero.h"
 #include "!.h"
-#include "Message.h"
-#include "TrapALL.h"
-#include "ItemALL.h"
 #include "ObjRouka1.h"
 #include "KouchouHako.h"
 #include "KouchouKey.h"
@@ -88,10 +105,19 @@ struct UserData
 #include "Hammer.h"
 #include "ObjShokuinDoor.h"
 #include "ObjShokuin.h"
-#include "HokenHako.h"
+#include "ShokuinPaper.h"
 #include "HokenKey.h"
 #include "ObjHokenDoor.h"
 #include "ObjHoken.h"
+#include "ObjRouka2.h"
+#include "ObjKateikaDoor.h"
+#include "ObjKateikaJunbiDoor.h"
+#include "ObjKyoushituDoor.h"
+#include "ObjToshoDoor.h"
+#include "ObjKateika.h"
+#include "ObjKateikaJunbi.h"
+#include "ObjKyoushitu.h"
+#include "ObjTosho.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
@@ -101,6 +127,11 @@ struct UserData
 #include "SceneKouchou.h"
 #include "SceneShokuin.h"
 #include "SceneHoken.h"
+#include "SceneRouka2.h"
+#include "SceneKateika.h"
+#include "SceneKateikaJunbi.h"
+#include "SceneKyoushitu.h"
+#include "SceneTosho.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------

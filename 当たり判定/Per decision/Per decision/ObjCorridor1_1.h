@@ -14,5 +14,7 @@ public:
 	void Init();    //イニシャライズ
 	void Action();  //アクション
 	void Draw();    //ドロー
-
+private:
+	int m_x; //当たり判定位置 x
+	int m_y; //当たり判定位置 y
 };

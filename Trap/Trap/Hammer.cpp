@@ -18,58 +18,65 @@ CObjHammer::CObjHammer(float x, float y)
 
 void CObjHammer::Init()
 {
-	Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_ITEM, OBJ_HAMMER, 1);
+	Hit_flag = 0;
+	if (Hammer == 1)
+		Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_PLAYER, OBJ_HAMMER, 1);
+	else if (Hammer == 0)
+		Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_ITEM, OBJ_HAMMER, 1);
 }
 
 void CObjHammer::Action()
 {
 	CHitBox*hit = Hits::GetHitBox(this);
 
-	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-		HIT_flag = true;
-	else
-		HIT_flag = false;
-
-	if (HIT_flag == true)
+	if (Hammer == 0)
 	{
-		if (Input::GetVKey(VK_RETURN) == true && Hammer == 0)
+		if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
+			Hit_flag = 1;
+		else
+			Hit_flag = 0;
+
+		if (Hit_flag == 1)
 		{
-			Hammer = 1;
-			Hits::DeleteHitBox(this);
-			CObjHammer* i = new CObjHammer(HeroX + 8, HeroY + 8);
-			Objs::InsertObj(i, OBJ_HAMMER, 1);
-			Hits::SetHitBox(this, m_x, m_y, 48, 48, ELEMENT_PLAYER, OBJ_HAMMER, 1);
-			hit->SetPos(HeroX+8, HeroY+8);
-			Message = 6;
+			if (Input::GetVKey(VK_RETURN) == true && Hammer == 0)
+			{
+				Hammer = 1;
+				this->SetStatus(false);
+				Hits::DeleteHitBox(this);
+				Message = 7;//7番にセットしたメッセージを表示する
+			}
 		}
 	}
-
-	if (Hammer == 1)
+	else if (Hammer == 1)
 	{
-		if (Input::GetVKey('W') == true && Message == 0)
+		if (Input::GetVKey('W') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-			if (HIT_flag == true || t_flag == true || HeroStop == 3)
+			if (HIT_flag == true || HeroStop == 3)
 				;
 			else
 				hit->SetPos(HeroX + 8, HeroY);
 		}
-		else if (Input::GetVKey('S') == true && Message == 0)
+		else if (Input::GetVKey('S') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-			if (HIT_flag == true || t_flag == true || HeroStop == 2)
+			if (HIT_flag == true || HeroStop == 2)
 				;
 			else
 				hit->SetPos(HeroX + 8, HeroY + 16);
 		}
-		else if (Input::GetVKey('A') == true && Message == 0)
+		else if (Input::GetVKey('A') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-			if (HIT_flag == true || t_flag == true || HeroStop == 1)
+			if (HIT_flag == true || HeroStop == 1)
 				;
 			else
 				hit->SetPos(HeroX, HeroY + 8);
 		}
-		else if (Input::GetVKey('D') == true && Message == 0)
+		else if (Input::GetVKey('D') == true && Text == 0
+			&& Message == 0 && Menu == 0 && HeroStop != 4)
 		{
-			if (HIT_flag == true || t_flag == true || HeroStop == 0)
+			if (HIT_flag == true || HeroStop == 0)
 				;
 			else
 				hit->SetPos(HeroX + 16, HeroY + 8);
@@ -81,12 +88,13 @@ void CObjHammer::Action()
 			Hits::DeleteHitBox(this);
 		}
 
-		if (Input::GetVKey(VK_RETURN) == true)
-			Ham_flag == true;
+		/*if (Input::GetVKey(VK_RETURN) == true)
+			hit->SetPos(HeroX + 64, HeroY);
+		if(CheckObjNamehit->(OBJ_KINJIRO) != nullptr)
+		二宮金次郎とぶつかった判定↑を追加しなければならない
+		これはイベント用に後で編集する
+			Ham_flag = true;*/
 			
-		if (Ham_flag == true/* && CheckObjNamehit->(KINJIRO) != nullptr*/)
-			//Hammer = 0;二宮金次郎とぶつかった判定↑を追加しなければならない
-
 		if (m_x > 736.f)
 			m_x = 736.0f;
 		if (m_x < 11.0f)
@@ -104,19 +112,20 @@ void CObjHammer::Action()
 
 void CObjHammer::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 1.0f,1.0f,1.0f,0.8f };
 	RECT_F src;
 	RECT_F dst;
 
 	src.m_top = 0.0f;
-	src.m_left = 33.0f;
-	src.m_right = 48.0f;
-	src.m_bottom = 16.0f;
+	src.m_left = 188.0f;
+	src.m_right = 203.0f;
+	src.m_bottom = 15.0f;
 
 	dst.m_top = 0.0f + m_y;
 	dst.m_left = 0.0f + m_x;
-	dst.m_right = 64.0f + m_x;
-	dst.m_bottom = 64.0f + m_y;
+	dst.m_right = 48.0f + m_x;
+	dst.m_bottom = 48.0f + m_y;
 
-	Draw::Draw(3, &src, &dst, c, 0.0f);
+	if (Hammer == 0)
+		Draw::Draw(3, &src, &dst, c, 0.0f);
 }

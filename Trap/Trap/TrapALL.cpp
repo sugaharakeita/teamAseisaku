@@ -5,8 +5,13 @@
 #include "GameHead.h"
 #include "TrapALL.h"
 
-//ŠJ‚¢‚Ä‚¢‚é‚©‚¢‚È‚¢‚©1
+//ƒJƒM‚ªŠJ‚¢‚Ä‚¢‚é‚©‚¢‚È‚¢‚©
 bool KouchouHakoOpen;
 bool KouchouDoorOpen;
 bool HokenHakoOpen;
 bool HokenDoorOpen;
+bool KateikaHakoOpen;
+bool KateikaDoorOpen;
+bool KateikaJunbiDoorOpen;
+bool ToshoHakoOpen;
+bool ToshoDoorOpen;

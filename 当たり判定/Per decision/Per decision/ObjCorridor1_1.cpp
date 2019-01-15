@@ -3,43 +3,34 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\SceneObjManager.h"
 #include "GameL\HitBoxManager.h"
+#include "GameL\Audio.h"
 
 #include "ObjCorridor1_1.h"
 #include "GameHead.h"
 
 using namespace GameL;
 
-
+extern float g_hero_x;
+extern float g_hero_y;
 
 //イニシャライズ
 void CObjCorridor1_1::Init()
 {
 	//上壁
-	Hits::SetHitBox(this, 0.0f, 70.0f, 352, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+	Hits::SetHitBox(this, 0.0f, 70.0f, 410, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
 
 	//上壁
-	Hits::SetHitBox(this, 404.0f, 70.0f, 210, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
-
-	//上ドア2
-	Hits::SetHitBox(this, 614.0f, 70.0f, 46, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
-
-	//上壁
-	Hits::SetHitBox(this, 660.0f, 70.0f, 30, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
-
-	//上ドア3
-	Hits::SetHitBox(this, 690.0f, 70.0f, 43, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
-
-	//上壁
-	Hits::SetHitBox(this, 733.0f, 70.0f, 95, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+	Hits::SetHitBox(this, 510.0f, 70.0f, 290, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 0.0f, 500.0f, 56, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+	Hits::SetHitBox(this, 0.0f, 500.0f, 115, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 106.0f, 500.0f, 545, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+	Hits::SetHitBox(this, 215.0f, 500.0f, 445, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 699.0f, 500.0f, 100, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+	Hits::SetHitBox(this, 755.0f, 500.0f, 40, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
+
 
 }
 
@@ -51,30 +42,58 @@ void CObjCorridor1_1::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	//画面端右に行くと廊下1-2へ移動
-	if (hx+64.0f > 800.0f)
+
+	if (hx + 64.0f > 787.0f || hy > 450.0f || hy < 120)
 	{
-		Scene::SetScene(new CSceneCorridor1_2());
+		Hits::DeleteHitBox(this);
 	}
 
-	//画面端下に行くと職員室に移動
-	if ((hy + 64.0f > 600.0f && 56.0f < hx < 106.0f)||
-		(hy + 64.0f > 600.0f && 645.0f < hx < 695.0f))
+
+	/*
+
+	if (m_flag_Corridor1_1 == true)
+	{
+		//Corridor1_1オブジェクト生成
+		CObjCorridor1_1* objb = new CObjCorridor1_1();
+		Objs::InsertObj(objb, OBJ_CORRIDOR1_1, 9);
+
+		Draw::LoadImage(L"廊下1-1.png", 9, TEX_SIZE_512);
+	}
+
+	//廊下1-1画面端右に行くと廊下1-2へ移動
+	if (hx + 64.0f > 800.0f && m_flag_Corridor1_1 == true)
+	{
+		//Corridor1_2オブジェクト生成
+		CObjCorridor1_2* objb = new CObjCorridor1_2();
+		Objs::InsertObj(objb, OBJ_CORRIDOR1_2, 9);
+
+		Draw::LoadImage(L"廊下1-2.png", 9, TEX_SIZE_512);
+
+		m_flag_Corridor1_1 = false;
+	}
+	*/
+
+	/*
+	//廊下1-1画面端下に行くと職員室に移動
+	if ((hy + 64.0f > 600.0f && 56.0f < hx < 106.0f) ||
+	(hy + 64.0f > 600.0f && 645.0f < hx < 695.0f))
 	{
 		Scene::SetScene(new CSceneStaffroom());
 	}
-	
-	//画面端上に行くと校長室に移動
+
+	//廊下1-1画面端上に行くと校長室に移動
 	if (hy < 110.0f && 352.0f < hx < 406.0f)
 	{
 		Scene::SetScene(new CScenePrincipaloffice());
 	}
+	*/
 
 }
 
 //ドロー
 void CObjCorridor1_1::Draw()
 {
+	/*
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f };
 
@@ -91,5 +110,6 @@ void CObjCorridor1_1::Draw()
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(9, &src, &dst, c, 0.0f);
+	*/
 
 }

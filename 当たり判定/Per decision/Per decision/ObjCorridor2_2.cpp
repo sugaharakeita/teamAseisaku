@@ -42,7 +42,7 @@ void CObjCorridor2_2::Init()
 //アクション
 void CObjCorridor2_2::Action()
 {
-
+	/*
 	//主人公の位置を取得
 	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	float hx = hero->GetX();
@@ -51,26 +51,28 @@ void CObjCorridor2_2::Action()
 	//画面端左に行くと廊下2-1へ移動
 	if (hx < 0.0f)
 	{
-		Scene::SetScene(new CSceneCorridor2_1());
+	Scene::SetScene(new CSceneCorridor2_1());
 	}
 
 	//画面端右に行くと廊下2-3へ移動
 	if (hx + 64.0f > 800.0f)
 	{
-		Scene::SetScene(new CSceneCorridor2_3());
+	Scene::SetScene(new CSceneCorridor2_3());
 	}
 
 	//画面端上に行くとクリア画面
 	if (hy < 0.0f && Input::GetVKey(VK_RETURN) == true)
 	{
-		Scene::SetScene(new CSceneClear());
+	Scene::SetScene(new CSceneClear());
 	}
+	*/
 }
 
 //ドロー
 void CObjCorridor2_2::Draw()
 {
-	//描画カラー情報
+	/*
+		//描画カラー情報
 	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f };
 
 	RECT_F src;
@@ -86,5 +88,7 @@ void CObjCorridor2_2::Draw()
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(9, &src, &dst, c, 0.0f);
+
+	*/
 
 }

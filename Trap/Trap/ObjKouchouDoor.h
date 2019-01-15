@@ -14,7 +14,6 @@ public:
 private:
 	float m_x;
 	float m_y;
-	int m_time;
-	int HIT_flag;
+	int Hit_flag;
 	bool kouchou_door;
 };

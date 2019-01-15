@@ -17,7 +17,7 @@ void CObjHelp::Init()
 
 void CObjHelp::Action()
 {
-	if (Input::GetVKey(VK_BACK) == true)
+	if (Input::GetVKey(VK_BACK) == true)//バックキーが入力された場合タイトル画面に戻る
 	{
 		this->SetStatus(false);
 		Scene::SetScene(new CSceneTitle());
@@ -32,8 +32,8 @@ void CObjHelp::Draw()
 	Font::StrDraw(L"S：下に移動", 160, 144, 32, c);
 	Font::StrDraw(L"A：左に移動", 160, 192, 32, c);
 	Font::StrDraw(L"D：右に移動", 160, 240, 32, c);
-	Font::StrDraw(L"Enter：ドアを開ける/箱を開ける", 96, 288, 32, c);
-	Font::StrDraw(L"X：アイテムボックスを開く", 160, 336, 32, c);
-	Font::StrDraw(L"Back：メッセージ/アイテムボックスを閉じる", 112, 384, 32, c);
+	Font::StrDraw(L"Enter：ドアや箱を開ける/選択する", 96, 288, 32, c);
+	Font::StrDraw(L"X：メニューを開く", 160, 336, 32, c);
+	Font::StrDraw(L"Back：メッセージを閉じる/戻る", 112, 384, 32, c);
 	Font::StrDraw(L"タイトルへ：Back", 280, 500, 32, c);
 }

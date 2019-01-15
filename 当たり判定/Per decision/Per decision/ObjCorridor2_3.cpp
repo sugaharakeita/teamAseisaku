@@ -24,17 +24,18 @@ void CObjCorridor2_3::Init()
 //アクション
 void CObjCorridor2_3::Action()
 {
-
+	/*
 	//主人公の位置を取得
 	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	//画面端左に行くと廊下2-1へ移動
+	//画面端左に行くと廊下2-2へ移動
 	if (hx < 0.0f)
 	{
-		Scene::SetScene(new CSceneCorridor2_2());
+	Scene::SetScene(new CSceneCorridor2_2());
 	}
+	*/
 
 }
 

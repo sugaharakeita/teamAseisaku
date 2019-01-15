@@ -30,6 +30,84 @@
     <Filter Include="ソース ファイル\GameMain\GameStage">
       <UniqueIdentifier>{ec455dc7-6e59-4170-8fd1-288c4b2fd603}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameEnemy">
+      <UniqueIdentifier>{cb6eea57-5850-416b-a545-b30e0e1a72c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameOver">
+      <UniqueIdentifier>{0caea7a0-8ccb-4ef4-a224-342a75f87909}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameSummary">
+      <UniqueIdentifier>{3243770b-aa2c-419f-b343-5457d0c19aa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameEnemy\金次郎">
+      <UniqueIdentifier>{1a6fc867-572c-4eb5-bbb8-20084068a581}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameEnemy\ぬいぐるみ">
+      <UniqueIdentifier>{f3b3f2b4-0b53-4b11-89d8-1e0f0fe01b66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\一階廊下">
+      <UniqueIdentifier>{94e2376e-3948-4cfd-8849-ded60ff98e53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\二階廊下">
+      <UniqueIdentifier>{59f61f6d-cb02-4dde-ba46-a512e723aa3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage\一階廊下">
+      <UniqueIdentifier>{cd71748f-9825-4f8e-84da-ce17b781ed7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage\二階廊下">
+      <UniqueIdentifier>{4f101ead-0bb3-4c0f-b960-dfae1fa744eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\職員室">
+      <UniqueIdentifier>{4bff10af-ef88-48a3-9c8c-cce2d856476c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage\職員室">
+      <UniqueIdentifier>{fb2937b7-09e5-4cd4-b3ac-c397045d169d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage\保健室">
+      <UniqueIdentifier>{82c9135a-15bb-4074-be00-d92268228dc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage\校長室">
+      <UniqueIdentifier>{ea9182d5-8a07-4a86-a744-d2fd8fa0bd06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\校長室">
+      <UniqueIdentifier>{b335f2a1-fb37-465a-a751-5f850008f86e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\保健室">
+      <UniqueIdentifier>{f3e3ee12-9615-478a-b302-c04dd0c93f66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\当たり判定">
+      <UniqueIdentifier>{fa437666-a84c-489c-9eb3-26a6ef4b0c74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\家庭科室">
+      <UniqueIdentifier>{f93aaab8-0c0d-40c9-b39d-ecfefcfe12ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage\家庭科室">
+      <UniqueIdentifier>{02dd3b77-9d77-404e-a102-4063b70ebcdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage\家庭準備室">
+      <UniqueIdentifier>{799e9544-0fda-4b2d-af00-976d9c2aa25e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\家庭準備室">
+      <UniqueIdentifier>{3d6e7d1b-4504-4a60-8ceb-0064bf4a2826}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage\三階廊下">
+      <UniqueIdentifier>{072d8117-7a74-4a25-b3b4-2523e840ce9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\三階廊下">
+      <UniqueIdentifier>{bd9d713f-1070-466b-a169-211083b84b2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\図書館">
+      <UniqueIdentifier>{6d342cd4-8409-4c96-b4b0-3dc967b31582}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage\図書館">
+      <UniqueIdentifier>{c27dae1c-170d-4d36-b131-14857065347c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage\二階教室">
+      <UniqueIdentifier>{f6d64f3d-30e4-4b37-bfe6-c054281dde89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\二階教室">
+      <UniqueIdentifier>{02bce0c4-0cb6-4068-9914-e40046ddf65a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\SceneManager.cpp">
@@ -86,65 +164,140 @@
     <ClCompile Include="ObjTitle.cpp">
       <Filter>ソース ファイル\GameTitle</Filter>
     </ClCompile>
-    <ClCompile Include="ObjCorridor1_1.cpp">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjCorridor1_2.cpp">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjCorridor1_3.cpp">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjInfirmary.cpp">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjPerdecision.cpp">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjPrincipaloffice.cpp">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjStaffroom.cpp">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClCompile>
     <ClCompile Include="ObjHero.cpp">
       <Filter>ソース ファイル\GameMain\GameHero</Filter>
     </ClCompile>
-    <ClCompile Include="SceneCorridor1_1.cpp">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    <ClCompile Include="SceneGameOver.cpp">
+      <Filter>ソース ファイル\GameOver</Filter>
     </ClCompile>
-    <ClCompile Include="SceneCorridor1_2.cpp">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    <ClCompile Include="ObjGameOver.cpp">
+      <Filter>ソース ファイル\GameOver</Filter>
     </ClCompile>
-    <ClCompile Include="SceneCorridor1_3.cpp">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneInfirmary.cpp">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
-    </ClCompile>
-    <ClCompile Include="ScenePrincipaloffice.cpp">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneStaffroom.cpp">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneCorridor2_2.cpp">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjCorridor2_2.cpp">
+    <ClCompile Include="ObjBackground.cpp">
       <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
     </ClCompile>
-    <ClCompile Include="SceneCorridor2_1.cpp">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    <ClCompile Include="ObjPrologue.cpp">
+      <Filter>ソース ファイル\GameSummary</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenePrologue.cpp">
+      <Filter>ソース ファイル\GameSummary</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy.cpp">
+      <Filter>ソース ファイル\GameMain\GameEnemy\金次郎</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy2.cpp">
+      <Filter>ソース ファイル\GameMain\GameEnemy\ぬいぐるみ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjCorridor1_1.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\一階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjCorridor1_2.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\一階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjCorridor1_3.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\一階廊下</Filter>
     </ClCompile>
     <ClCompile Include="ObjCorridor2_1.cpp">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+      <Filter>ソース ファイル\GameMain\GamePerdecision\二階廊下</Filter>
     </ClCompile>
-    <ClCompile Include="SceneCorridor2_3.cpp">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    <ClCompile Include="ObjCorridor2_2.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\二階廊下</Filter>
     </ClCompile>
     <ClCompile Include="ObjCorridor2_3.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\二階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCorridor1_1.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\一階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCorridor1_2.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\一階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCorridor1_3.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\一階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCorridor2_1.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\二階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCorridor2_2.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\二階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCorridor2_3.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\二階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStaffroom.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\職員室</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneStaffroom.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\職員室</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneInfirmary.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\保健室</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenePrincipaloffice.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\校長室</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjInfirmary.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\保健室</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjPerdecision.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\当たり判定</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjHomeeconomicsroom.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\家庭科室</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneHomeeconomicsroom.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\家庭科室</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjHitBox.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\当たり判定</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjHomepreparationroom.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\家庭準備室</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneHomepreparationroom.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\家庭準備室</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMain7.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\三階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMain8.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\三階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMain9.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\三階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMap7.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\三階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMap8.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\三階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMap9.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\三階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneLibrary.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\図書館</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLibrary.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\図書館</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjClassroom.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\二階教室</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneClassroom.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\二階教室</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjPrincipaloffice.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\校長室</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjCorridor.cpp">
       <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjCorridor1.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\一階廊下</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCorridor.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -205,65 +358,140 @@
     <ClInclude Include="ObjTitle.h">
       <Filter>ソース ファイル\GameTitle</Filter>
     </ClInclude>
-    <ClInclude Include="ObjCorridor1_1.h">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjCorridor1_2.h">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjCorridor1_3.h">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjInfirmary.h">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjPerdecision.h">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjPrincipaloffice.h">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjStaffroom.h">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
-    </ClInclude>
     <ClInclude Include="ObjHero.h">
       <Filter>ソース ファイル\GameMain\GameHero</Filter>
     </ClInclude>
-    <ClInclude Include="SceneCorridor1_1.h">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    <ClInclude Include="SceneGameOver.h">
+      <Filter>ソース ファイル\GameOver</Filter>
     </ClInclude>
-    <ClInclude Include="SceneCorridor1_2.h">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    <ClInclude Include="ObjGameOver.h">
+      <Filter>ソース ファイル\GameOver</Filter>
     </ClInclude>
-    <ClInclude Include="SceneCorridor1_3.h">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneInfirmary.h">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
-    </ClInclude>
-    <ClInclude Include="ScenePrincipaloffice.h">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneStaffroom.h">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneCorridor2_2.h">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjCorridor2_2.h">
+    <ClInclude Include="ObjBackground.h">
       <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
     </ClInclude>
-    <ClInclude Include="SceneCorridor2_1.h">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    <ClInclude Include="ObjPrologue.h">
+      <Filter>ソース ファイル\GameSummary</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenePrologue.h">
+      <Filter>ソース ファイル\GameSummary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy.h">
+      <Filter>ソース ファイル\GameMain\GameEnemy\金次郎</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy2.h">
+      <Filter>ソース ファイル\GameMain\GameEnemy\ぬいぐるみ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCorridor1_1.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\一階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCorridor1_2.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\一階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCorridor1_3.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\一階廊下</Filter>
     </ClInclude>
     <ClInclude Include="ObjCorridor2_1.h">
-      <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+      <Filter>ソース ファイル\GameMain\GamePerdecision\二階廊下</Filter>
     </ClInclude>
-    <ClInclude Include="SceneCorridor2_3.h">
-      <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    <ClInclude Include="ObjCorridor2_2.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\二階廊下</Filter>
     </ClInclude>
     <ClInclude Include="ObjCorridor2_3.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\二階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCorridor1_1.h">
+      <Filter>ソース ファイル\GameMain\GameStage\一階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCorridor1_2.h">
+      <Filter>ソース ファイル\GameMain\GameStage\一階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCorridor1_3.h">
+      <Filter>ソース ファイル\GameMain\GameStage\一階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCorridor2_1.h">
+      <Filter>ソース ファイル\GameMain\GameStage\二階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCorridor2_2.h">
+      <Filter>ソース ファイル\GameMain\GameStage\二階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCorridor2_3.h">
+      <Filter>ソース ファイル\GameMain\GameStage\二階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStaffroom.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\職員室</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStaffroom.h">
+      <Filter>ソース ファイル\GameMain\GameStage\職員室</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneInfirmary.h">
+      <Filter>ソース ファイル\GameMain\GameStage\保健室</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenePrincipaloffice.h">
+      <Filter>ソース ファイル\GameMain\GameStage\校長室</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPrincipaloffice.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\校長室</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjInfirmary.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\保健室</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPerdecision.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\当たり判定</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjHomeeconomicsroom.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\家庭科室</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneHomeeconomicsroom.h">
+      <Filter>ソース ファイル\GameMain\GameStage\家庭科室</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjHitBox.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\当たり判定</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjHomepreparationroom.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\家庭準備室</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneHomepreparationroom.h">
+      <Filter>ソース ファイル\GameMain\GameStage\家庭準備室</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMain7.h">
+      <Filter>ソース ファイル\GameMain\GameStage\三階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMain8.h">
+      <Filter>ソース ファイル\GameMain\GameStage\三階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMain9.h">
+      <Filter>ソース ファイル\GameMain\GameStage\三階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMap7.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\三階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMap8.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\三階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMap9.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\三階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneLibrary.h">
+      <Filter>ソース ファイル\GameMain\GameStage\図書館</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\図書館</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjClassroom.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\二階教室</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneClassroom.h">
+      <Filter>ソース ファイル\GameMain\GameStage\二階教室</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCorridor.h">
       <Filter>ソース ファイル\GameMain\GamePerdecision</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCorridor1.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\一階廊下</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCorridor.h">
+      <Filter>ソース ファイル\GameMain\GameStage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
