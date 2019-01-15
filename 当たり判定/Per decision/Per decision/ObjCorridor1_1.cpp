@@ -43,8 +43,9 @@ void CObjCorridor1_1::Action()
 	float hy = hero->GetY();
 
 
-	if (hx + 64.0f > 787.0f || hy > 450.0f || hy < 120)
+	if (hx + 64.0f > 787.0f || hy > 450.0f || hy < 120.0f)
 	{
+		Hits::DeleteHitBox(this);
 		Hits::DeleteHitBox(this);
 	}
 

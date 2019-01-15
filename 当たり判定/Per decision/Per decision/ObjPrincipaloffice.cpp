@@ -67,8 +67,10 @@ void CObjPrincipaloffice::Action()
 	float hy = hero->GetY();
 
 
+
 	if (hy + 64.0f > 580.0f)
 	{
+		Hits::DeleteHitBox(this);
 		Hits::DeleteHitBox(this);
 	}
 

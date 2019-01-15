@@ -41,43 +41,65 @@ void CObjCorridor::Init()
 //ƒAƒNƒVƒ‡ƒ“
 void CObjCorridor::Action()
 {
+
 	//ŽålŒö‚ÌˆÊ’u‚ðŽæ“¾
 	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	m_Storey = 1;
-
-	//1ŠK
-		//˜L‰º
-	//1-2‚©‚ç1-1
-	if (hx < 0.0f && m_flag_Corridor1_2 == true && m_Storey == 1)
-	{
-		m_flag_Corridor1_1 = true;
-		m_flag_Corridor1_2 = false;
-	}
-
-	//1-1‚©‚ç1-2
-	if (hx + 64.0f > 800.0f && m_flag_Corridor1_1 == true && m_Storey == 1)
-	{
-		m_flag_Corridor1_1 = false;
-		m_flag_Corridor1_2 = true;
-	}
-
-
-	//1-2‚©‚ç1-3
-	if (hx + 64.0f > 800.0f && m_flag_Corridor1_2 == true && m_Storey == 1)
+	if (m_flag_Corridor1_1 == true)
 	{
 		m_flag_Corridor1_2 = false;
-		m_flag_Corridor1_3 = true;
-	}
-
-	//1-3‚©‚ç1-2
-	if (hx < 0.0f&& m_flag_Corridor1_3 == true && m_Storey == 1)
-	{
-		m_flag_Corridor1_2 = true;
 		m_flag_Corridor1_3 = false;
 	}
+	if (m_flag_Corridor1_2 == true)
+	{
+		m_flag_Corridor1_1 = false;
+		m_flag_Corridor1_3 = false;
+	}
+	if (m_flag_Corridor1_3 == true)
+	{
+		m_flag_Corridor1_1 = false;
+		m_flag_Corridor1_2 = false;
+	}
+
+
+
+	//1ŠK
+	//˜L‰º	
+	if (hx < 0.0f && m_Storey == 1)
+	{
+		//1-2‚©‚ç1-1
+		if (m_flag_Corridor1_2 == true)
+		{
+			m_flag_Corridor1_1 = true;
+			m_flag_Corridor1_2 = false;
+		}
+		//1-3‚©‚ç1-2
+		if (m_flag_Corridor1_3 == true)
+		{
+			m_flag_Corridor1_2 = true;
+			m_flag_Corridor1_3 = false;
+		}
+		m_Storey = 1;
+	}
+	if (hx + 64.0f  > 800.0f && m_Storey == 1)
+	{
+		//1-1‚©‚ç1-2
+		if (m_flag_Corridor1_1 == true)
+		{
+			m_flag_Corridor1_1 = false;	
+			m_flag_Corridor1_2 = true;
+		}
+		//1-2‚©‚ç1-3
+		if (m_flag_Corridor1_2 == true)
+		{
+			m_flag_Corridor1_2 = false;
+			m_flag_Corridor1_3 = true;
+		}
+		m_Storey = 1;
+	}
+
 
 	//2ŠK‚Ö
 	if (hy < 0.0f  && m_flag_Corridor1_2 == true
@@ -94,12 +116,14 @@ void CObjCorridor::Action()
 	{
 		m_flag_Corridor1_1 = false;
 		m_flag_Staffroom = true;
+		m_Storey = 1;
 	}
 
-	if (hy < 70.0f && m_flag_Staffroom == true && m_Storey == 1)
+	if (hy < 50.0f && m_flag_Staffroom == true && m_Storey == 1)
 	{
 		m_flag_Staffroom = false;
 		m_flag_Corridor1_1 = true;
+		m_Storey = 1;
 	}
 
 	//Z’·Žº
@@ -107,12 +131,14 @@ void CObjCorridor::Action()
 	{
 		m_flag_Corridor1_1 = false;
 		m_flag_Principaloffice = true;
+		m_Storey = 1;
 	}
 	
 	if (hy + 64.0f > 600.0f && m_flag_Principaloffice == true && m_Storey == 1)
 	{
 		m_flag_Principaloffice = false;
 		m_flag_Corridor1_1 = true;
+		m_Storey = 1;
 	}
 
 	//•ÛŒ’Žº
@@ -120,12 +146,14 @@ void CObjCorridor::Action()
 	{
 		m_flag_Corridor1_3 = false;
 		m_flag_Infirmary = true;
+		m_Storey = 1;
 	}
 
 	if (hy + 64.0f > 600.0f && m_flag_Infirmary == true && m_Storey == 1)
 	{
 		m_flag_Infirmary = false;
 		m_flag_Corridor1_3 = true;
+		m_Storey = 1;
 	}
 
 
@@ -142,34 +170,37 @@ void CObjCorridor::Action()
 
 	//3ŠK
 	//˜L‰º
-	if (hx < 0.0f && m_flag_Corridor3_2 == true
-		&& m_Storey == 3)
+	if (hx < 0.0f && m_Storey == 3)
 	{
-		m_flag_Corridor3_1 = true;
-		m_flag_Corridor3_2 = false;
+		//3-2‚©‚ç3-1
+		if (m_flag_Corridor3_2 == true)
+		{
+			m_flag_Corridor3_1 = true;
+			m_flag_Corridor3_2 = false;
+		}
+		//3-3‚©‚ç3-2
+		if (m_flag_Corridor3_3 == true)
+		{
+			m_flag_Corridor3_2 = true;
+			m_flag_Corridor3_3 = false;
+		}
 	}
 
-	if (hx + 64.0f > 800.0f && m_flag_Corridor3_1 == true
-		&& m_Storey == 3)
+	if (hx + 64.0f > 800.0f && m_Storey == 3)
 	{
-		m_flag_Corridor3_1 = false;
-		m_flag_Corridor3_2 = true;
+		//3-1‚©‚ç3-2
+		if (m_flag_Corridor3_1 == true)
+		{
+			m_flag_Corridor3_1 = false;
+			m_flag_Corridor3_2 = true;
+		}
+		//3-2‚©‚ç3-3
+		if (m_flag_Corridor3_2 == true)
+		{
+			m_flag_Corridor3_2 = false;
+			m_flag_Corridor3_3 = true;
+		}
 	}
-
-	if (hx + 64.0f > 800.0f && m_flag_Corridor3_2 == true
-		&& m_Storey == 3)
-	{
-		m_flag_Corridor3_2 = false;
-		m_flag_Corridor3_3 = true;
-	}
-
-	if (hx < 0.0f&& m_flag_Corridor1_3 == true
-		&& m_Storey == 3)
-	{
-		m_flag_Corridor3_2 = true;
-		m_flag_Corridor3_3 = false;
-	}
-
 
 }
 

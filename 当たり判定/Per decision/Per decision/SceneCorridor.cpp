@@ -83,31 +83,13 @@ void CSceneCorridor::InitScene()
 	//Corridor1_2オブジェクト生成
 	CObjCorridor1_2* objb1_2 = new CObjCorridor1_2();
 
+
 	Objs::InsertObj(objb, OBJ_ROOM, 9);
 	Objs::InsertObj(objb1_2, OBJ_ROOM, 9);
 
 	Draw::LoadImage(L"廊下1-2.png", 9, TEX_SIZE_512);
+	
 
-
-	/*
-	//Corridor1_1オブジェクト生成
-	CObjCorridor1_1* objb = new CObjCorridor1_1();
-	Objs::InsertObj(objb, OBJ_CORRIDOR1_1, 9);
-
-	Draw::LoadImage(L"廊下1-1.png", 9, TEX_SIZE_512);
-
-	//Corridor1_2オブジェクト生成
-	CObjCorridor1_2* objb = new CObjCorridor1_2();
-	Objs::InsertObj(objb, OBJ_CORRIDOR1_2, 9);
-
-	Draw::LoadImage(L"廊下1-2.png", 9, TEX_SIZE_512);
-
-	//Corridor1_3オブジェクト生成
-	CObjCorridor1_3* objb = new CObjCorridor1_3();
-	Objs::InsertObj(objb, OBJ_CORRIDOR1_3, 9);
-
-	Draw::LoadImage(L"廊下1-3.png", 9, TEX_SIZE_512);
-	*/
 
 	//主人公オブジェクト作成
 	CObjHero* obj = new CObjHero();
@@ -165,12 +147,6 @@ void CSceneCorridor::Scene()
 	CObjEnemy2* objh2 = new CObjEnemy2(0, 0);
 
 	CHitBox* hit = Hits::GetHitBox(this);
-
-	/*
-	CHitBox* hit1_1 = Hits::GetHitBox(this);
-	CHitBox* hit1_2 = Hits::GetHitBox(this);
-	CHitBox* hit1_3 = Hits::GetHitBox(this);
-	*/
 
 	m_flag_Corridor1_1 = false;
 	m_flag_Corridor1_2 = false;
@@ -241,7 +217,7 @@ void CSceneCorridor::Scene()
 		}
 
 		//廊下1-1画面下に行くと職員室へ移動
-		if (hy > 450.0f && m_Corridor_co == 1 && m_flag_go == false
+		if (hy > 460.0f && m_Corridor_co == 1 && m_flag_go == false
 			&& m_Storey == 1)
 		{
 			m_flag_Staffroom = true;
@@ -251,7 +227,7 @@ void CSceneCorridor::Scene()
 		}
 
 		//職員室画面上に行くと廊下1-1へ移動
-		if (hy < 70.0f && m_Corridor_co == 4 && m_flag_go == false
+		if (hy < 50.0f && m_Corridor_co == 4 && m_flag_go == false
 			&& m_Storey == 1)
 		{
 			m_flag_Corridor1_1 = true;
@@ -517,82 +493,6 @@ void CSceneCorridor::Scene()
 
 		Draw::LoadImage(L"廊下3-3.png", 9, TEX_SIZE_512);
 	}
-
-
-	//描画をなくす処理
-	if (hx>=100.0f && m_flag_Corridor1_1 == false)
-	{
-		//Hits::DeleteHitBox(this);
-		//Objs::Delete(objb1_1, OBJ_CORRIDOR1_1, 9);
-
-		//Draw::DeleteImage(L"廊下1-1.png", 9, TEX_SIZE_512);
-
-	}
-
-	if (hx >= 750.0f &&m_flag_Corridor1_2 == false)
-	{
-		//Hits::DeleteHitBox(this);
-		//Objs::Delete(objb1_2, OBJ_CORRIDOR1_1, 9);
-
-		//Draw::DeleteImage(L"廊下1-2.png", 9, TEX_SIZE_512);
-	}
-
-	if (m_flag_Corridor1_3 == false)
-	{
-		//Hits::DeleteHitBox(this);
-		//Objs::Delete(objb1_3, OBJ_CORRIDOR1_1, 9);
-
-		//Draw::DeleteImage(L"廊下1-3.png", 9, TEX_SIZE_512);
-	}
-
-	if (m_flag_Corridor2_1 == false)
-	{
-		Hits::DeleteHitBox(this);
-		//Objs::Delete(objb1_1, OBJ_CORRIDOR1_1, 9);
-
-		//Draw::DeleteImage(L"廊下1-1.png", 9, TEX_SIZE_512);
-	}
-
-	if (m_flag_Corridor2_2 == false)
-	{
-		Hits::DeleteHitBox(this);
-		//Objs::Delete(objb1_2, OBJ_CORRIDOR1_1, 9);
-
-		//Draw::DeleteImage(L"廊下1-2.png", 9, TEX_SIZE_512);
-	}
-
-	if (m_flag_Corridor2_3 == false)
-	{
-		Hits::DeleteHitBox(this);
-		//Objs::Delete(objb1_3, OBJ_CORRIDOR1_1, 9);
-
-		//Draw::DeleteImage(L"廊下1-3.png", 9, TEX_SIZE_512);
-	}
-
-	if (m_flag_Corridor3_1 == false)
-	{
-		Hits::DeleteHitBox(this);
-		//Objs::Delete(objb1_1, OBJ_CORRIDOR1_1, 9);
-
-		//Draw::DeleteImage(L"廊下1-1.png", 9, TEX_SIZE_512);
-	}
-
-	if (m_flag_Corridor3_2 == false)
-	{
-		Hits::DeleteHitBox(this);
-		//Objs::Delete(objb1_2, OBJ_CORRIDOR1_1, 9);
-
-		//Draw::DeleteImage(L"廊下1-2.png", 9, TEX_SIZE_512);
-	}
-
-	if (m_flag_Corridor3_3 == false)
-	{
-		Hits::DeleteHitBox(this);
-		//Objs::Delete(objb1_3, OBJ_CORRIDOR1_1, 9);
-
-		//Draw::DeleteImage(L"廊下1-3.png", 9, TEX_SIZE_512);
-	}
-
 
 	/*
 	m_time++;

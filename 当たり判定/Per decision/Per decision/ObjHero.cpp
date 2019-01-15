@@ -24,8 +24,10 @@ void CObjHero::Init()
 	m_vx = 0.0f;  //移動ベクトル
 	m_vy = 0.0f;
 	m_posture = 3;   //右向き0.0f　左向き1.0f 正面2.0f 後ろ3.0f
-	m_go_cox = 2; //廊下移動数x初期化
-	m_go_coy = 1; //部屋移動数y初期化
+	m_go_cox = 2; //廊下移動数x初期化 
+				  //1=1.2.3-1, 2=1.2.3-2, 3=1.2.3-3
+	m_go_coy = 2; //部屋移動数y初期化 
+				  //1=上側の教室 2=廊下 3=下側の教室
 
 	m_ani_time = 0;
 	m_ani_frame = 1;  //静止フレームを初期にする
@@ -335,26 +337,35 @@ void CObjHero::Action()
 
   //画面移動
 	//廊下移動
-	if (m_px + 64.0f > 800.0f && (m_go_cox == 1 || m_go_cox == 2))
+	if (m_px + 64.0f > 800.0f && (m_go_cox == 1 || m_go_cox == 2)
+		&& m_go_coy == 2)
 	{
+		m_go_coy = 2;
+		m_px = 800.0f - 750.0f;
+		//1.2.3-1から1.2.3-2
 		if (m_go_cox == 1)
 		{
 			m_go_cox = 2;
-			m_px = 800.0f - 700.0f;
+			m_px = 800.0f - 750.0f;
 		}
+		//1.2.3-2から1.2.3-3
 		if (m_go_cox == 2)
 		{
 			m_go_cox = 3;
-			m_px = 800.0f - 700.0f;
+			m_px = 800.0f - 750.0f;
 		}
 	}
-	if (m_px < 0.0f && (m_go_cox == 2 || m_go_cox == 3))
+	if (m_px < 0.0f && (m_go_cox == 2 || m_go_cox == 3)
+		&& m_go_coy == 2)
 	{	
+		m_go_coy = 2;
+		//1.2.3-2から1.2.3-1
 		if (m_go_cox == 2)
 		{
 			m_go_cox = 1;
 			m_px = 710.0f;
 		}
+		//1.2.3-3から1.2.3-2
 		if (m_go_cox == 3)
 		{
 			m_go_cox = 2;
@@ -362,34 +373,96 @@ void CObjHero::Action()
 		}
 	}
 
-	//部屋移動
-	if (m_py + 64.0f > 600.0f && (m_go_coy == 0 || m_go_coy == 1))
+
+	//教室へ移動
+	//1.2.3-1または1.2.3-3から上側の教室
+	if (m_py < 120.0f && (m_go_cox == 1 || m_go_cox == 3)
+		&& m_go_coy == 2)
 	{
-		if (m_go_cox == 1 || m_go_cox == 3)
+		m_go_coy = 1;
+		m_px = 150.0f;
+		m_py = 250.0f;
+	}
+
+	//1.2.3-1から下側の教室
+	if (m_py + 64.0f > 460.0f  && m_go_cox == 1 && m_go_coy == 2)
+	{
+		m_go_coy = 3;
+		//職員室
+		if (m_px < 200.0f)
+		{		
+			m_px = 50.0f;
+			m_py = 150.0f;
+		}
+		if (m_px + 64.0f > 700.0f)
 		{
-			if (m_go_coy == 1)
-			{
-				m_go_coy = 2;
-				m_py = 600.0f - 400.0f;
-			}
+			m_px = 650.0f;
+			m_py = 150.0f;
 		}
 	}
 
-	if (m_py < 0.0f && (m_go_coy == 1 || m_go_coy == 2))
-	{	
-		if (m_go_cox == 1 || m_go_cox == 3)
+	//廊下へ移動
+	//上側の教室から1.2.3-3
+	if (m_py + 64.0f > 600.0f && (m_go_cox == 1 || m_go_cox == 3) && m_go_coy == 3)
+	{
+		m_go_coy = 2;
+		m_px = 150.0f;
+		m_py = 250.0f;
+	}
+
+	//下側の教室から1.2.3-1
+	if (m_py < 60.0f && m_go_coy == 1)
+	{
+		m_go_coy = 2;
+		//職員室
+		if (m_px < 100.0f && m_px +64.0f > 0.0f)
+		{		
+			m_px = 50.0f;
+			m_py = 600.0f - 400.0f;
+		}
+		if (m_px <800.0f && m_px + 64.0f > 700.0f)
 		{
-			if (m_go_coy == 0)
-			{
-				m_go_coy = 1;
-				m_py = 400.0f;
-			}
+			m_px = 350.0f;
+			m_py = 600.0f - 400.0f;
+		}
+	}
+
+	//教室で画面外に出ないようにする処理
+	if (m_go_coy == 1)
+	{
+		if (m_px + 64.0f > 800.0f)
+		{
+			m_px = 800.0f - 64.0f;
+		}
+		if (m_px < 0.0f)
+		{
+			m_px = 0.0f;
+		}
+		else if (m_py < 0.0f)
+		{
+			m_py = 0.0f;
 		}
 	}
 
 
-	//画面外に出ないようにする処理
-	if (m_px+64.0f > 800.0f)
+	if (m_go_coy == 3)
+	{
+		if (m_px + 64.0f > 800.0f)
+		{
+			m_px = 800.0f - 64.0f;
+		}
+		if (m_py + 64.0f > 600.0f)
+		{
+			m_py = 600.0f - 64.0f;
+		}
+		if (m_px < 0.0f)
+		{
+			m_px = 0.0f;
+		}
+	}
+
+	//廊下で画面外に出ないようにする処理
+	if (m_px + 64.0f > 800.0f)
 	{
 		m_px = 800.0f - 64.0f;
 	}
@@ -405,6 +478,8 @@ void CObjHero::Action()
 	{
 		m_py = 0.0f;
 	}
+
+
 
 	//位置の更新
 	m_px += m_vx;

@@ -57,8 +57,9 @@ void CObjInfirmary::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	if (hy + 64.0f > 580.0f)
+	if (hy + 64.0f > 585.0f)
 	{
+		Hits::DeleteHitBox(this);
 		Hits::DeleteHitBox(this);
 	}
 

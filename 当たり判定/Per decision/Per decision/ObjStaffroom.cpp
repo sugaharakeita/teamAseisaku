@@ -62,7 +62,7 @@ void CObjStaffroom::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	if (hy < 20.0f)
+	if (hy < 60.0f && (hx < 70.0f || hx + 64.0f > 750.0f))
 	{
 		Hits::DeleteHitBox(this);
 	}
