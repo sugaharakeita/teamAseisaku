@@ -25,11 +25,14 @@ private:
 	bool m_flag_Corridor2_1;
 	bool m_flag_Corridor2_2;
 	bool m_flag_Corridor2_3;
+	bool m_flag_Classroom;
+	bool m_flag_Library;
 	bool m_flag_Corridor3_1;
 	bool m_flag_Corridor3_2;
 	bool m_flag_Corridor3_3;
 	//ŠK‘w•ª‚¯
 	int m_Storey;
+
 
 	float m_x1;//”wŒi‚P‚ÌˆÊ’uî•ñ
 	float m_x2;//”wŒi‚Q‚ÌˆÊ’uî•ñ

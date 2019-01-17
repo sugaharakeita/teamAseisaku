@@ -21,21 +21,20 @@ void CObjMap8::Init()
 {
 	m_x1 = 0.0f;
 
-	////廊下2-2当たり判定
-	//HitBoxs Hit[3] =
-	//{
-	//	{ -42,    0,  175,  175, 0, },//ドアから左側の壁
-	//	{ 335, -290,  465,  465, 1, },//ドアから右側の壁
-	//	{ 0,  494,  800,  800, 2, },//家庭科室扉(後ろ側)右側の壁
+	//廊下2-2当たり判定
+	HitBoxs Hit[3] =
+	{
+		{ -42,    0,  175,  175, 0, },//ドアから左側の壁
+		{ 335, -290,  465,  465, 1, },//ドアから右側の壁
+		{ 0,  494,  800,  800, 2, },//家庭科室扉(後ろ側)右側の壁
 
+	};
 
-	//};
-
-	//for (int i = 0; i < 5; i++)
-	//{
-	//	CObjHitBox*obja = new CObjHitBox(Hit[i]);
-	//	Objs::InsertObj(obja, OBJ_HITBOX, 10);
-	//}
+	for (int i = 0; i < 5; i++)
+	{
+		CObjHitBox*obja = new CObjHitBox(Hit[i]);
+		Objs::InsertObj(obja, OBJ_HITBOX, 10);
+	}
 
 }
 

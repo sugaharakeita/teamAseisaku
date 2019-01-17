@@ -335,30 +335,27 @@ void CObjHero::Action()
 
 	}
 
-  //âÊñ à⁄ìÆ
+	//âÊñ à⁄ìÆ
 	//òLâ∫à⁄ìÆ
-	if (m_px + 64.0f > 800.0f && (m_go_cox == 1 || m_go_cox == 2)
-		&& m_go_coy == 2)
+	if (m_px + 64.0f  > 800.0f && m_go_coy == 2
+		&& (m_go_cox == 1 || m_go_cox == 2))
 	{
-		m_go_coy = 2;
-		m_px = 800.0f - 750.0f;
 		//1.2.3-1Ç©ÇÁ1.2.3-2
 		if (m_go_cox == 1)
 		{
 			m_go_cox = 2;
-			m_px = 800.0f - 750.0f;
+			m_px = 70.0f;
 		}
 		//1.2.3-2Ç©ÇÁ1.2.3-3
 		if (m_go_cox == 2)
 		{
 			m_go_cox = 3;
-			m_px = 800.0f - 750.0f;
+			m_px = 70.0f;
 		}
 	}
-	if (m_px < 0.0f && (m_go_cox == 2 || m_go_cox == 3)
-		&& m_go_coy == 2)
-	{	
-		m_go_coy = 2;
+	if (m_px < 0.0f && m_go_coy == 2
+		&& (m_go_cox == 2 || m_go_cox == 3))
+	{
 		//1.2.3-2Ç©ÇÁ1.2.3-1
 		if (m_go_cox == 2)
 		{
@@ -373,91 +370,111 @@ void CObjHero::Action()
 		}
 	}
 
-
-	//ã≥é∫Ç÷à⁄ìÆ
-	//1.2.3-1Ç‹ÇΩÇÕ1.2.3-3Ç©ÇÁè„ë§ÇÃã≥é∫
-	if (m_py < 120.0f && (m_go_cox == 1 || m_go_cox == 3)
-		&& m_go_coy == 2)
+	//äKíià⁄ìÆ
+	if (hy < 0.0f && m_go_cox == 2)
 	{
-		m_go_coy = 1;
-		m_px = 150.0f;
-		m_py = 250.0f;
+		m_px = 450.0f;
+		m_py = 200.0f;
+		m_posture = 2;
 	}
 
+	//ã≥é∫Ç÷à⁄ìÆ
+	//1.2.3-1Ç©ÇÁè„ë§ÇÃã≥é∫
+	if (m_py < 120.0f && m_go_cox == 1 && m_go_coy == 2)
+	{
+		m_go_coy = 1;
+		m_px = 600.0f;
+		m_py = 500.0f;
+	}
+	//1.2.3-3Ç©ÇÁè„ë§ÇÃã≥é∫
+	if (m_py < 120.0f && m_go_cox == 3 && m_go_coy == 2)
+	{
+		m_go_coy = 1;
+		m_px = 100.0f;
+		m_py = 500.0f;
+	}
+
+
 	//1.2.3-1Ç©ÇÁâ∫ë§ÇÃã≥é∫
-	if (m_py + 64.0f > 460.0f  && m_go_cox == 1 && m_go_coy == 2)
+	if (m_py + 64.0f > 450.0f  && m_go_cox == 1 && m_go_coy == 2)
 	{
 		m_go_coy = 3;
+		m_py = 100.0f;
 		//êEàıé∫
 		if (m_px < 200.0f)
 		{		
-			m_px = 50.0f;
-			m_py = 150.0f;
+			m_px = 30.0f;
 		}
 		if (m_px + 64.0f > 700.0f)
 		{
 			m_px = 650.0f;
-			m_py = 150.0f;
 		}
 	}
 
 	//òLâ∫Ç÷à⁄ìÆ
-	//è„ë§ÇÃã≥é∫Ç©ÇÁ1.2.3-3
-	if (m_py + 64.0f > 600.0f && (m_go_cox == 1 || m_go_cox == 3) && m_go_coy == 3)
+	//è„ë§ÇÃã≥é∫Ç©ÇÁ1.2.3-1
+	if (m_py + 64.0f > 600.0f && m_go_cox == 1 && m_go_coy == 1)
 	{
 		m_go_coy = 2;
-		m_px = 150.0f;
-		m_py = 250.0f;
+		m_px = 430.0f;
+		m_py = 160.0f;
+	}
+	//è„ë§ÇÃã≥é∫Ç©ÇÁ1.2.3-3
+	if (m_py + 64.0f > 600.0f &&m_go_cox == 3 && m_go_coy == 1)
+	{
+		m_go_coy = 2;
+		m_px = 140.0f;
+		m_py = 150.0f;
 	}
 
+
 	//â∫ë§ÇÃã≥é∫Ç©ÇÁ1.2.3-1
-	if (m_py < 60.0f && m_go_coy == 1)
+	if (m_py < 60.0f && m_go_coy == 3)
 	{
 		m_go_coy = 2;
+		m_py = 150.0f;
 		//êEàıé∫
-		if (m_px < 100.0f && m_px +64.0f > 0.0f)
+		if (m_px < 100.0f && m_px + 64.0f > 0.0f)
 		{		
-			m_px = 50.0f;
-			m_py = 600.0f - 400.0f;
+			m_px = 70.0f;
 		}
-		if (m_px <800.0f && m_px + 64.0f > 700.0f)
+		if (m_px < 800.0f && m_px + 64.0f > 700.0f)
 		{
-			m_px = 350.0f;
-			m_py = 600.0f - 400.0f;
+			m_px = 250.0f;
 		}
 	}
 
 	//ã≥é∫Ç≈âÊñ äOÇ…èoÇ»Ç¢ÇÊÇ§Ç…Ç∑ÇÈèàóù
-	if (m_go_coy == 1)
+	if (m_go_coy == 1 && (m_go_cox == 1 || m_go_cox == 3))
 	{
-		if (m_px + 64.0f > 800.0f)
+		if (m_px + 64.0f > 799.0f)
 		{
-			m_px = 800.0f - 64.0f;
+			m_px = 799.0f - 64.0f;
 		}
-		if (m_px < 0.0f)
+		if (m_px < 1.0f)
 		{
-			m_px = 0.0f;
+			m_px = 1.0f;
 		}
-		else if (m_py < 0.0f)
+		else if (m_py < 1.0f)
 		{
-			m_py = 0.0f;
+			m_py = 1.0f;
 		}
 	}
 
 
-	if (m_go_coy == 3)
+	if (m_go_coy == 3 && m_go_cox == 1)
 	{
-		if (m_px + 64.0f > 800.0f)
+		if (m_px + 64.0f > 799.0f)
 		{
-			m_px = 800.0f - 64.0f;
+			m_px = 799.0f - 64.0f;
 		}
-		if (m_py + 64.0f > 600.0f)
+		if (m_py + 64.0f > 599.0f)
 		{
-			m_py = 600.0f - 64.0f;
+			m_py = 599.0f - 64.0f;
 		}
-		if (m_px < 0.0f)
+		if (m_px < 1.0f)
 		{
-			m_px = 0.0f;
+			m_px = 1.0f;
 		}
 	}
 

@@ -61,12 +61,14 @@ void CSceneCorridor::InitScene()
 	m_flag_Corridor2_1 = false;
 	m_flag_Corridor2_2 = false;
 	m_flag_Corridor2_3 = false;
+	m_flag_Classroom = false;
+	m_flag_Library = false;
 	m_flag_Corridor3_1 = false;
 	m_flag_Corridor3_2 = false;
 	m_flag_Corridor3_3 = false;
 
 	//エリア番号 1=1-1,2-1,3-1  2=1-2,2-2,3-2  3=1-3,2-3,3-3
-	//4=職員室 5=校長室 6=保健室
+	//4=職員室 5=校長室 6=保健室 7=図書館 8=教室
 	m_Corridor_co = 2;
 
 	//階層分け初期化
@@ -135,18 +137,21 @@ void CSceneCorridor::Scene()
 	CObjCorridor2_2* objb2_2 = new CObjCorridor2_2();
 	//Corridor2_3オブジェクト生成
 	CObjCorridor2_3* objb2_3 = new CObjCorridor2_3();
-	//Corridor2_1オブジェクト生成
+	//Classroomオブジェクト生成
+	CObjClassroom* objbc = new CObjClassroom();
+	//Libraryオブジェクト生成
+	CObjLibrary* objbl = new CObjLibrary();
+	//Corridor3_1オブジェクト生成
 	CObjMap7* objb3_1 = new CObjMap7();
-	//Corridor2_2オブジェクト生成
+	//Corridor3_2オブジェクト生成
 	CObjMap8* objb3_2 = new CObjMap8();
-	//Corridor2_3オブジェクト生成
+	//Corridor3_3オブジェクト生成
 	CObjMap9* objb3_3 = new CObjMap9();
 	//Enemy生成
 	CObjEnemy* objh = new CObjEnemy(0, 0);
 	//Enemy2生成
 	CObjEnemy2* objh2 = new CObjEnemy2(0, 0);
 
-	CHitBox* hit = Hits::GetHitBox(this);
 
 	m_flag_Corridor1_1 = false;
 	m_flag_Corridor1_2 = false;
@@ -157,6 +162,8 @@ void CSceneCorridor::Scene()
 	m_flag_Corridor2_1 = false;
 	m_flag_Corridor2_2 = false;
 	m_flag_Corridor2_3 = false;
+	m_flag_Classroom = false;
+	m_flag_Library = false;
 	m_flag_Corridor3_1 = false;
 	m_flag_Corridor3_2 = false;
 	m_flag_Corridor3_3 = false;
@@ -171,6 +178,16 @@ void CSceneCorridor::Scene()
 			m_flag_Corridor1_2 = true;
 			m_flag_go = true;
 			m_Corridor_co = 2;
+			m_Storey = 1;
+		}
+
+		//廊下1-2画面端右に行くと廊下1-3へ移動
+		if (hx + 64.0f > 800.0f && m_Corridor_co == 2
+			&& m_flag_go == false && m_Storey == 1)
+		{
+			m_flag_Corridor1_3 = true;
+			m_flag_go = true;
+			m_Corridor_co = 3;
 			m_Storey = 1;
 		}
 
@@ -194,19 +211,9 @@ void CSceneCorridor::Scene()
 			m_Storey = 1;
 		}
 
-		//廊下1-2画面端右に行くと廊下1-3へ移動
-		if (hx + 64.0f > 800.0f && m_Corridor_co == 2
-			&& m_flag_go == false && m_Storey == 1)
-		{
-			m_flag_Corridor1_3 = true;
-			m_flag_go = true;
-			m_Corridor_co = 3;
-			m_Storey = 1;
-		}
 
 		//廊下1-2画面端上に行くと廊下2-2へ移動
-		if (hy < 0.0f && Input::GetVKey(VK_RETURN) == true
-			&& m_Corridor_co == 2 && m_flag_go == false 
+		if (hy < 0.0f &&  m_Corridor_co == 2 && m_flag_go == false 
 			&& m_Storey == 1)
 		{
 			m_flag_Corridor2_2 = true;
@@ -217,7 +224,7 @@ void CSceneCorridor::Scene()
 		}
 
 		//廊下1-1画面下に行くと職員室へ移動
-		if (hy > 460.0f && m_Corridor_co == 1 && m_flag_go == false
+		if (hy > 450.0f && m_Corridor_co == 1 && m_flag_go == false
 			&& m_Storey == 1)
 		{
 			m_flag_Staffroom = true;
@@ -227,7 +234,7 @@ void CSceneCorridor::Scene()
 		}
 
 		//職員室画面上に行くと廊下1-1へ移動
-		if (hy < 50.0f && m_Corridor_co == 4 && m_flag_go == false
+		if (hy < 50.0f  && m_Corridor_co == 4 && m_flag_go == false
 			&& m_Storey == 1)
 		{
 			m_flag_Corridor1_1 = true;
@@ -288,6 +295,17 @@ void CSceneCorridor::Scene()
 			m_Storey = 2;
 		}
 
+		//廊下2-2画面端右に行くと廊下2-3へ移動
+		if (hx + 64.0f > 800.0f && m_Corridor_co == 2
+			&& m_flag_go == false && m_Storey == 2)
+		{
+			m_flag_Corridor2_3 = true;
+			m_flag_go = true;
+			m_Corridor_co = 3;
+			m_Storey = 2;
+		}
+
+
 		//廊下2-3画面端左に行くと廊下2-2へ移動
 		if (hx < 0.0f && m_Corridor_co == 3 && m_flag_go == false
 			&& m_Storey == 2)
@@ -308,26 +326,56 @@ void CSceneCorridor::Scene()
 			m_Storey = 2;
 		}
 
-		//廊下2-2画面端右に行くと廊下2-3へ移動
-		if (hx + 64.0f > 800.0f && m_Corridor_co == 2
-			&& m_flag_go == false && m_Storey == 2)
-		{
-			m_flag_Corridor2_3 = true;
-			m_flag_go = true;
-			m_Corridor_co = 3;
-			m_Storey = 2;
-		}
 		
 		//廊下2-2画面端上に行くと廊下3-2へ移動
-		if (hy < 0.0f && Input::GetVKey(VK_SPACE) == true
-			&& m_Corridor_co == 2 && m_flag_go == false
+		if (hy < 0.0f && m_Corridor_co == 2 && m_flag_go == false
 			&& m_Storey == 2)
 		{
-			m_flag_Corridor2_2 = true;
+			m_flag_Corridor3_2 = true;
 			m_flag_go = true;
 			m_Corridor_co = 2;
 			m_Storey = 3;
 			m_time = 0;
+		}
+
+		//廊下2-1画面上に行くと図書室へ移動
+		if (hy < 120.0f && m_Corridor_co == 1 && m_flag_go == false
+			&& m_Storey == 2)
+		{
+			m_flag_Library = true;
+			m_flag_go = true;
+			m_Corridor_co = 7;
+			m_Storey = 2;
+		}
+
+		//図書室画面下に行くと廊下2-1へ移動
+		if (hy + 64.0f > 600.0f&&m_Corridor_co == 7 && m_flag_go == false
+			&& m_Storey == 2)
+		{
+			m_flag_Corridor2_1 = true;
+			m_flag_go = true;
+			m_Corridor_co = 1;
+			m_Storey = 2;
+		}
+
+		//廊下2-1画面下に行くと教室へ移動
+		if (hy > 450.0f && m_Corridor_co == 1 && m_flag_go == false
+			&& m_Storey == 2)
+		{
+			m_flag_Classroom = true;
+			m_flag_go = true;
+			m_Corridor_co = 8;
+			m_Storey = 2;
+		}
+
+		//教室画面上に行くと廊下2-1へ移動
+		if (hy < 50.0f  && m_Corridor_co == 8 && m_flag_go == false
+			&& m_Storey == 2)
+		{
+			m_flag_Corridor2_1 = true;
+			m_flag_go = true;
+			m_Corridor_co = 1;
+			m_Storey = 2;
 		}
 
 
@@ -339,6 +387,16 @@ void CSceneCorridor::Scene()
 			m_flag_Corridor3_2 = true;
 			m_flag_go = true;
 			m_Corridor_co = 2;
+			m_Storey = 3;
+		}
+
+		//廊下3-2画面端右に行くと廊下3-3へ移動
+		if (hx + 64.0f > 800.0f && m_Corridor_co == 2
+			&& m_Storey == 3)
+		{
+			m_flag_Corridor3_3 = true;
+			m_flag_go = true;
+			m_Corridor_co = 3;
 			m_Storey = 3;
 		}
 
@@ -362,19 +420,9 @@ void CSceneCorridor::Scene()
 			m_Storey = 3;
 		}
 
-		//廊下3-2画面端右に行くと廊下3-3へ移動
-		if (hx + 64.0f > 800.0f && m_Corridor_co == 2
-			 && m_Storey == 3)
-		{
-			m_flag_Corridor3_3 = true;
-			m_flag_go = true;
-			m_Corridor_co = 3;
-			m_Storey = 3;
-		}
-
 
 	//画面端上に行くとクリア画面
-	if (hy < 0.0f && Input::GetVKey(VK_SHIFT) == true)
+	if (hy < 0.0f && Input::GetVKey(VK_SPACE) == true)
 	{
 		Scene::SetScene(new CSceneClear());
 	}
@@ -383,12 +431,13 @@ void CSceneCorridor::Scene()
 		
 	//描画処理
 	//描画させる処理
+	//1階
 	if (m_flag_Corridor1_1 == true && m_Corridor_co == 1
 		&& m_Storey == 1)
 	{
-		Objs::InsertObj(objb, OBJ_ROOM, 9);
+		Objs::InsertObj(objb, OBJ_ROOM, 9); //画像
 		//Objs::InsertObj(objb1, OBJ_ROOM, 9);
-		Objs::InsertObj(objb1_1, OBJ_ROOM, 9);
+		Objs::InsertObj(objb1_1, OBJ_ROOM, 9); //当たり判定
 
 		Draw::LoadImage(L"廊下1-1.png", 9, TEX_SIZE_512);
 	}
@@ -439,7 +488,7 @@ void CSceneCorridor::Scene()
 		Draw::LoadImage(L"保健室.PNG", 9, TEX_SIZE_512);
 	}
 
-
+	//2階
 	if (m_flag_Corridor2_1 == true && m_Corridor_co == 1
 		&& m_Storey == 2)
 	{
@@ -453,7 +502,7 @@ void CSceneCorridor::Scene()
 		&& m_Storey == 2)
 	{
 		Objs::InsertObj(objb, OBJ_ROOM, 9);
-		//Objs::InsertObj(objb2_2, OBJ_ROOM, 9);
+		Objs::InsertObj(objb2_2, OBJ_ROOM, 9);
 
 		Draw::LoadImage(L"廊下2-2.png", 9, TEX_SIZE_512);
 	}
@@ -467,6 +516,28 @@ void CSceneCorridor::Scene()
 		Draw::LoadImage(L"廊下2-3.png", 9, TEX_SIZE_512);
 	}
 
+	//図書館
+	if (m_flag_Library == true && m_Corridor_co == 7
+		&& m_Storey == 2)
+	{
+		Objs::InsertObj(objb, OBJ_ROOM, 9);
+		Objs::InsertObj(objbl, OBJ_ROOM, 9);
+
+		Draw::LoadImage(L"図書室.png", 9, TEX_SIZE_512);
+	}
+
+	//教室
+	if (m_flag_Classroom == true && m_Corridor_co == 8
+		&& m_Storey == 2)
+	{
+		Objs::InsertObj(objb, OBJ_ROOM, 9);
+		Objs::InsertObj(objbc, OBJ_ROOM, 9);
+
+		Draw::LoadImage(L"教室.PNG", 9, TEX_SIZE_512);
+	}
+
+
+	//3階
 	if (m_flag_Corridor3_1 == true && m_Corridor_co == 1
 		&& m_Storey == 3)
 	{
@@ -491,7 +562,7 @@ void CSceneCorridor::Scene()
 		Objs::InsertObj(objb, OBJ_ROOM, 9);
 		Objs::InsertObj(objb3_3, OBJ_ROOM, 9);
 
-		Draw::LoadImage(L"廊下3-3.png", 9, TEX_SIZE_512);
+		Draw::LoadImage(L"廊下3-3.PNG", 9, TEX_SIZE_512);
 	}
 
 	/*

@@ -78,6 +78,12 @@ void CObjClassroom::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+	if (hy < 60.0f && (hx < 70.0f || hx + 64.0f > 750.0f))
+	{
+		Hits::DeleteHitBox(this);
+	}
+
+
 	////敵の位置
 	//CObjEnemy*obje = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 	//float ex = enemy->GetX();
@@ -123,7 +129,8 @@ void CObjClassroom::Action()
 //ドロー
 void CObjClassroom::Draw()
 {
-	//描画カラー情報 R G B al(透過情報)
+	/*
+		//描画カラー情報 R G B al(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	RECT_F src;	//描画元切り取り位置
@@ -141,6 +148,7 @@ void CObjClassroom::Draw()
 	dst.m_right = 800.0f + m_x1;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(0, &src, &dst, c, 0.0f);
+	*/
 
 
 

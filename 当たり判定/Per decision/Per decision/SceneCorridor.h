@@ -25,6 +25,8 @@ private:
 	bool m_flag_Corridor2_1;
 	bool m_flag_Corridor2_2;
 	bool m_flag_Corridor2_3;
+	bool m_flag_Classroom;
+	bool m_flag_Library;
 	bool m_flag_Corridor3_1;
 	bool m_flag_Corridor3_2;
 	bool m_flag_Corridor3_3;

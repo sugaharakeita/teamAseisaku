@@ -20,7 +20,6 @@ void CObjCorridor::Init()
 
 	m_scroll = 0.0f;
 
-
 	//ÉGÉäÉAà⁄ìÆÉtÉâÉOèâä˙âª
 	m_flag_Corridor1_1 = false;
 	m_flag_Corridor1_2 = true;
@@ -31,6 +30,8 @@ void CObjCorridor::Init()
 	m_flag_Corridor2_1 = false;
 	m_flag_Corridor2_2 = false;
 	m_flag_Corridor2_3 = false;
+	m_flag_Classroom = false;
+	m_flag_Library = false;
 	m_flag_Corridor3_1 = false;
 	m_flag_Corridor3_2 = false;
 	m_flag_Corridor3_3 = false;
@@ -47,23 +48,6 @@ void CObjCorridor::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	if (m_flag_Corridor1_1 == true)
-	{
-		m_flag_Corridor1_2 = false;
-		m_flag_Corridor1_3 = false;
-	}
-	if (m_flag_Corridor1_2 == true)
-	{
-		m_flag_Corridor1_1 = false;
-		m_flag_Corridor1_3 = false;
-	}
-	if (m_flag_Corridor1_3 == true)
-	{
-		m_flag_Corridor1_1 = false;
-		m_flag_Corridor1_2 = false;
-	}
-
-
 
 	//1äK
 	//òLâ∫	
@@ -74,10 +58,12 @@ void CObjCorridor::Action()
 		{
 			m_flag_Corridor1_1 = true;
 			m_flag_Corridor1_2 = false;
+			m_flag_Corridor1_3 = false;
 		}
 		//1-3Ç©ÇÁ1-2
 		if (m_flag_Corridor1_3 == true)
 		{
+			m_flag_Corridor1_1 = false;
 			m_flag_Corridor1_2 = true;
 			m_flag_Corridor1_3 = false;
 		}
@@ -90,10 +76,12 @@ void CObjCorridor::Action()
 		{
 			m_flag_Corridor1_1 = false;	
 			m_flag_Corridor1_2 = true;
+			m_flag_Corridor1_3 = false;
 		}
 		//1-2Ç©ÇÁ1-3
 		if (m_flag_Corridor1_2 == true)
 		{
+			m_flag_Corridor1_1 = false;
 			m_flag_Corridor1_2 = false;
 			m_flag_Corridor1_3 = true;
 		}
@@ -103,7 +91,7 @@ void CObjCorridor::Action()
 
 	//2äKÇ÷
 	if (hy < 0.0f  && m_flag_Corridor1_2 == true
-		&& Input::GetVKey(VK_RETURN) == true && m_Storey == 1)
+		 && m_Storey == 1)
 	{
 		m_flag_Corridor1_2 = false;
 		m_flag_Corridor2_2 = true;
@@ -112,14 +100,16 @@ void CObjCorridor::Action()
 
 
 	//êEàıé∫
-	if (hy > 450.0f && m_flag_Corridor1_1 == true && m_Storey == 1)
+	if (hy > 450.0f  && m_flag_Corridor1_1 == true && m_Storey == 1)
 	{
 		m_flag_Corridor1_1 = false;
 		m_flag_Staffroom = true;
 		m_Storey = 1;
 	}
 
-	if (hy < 50.0f && m_flag_Staffroom == true && m_Storey == 1)
+	if (hy < 50.0f && (hx < 100.0f && hx + 64.0f > 0.0f || 
+		hx < 800.0f && hx + 64.0f > 700.0f) 
+		&& m_flag_Staffroom == true && m_Storey == 1)
 	{
 		m_flag_Staffroom = false;
 		m_flag_Corridor1_1 = true;
@@ -158,9 +148,80 @@ void CObjCorridor::Action()
 
 
 	//2äK
+	//òLâ∫
+	if (hx < 0.0f && m_Storey == 2)
+	{
+		//2-2Ç©ÇÁ2-1
+		if (m_flag_Corridor2_2 == true)
+		{
+			m_flag_Corridor2_1 = true;
+			m_flag_Corridor2_2 = false;
+			m_flag_Corridor2_3 = false;
+		}
+		//2-3Ç©ÇÁ2-2
+		if (m_flag_Corridor2_3 == true)
+		{
+			m_flag_Corridor2_1 = false;
+			m_flag_Corridor2_2 = true;
+			m_flag_Corridor2_3 = false;
+		}
+		m_Storey = 2;
+	}
+	if (hx + 64.0f  > 800.0f && m_Storey == 2)
+	{
+		//2-1Ç©ÇÁ2-2
+		if (m_flag_Corridor2_1 == true)
+		{
+			m_flag_Corridor2_1 = false;
+			m_flag_Corridor2_2 = true;
+			m_flag_Corridor2_3 = false;
+		}
+		//2-2Ç©ÇÁ2-3
+		if (m_flag_Corridor2_2 == true)
+		{
+			m_flag_Corridor2_1 = false;
+			m_flag_Corridor2_2 = false;
+			m_flag_Corridor2_3 = true;
+		}
+		m_Storey = 2;
+	}
+
+	//ã≥é∫
+	if (hy > 500.0f  && m_flag_Corridor2_1 == true && m_Storey == 2)
+	{
+		m_flag_Corridor2_1 = false;
+		m_flag_Classroom = true;
+		m_Storey = 2;
+	}
+
+	if (hy < 50.0f && (hx < 100.0f && hx + 64.0f > 0.0f ||
+		hx < 800.0f && hx + 64.0f > 700.0f)
+		&& m_flag_Classroom == true && m_Storey == 2)
+	{
+		m_flag_Classroom = false;
+		m_flag_Corridor2_1 = true;
+		m_Storey = 2;
+	}
+
+	//ê}èëäŸ
+	if (hy < 120 && m_flag_Corridor2_1 == true && m_Storey == 2)
+	{
+		m_flag_Corridor2_1 = false;
+		m_flag_Library = true;
+		m_Storey = 2;
+	}
+
+	if (hy + 64.0f > 600.0f && m_flag_Library == true 
+		&& m_Storey == 2)
+	{
+		m_flag_Library = false;
+		m_flag_Corridor2_1 = true;
+		m_Storey = 2;
+	}
+
+
 	//3äKÇ÷
-	if (hy < 0.0f  && m_flag_Corridor2_2 == true
-		&& Input::GetVKey(VK_SPACE) == true && m_Storey == 2)
+	if (hy < 0.0f  && m_flag_Corridor2_2 == true && m_Storey == 2)
 	{
 		m_flag_Corridor2_2 = false;
 		m_flag_Corridor3_2 = true;
@@ -304,7 +365,16 @@ void CObjCorridor::Draw()
 	//2äK
 	if (m_flag_Corridor2_1 == true)
 	{
-
+		//îwåi
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 1030.0f;
+		src.m_bottom = 360.0f;
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0f;
+		dst.m_right = 800.0f;
+		dst.m_bottom = 600.0f;
+		Draw::Draw(9, &src, &dst, c, 0.0f);
 	}
 
 	if (m_flag_Corridor2_2 == true)
@@ -324,7 +394,50 @@ void CObjCorridor::Draw()
 
 	if (m_flag_Corridor2_3 == true)
 	{
+		//îwåi
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 360.0f;
+		src.m_bottom = 360.0f;
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0f;
+		dst.m_right = 800.0f;
+		dst.m_bottom = 600.0f;
+		Draw::Draw(9, &src, &dst, c, 0.0f);
+	}
 
+	//ã≥é∫
+	if (m_flag_Classroom == true)
+	{
+		//êÿÇËéÊÇËà íuÇÃê›íË
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = src.m_left + 660.0f;
+		src.m_bottom = 442.0f;
+
+		//îwåiÇPÇÃà íuÇÃê›íËÇÇµï`âÊ
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0f + m_x1;
+		dst.m_right = 800.0f + m_x1;
+		dst.m_bottom = 600.0f;
+		Draw::Draw(0, &src, &dst, c, 0.0f);
+	}
+
+	//ê}èëäŸ
+	if (m_flag_Library == true)
+	{
+		//êÿÇËéÊÇËà íuÇÃê›íË
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = src.m_left + 852.0f;
+		src.m_bottom = 506.0f;
+
+		//îwåiÇPÇÃà íuÇÃê›íËÇÇµï`âÊ
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0f + m_x1;
+		dst.m_right = 800.0f + m_x1;
+		dst.m_bottom = 600.0f;
+		Draw::Draw(0, &src, &dst, c, 0.0f);
 	}
 
 	//3äK

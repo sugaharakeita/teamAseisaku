@@ -21,13 +21,19 @@ void CObjCorridor2_1::Init()
 	Hits::SetHitBox(this, 157.0f, 70.0f, 690, 110, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 0.0f, 500.0f, 110, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
+	Hits::SetHitBox(this, 0.0f, 500.0f, 10, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 157.0f, 500.0f, 295, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
+	Hits::SetHitBox(this, 55.0f, 500.0f, 160, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 499.0f, 500.0f, 200, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
+	Hits::SetHitBox(this, 265.0f, 500.0f, 60, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
+
+	//下壁
+	Hits::SetHitBox(this, 375.0f, 500.0f, 75, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
+
+	//下壁
+	Hits::SetHitBox(this, 500.0f, 500.0f, 200, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
 
 	//下壁
 	Hits::SetHitBox(this, 750.0f, 500.0f, 50, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
@@ -37,11 +43,19 @@ void CObjCorridor2_1::Init()
 //アクション
 void CObjCorridor2_1::Action()
 {
-	/*
 	//主人公の位置を取得
 	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	float hx = hero->GetX();
 	float hy = hero->GetY();
+
+
+	if (hx + 64.0f > 787.0f || hy > 440.0f || hy < 110.0f)
+	{
+		Hits::DeleteHitBox(this);
+		Hits::DeleteHitBox(this);
+	}
+
+	/*
 
 	//画面端左に行くと廊下2-1へ移動
 	if (hx + 64.0f > 800.0f)
@@ -55,6 +69,7 @@ void CObjCorridor2_1::Action()
 //ドロー
 void CObjCorridor2_1::Draw()
 {
+	/*
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f };
 
@@ -71,5 +86,6 @@ void CObjCorridor2_1::Draw()
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(9, &src, &dst, c, 0.0f);
+	*/
 
 }

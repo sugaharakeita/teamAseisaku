@@ -80,12 +80,19 @@ void CObjLibrary::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+	if (hy + 64.0f > 580.0f)
+	{
+		Hits::DeleteHitBox(this);
+		Hits::DeleteHitBox(this);
+	}
+
+
 	////敵の位置
 	//CObjEnemy*obje = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 	//float ex = enemy->GetX();
 	//float ey = enemy->GetY();
 
-
+	/*
 	//上に行くと廊下2-1に出る
 	if (hy > 450 == true)
 	{
@@ -105,7 +112,7 @@ void CObjLibrary::Action()
 		m_key_flag = true;
 	}
 
-	
+	*/
 
 
 }
@@ -113,13 +120,14 @@ void CObjLibrary::Action()
 //ドロー
 void CObjLibrary::Draw()
 {
-	//描画カラー情報 R G B al(透過情報)
+	/*
+		//描画カラー情報 R G B al(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	RECT_F src;	//描画元切り取り位置
 	RECT_F dst;	//描画先表示位置
 
-				//切り取り位置の設定
+	//切り取り位置の設定
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
 	src.m_right = src.m_left + 852.0f;
@@ -131,7 +139,7 @@ void CObjLibrary::Draw()
 	dst.m_right = 800.0f + m_x1;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(0, &src, &dst, c, 0.0f);
-
+	*/
 
 
 	//for (int i = 0; i < 10; i++)

@@ -32,22 +32,28 @@ void CObjCorridor2_2::Init()
 	Hits::SetHitBox(this, 536.0f, 0.0f, 264, 180, ELEMENT_FIELD, OBJ_CORRIDOR2_2, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 0.0f, 500.0f,197, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_2, 9);
+	Hits::SetHitBox(this, 0.0f, 500.0f,800, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_2, 9);
 
 	//下壁
-	Hits::SetHitBox(this,330.0f, 500.0f, 470, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_2, 9);
+	Hits::SetHitBox(this, 0.0f, 500.0f, 800, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_2, 9);
 
 }
 
 //アクション
 void CObjCorridor2_2::Action()
 {
-	/*
 	//主人公の位置を取得
 	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+
+	if (hx < 50.0f || hx + 64.0f > 770.0f || hy < 5.0f)
+	{
+		Hits::DeleteHitBox(this);
+	}
+
+	/*
 	//画面端左に行くと廊下2-1へ移動
 	if (hx < 0.0f)
 	{

@@ -15,21 +15,30 @@ using namespace GameL;
 void CObjCorridor2_3::Init()
 {
 	//上壁
-	Hits::SetHitBox(this, 0.0f, 0.0f, 640, 175, ELEMENT_FIELD, OBJ_CORRIDOR2_3, 9);
+	Hits::SetHitBox(this, 0.0f, 0.0f, 800, 175, ELEMENT_FIELD, OBJ_CORRIDOR2_3, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 0.0f, 500.0f, 800, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_3, 9);
+	Hits::SetHitBox(this, 144.0f, 500.0f, 495, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_3, 9);
+
+	//下壁
+	Hits::SetHitBox(this, 780.0f, 500.0f, 20, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_3, 9);
+
 }
 
 //アクション
 void CObjCorridor2_3::Action()
 {
-	/*
 	//主人公の位置を取得
 	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+	if (hx < 10.0f || hy > 510.0f)
+	{
+		Hits::DeleteHitBox(this);
+	}
+
+	/*
 	//画面端左に行くと廊下2-2へ移動
 	if (hx < 0.0f)
 	{
@@ -42,6 +51,7 @@ void CObjCorridor2_3::Action()
 //ドロー
 void CObjCorridor2_3::Draw()
 {
+	/*
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f };
 
@@ -58,5 +68,6 @@ void CObjCorridor2_3::Draw()
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(9, &src, &dst, c, 0.0f);
+	*/
 
 }
