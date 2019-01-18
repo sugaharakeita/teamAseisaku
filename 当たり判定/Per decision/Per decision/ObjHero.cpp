@@ -337,148 +337,208 @@ void CObjHero::Action()
 
 	//画面移動
 	//廊下移動
-	if (m_px + 64.0f  > 800.0f && m_go_coy == 2
-		&& (m_go_cox == 1 || m_go_cox == 2))
+	//700～800にいくと廊下3-3にいく
+	if (hx + 64.0f >800 == true && m_go_cox == 2 && m_go_coy == 2)
 	{
-		//1.2.3-1から1.2.3-2
-		if (m_go_cox == 1)
-		{
-			m_go_cox = 2;
-			m_px = 70.0f;
-		}
-		//1.2.3-2から1.2.3-3
-		if (m_go_cox == 2)
-		{
-			m_go_cox = 3;
-			m_px = 70.0f;
-		}
+		m_px = 110;
+		m_py = hy;
+		m_key_flag = false;
+		m_go_cox = 3;
+		m_go_coy = 2;
 	}
-	if (m_px < 0.0f && m_go_coy == 2
-		&& (m_go_cox == 2 || m_go_cox == 3))
+
+	//0～100にいくと廊下3-1にいく
+	if (hx < 0 == true && m_go_cox == 2 && m_go_coy == 2)
 	{
-		//1.2.3-2から1.2.3-1
-		if (m_go_cox == 2)
+		m_px = 690;
+		m_py = hy;
+		m_key_flag = false;
+		m_go_cox = 1;
+		m_go_coy = 2;
+	}
+
+
+	//0～100にいくと廊下3-2にいく
+	if (hx < 0 == true && m_go_cox == 3 && m_go_coy == 2)
+	{
+		m_px = 690;
+		m_py = hy;
+		m_key_flag = false;
+		m_go_cox = 2;
+		m_go_coy = 2;
+	}
+
+	//マップ端にいくと廊下3-2にいく
+	if (hx + 64.0f >800 == true && m_go_cox == 1 && m_go_coy == 2)
+	{
+		//主人公
+		m_px = 110;
+		m_py = hy;
+		//敵
+		//g_enemy_x = 110;
+		m_key_flag = false;
+		m_go_cox = 2;
+		m_go_coy = 2;
+	}
+
+	//教室移動
+	
+	//保健室
+	if (hy < 120  && m_go_cox == 3 && m_go_coy == 2)
+	{
+		m_px = 60;
+		m_py = 250;
+		m_go_cox = 3;
+		m_go_coy = 1;
+		return;
+	}
+	if (hy + 64.0f > 800 && m_go_cox == 3 && m_go_coy == 1)
+	{
+		m_px = 250;
+		m_py = 250;
+		m_go_cox = 3;
+		m_go_coy = 2;
+		return;
+	}
+
+
+	//下に行くと二階・家庭科室,家庭準備室に行く。
+	if (hy > 450 && m_go_cox == 1 && m_go_coy == 2)
+	{
+		//家庭科室
+		if (hx < 350 == true)
 		{
+			m_px = 650;
+			m_py = 70;
+			m_key_flag = false;
 			m_go_cox = 1;
-			m_px = 710.0f;
+			m_go_coy = 3;
+			return;
 		}
-		//1.2.3-3から1.2.3-2
-		if (m_go_cox == 3)
+		//家庭準備室
+		if (hx > 450 == true)
 		{
-			m_go_cox = 2;
-			m_px = 710.0f;
+			m_px = 400;
+			m_py = 70;
+			m_key_flag = false;
+			m_go_cox = 1;
+			m_go_coy = 3;
+			return;
 		}
 	}
 
+
+	//廊下2-1に行く(左側のドア)
+	if (hy < 50 && hx < 100 && m_go_cox == 1 && m_go_coy == 3)
+	{
+		m_px = 50;
+		m_py = 300;
+		m_go_cox = 1;
+		m_go_coy = 2;
+		return;
+	}
+
+	//廊下2-1に行く(右側のドア)
+	if (hy < 50 && hx > 700 && m_go_cox == 1 && m_go_coy == 3)
+	{
+		m_px = 500;
+		m_py = 300;
+		m_go_cox = 1;
+		m_go_coy = 2;
+		return;
+	}
+
+	//右に行くと二階・家庭準備室
+	if ((hy < 250 && hy > 192) && hx > 800 && m_go_cox == 1 
+		&& m_go_coy == 3)
+	{
+		m_px = 10;
+		m_py = 200;
+		return;
+	}
+
+	//上に行くと廊下2-1に行く
+	if (hy < 70 && m_go_cox == 1 && m_go_coy == 3)
+	{
+		m_px = 700;
+		m_px = 300;
+		m_go_cox = 1;
+		m_go_coy = 2;
+		return;
+	}
+
+	//左に行くと二階・家庭科室に行く
+	if (hx < 10 && m_go_cox == 1 && m_go_coy == 3)
+	{
+		g_hero_x = 730;
+		g_hero_y = 200;
+		m_px = 730;
+		m_py = 200;
+		return;
+	}
+
+
+	//上に行くと二階・図書室に行く
+	if (hy < 100 == true && m_go_cox == 1 && m_go_coy == 2)
+	{
+		m_px = 100;
+		m_py = 60;
+		m_key_flag = false;
+		m_go_cox = 1;
+		m_go_coy = 1;
+	}
+	
+	//下に行くと廊下2-1に出る
+	if (hy > 536 && hx > 0 && m_go_cox == 1 && m_go_coy == 1)
+	{
+		m_px = 220;
+		m_py = 200;
+		m_go_cox = 1;
+		m_go_coy = 2;
+		return;
+	}
+
+	//左のドアに行くと廊下2-3に出る
+	if (hy < 100 && hx < 50 && m_go_cox == 3 && m_go_coy == 3)
+	{
+		m_px = 60;
+		m_py = 250;
+		m_go_cox = 3;
+		m_go_coy = 2;
+	}
+
+	//右のドアに行くと廊下2-3に出る
+	if (hy < 100 && hx > 650 && m_go_cox == 3 && m_go_coy == 3)
+	{
+		m_px = 650;
+		m_py = 250;
+		m_go_cox = 3;
+		m_go_coy = 2;
+	}
+
+
+	//下に行くと3階・会議室に行く
+	if (hy > 450 == true && m_go_cox == 3 && m_go_coy == 2)
+	{
+		m_px = 650;
+		m_py = 70;
+		m_key_flag = false;
+		m_go_cox = 3;
+		m_go_coy = 3;
+	}
+		
+
 	//階段移動
-	if (hy < 0.0f && m_go_cox == 2)
+	if (hy < 0.0f && m_go_cox == 2 
+		&& Input::GetVKey(VK_RETURN) == true)
 	{
 		m_px = 450.0f;
 		m_py = 200.0f;
 		m_posture = 2;
 	}
 
-	//教室へ移動
-	//1.2.3-1から上側の教室
-	if (m_py < 120.0f && m_go_cox == 1 && m_go_coy == 2)
-	{
-		m_go_coy = 1;
-		m_px = 600.0f;
-		m_py = 500.0f;
-	}
-	//1.2.3-3から上側の教室
-	if (m_py < 120.0f && m_go_cox == 3 && m_go_coy == 2)
-	{
-		m_go_coy = 1;
-		m_px = 100.0f;
-		m_py = 500.0f;
-	}
 
-
-	//1.2.3-1から下側の教室
-	if (m_py + 64.0f > 450.0f  && m_go_cox == 1 && m_go_coy == 2)
-	{
-		m_go_coy = 3;
-		m_py = 100.0f;
-		//職員室
-		if (m_px < 200.0f)
-		{		
-			m_px = 30.0f;
-		}
-		if (m_px + 64.0f > 700.0f)
-		{
-			m_px = 650.0f;
-		}
-	}
-
-	//廊下へ移動
-	//上側の教室から1.2.3-1
-	if (m_py + 64.0f > 600.0f && m_go_cox == 1 && m_go_coy == 1)
-	{
-		m_go_coy = 2;
-		m_px = 430.0f;
-		m_py = 160.0f;
-	}
-	//上側の教室から1.2.3-3
-	if (m_py + 64.0f > 600.0f &&m_go_cox == 3 && m_go_coy == 1)
-	{
-		m_go_coy = 2;
-		m_px = 140.0f;
-		m_py = 150.0f;
-	}
-
-
-	//下側の教室から1.2.3-1
-	if (m_py < 60.0f && m_go_coy == 3)
-	{
-		m_go_coy = 2;
-		m_py = 150.0f;
-		//職員室
-		if (m_px < 100.0f && m_px + 64.0f > 0.0f)
-		{		
-			m_px = 70.0f;
-		}
-		if (m_px < 800.0f && m_px + 64.0f > 700.0f)
-		{
-			m_px = 250.0f;
-		}
-	}
-
-	//教室で画面外に出ないようにする処理
-	if (m_go_coy == 1 && (m_go_cox == 1 || m_go_cox == 3))
-	{
-		if (m_px + 64.0f > 799.0f)
-		{
-			m_px = 799.0f - 64.0f;
-		}
-		if (m_px < 1.0f)
-		{
-			m_px = 1.0f;
-		}
-		else if (m_py < 1.0f)
-		{
-			m_py = 1.0f;
-		}
-	}
-
-
-	if (m_go_coy == 3 && m_go_cox == 1)
-	{
-		if (m_px + 64.0f > 799.0f)
-		{
-			m_px = 799.0f - 64.0f;
-		}
-		if (m_py + 64.0f > 599.0f)
-		{
-			m_py = 599.0f - 64.0f;
-		}
-		if (m_px < 1.0f)
-		{
-			m_px = 1.0f;
-		}
-	}
-
-	//廊下で画面外に出ないようにする処理
+	//画面外に出ないようにする処理
 	if (m_px + 64.0f > 800.0f)
 	{
 		m_px = 800.0f - 64.0f;

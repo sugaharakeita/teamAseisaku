@@ -7,18 +7,13 @@
 
 #include "GameHead.h"
 #include "ObjClassroom.h"
-//#include "ObjHitBoxCR.h"
+#include "ObjHitBox.h"
 
 //使用するネームスペース
 using namespace GameL;
 
 extern float g_hero_x;
 extern float g_hero_y;
-//
-//extern float g_enemy_x = 150.0f;
-//extern float g_enemy_y = 0.0f;
-//
-
 
 //イニシャライズ
 void CObjClassroom::Init()
@@ -30,16 +25,16 @@ void CObjClassroom::Init()
 	//教室当たり判定
 	HitBoxs Hit[26] =
 	{
-		{ -208, 	   0,   220,  220, 0, },//上、左壁
-		{ 90,  -477,   620,  620, 1, },//上、真ん中の壁
-		{ 788,     0,   479,  479, 2, },//右壁
-		{ -167,   220,   190,  190, 3, },//黒板
-		{ -208,   410,   220,  220, 4, },//下、左壁
-		{ 749,   479,   121,  121, 5, },//右下、棚
-		{ 12,   578,   737,  737, 6, },//下壁
-		{ 82,   305,    39,   39, 7, },//教卓
-		{ 162,   198,    48,   48, 8, },//机上右から1
-		{ 260,   198,    48,   48, 9, },//机上右から2
+		{ -208,     0,   220,  220,  0, },//上、左壁
+		{ 90,  -477,   620,  620,  1, },//上、真ん中の壁
+		{ 788,     0,   479,  479,  2, },//右壁
+		{ -167,   220,   190,  190,  3, },//黒板
+		{ -208,   410,   220,  220,  4, },//下、左壁
+		{ 749,   479,   121,  121,  5, },//右下、棚
+		{ 12,   578,   737,  737,  6, },//下壁
+		{ 82,   305,    39,   39,  7, },//教卓
+		{ 162,   198,    48,   48,  8, },//机上右から1
+		{ 260,   198,    48,   48,  9, },//机上右から2
 		{ 360,   198,    48,   48, 10, },//机上右から3
 		{ 460,   198,    48,   48, 11, },//机上右から4
 		{ 552,   198,    48,   48, 12, },//机上右から5
@@ -78,59 +73,33 @@ void CObjClassroom::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+
 	if (hy < 60.0f && (hx < 70.0f || hx + 64.0f > 750.0f))
 	{
 		Hits::DeleteHitBox(this);
 	}
 
 
-	////敵の位置
-	//CObjEnemy*obje = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
-	//float ex = enemy->GetX();
-	//float ey = enemy->GetY();
-
-
-	//上に行くと廊下2-3に出る
-	if (hy > 50 == true && hy < 100 == true)
+	//左のドアに行くと廊下2-3に出る
+	if (hy < 100 && hx < 50)
 	{
-		if (m_key_flag == true)
-		{
-			//主人公
-			g_hero_x = 110;
-			g_hero_y = hy;
-			//敵
-			//g_enemy_x = 110;
-
-			m_key_flag = false;
-		}
-	}
-	else
-	{
-		m_key_flag = true;
+		g_hero_x = 50;
+		g_hero_y = 536;
 	}
 
-	////後方
-	//if (hx < 80)
-	//{
-	//	hero->SetX(80);
-	//	m_scroll -= hero->GetVX();
-	//}
-
-	////前方
-	//if (hx > 650)
-	//{
-	//	hero->SetX(650);
-	//	m_scroll -= hero->GetVX();
-	//}
-
-
+	//右のドアに行くと廊下2-3に出る
+	if (hy < 100 && hx > 650)
+	{
+		g_hero_x = 600;
+		g_hero_y = 536;
+	}
 }
 
 //ドロー
 void CObjClassroom::Draw()
 {
 	/*
-		//描画カラー情報 R G B al(透過情報)
+	//描画カラー情報 R G B al(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	RECT_F src;	//描画元切り取り位置
@@ -149,21 +118,4 @@ void CObjClassroom::Draw()
 	dst.m_bottom = 600.0f;
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 	*/
-
-
-
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	for (int j = 0; j < 10; j++)
-	//	{
-	//		//背景１の位置の設定をし描画
-	//		dst.m_top = 0.0f;
-	//		dst.m_left = 0.0f + m_scroll;
-	//		dst.m_right = 1716.0f + m_scroll;
-	//		dst.m_bottom = 600.0f;
-	//		Draw::Draw(0, &src, &dst, c, 0.0f);
-
-	//	}
-	//}
-
 }

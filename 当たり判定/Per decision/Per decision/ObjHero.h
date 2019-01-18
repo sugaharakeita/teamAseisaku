@@ -30,6 +30,8 @@ private:
 	int m_go_cox; //廊下移動数x
 	int m_go_coy; //部屋移動数y
 
+	bool m_key_flag;//キーフラグ
+
 	int m_ani_time; //アニメーションフレーム動作間隔
 	int m_ani_frame;//描画フレーム
 	int m_footsteps_co; //足音秒数カウント

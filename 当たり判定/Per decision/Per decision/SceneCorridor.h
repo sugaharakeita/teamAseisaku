@@ -27,14 +27,21 @@ private:
 	bool m_flag_Corridor2_3;
 	bool m_flag_Classroom;
 	bool m_flag_Library;
+	bool m_flag_Homeeconomicsroom;
+	bool m_flag_Homepreparationroom;
 	bool m_flag_Corridor3_1;
 	bool m_flag_Corridor3_2;
 	bool m_flag_Corridor3_3;
+	bool m_flag_Computerroom;
+	bool m_flag_Musicroom;
+	bool m_flag_Conferenceroom;
+	bool m_flag_Rooftop;
+
 	//ƒGƒŠƒA”Ô†
 	int m_Corridor_co;
 	//˜A‘±ˆÚ“®–h~ƒtƒ‰ƒO
 	bool m_flag_go;
-	//ŠK‘w•ª‚¯ 1=1ŠK 2=2ŠK 3=3ŠK
+	//ŠK‘w•ª‚¯ 1=1ŠK 2=2ŠK 3=3ŠK =‰®ã
 	int m_Storey;
-	
+
 };

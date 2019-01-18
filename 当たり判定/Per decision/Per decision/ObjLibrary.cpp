@@ -1,23 +1,20 @@
 //使用するヘッダーファイル
-#include "GameL\DrawTexture.h"
-#include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
+#include "GameL\WinInputs.h"
+#include "GameL\DrawTexture.h"
+#include "GameL\SceneObjManager.h"
 #include "GameL\HitBoxManager.h"
 
 
 #include "GameHead.h"
 #include "ObjLibrary.h"
+#include "ObjHitBox.h"
 
 //使用するネームスペース
 using namespace GameL;
 
 extern float g_hero_x;
 extern float g_hero_y;
-//
-//extern float g_enemy_x = 150.0f;
-//extern float g_enemy_y = 0.0f;
-//
-
 
 //イニシャライズ
 void CObjLibrary::Init()
@@ -27,16 +24,16 @@ void CObjLibrary::Init()
 	//教室当たり判定
 	HitBoxs Hit[31] =
 	{
-		{   0, 	 -674,   800,  800, 0, },//上、壁
-		{ 765,    126,   474,  474, 1, },//右の本棚
-		{-590,    126,   600,  600, 2, },//左の壁
-		{  71,    129,    29,   29, 3, },//左のカウンター1(上から)
-		{  71,    158,    29,   29, 4, },//左のカウンター2
-		{  71,    187,    29,   29, 5, },//左のカウンター3
-		{  71,    216,    29,   29, 6, },//左のカウンター4
-		{  71,    245,    29,   29, 7, },//左のカウンター5
-		{  71,    274,    29,   29, 8, },//左のカウンター6
-		{ 253,    151,    65,   65, 9, },//左上の本棚1(上から)
+		{ 0, 	 -674,   800,  800,  0, },//上、壁
+		{ 765,    126,   474,  474,  1, },//右の本棚
+		{ -590,    126,   600,  600,  2, },//左の壁
+		{ 71,    129,    29,   29,  3, },//左のカウンター1(上から)
+		{ 71,    158,    29,   29,  4, },//左のカウンター2
+		{ 71,    187,    29,   29,  5, },//左のカウンター3
+		{ 71,    216,    29,   29,  6, },//左のカウンター4
+		{ 71,    245,    29,   29,  7, },//左のカウンター5
+		{ 71,    274,    29,   29,  8, },//左のカウンター6
+		{ 253,    151,    65,   65,  9, },//左上の本棚1(上から)
 		{ 253,    216,    65,   65, 10, },//左上の本棚2
 		{ 371,    171,    90,   90, 11, },//左側の机
 		{ 521,    171,    90,   90, 12, },//右側の机
@@ -56,9 +53,9 @@ void CObjLibrary::Init()
 		{ 498,    507,    76,   76, 26, },//下の本棚4
 		{ 574,    507,    76,   76, 27, },//下の本棚5
 		{ 650,    507,    70,   76, 28, },//下の本棚6
-		{  10,    583,   121,  121, 29, },//左下の壁(入口から見て左側)
+		{ 10,    583,   121,  121, 29, },//左下の壁(入口から見て左側)
 		{ 190,    583,   575,  625, 30, },//右下の壁(入口から見て右側)
-		
+
 
 	};
 
@@ -80,41 +77,20 @@ void CObjLibrary::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+
 	if (hy + 64.0f > 580.0f)
 	{
 		Hits::DeleteHitBox(this);
 		Hits::DeleteHitBox(this);
 	}
 
-
-	////敵の位置
-	//CObjEnemy*obje = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
-	//float ex = enemy->GetX();
-	//float ey = enemy->GetY();
-
-	/*
-	//上に行くと廊下2-1に出る
-	if (hy > 450 == true)
+	//下に行くと廊下2-1に出る
+	if (hy > 536 && hx > 0)
 	{
-		if (m_key_flag == true)
-		{
-			//主人公
-			g_hero_x = hx;
-			g_hero_y = 450;
-			//敵
-			//g_enemy_x = 110;
-
-			m_key_flag = false;
-		}
+		g_hero_x = 220;
+		g_hero_y = 120;
+		return;
 	}
-	else
-	{
-		m_key_flag = true;
-	}
-
-	*/
-
-
 }
 
 //ドロー
@@ -130,7 +106,7 @@ void CObjLibrary::Draw()
 	//切り取り位置の設定
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
-	src.m_right = src.m_left + 852.0f;
+	src.m_right = 852.0f;
 	src.m_bottom = 506.0f;
 
 	//背景１の位置の設定をし描画
@@ -140,20 +116,5 @@ void CObjLibrary::Draw()
 	dst.m_bottom = 600.0f;
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 	*/
-
-
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	for (int j = 0; j < 10; j++)
-	//	{
-	//		//背景１の位置の設定をし描画
-	//		dst.m_top = 0.0f;
-	//		dst.m_left = 0.0f + m_scroll;
-	//		dst.m_right = 1716.0f + m_scroll;
-	//		dst.m_bottom = 600.0f;
-	//		Draw::Draw(0, &src, &dst, c, 0.0f);
-
-	//	}
-	//}
 
 }

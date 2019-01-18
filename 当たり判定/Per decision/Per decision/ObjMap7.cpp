@@ -58,11 +58,19 @@ void CObjMap7::Action()
 	float hy = hero->GetY();
 	
 
+
 	////“G‚ÌˆÊ’u
 	//CObjEnemy*obje = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 	//float ex = enemy->GetX();
 	//float ey = enemy->GetY();
 
+	
+	if (hx + 64.0f > 787.0f || hy > 440.0f || hy < 110.0f)
+	{
+		Hits::DeleteHitBox(this);
+		Hits::DeleteHitBox(this);
+	}
+	
 
 	//ƒ}ƒbƒv’[‚É‚¢‚­‚Æ˜L‰º3-2‚É‚¢‚­
 	if (hx >700 == true)
@@ -74,7 +82,6 @@ void CObjMap7::Action()
 			g_hero_y = hy;
 			//“G
 			//g_enemy_x = 110;
-
 			m_key_flag = false;
 		}
 	}
@@ -92,7 +99,6 @@ void CObjMap7::Action()
 			{
 				g_hero_x = 650;
 				g_hero_y = hy;
-				//Scene::SetScene(new CSceneHomeeconomicsroom());
 				m_key_flag = false;
 			}
 		}
@@ -111,7 +117,6 @@ void CObjMap7::Action()
 			{
 				g_hero_x = 650;
 				g_hero_y = hy;
-				//Scene::SetScene(new CSceneHomepreparationroom());
 				m_key_flag = false;
 			}
 		}

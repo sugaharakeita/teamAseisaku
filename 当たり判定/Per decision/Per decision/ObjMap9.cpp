@@ -30,12 +30,13 @@ void CObjMap9::Init()
 									 //{ 563, 495, 127, 127, 4, },//家庭科室扉(前側)右側の壁
 
 	};
-
 	for (int i = 0; i < 5; i++)
 	{
 		CObjHitBox*obja = new CObjHitBox(Hit[i]);
 		Objs::InsertObj(obja, OBJ_HITBOX, 10);
 	}
+
+
 }
 
 //アクション
@@ -47,7 +48,12 @@ void CObjMap9::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-
+	
+	if (hx < 60.0f || hy > 440.0f)
+	{
+		Hits::DeleteHitBox(this);
+	}
+	
 	//0～100にいくと廊下3-2にいく
 	if (hx < 50 == true)
 	{
@@ -70,7 +76,6 @@ void CObjMap9::Action()
 		{
 			g_hero_x = 650;
 			g_hero_y = hy;
-			//Scene::SetScene(new CSceneClassroom());
 			m_key_flag = false;
 		}
 	}

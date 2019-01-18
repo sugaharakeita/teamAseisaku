@@ -108,6 +108,33 @@
     <Filter Include="ソース ファイル\GameMain\GamePerdecision\二階教室">
       <UniqueIdentifier>{02bce0c4-0cb6-4068-9914-e40046ddf65a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\三階・会議室">
+      <UniqueIdentifier>{63bfcc2a-25e6-4691-b340-3b89455495e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\三階・音楽室">
+      <UniqueIdentifier>{d9d3456c-4179-48ef-9561-bdc55303ed4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\三階・PC室">
+      <UniqueIdentifier>{8226d87d-e1d0-41ea-ba4f-39d20a37714a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage\三階・会議室">
+      <UniqueIdentifier>{078aa95f-0d6b-4e48-9a60-7680fc036857}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage\三階・音楽室">
+      <UniqueIdentifier>{9b448f3a-f2bd-46fd-941d-64283e163b7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage\三階・PC室">
+      <UniqueIdentifier>{674821b4-07c1-4922-bbd1-8239aa92b5ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameStage\屋上">
+      <UniqueIdentifier>{6fe8eae0-e45d-41b1-a0a0-52900982cfd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GamePerdecision\屋上">
+      <UniqueIdentifier>{5e087e68-1b40-4a07-8313-47188a88caeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\GameEnemy\絵画">
+      <UniqueIdentifier>{a406d8b7-3f72-4b47-bb3b-9fadd1a0fd27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\SceneManager.cpp">
@@ -298,6 +325,33 @@
     </ClCompile>
     <ClCompile Include="SceneCorridor.cpp">
       <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneComputerroom.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\三階・PC室</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMusicroom.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\三階・音楽室</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneConferenceroom.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\三階・会議室</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjComputerroom.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\三階・PC室</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMusicroom.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\三階・音楽室</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjConferenceroom.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\三階・会議室</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjRooftop.cpp">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\屋上</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneRooftop.cpp">
+      <Filter>ソース ファイル\GameMain\GameStage\屋上</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy3.cpp">
+      <Filter>ソース ファイル\GameMain\GameEnemy\絵画</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -492,6 +546,33 @@
     </ClInclude>
     <ClInclude Include="SceneCorridor.h">
       <Filter>ソース ファイル\GameMain\GameStage</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneComputerroom.h">
+      <Filter>ソース ファイル\GameMain\GameStage\三階・PC室</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMusicroom.h">
+      <Filter>ソース ファイル\GameMain\GameStage\三階・音楽室</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneConferenceroom.h">
+      <Filter>ソース ファイル\GameMain\GameStage\三階・会議室</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjComputerroom.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\三階・PC室</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMusicroom.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\三階・音楽室</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjConferenceroom.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\三階・会議室</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjRooftop.h">
+      <Filter>ソース ファイル\GameMain\GamePerdecision\屋上</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneRooftop.h">
+      <Filter>ソース ファイル\GameMain\GameStage\屋上</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy3.h">
+      <Filter>ソース ファイル\GameMain\GameEnemy\絵画</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

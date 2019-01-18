@@ -47,7 +47,12 @@ void CObjMap8::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-
+	
+	if (hx < 50.0f || hx + 64.0f > 770.0f || hy < 5.0f)
+	{
+		Hits::DeleteHitBox(this);
+	}
+	
 
 	//700`800‚É‚¢‚­‚Æ˜L‰º3-3‚É‚¢‚­
 	if (hx >700 == true)
