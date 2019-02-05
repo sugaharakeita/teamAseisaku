@@ -9,6 +9,8 @@
 
 using namespace GameL;
 
+extern float g_hero_x;
+extern float g_hero_y;
 
 
 //イニシャライズ
@@ -47,6 +49,11 @@ void CObjInfirmary::Init()
 	//下壁
 	Hits::SetHitBox(this, 153.0f, 585.0f, 647, 10, ELEMENT_FIELD, OBJ_INFIRMARY, 9);
 
+	//左壁
+	Hits::SetHitBox(this, 0.0f, 0.0f, 20, 600, ELEMENT_FIELD, OBJ_ROOM, 9);
+
+	//右壁
+	Hits::SetHitBox(this, 780.0f, 0.0f, 20, 600, ELEMENT_FIELD, OBJ_ROOM, 9);
 }
 
 //アクション
@@ -57,19 +64,22 @@ void CObjInfirmary::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	if (hy + 64.0f > 589.5f)
+	//下に行くと廊下2-1に出る
+	if (hy + 64.0f > 600.0f)
 	{
-		Hits::DeleteHitBox(this);
-		Hits::DeleteHitBox(this);
-		Hits::DeleteHitBox(this);
+		Scene::SetScene(new CSceneCorridor());
+		g_hero_x = 220;
+		g_hero_y = 120;
+		return;
 	}
+
 
 }
 
 //ドロー
 void CObjInfirmary::Draw()
 {
-	/*
+	
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f };
 
@@ -86,6 +96,6 @@ void CObjInfirmary::Draw()
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(9, &src, &dst, c, 0.0f);
-	*/
+	
 
 }

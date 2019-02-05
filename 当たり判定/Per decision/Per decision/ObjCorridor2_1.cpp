@@ -9,34 +9,29 @@
 
 using namespace GameL;
 
-
+extern float g_hero_x;
+extern float g_hero_y;
 
 //イニシャライズ
 void CObjCorridor2_1::Init()
 {
 	//上壁
-	Hits::SetHitBox(this, 0.0f, 70.0f, 107, 110, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
+	Hits::SetHitBox(this, 0.0f, 70.0f, 210, 110, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
 
 	//上壁
-	Hits::SetHitBox(this, 157.0f, 70.0f, 690, 110, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
+	Hits::SetHitBox(this, 310.0f, 70.0f, 490, 110, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 0.0f, 500.0f, 10, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
+	Hits::SetHitBox(this, 0.0f, 500.0f, 15, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 55.0f, 500.0f, 160, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
+	Hits::SetHitBox(this, 115.0f, 500.0f, 310, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 265.0f, 500.0f, 60, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
+	Hits::SetHitBox(this, 525.0f, 500.0f, 120, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
 
 	//下壁
-	Hits::SetHitBox(this, 375.0f, 500.0f, 75, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
-
-	//下壁
-	Hits::SetHitBox(this, 500.0f, 500.0f, 200, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
-
-	//下壁
-	Hits::SetHitBox(this, 750.0f, 500.0f, 50, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
+	Hits::SetHitBox(this, 740.0f, 500.0f, 60, 100, ELEMENT_FIELD, OBJ_CORRIDOR2_1, 9);
 
 }
 
@@ -49,20 +44,38 @@ void CObjCorridor2_1::Action()
 	float hy = hero->GetY();
 
 
-	if (hx + 64.0f > 787.0f || hy > 440.0f || hy < 110.0f)
+	//上に行くと二階・図書室に行く
+	if (hy < 120.0f)
 	{
-		Hits::DeleteHitBox(this);
-		Hits::DeleteHitBox(this);
+		Scene::SetScene(new CSceneLibrary());
+		g_hero_x = 130;
+		g_hero_y = 520;
 	}
 
-	/*
-
-	//画面端左に行くと廊下2-1へ移動
-	if (hx + 64.0f > 800.0f)
+	//下に行くと二階・家庭科室に行く(左側のドア)。
+	if (hy > 450.0f && hx < 74.0f)
 	{
-	Scene::SetScene(new CSceneCorridor2_2());
+		Scene::SetScene(new CSceneHomeeconomicsroom());
+		g_hero_x = 70;
+		g_hero_y = 100;
 	}
-	*/
+
+	//下に行くと二階・家庭科室に行く(右側のドア)。
+	if (hy > 450.0f &&  hx < 550.0f)
+	{
+		Scene::SetScene(new CSceneHomeeconomicsroom());
+		g_hero_x = 660;
+		g_hero_y = 100;
+	}
+
+	//下に行くと二階・家庭準備室に行く。
+	if (hy > 450.0f &&  hx > 600.0f)
+	{
+		Scene::SetScene(new CSceneHomepreparationroom());
+		g_hero_x = 150;
+		g_hero_y = 100;
+		return;
+	}
 
 }
 

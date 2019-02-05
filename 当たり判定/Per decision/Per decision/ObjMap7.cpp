@@ -56,91 +56,52 @@ void CObjMap7::Action()
 	CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	float hx = hero->GetX();
 	float hy = hero->GetY();
-	
 
 
-	////敵の位置
-	//CObjEnemy*obje = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
-	//float ex = enemy->GetX();
-	//float ey = enemy->GetY();
-
-	
-	if (hx + 64.0f > 787.0f || hy > 440.0f || hy < 110.0f)
+	if (hx + 64.0f > 787.0f)
 	{
 		Hits::DeleteHitBox(this);
 		Hits::DeleteHitBox(this);
 	}
 	
 
-	//マップ端にいくと廊下3-2にいく
-	if (hx >700 == true)
-	{
-		if (m_key_flag == true)
-		{
-			//主人公
-			g_hero_x = 110;
-			g_hero_y = hy;
-			//敵
-			//g_enemy_x = 110;
-			m_key_flag = false;
-		}
-	}
-	else
-	{
-		m_key_flag = true;
-	}
-
-	//下に行くと二階・家庭科室に行く。
+	//下に行くと三階・会議室に行く。
 	if (hy > 450 == true)
 	{
 		if (hx < 350 == true)
 		{
-			if (m_key_flag == true)
-			{
-				g_hero_x = 650;
-				g_hero_y = hy;
-				m_key_flag = false;
-			}
-		}
-	}
-	else
-	{
-		m_key_flag = true;
-	}
-
-	//下に行くと二階・家庭準備室に行く。
-	if (hy > 450 == true)
-	{
-		if (hx > 450 == true)
-		{
-			if (m_key_flag == true)
-			{
-				g_hero_x = 650;
-				g_hero_y = hy;
-				m_key_flag = false;
-			}
-		}
-	}
-	else
-	{
-		m_key_flag = true;
-	}
-
-
-	//上に行くと二階・図書室に行く
-	if (hy < 100 == true)
-	{
-		if (m_key_flag == true)
-		{
+			Scene::SetScene(new CSceneConferenceroom());
 			g_hero_x = 650;
 			g_hero_y = hy;
-			//Scene::SetScene(new CSceneLibrary());
 			m_key_flag = false;
 		}
 	}
 	else
 	{
 		m_key_flag = true;
+	}
+
+	//下に行くと三階・会議室に行く。
+	if (hy > 450 == true)
+	{
+		if (hx > 450 == true)
+		{
+			Scene::SetScene(new CSceneConferenceroom());
+			g_hero_x = 650;
+			g_hero_y = hy;
+			m_key_flag = false;
+		}
+	}
+
+
+
+	//上に行くと三階・PC室に行く
+	if (hy < 120 == true)
+	{
+		g_hero_x = 650;
+		g_hero_y = hy;
+		Scene::SetScene(new CSceneComputerroom());
+		m_key_flag = false;
 	}
 
 

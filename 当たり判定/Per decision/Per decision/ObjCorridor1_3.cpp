@@ -9,7 +9,8 @@
 
 using namespace GameL;
 
-
+extern float g_hero_x;
+extern float g_hero_y;
 
 //イニシャライズ
 void CObjCorridor1_3::Init()
@@ -33,42 +34,18 @@ void CObjCorridor1_3::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	if (hx < 20.0f || hy < 122.0f)
+	if (hy < 122.0f)
 	{
 		Hits::DeleteHitBox(this);
 	}
 
-	/*
-
-	if (m_flag_Corridor1_3 == true)
-	{
-		//Corridor1_3オブジェクト生成
-		CObjCorridor1_3* objb = new CObjCorridor1_3();
-		Objs::InsertObj(objb, OBJ_CORRIDOR1_3, 9);
-
-		Draw::LoadImage(L"廊下1-3.png", 9, TEX_SIZE_512);
-	}
-
-	//廊下1-3画面端左に行くと廊下1-2へ移動
-	if (hx < 0.0f && m_flag_Corridor1_3 == true)
-	{
-		//Corridor1_2オブジェクト生成
-		CObjCorridor1_2* objb = new CObjCorridor1_2();
-		Objs::InsertObj(objb, OBJ_CORRIDOR1_2, 9);
-
-		Draw::LoadImage(L"廊下1-2.png", 9, TEX_SIZE_512);
-
-		m_flag_Corridor1_3 = false;
-	}
-	*/
-
-	/*
-	//廊下1-3主人公のy座標yが175.0f以下になると保健室へ移動
-	if (hy + 64.0f < 175.0f && 150.0f < hx < 280.0f)
+	//主人公のy座標yが175.0f以下になると保健室へ移動
+	if (hy < 120.0f)
 	{
 		Scene::SetScene(new CSceneInfirmary());
+		g_hero_x = 100;
+		g_hero_y = 530;
 	}
-	*/
 
 }
 

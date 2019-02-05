@@ -64,6 +64,11 @@ void CObjLibrary::Init()
 		CObjHitBox*obja = new CObjHitBox(Hit[i]);
 		Objs::InsertObj(obja, OBJ_HITBOX, 10);
 	}
+	//左壁
+	Hits::SetHitBox(this, 0.0f, 0.0f, 20, 600, ELEMENT_FIELD, OBJ_ROOM, 9);
+
+	//右壁
+	Hits::SetHitBox(this, 780.0f, 0.0f, 20, 600, ELEMENT_FIELD, OBJ_ROOM, 9);
 
 
 }
@@ -78,17 +83,12 @@ void CObjLibrary::Action()
 	float hy = hero->GetY();
 
 
-	if (hy + 64.0f > 580.0f)
-	{
-		Hits::DeleteHitBox(this);
-		Hits::DeleteHitBox(this);
-	}
-
 	//下に行くと廊下2-1に出る
 	if (hy > 536 && hx > 0)
 	{
+		Scene::SetScene(new CSceneCorridor());
 		g_hero_x = 220;
-		g_hero_y = 120;
+		g_hero_y = 150;
 		return;
 	}
 }
@@ -96,8 +96,8 @@ void CObjLibrary::Action()
 //ドロー
 void CObjLibrary::Draw()
 {
-	/*
-		//描画カラー情報 R G B al(透過情報)
+	
+	//描画カラー情報 R G B al(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	RECT_F src;	//描画元切り取り位置
@@ -114,7 +114,7 @@ void CObjLibrary::Draw()
 	dst.m_left = 0.0f + m_x1;
 	dst.m_right = 800.0f + m_x1;
 	dst.m_bottom = 600.0f;
-	Draw::Draw(0, &src, &dst, c, 0.0f);
-	*/
+	Draw::Draw(9, &src, &dst, c, 0.0f);
+	
 
 }

@@ -57,30 +57,18 @@ void CObjMap8::Action()
 	//700Å`800Ç…Ç¢Ç≠Ç∆òLâ∫3-3Ç…Ç¢Ç≠
 	if (hx >700 == true)
 	{
-		if (m_key_flag == true)
-		{
-			g_hero_x = 110;
-			g_hero_y = hy;
-			m_key_flag = false;
-		}
+		g_hero_x = 110;
+		g_hero_y = hy;
+		m_key_flag = false;
 	}
-	else
-	{
-		m_key_flag = true;
-	}
+
+
 	//0Å`100Ç…Ç¢Ç≠Ç∆òLâ∫3-1Ç…Ç¢Ç≠
 	if (hx < 100 == true)
 	{
-		if (m_key_flag == true)
-		{
-			g_hero_x = 690;
-			g_hero_y = hy;
-			m_key_flag = false;
-		}
-	}
-	else
-	{
-		m_key_flag = true;
+		g_hero_x = 690;
+		g_hero_y = hy;
+		m_key_flag = false;
 	}
 
 

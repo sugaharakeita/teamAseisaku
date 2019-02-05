@@ -57,6 +57,11 @@ void CObjConferenceroom::Init()
 		Objs::InsertObj(obja, OBJ_HITBOX, 10);
 	}
 
+	//左壁
+	Hits::SetHitBox(this, 0.0f, 0.0f, 20, 600, ELEMENT_FIELD, OBJ_ROOM, 9);
+
+	//右壁
+	Hits::SetHitBox(this, 780.0f, 0.0f, 20, 600, ELEMENT_FIELD, OBJ_ROOM, 9);
 
 }
 
@@ -72,21 +77,19 @@ void CObjConferenceroom::Action()
 	//下に行くと廊下3-1に行く
 	if (hy + 64.0f > 600.0f && hx < 500 )
 	{
-		//Scene::SetScene(new CSceneMain7());
+		Scene::SetScene(new CSceneCorridor());
 		g_hero_x = 400;
 		g_hero_y = 100;
 		return;
 	}
-
-	
 
 }
 
 //ドロー
 void CObjConferenceroom::Draw()
 {
-	/*
-		//描画カラー情報 R G B al(透過情報)
+	
+	//描画カラー情報 R G B al(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	RECT_F src;	//描画元切り取り位置
@@ -103,6 +106,6 @@ void CObjConferenceroom::Draw()
 	dst.m_left   =   0.0f + m_x1;
 	dst.m_right  = 800.0f + m_x1;
 	dst.m_bottom = 600.0f;
-	Draw::Draw(0, &src, &dst, c, 0.0f);
-	*/
+	Draw::Draw(9, &src, &dst, c, 0.0f);
+	
 }

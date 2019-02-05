@@ -49,35 +49,19 @@ void CObjMap9::Action()
 	float hy = hero->GetY();
 
 	
-	if (hx < 60.0f || hy > 440.0f)
+	if (hx < 60.0f)
 	{
 		Hits::DeleteHitBox(this);
 	}
 	
-	//0`100‚É‚¢‚­‚Æ˜L‰º3-2‚É‚¢‚­
-	if (hx < 50 == true)
-	{
-		if (m_key_flag == true)
-		{
-			g_hero_x = 690;
-			g_hero_y = hy;
-			m_key_flag = false;
-		}
-	}
-	else
-	{
-		m_key_flag = true;
-	}
 
-	//‰º‚És‚­‚Æ“ñŠKE‹³Žº‚És‚­
+	//‰º‚És‚­‚ÆŽOŠKEPCŽº‚És‚­
 	if (hy > 450 == true)
 	{
-		if (m_key_flag == true)
-		{
-			g_hero_x = 650;
-			g_hero_y = hy;
-			m_key_flag = false;
-		}
+		Scene::SetScene(new CSceneComputerroom());
+		g_hero_x = 650;
+		g_hero_y = hy;
+		m_key_flag = false;
 	}
 
 

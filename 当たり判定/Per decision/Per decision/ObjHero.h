@@ -28,7 +28,6 @@ private:
 	float m_vy;
 	float m_posture; //姿勢
 	int m_go_cox; //廊下移動数x
-	int m_go_coy; //部屋移動数y
 
 	bool m_key_flag;//キーフラグ
 

@@ -9,7 +9,8 @@
 
 using namespace GameL;
 
-
+extern float g_hero_x;
+extern float g_hero_y;
 
 //イニシャライズ
 void CObjCorridor2_3::Init()
@@ -33,18 +34,29 @@ void CObjCorridor2_3::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	if (hx < 10.0f || hy > 510.0f)
+	if (hx < 10.0f)
 	{
 		Hits::DeleteHitBox(this);
 	}
 
-	/*
-	//画面端左に行くと廊下2-2へ移動
-	if (hx < 0.0f)
+	//左下の扉に行くと二階・教室に行く
+	if (hy > 450 && hx < 200)
 	{
-	Scene::SetScene(new CSceneCorridor2_2());
+		g_hero_x = 50;
+		g_hero_y = 100;
+		Scene::SetScene(new CSceneClassroom());
+		return;
 	}
-	*/
+
+	//右下の扉に行くと二階・教室に行く
+	if (hy > 450 && hx > 600)
+	{
+		g_hero_x = 700;
+		g_hero_y = 100;
+		Scene::SetScene(new CSceneClassroom());
+		return;
+	}
+
 
 }
 

@@ -55,6 +55,10 @@ void CObjEnemy::Init()
 //アクション
 void CObjEnemy::Action()
 {
+	//主人公の位置を取得
+	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	float hx = hero->GetX();
+	float hy = hero->GetY();
 
 	m_vx = 0;
 	m_vy = 0;
@@ -122,6 +126,12 @@ void CObjEnemy::Action()
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);	//作成したHitBox更新用の入り口を取り出す
 	hit->SetPos(m_px, m_py);					//入り口から新しい位置(主人公機の位置)情報に置き換える
+
+	if (hy < 120.0f || hy > 450.0f)
+	{
+		this->SetStatus(false);		//自身に削除命令を出す
+		Hits::DeleteHitBox(this);	//主人公機が所有するHitBoxに削除する
+	}
 
 	//敵機オブジェクトと接触したら主人公機削除
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)

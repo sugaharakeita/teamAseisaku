@@ -10,6 +10,8 @@
 
 using namespace GameL;
 
+extern float g_hero_x;
+extern float g_hero_y;
 
 
 //イニシャライズ
@@ -51,6 +53,12 @@ void CObjStaffroom::Init()
 	//印刷機
 	Hits::SetHitBox(this, 315.0f, 532.0f, 33, 55, ELEMENT_FIELD, OBJ_STAFFROOM, 9);
 
+	//左壁
+	Hits::SetHitBox(this, 0.0f, 0.0f, 20, 600, ELEMENT_FIELD, OBJ_ROOM, 9);
+
+	//右壁
+	Hits::SetHitBox(this, 780.0f, 0.0f, 20, 600, ELEMENT_FIELD, OBJ_ROOM, 9);
+
 }
 
 
@@ -62,9 +70,21 @@ void CObjStaffroom::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	if (hy < 60.0f && (hx < 70.0f || hx + 64.0f > 750.0f))
+
+	//主人公のy座標が120.0f以下になると廊下1-1へ移動1
+	if (hy < 50.0f && hx < 70.0f)
 	{
-		Hits::DeleteHitBox(this);
+		g_hero_x = 100;
+		g_hero_y = 520;
+		Scene::SetScene(new CSceneCorridor());
+	}
+
+	//主人公のy座標が120.0f以下になると廊下1-1へ移動2
+	if (hy < 50.0f &&  hx + 64.0f > 750.0f)
+	{
+		g_hero_x = 650;
+		g_hero_y = 520;
+		Scene::SetScene(new CSceneCorridor());
 	}
 
 }
@@ -72,7 +92,7 @@ void CObjStaffroom::Action()
 //ドロー
 void CObjStaffroom::Draw()
 {
-	/*
+	
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f };
 
@@ -89,6 +109,6 @@ void CObjStaffroom::Draw()
 	dst.m_right = 800.0f;
 	dst.m_bottom = 600.0f;
 	Draw::Draw(9, &src, &dst, c, 0.0f);
-	*/
+	
 
 }

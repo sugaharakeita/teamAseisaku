@@ -70,6 +70,11 @@ void CObjComputerroom::Init()
 		Objs::InsertObj(obja, OBJ_HITBOX, 10);
 	}
 
+	//左壁
+	Hits::SetHitBox(this, 0.0f, 0.0f, 20, 600, ELEMENT_FIELD, OBJ_ROOM, 9);
+
+	//右壁
+	Hits::SetHitBox(this, 780.0f, 0.0f, 20, 600, ELEMENT_FIELD, OBJ_ROOM, 9);
 
 }
 
@@ -82,11 +87,6 @@ void CObjComputerroom::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	////敵の位置
-	//CObjEnemy*obje = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
-	//float ex = enemy->GetX();
-	//float ey = enemy->GetY();
-
 
 	//上に行くと廊下2-1に行く
 	if (hy > 500 == true && hy < 600 == true)
@@ -96,10 +96,8 @@ void CObjComputerroom::Action()
 			//主人公
 			g_hero_x = hx;
 			g_hero_y = 550;
-			//敵
-			//g_enemy_x = 110;
 
-			//Scene::SetScene(new CSceneMain9());
+			Scene::SetScene(new CSceneCorridor());
 			m_key_flag = false;
 		}
 	}
@@ -115,7 +113,6 @@ void CObjComputerroom::Action()
 //ドロー
 void CObjComputerroom::Draw()
 {
-	/*
 	//描画カラー情報 R G B al(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
@@ -133,8 +130,7 @@ void CObjComputerroom::Draw()
 	dst.m_left = 0.0f + m_x1;
 	dst.m_right = 800.0f + m_x1;
 	dst.m_bottom = 600.0f;
-	Draw::Draw(0, &src, &dst, c, 0.0f);
-	*/
+	Draw::Draw(9, &src, &dst, c, 0.0f);
 
 
 

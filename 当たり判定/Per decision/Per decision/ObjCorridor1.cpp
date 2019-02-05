@@ -19,117 +19,61 @@ void CObjCorridor1::Init()
 {
 	//エリア移動フラグ初期化
 	m_flag_Corridor1_1 = false;
-
-	m_flag_Corridor1_2 = false;
-
-	//連続描画防止初期化
-	f_co = 0;
-
-	/*
-	//上壁
-	Hits::SetHitBox(this, 0.0f, 70.0f, 410, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
-
-	//上壁
-	Hits::SetHitBox(this, 510.0f, 70.0f, 290, 110, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
-
-	//下壁
-	Hits::SetHitBox(this, 0.0f, 500.0f, 115, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
-
-	//下壁
-	Hits::SetHitBox(this, 215.0f, 500.0f, 445, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
-
-	//下壁
-	Hits::SetHitBox(this, 755.0f, 500.0f, 40, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_1, 9);
-	
-
-	
-	//上壁
-	Hits::SetHitBox(this, 0.0f, 0.0f, 140, 180, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
-
-	//上壁
-	Hits::SetHitBox(this, 140.0f, 0.0f, 1, 180, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
-
-	//階段
-	//Hits::SetHitBox(this, 130.0f, 0.0f, 200, 1, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
-
-	//上壁
-	Hits::SetHitBox(this, 331.0f, 0.0f, 1, 180, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
-
-	//ダンボール
-	Hits::SetHitBox(this, 333.0f, 0.0f, 204, 150, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
-
-	//上壁
-	Hits::SetHitBox(this, 537.0f, 0.0f, 280, 180, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
-
-	//下壁
-	Hits::SetHitBox(this, 0.0f, 500.0f, 200, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
-
-	//出入り口1
-	Hits::SetHitBox(this, 200.0f, 600.0f, 155, 1, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
-
-	//下壁
-	Hits::SetHitBox(this, 355.0f, 500.0f, 130, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
-
-	//出入り口2
-	Hits::SetHitBox(this, 485.0f, 600.0f, 125, 1, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
-
-	//下壁
-	Hits::SetHitBox(this, 610.0f, 500.0f, 200, 100, ELEMENT_FIELD, OBJ_CORRIDOR1_2, 9);
-	*/
+	m_flag_Corridor1_2 = true;
+	m_flag_Corridor1_3 = false;
 }
 
 //アクション
 void CObjCorridor1::Action()
 {
-	//Corridor1_1オブジェクト生成
-	CObjCorridor1_1* objb1_1 = new CObjCorridor1_1();
-	//Corridor1_2オブジェクト生成
-	CObjCorridor1_2* objb1_2 = new CObjCorridor1_2();
-
-	
-
 	//主人公の位置を取得
 	CObjHero*hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	//表示
-	if (m_flag_Corridor1_1 == false)
-	{
-		Hits::DeleteHitBox(this);
-		f_co = 0;
-	}
-
-	if (m_flag_Corridor1_2 == false)
-	{
-		Hits::DeleteHitBox(this);
-		f_co = 0;
-	}
-
-	if (m_flag_Corridor1_1 == true && f_co == 0)
-	{
-		Objs::InsertObj(objb1_1, OBJ_ROOM, 9);
-		f_co = 1;
-	}
-
-	if (m_flag_Corridor1_2 == true && f_co == 0)
-	{
-		Objs::InsertObj(objb1_2, OBJ_ROOM, 9);
-		f_co = 1;
-	}
-
 
 	//移動処理
-	if (hx >= 750.0f && m_flag_Corridor1_1 == false)
+	//1階廊下	
+	if (hx < 0.0f)
 	{
-		m_flag_Corridor1_1 = false;
-		m_flag_Corridor1_2 = true;
-
+		//1-2から1-1
+		if (m_flag_Corridor1_2 == true)
+		{
+			m_flag_Corridor1_1 = true;
+			m_flag_Corridor1_2 = false;
+			m_flag_Corridor1_3 = false;
+		}
+		//1-3から1-2
+		if (m_flag_Corridor1_3 == true)
+		{
+			m_flag_Corridor1_1 = false;
+			m_flag_Corridor1_2 = true;
+			m_flag_Corridor1_3 = false;
+		}
+	}
+	if (hx + 64.0f  > 800.0f)
+	{
+		//1-1から1-2
+		if (m_flag_Corridor1_1 == true)
+		{
+			m_flag_Corridor1_1 = false;
+			m_flag_Corridor1_2 = true;
+			m_flag_Corridor1_3 = false;
+		}
+		//1-2から1-3
+		if (m_flag_Corridor1_2 == true)
+		{
+			m_flag_Corridor1_1 = false;
+			m_flag_Corridor1_2 = false;
+			m_flag_Corridor1_3 = true;
+		}
 	}
 
-	if (hx <= 100.0f && m_flag_Corridor1_2 == false)
+	//2階へ
+	if (hy < 0.0f  && m_flag_Corridor1_2 == true
+	&& Input::GetVKey(VK_RETURN) == true
+		)
 	{
-		m_flag_Corridor1_1 = true;
 		m_flag_Corridor1_2 = false;
 	}
 
@@ -139,5 +83,53 @@ void CObjCorridor1::Action()
 //ドロー
 void CObjCorridor1::Draw()
 {
+	//描画カラー情報
+	float c[4] = { 1.0f,1.0f, 1.0f, 1.0f };
+
+	RECT_F src;
+	RECT_F dst;
+
+	//1階
+	if (m_flag_Corridor1_1 == true)
+	{
+		//背景
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 519.0f;
+		src.m_bottom = 360.0f;
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0f;
+		dst.m_right = 800.0f;
+		dst.m_bottom = 600.0f;
+		Draw::Draw(9, &src, &dst, c, 0.0f);
+	}
+
+	if (m_flag_Corridor1_2 == true)
+	{
+		//背景
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 380.0f;
+		src.m_bottom = 360.0f;
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0f;
+		dst.m_right = 800.0f;
+		dst.m_bottom = 600.0f;
+		Draw::Draw(9, &src, &dst, c, 0.0f);
+	}
+
+	if (m_flag_Corridor1_3 == true)
+	{
+		//背景
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 360.0f;
+		src.m_bottom = 360.0f;
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0f;
+		dst.m_right = 800.0f;
+		dst.m_bottom = 600.0f;
+		Draw::Draw(9, &src, &dst, c, 0.0f);
+	}
 
 }

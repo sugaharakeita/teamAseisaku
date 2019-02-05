@@ -43,51 +43,36 @@ void CObjCorridor1_1::Action()
 	float hy = hero->GetY();
 
 
-	if (hx + 64.0f > 787.0f || hy > 450.0f || hy < 120.0f)
+	if (hx + 64.0f > 787.0f)
 	{
 		Hits::DeleteHitBox(this);
 		Hits::DeleteHitBox(this);
 	}
 
-
-	/*
-
-	if (m_flag_Corridor1_1 == true)
-	{
-		//Corridor1_1オブジェクト生成
-		CObjCorridor1_1* objb = new CObjCorridor1_1();
-		Objs::InsertObj(objb, OBJ_CORRIDOR1_1, 9);
-
-		Draw::LoadImage(L"廊下1-1.png", 9, TEX_SIZE_512);
-	}
-
-	//廊下1-1画面端右に行くと廊下1-2へ移動
-	if (hx + 64.0f > 800.0f && m_flag_Corridor1_1 == true)
-	{
-		//Corridor1_2オブジェクト生成
-		CObjCorridor1_2* objb = new CObjCorridor1_2();
-		Objs::InsertObj(objb, OBJ_CORRIDOR1_2, 9);
-
-		Draw::LoadImage(L"廊下1-2.png", 9, TEX_SIZE_512);
-
-		m_flag_Corridor1_1 = false;
-	}
-	*/
-
-	/*
-	//廊下1-1画面端下に行くと職員室に移動
-	if ((hy + 64.0f > 600.0f && 56.0f < hx < 106.0f) ||
-	(hy + 64.0f > 600.0f && 645.0f < hx < 695.0f))
+	//画面左下に行くと職員室に移動1
+	if (hy > 450.0f && hx < 250.0f)
 	{
 		Scene::SetScene(new CSceneStaffroom());
+		g_hero_x = 20;
+		g_hero_y = 70;
 	}
 
-	//廊下1-1画面端上に行くと校長室に移動
-	if (hy < 110.0f && 352.0f < hx < 406.0f)
+	//画面右下に行くと職員室に移動2
+	if (hy > 450.0f && hx > 550.0f)
+	{
+		Scene::SetScene(new CSceneStaffroom());
+		g_hero_x = 730;
+		g_hero_y = 70;
+	}
+
+	//画面上に行くと校長室に移動
+	if (hy < 120.0f)
 	{
 		Scene::SetScene(new CScenePrincipaloffice());
+		g_hero_x = 600;
+		g_hero_y = 520;
 	}
-	*/
+
 
 }
 

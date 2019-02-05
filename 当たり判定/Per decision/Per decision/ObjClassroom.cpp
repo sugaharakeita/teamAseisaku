@@ -60,6 +60,11 @@ void CObjClassroom::Init()
 		Objs::InsertObj(obja, OBJ_HITBOX, 10);
 	}
 
+	//左壁
+	Hits::SetHitBox(this, 0.0f, 0.0f, 20, 600, ELEMENT_FIELD, OBJ_ROOM, 9);
+
+	//右壁
+	Hits::SetHitBox(this, 780.0f, 0.0f, 20, 600, ELEMENT_FIELD, OBJ_ROOM, 9);
 
 
 }
@@ -74,31 +79,27 @@ void CObjClassroom::Action()
 	float hy = hero->GetY();
 
 
-	if (hy < 60.0f && (hx < 70.0f || hx + 64.0f > 750.0f))
-	{
-		Hits::DeleteHitBox(this);
-	}
-
-
 	//左のドアに行くと廊下2-3に出る
 	if (hy < 100 && hx < 50)
 	{
+		Scene::SetScene(new CSceneCorridor());
 		g_hero_x = 50;
-		g_hero_y = 536;
+		g_hero_y = 440;
 	}
 
 	//右のドアに行くと廊下2-3に出る
 	if (hy < 100 && hx > 650)
 	{
+		Scene::SetScene(new CSceneCorridor());
 		g_hero_x = 600;
-		g_hero_y = 536;
+		g_hero_y = 400;
 	}
 }
 
 //ドロー
 void CObjClassroom::Draw()
 {
-	/*
+	
 	//描画カラー情報 R G B al(透過情報)
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
@@ -116,6 +117,6 @@ void CObjClassroom::Draw()
 	dst.m_left = 0.0f + m_x1;
 	dst.m_right = 800.0f + m_x1;
 	dst.m_bottom = 600.0f;
-	Draw::Draw(0, &src, &dst, c, 0.0f);
-	*/
+	Draw::Draw(9, &src, &dst, c, 0.0f);
+	
 }
